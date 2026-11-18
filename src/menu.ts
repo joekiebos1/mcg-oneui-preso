@@ -16,9 +16,8 @@ export const MENU: Item[] = [
     ],
   },
   {
-    titel: "Components", pad: "/components", kinderen: [
-      { titel: "UI components", pad: "/components/ui" },
-      { titel: "Documentatie", pad: "/components/documentatie" },
+    titel: "Components", pad: "/components", klaar: true, kinderen: [
+      { titel: "Button", pad: "/components/button", klaar: true },
     ],
   },
   {

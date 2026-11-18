@@ -10,6 +10,7 @@ import { Colours } from "./pages/foundations/Colours";
 import { Type } from "./pages/foundations/Type";
 import { Maten } from "./pages/foundations/Maten";
 import { Elevation } from "./pages/foundations/Elevation";
+import { ButtonPagina } from "./pages/components/ButtonPagina";
 
 type Brand = "classic" | "round";
 type Thema = "light" | "dark";
@@ -84,6 +85,7 @@ export function App() {
           <Route path="/foundations/border" element={<Maten groep="border" />} />
           <Route path="/foundations/size" element={<Maten groep="size" />} />
           <Route path="/foundations/elevation" element={<Elevation />} />
+          <Route path="/components/button" element={<ButtonPagina />} />
           <Route path="*" element={<Placeholder />} />
         </Routes>
       </main>

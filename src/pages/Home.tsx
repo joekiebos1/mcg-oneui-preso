@@ -14,7 +14,7 @@ export function Home() {
               <Text as="span" variant="body-s" color="medium">
                 {{
                   Foundations: "Kleur, typografie, ruimte en vorm.",
-                  Components: "De onderdelen van de interface, in alle toestanden, met documentatie.",
+                  Components: "De onderdelen van de interface, in alle toestanden, met documentatie. Nu: Button.",
                   Rules: "Hoe we pagina's, flows en content maken: video, copy en audio.",
                   Patterns: "Terugkerende oplossingen die uit componenten bestaan.",
                 }[m.titel]}

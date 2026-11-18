@@ -48,7 +48,7 @@ function Ladder({ naam, rol }: { naam: string; rol?: string }) {
   );
 }
 
-function Swatch({ waarde }: { waarde: unknown }) {
+export function Swatch({ waarde }: { waarde: unknown }) {
   const { waarde: hex, keten } = los(waarde);
   return (
     <span className="regelstaal">

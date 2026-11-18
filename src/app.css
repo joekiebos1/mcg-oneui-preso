@@ -162,3 +162,29 @@ b { font-weight: 600; }
   .balk { flex-wrap: wrap; padding: var(--oneui-spacing-xs); }
   .instellingen { margin-left: 0; width: 100%; }
 }
+
+/* ---------- components ---------- */
+.probeer { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 400px); border-radius: var(--oneui-radius-xl); overflow: hidden; background: var(--oneui-surface-neutral-subtle); }
+.podium { display: grid; place-items: center; min-height: 280px; padding: var(--oneui-spacing-4xl); background: var(--oneui-surface-page); }
+.instellingenpaneel { display: flex; flex-direction: column; gap: var(--oneui-spacing-md); padding: var(--oneui-spacing-2xl); }
+.instelrij { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: var(--oneui-spacing-xs) var(--oneui-spacing-lg); }
+.instelrij .keuze button { height: var(--oneui-size-md); padding: 0 var(--oneui-spacing-md); }
+
+.statenmatrix { border-collapse: separate; border-spacing: var(--oneui-spacing-xl) var(--oneui-spacing-lg); margin: 0 calc(-1 * var(--oneui-spacing-xl)); }
+.statenmatrix th { text-align: left; white-space: nowrap; }
+.statenmatrix td { white-space: nowrap; }
+/* Toestanden vastzetten voor de matrix, met dezelfde variabelen als Button.css */
+.staat-hover .oneui-button { background: var(--_bg-hover); }
+.staat-pressed .oneui-button { background: var(--_bg-pressed); }
+.staat-focus .oneui-button { outline: var(--oneui-border-thick) solid var(--_ring); outline-offset: var(--oneui-spacing-2xs); }
+
+.tokkort { display: flex; flex-direction: column; }
+.maatrij { display: flex; flex-wrap: wrap; align-items: center; gap: var(--oneui-spacing-xl); }
+.maatknop { display: flex; flex-direction: column; align-items: flex-start; gap: var(--oneui-spacing-md); }
+.vak .regels { gap: var(--oneui-spacing-sm); }
+.vak .tokkort { display: flex; flex-direction: column; }
+.maatrij { margin-top: var(--oneui-spacing-md); }
+
+@media (max-width: 860px) {
+  .probeer { grid-template-columns: minmax(0, 1fr); }
+}
