@@ -27,7 +27,6 @@ export const IcoonFundament = () => <Svg><rect x="4" y="14" width="16" height="5
 export const IcoonProduct = () => <Svg><rect x="3.5" y="4.5" width="17" height="12" rx="2" /><path d="M9 20h6M12 16.5V20" /></Svg>;
 export const IcoonContent = () => <Svg><circle cx="12" cy="12" r="8.5" /><path d="M10.5 9v6l5-3Z" /></Svg>;
 export const IcoonPatroon = () => <Svg><rect x="4" y="4" width="8" height="6" rx="1.5" /><rect x="12" y="14" width="8" height="6" rx="1.5" /><path d="M8 10v5a2 2 0 0 0 2 2h2" /></Svg>;
-export const IcoonBibliotheek = () => <Svg><path d="M5 4.5v15M9.5 4.5v15M14 5.5l4.5 13.5" /></Svg>;
 export const IcoonChevron = () => <Svg><path d="m9 6 6 6-6 6" /></Svg>;
 export const IcoonZijbalk = () => <Svg><rect x="3.5" y="4.5" width="17" height="15" rx="2.5" /><path d="M9.5 4.5v15" /></Svg>;
 export const IcoonLinks = () => <Svg><path d="M15 6l-6 6 6 6" /></Svg>;

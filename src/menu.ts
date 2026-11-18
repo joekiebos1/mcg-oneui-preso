@@ -1,6 +1,6 @@
 // Het menu van de presentatielaag, zoals in de Myndlet-app: links de hoofdgroepen (L1) met een icoon, daarnaast een
-// paneel met de hoofdstukken van die groep; Assets en Componenten met een chevron en hun pagina's eronder.
-// `klaar: false` = staat in het menu, maar is nog niet ingevuld. Componenten volgen de docs van mcg-oneui.
+// paneel met de hoofdstukken van die groep. Componenten volgen de docs van mcg-oneui.
+// `klaar: false` = staat in het menu, maar is nog niet ingevuld.
 import { createElement, type ReactNode } from "react";
 import { componenten } from "./lib/docs";
 import * as I from "./components/Iconen";
@@ -62,12 +62,10 @@ export const GROEPEN: Groep[] = [
   { titel: "Patronen", icoon: ic(I.IcoonPatroon), items: [
     { titel: "Opdrachten", pad: "/opdrachten", icoon: ic(I.IcoonOpdracht) },
   ] },
-  { titel: "Bibliotheek", icoon: ic(I.IcoonBibliotheek), items: [
-    { titel: "Assets", pad: "/assets", icoon: ic(I.IcoonAssets), chevron: true, kinderen: [
-      { titel: "Logo", pad: "/assets/logo" },
-    ] },
-    { titel: "Componenten", pad: "/componenten", icoon: ic(I.IcoonComponent), klaar: true, chevron: true,
-      kinderen: componenten().map((c) => ({ titel: c.naam, pad: `/componenten/${c.slug}`, klaar: true })) },
+  { titel: "Componenten", icoon: ic(I.IcoonComponent),
+    items: componenten().map((c) => ({ titel: c.naam, pad: `/componenten/${c.slug}`, klaar: true })) },
+  { titel: "Assets", icoon: ic(I.IcoonAssets), items: [
+    { titel: "Logo", pad: "/assets/logo" },
   ] },
 ];
 

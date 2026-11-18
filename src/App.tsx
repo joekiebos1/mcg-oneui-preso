@@ -39,7 +39,7 @@ function Keuze<T extends string>({ label, waarde, opties, zet }: { label: string
 }
 
 /** Links de hoofdgroepen (L1), zoals het menu van de Myndlet-app. Een groep opent op zijn eerste hoofdstuk. */
-const eerste = (g: Groep) => (g.items[0].chevron ? g.items[0].kinderen![0].pad : g.items[0].pad);
+const eerste = (g: Groep) => g.items[0].pad;
 
 function Hoofdmenu({ smal }: { smal: boolean }) {
   const { pathname } = useLocation();
@@ -56,8 +56,8 @@ function Hoofdmenu({ smal }: { smal: boolean }) {
   );
 }
 
-/** Het paneel naast het menu: de hoofdstukken van de groep, zoals het submenu van Regels in de Myndlet-app. Assets en
- *  Componenten zijn een kop met een chevron en hun pagina's eronder. */
+/** Het paneel naast het menu: de hoofdstukken van de groep, zoals het submenu van Regels in de Myndlet-app. Een item
+ *  met `chevron` is een kop met zijn pagina's eronder. */
 function Paneel({ groep }: { groep: Groep }) {
   const { pathname } = useLocation();
   const binnen = (h: Item) => pathname === h.pad || pathname.startsWith(h.pad + "/");
@@ -215,7 +215,7 @@ function Hoofdstuk({ h }: { h: Item }) {
 const OUD: Record<string, string> = {
   "/foundations": "/kleuren", "/foundations/colours": "/kleuren/kleuren", "/foundations/type": "/typografie/lettertype",
   "/foundations/spacing": "/layout/space", "/foundations/radius": "/vormen/hoeken", "/foundations/border": "/vormen/randen",
-  "/foundations/iconography": "/iconen/iconen", "/components": "/componenten", "/rules/content/illustraties": "/illustraties/over",
+  "/foundations/iconography": "/iconen/iconen", "/components": "/componenten/button", "/componenten": "/componenten/button", "/assets": "/assets/logo", "/rules/content/illustraties": "/illustraties/over",
   "/rules/content/beeldtaal": "/illustraties/gebruik", "/foundations/elevation": "/surfaces/elevation", "/foundations/size": "/vormen/maten", "/logo": "/assets/logo", "/patronen": "/opdrachten", "/patronen/opdrachten": "/opdrachten", "/logo/logo": "/assets/logo", "/logo/gebruik": "/assets/logo",
   "/foundations/motion": "/motion", "/rules/content/copy": "/taal/schrijfstijl",
 };
