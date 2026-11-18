@@ -31,8 +31,6 @@ export const MENU: Item[] = [
         { titel: "Copy", pad: "/rules/content/copy" },
         { titel: "Audio", pad: "/rules/content/audio" },
         { titel: "Illustraties", pad: "/rules/content/illustraties" },
-        { titel: "Infographics", pad: "/rules/content/infographics" },
-        { titel: "Kaarten", pad: "/rules/content/kaarten" },
       ] },
     ],
   },
