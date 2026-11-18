@@ -47,12 +47,7 @@ b { font-weight: 600; }
 .nav-item.active { background: var(--oneui-surface-secondary-subtle); color: var(--oneui-text-on-subtle-secondary); }
 .nav-item.active svg { color: currentColor; }
 .nav-item[data-actief] { color: var(--oneui-text-high); }
-.nav-scheiding { margin-top: var(--oneui-spacing-lg); padding: var(--oneui-spacing-lg) var(--oneui-spacing-lg) var(--oneui-spacing-xs);
-  box-shadow: inset 0 var(--oneui-border-thin) 0 var(--oneui-stroke-neutral-low);
-  font-family: var(--oneui-type-label-s-family); font-size: var(--oneui-type-label-s-size); font-weight: var(--oneui-type-label-s-weight);
-  line-height: var(--oneui-type-label-s-line-height); color: var(--oneui-text-low); }
-.studio.smal .nav-scheiding { padding: 0; margin-top: var(--oneui-spacing-md); height: var(--oneui-spacing-md); }
-.nav-item[data-actief] svg { color: var(--oneui-icon-high); }
+.studio.smal .nav-item[data-actief] svg { color: var(--oneui-icon-high); }
 .nav-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
 .nav-chevron { display: inline-flex; transition: transform 160ms ease; }
 .nav-item[aria-expanded="true"] .nav-chevron { transform: rotate(90deg); }
@@ -69,7 +64,14 @@ b { font-weight: 600; }
   padding-top: var(--oneui-spacing-3xl); box-shadow: inset 0 var(--oneui-border-thin) 0 var(--oneui-stroke-neutral-low); }
 .versie { padding: 0 var(--oneui-spacing-md); }
 
-.inhoud { overflow-y: auto; overscroll-behavior: contain; margin: 0 var(--oneui-spacing-md) var(--oneui-spacing-md) 0; border-radius: var(--oneui-radius-2xl); background: var(--oneui-surface-default); }
+/* rechts het werk: het paneel met de hoofdstukken van de groep en de inhoud, als witte vlakken (zoals de Myndlet-app) */
+.werk { min-width: 0; min-height: 0; display: flex; gap: var(--oneui-spacing-md); padding: 0 var(--oneui-spacing-md) var(--oneui-spacing-md) 0; }
+.paneel { flex: none; width: 264px; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+  padding: var(--oneui-spacing-2xl) var(--oneui-spacing-md); border-radius: var(--oneui-radius-2xl); background: var(--oneui-surface-default); }
+.paneel-lijst { display: flex; flex-direction: column; gap: var(--oneui-spacing-2xs); }
+.paneel .nav-item { min-height: var(--oneui-size-xl); }
+.paneel-knop { display: none; }
+.inhoud { flex: 1; min-width: 0; overflow-y: auto; overscroll-behavior: contain; border-radius: var(--oneui-radius-2xl); background: var(--oneui-surface-default); }
 
 /* ---------- pagina ---------- */
 .pagina { padding: var(--oneui-spacing-6xl) var(--oneui-spacing-6xl) var(--oneui-spacing-8xl); max-width: 1280px; display: flex; flex-direction: column; gap: var(--oneui-spacing-7xl); }
@@ -177,7 +179,14 @@ b { font-weight: 600; }
   .inklap { display: none; }
   .menuknop { display: inline-flex; align-items: center; background: var(--oneui-surface-neutral-subtle); color: var(--oneui-text-high); }
   .zijbalk, .studio.smal .zijbalk { display: none; width: auto; }
-  .inhoud { margin: 0 var(--oneui-spacing-xs) var(--oneui-spacing-xs); }
+  .werk { flex-direction: column; padding: 0 var(--oneui-spacing-xs) var(--oneui-spacing-xs); gap: var(--oneui-spacing-xs); }
+  .werk:not(.paneel-open) .paneel { display: none; }
+  .paneel { width: auto; max-height: 50dvh; }
+  .paneel-knop { display: flex; align-items: center; justify-content: space-between; gap: var(--oneui-spacing-md); flex: none;
+    min-height: var(--oneui-size-xl); padding: 0 var(--oneui-spacing-lg); border: 0; border-radius: var(--oneui-radius-full);
+    background: var(--oneui-surface-default); color: var(--oneui-text-high); cursor: pointer; }
+  .paneel-knop svg { width: var(--oneui-size-2xs); height: var(--oneui-size-2xs); transform: rotate(90deg); transition: transform 160ms ease; }
+  .paneel-knop[aria-expanded="true"] svg { transform: rotate(-90deg); }
   .zijbalk.open { display: flex; position: fixed; inset: calc(var(--balk) + var(--oneui-spacing-md)) var(--oneui-spacing-xs) var(--oneui-spacing-xs); z-index: 10;
     background: var(--oneui-surface-default); border-radius: var(--oneui-radius-2xl);
     box-shadow: 0 8px 16px var(--oneui-effect-shadow-ambient), 0 4px 8px var(--oneui-effect-shadow-key); }

@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Navigate, NavLink, Route, Routes, useLocation } from "react-router-dom";
-import { MENU, anker, type Item } from "./menu";
+import { Link, Navigate, NavLink, Route, Routes, useLocation } from "react-router-dom";
+import { GROEPEN, MENU, anker, groepVan, type Groep, type Item } from "./menu";
 import { Deel } from "./pages/Pagina";
 import { Pagina, Sectie } from "./pages/Pagina";
 import { VOORBEELDEN } from "./pages/components/Voorbeelden";
@@ -38,35 +38,46 @@ function Keuze<T extends string>({ label, waarde, opties, zet }: { label: string
   );
 }
 
-/** Het menu zoals in de Myndlet-app: één link per hoofdstuk. Alleen Assets en Componenten (chevron) klap je open en
- *  dicht. Een groep begint met een lijn. */
-function Menu({ smal }: { smal: boolean }) {
+/** Links de hoofdgroepen (L1), zoals het menu van de Myndlet-app. Een groep opent op zijn eerste hoofdstuk. */
+const eerste = (g: Groep) => (g.items[0].chevron ? g.items[0].kinderen![0].pad : g.items[0].pad);
+
+function Hoofdmenu({ smal }: { smal: boolean }) {
   const { pathname } = useLocation();
-  const hier = MENU.find((h) => pathname === h.pad || pathname.startsWith(h.pad + "/"))?.pad;
-  const [open, setOpen] = useState<Set<string>>(() => new Set(hier ? [hier] : []));
-  useEffect(() => { if (hier) setOpen((o) => (o.has(hier) ? o : new Set(o).add(hier))); }, [hier]);
-  const wissel = (p: string) => setOpen((o) => { const n = new Set(o); n.has(p) ? n.delete(p) : n.add(p); return n; });
+  const hier = groepVan(pathname);
   return (
     <div className="nav">
-      {MENU.map((h) => {
-        const actief = h.pad === hier;
-        const isOpen = !smal && !!h.chevron && !!h.kinderen && open.has(h.pad);   // alleen Assets en Componenten klappen uit
+      {GROEPEN.map((g) => (
+        <Link key={g.titel} to={eerste(g)} title={smal ? g.titel : undefined}
+          className={"nav-item" + (g === hier ? " active" : "")} aria-current={g === hier ? "true" : undefined}>
+          {g.icoon}<span className="nav-label">{g.titel}</span>
+        </Link>
+      ))}
+    </div>
+  );
+}
+
+/** Het paneel naast het menu: de hoofdstukken van de groep, zoals het submenu van Regels in de Myndlet-app. Assets en
+ *  Componenten zijn een kop met een chevron en hun pagina's eronder. */
+function Paneel({ groep }: { groep: Groep }) {
+  const { pathname } = useLocation();
+  const binnen = (h: Item) => pathname === h.pad || pathname.startsWith(h.pad + "/");
+  const [dicht, setDicht] = useState<Set<string>>(new Set());
+  const wissel = (p: string) => setDicht((d) => { const n = new Set(d); n.has(p) ? n.delete(p) : n.add(p); return n; });
+  return (
+    <div className="paneel-lijst">
+      {groep.items.map((h) => {
+        if (!h.chevron) return (
+          <NavLink key={h.pad} to={h.pad} className={"nav-item" + (h.klaar ? "" : " leeg")}>
+            {h.icoon}<span className="nav-label">{h.titel}</span>
+          </NavLink>
+        );
+        const open = !dicht.has(h.pad) || binnen(h);
         return (
-          <div key={h.pad} className={"nav-groep" + (isOpen ? " open" : "")}>
-            {h.groep && <div className="nav-scheiding"><span className="nav-label">{h.groep}</span></div>}
-            {h.chevron ? (
-              <button type="button" className="nav-item" aria-expanded={isOpen} data-actief={actief ? "" : undefined}
-                title={smal ? h.titel : undefined} onClick={() => wissel(h.pad)}>
-                {h.icoon}<span className="nav-label">{h.titel}</span><span className="nav-chevron"><IcoonChevron /></span>
-              </button>
-            ) : (
-              <NavLink to={h.pad} end title={smal ? h.titel : undefined}
-                className={"nav-item" + (h.klaar ? "" : " leeg")}
-                aria-current={actief ? "page" : undefined}>
-                {h.icoon}<span className="nav-label">{h.titel}</span>
-              </NavLink>
-            )}
-            {isOpen && (
+          <div key={h.pad} className="nav-groep">
+            <button type="button" className="nav-item" aria-expanded={open} onClick={() => wissel(h.pad)}>
+              {h.icoon}<span className="nav-label">{h.titel}</span><span className="nav-chevron"><IcoonChevron /></span>
+            </button>
+            {open && (
               <div className="nav-sub">
                 {h.kinderen!.map((k) => (
                   <NavLink key={k.pad} to={k.pad} end className={"nav-item sub" + (k.klaar ? "" : " leeg")}>
@@ -88,12 +99,14 @@ export function App() {
   const [open, setOpen] = useState(false);
   const [smal, setSmal] = useState(() => bewaard<string>("oneui-smal", "0") === "1");
   const loc = useLocation();
+  const groep = groepVan(loc.pathname);
+  const [paneelOpen, setPaneelOpen] = useState(false);
   useEffect(() => {
     document.documentElement.dataset.brand = brand;
     document.documentElement.dataset.theme = thema;
     try { localStorage.setItem("oneui-brand", brand); localStorage.setItem("oneui-thema", thema); localStorage.setItem("oneui-smal", smal ? "1" : "0"); } catch {}
   }, [brand, thema, smal]);
-  useEffect(() => { setOpen(false); if (!loc.hash) document.querySelector(".inhoud")?.scrollTo(0, 0); }, [loc.pathname, loc.hash]);
+  useEffect(() => { setOpen(false); setPaneelOpen(false); if (!loc.hash) document.querySelector(".inhoud")?.scrollTo(0, 0); }, [loc.pathname, loc.hash]);
 
   return (
     <div className={"studio" + (smal ? " smal" : "")}>
@@ -112,9 +125,20 @@ export function App() {
         </div>
       </header>
       <nav id="zijbalk" className={"zijbalk" + (open ? " open" : "")} aria-label="Hoofdmenu">
-        <Menu smal={smal} />
+        <Hoofdmenu smal={smal} />
         <Text variant="body-xs" color="low" className="versie">mcg-oneui {ONEUI_VERSIE}</Text>
       </nav>
+      <div className={"werk" + (paneelOpen ? " paneel-open" : "")}>
+      {groep && (
+        <button type="button" className="paneel-knop" aria-expanded={paneelOpen} aria-controls="paneel" onClick={() => setPaneelOpen((o) => !o)}>
+          <Text as="span" variant="label-m">{groep.titel}</Text><IcoonChevron />
+        </button>
+      )}
+      {groep && (
+        <aside id="paneel" className="paneel" aria-label={groep.titel}>
+          <Paneel key={groep.titel} groep={groep} />
+        </aside>
+      )}
       <main className="inhoud">
         <Routes>
           <Route path="/" element={<Home />} />
@@ -135,6 +159,7 @@ export function App() {
           <Route path="*" element={<Placeholder />} />
         </Routes>
       </main>
+      </div>
     </div>
   );
 }
