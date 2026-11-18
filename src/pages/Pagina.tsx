@@ -1,6 +1,8 @@
 import type { ReactNode } from "react";
-import { Link, useLocation } from "react-router-dom";
-import { vind } from "../menu";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { VOLGORDE, vind } from "../menu";
+import { Button } from "../oneui/react/Button";
+import { IcoonLinks, IcoonRechts } from "../components/Iconen";
 import { Text } from "../oneui/react/Text";
 
 export function Pagina({ titel, intro, children }: { titel?: string; intro?: ReactNode; children?: ReactNode }) {
@@ -20,7 +22,25 @@ export function Pagina({ titel, intro, children }: { titel?: string; intro?: Rea
         {intro && <Text variant="body-l" color="medium" className="intro">{intro}</Text>}
       </header>
       {children}
+      <VorigeVolgende />
     </article>
+  );
+}
+
+/** Onderaan elke pagina: naar de vorige en de volgende pagina in de volgorde van het menu. */
+function VorigeVolgende() {
+  const { pathname } = useLocation();
+  const ga = useNavigate();
+  const i = VOLGORDE.findIndex((p) => p.pad === pathname);
+  if (i < 0) return null;
+  const [vorige, volgende] = [VOLGORDE[i - 1], VOLGORDE[i + 1]];
+  const hoofdstuk = (pad: string) => vind(pad)?.ouders[0]?.titel;
+  const label = (p: typeof vorige) => (hoofdstuk(p.pad) && hoofdstuk(p.pad) !== p.titel ? `${hoofdstuk(p.pad)} · ${p.titel}` : p.titel);
+  return (
+    <nav className="bladeren" aria-label="Vorige en volgende">
+      {vorige ? <Button variant="outline" size="md" iconLeft={<IcoonLinks />} onClick={() => ga(vorige.pad)}>Vorige: {label(vorige)}</Button> : <span />}
+      {volgende && <Button variant="secondary" size="md" iconRight={<IcoonRechts />} onClick={() => ga(volgende.pad)}>Volgende: {label(volgende)}</Button>}
+    </nav>
   );
 }
 

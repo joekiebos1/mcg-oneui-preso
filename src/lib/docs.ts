@@ -23,7 +23,7 @@ export function linkVoor(map: string) {
   return (href: string): string | null => {
     const naam = href.split("#")[0].split("/").pop()?.replace(/\.md$/, "") ?? "";
     if (href.includes("besluiten/")) return `/decisions/${naam}`;
-    if (map === "components" && !href.includes("/")) return naam === "button" ? "/components/button" : `/components/${naam}`;
+    if (map === "components" && !href.includes("/")) return `/componenten/${naam}`;
     return null;
   };
 }

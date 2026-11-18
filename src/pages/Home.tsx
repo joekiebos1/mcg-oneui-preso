@@ -9,16 +9,10 @@ export function Home() {
       <Sectie titel="Wat je hier vindt">
         <div className="tegels">
           {MENU.map(m => (
-            <Link key={m.pad} to={m.pad} className={"tegel" + (m.klaar ? "" : " niet-klaar")}>
+            <Link key={m.pad} to={m.kinderen?.[0]?.pad ?? m.pad} className={"tegel" + (m.klaar ? "" : " niet-klaar")}>
               <Text as="span" variant="title-m">{m.titel}</Text>
               <Text as="span" variant="body-s" color="medium">
-                {{
-                  Foundations: "Kleur, typografie, ruimte en vorm.",
-                  Components: "De onderdelen van de interface, met hun varianten, instellingen en Mendix-route.",
-                  Rules: "Product (de interface: schermen en flows) en content: de schrijfstijl, de illustratiestijl en de beeldtaal.",
-                  Patterns: "Waar product en content samenkomen, zoals een video in een les of een illustratie in een leeg scherm.",
-                  Decisions: "Waarom het systeem is zoals het is: de besluiten, met hun datum.",
-                }[m.titel]}
+                {m.kinderen ? m.kinderen.slice(0, 4).map((k) => k.titel).join(" · ") + (m.kinderen.length > 4 ? " …" : "") : "Nog niet vastgelegd"}
               </Text>
               {!m.klaar && <Text as="span" variant="label-s" color="low">Volgt</Text>}
             </Link>

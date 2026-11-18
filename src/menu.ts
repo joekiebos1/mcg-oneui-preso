@@ -1,45 +1,51 @@
-// Het menu van de presentatielaag. `klaar: false` = staat in het menu, maar is nog niet ingevuld.
-import { besluiten, componenten } from "./lib/docs";
+// Het menu van de presentatielaag, zoals in de Myndlet-app: hoofdstukken met een icoon en een chevron, de pagina's
+// eronder. `klaar: false` = staat in het menu, maar is nog niet ingevuld. Componenten volgen de docs van mcg-oneui.
+import { createElement, type ReactNode } from "react";
+import { componenten } from "./lib/docs";
+import * as I from "./components/Iconen";
 
-export interface Item { titel: string; pad: string; klaar?: boolean; kinderen?: Item[] }
+export interface Item { titel: string; pad: string; klaar?: boolean; kinderen?: Item[]; icoon?: ReactNode }
 
-// Components en Decisions komen uit de docs van mcg-oneui: een nieuw document staat er vanzelf bij.
+const ic = (c: () => ReactNode) => createElement(c);
+
 export const MENU: Item[] = [
-  {
-    titel: "Foundations", pad: "/foundations", klaar: true, kinderen: [
-      { titel: "Colours", pad: "/foundations/colours", klaar: true },
-      { titel: "Type", pad: "/foundations/type", klaar: true },
-      { titel: "Spacing", pad: "/foundations/spacing", klaar: true },
-      { titel: "Radius", pad: "/foundations/radius", klaar: true },
-      { titel: "Border", pad: "/foundations/border", klaar: true },
-      { titel: "Size", pad: "/foundations/size", klaar: true },
-      { titel: "Elevation", pad: "/foundations/elevation", klaar: true },
-      { titel: "Iconography", pad: "/foundations/iconography", klaar: true },
-      { titel: "Motion", pad: "/foundations/motion", klaar: true },
-    ],
-  },
-  {
-    titel: "Components", pad: "/components", klaar: true,
-    kinderen: componenten().map((c) => ({ titel: c.naam, pad: `/components/${c.slug}`, klaar: true })),
-  },
-  {
-    titel: "Rules", pad: "/rules", klaar: true, kinderen: [
-      { titel: "Product", pad: "/rules/product", klaar: true, kinderen: [
-        { titel: "Page level", pad: "/rules/product/page" },
-        { titel: "Flow level", pad: "/rules/product/flow" },
-      ] },
-      { titel: "Content", pad: "/rules/content", klaar: true, kinderen: [
-        { titel: "Copy", pad: "/rules/content/copy", klaar: true },
-        { titel: "Illustraties", pad: "/rules/content/illustraties", klaar: true },
-        { titel: "Beeldtaal", pad: "/rules/content/beeldtaal", klaar: true },
-      ] },
-    ],
-  },
-  { titel: "Patterns", pad: "/patterns" },
-  {
-    titel: "Decisions", pad: "/decisions", klaar: true,
-    kinderen: besluiten().map((b) => ({ titel: b.titel.replace(/^(\d+) — /, "$1 · "), pad: `/decisions/${b.slug}`, klaar: true })),
-  },
+  { titel: "Logo", pad: "/logo", icoon: ic(I.IcoonLogo), kinderen: [
+    { titel: "Logo", pad: "/logo/logo" },
+    { titel: "Hoe te gebruiken", pad: "/logo/gebruik" },
+  ] },
+  { titel: "Kleuren", pad: "/kleuren", icoon: ic(I.IcoonKleur), klaar: true, kinderen: [
+    { titel: "Kleuren", pad: "/kleuren/kleuren", klaar: true },
+    { titel: "Hoe te gebruiken", pad: "/kleuren/gebruik", klaar: true },
+  ] },
+  { titel: "Iconen", pad: "/iconen", icoon: ic(I.IcoonIcoon), klaar: true, kinderen: [
+    { titel: "Iconen", pad: "/iconen/iconen", klaar: true },
+    { titel: "Hoe te gebruiken", pad: "/iconen/gebruik", klaar: true },
+    { titel: "Nieuwe maken", pad: "/iconen/nieuw" },
+  ] },
+  { titel: "Typografie", pad: "/typografie", icoon: ic(I.IcoonType), klaar: true, kinderen: [
+    { titel: "Lettertype", pad: "/typografie/lettertype", klaar: true },
+    { titel: "Hoe te gebruiken", pad: "/typografie/gebruik", klaar: true },
+  ] },
+  { titel: "Vormen", pad: "/vormen", icoon: ic(I.IcoonVorm), klaar: true, kinderen: [
+    { titel: "Hoeken", pad: "/vormen/hoeken", klaar: true },
+    { titel: "Randen", pad: "/vormen/randen", klaar: true },
+  ] },
+  { titel: "Layout", pad: "/layout", icoon: ic(I.IcoonLayout), klaar: true, kinderen: [
+    { titel: "Grid", pad: "/layout/grid" },
+    { titel: "Space", pad: "/layout/space", klaar: true },
+  ] },
+  { titel: "Illustraties", pad: "/illustraties", icoon: ic(I.IcoonIllustratie), klaar: true, kinderen: [
+    { titel: "Over illustraties", pad: "/illustraties/over", klaar: true },
+    { titel: "Hoe te gebruiken", pad: "/illustraties/gebruik", klaar: true },
+    { titel: "Nieuwe maken", pad: "/illustraties/nieuw" },
+  ] },
+  { titel: "Beeld", pad: "/beeld", icoon: ic(I.IcoonBeeld) },
+  { titel: "Video", pad: "/video", icoon: ic(I.IcoonVideo) },
+  { titel: "Spraak", pad: "/spraak", icoon: ic(I.IcoonSpraak) },
+  { titel: "Geluid", pad: "/geluid", icoon: ic(I.IcoonGeluid) },
+  { titel: "Componenten", pad: "/componenten", icoon: ic(I.IcoonComponent), klaar: true,
+    kinderen: componenten().map((c) => ({ titel: c.naam, pad: `/componenten/${c.slug}`, klaar: true })) },
+  { titel: "Toegankelijkheid", pad: "/toegankelijkheid", icoon: ic(I.IcoonToegang) },
 ];
 
 export function vind(pad: string, items = MENU, ouders: Item[] = []): { item: Item; ouders: Item[] } | null {
@@ -50,3 +56,6 @@ export function vind(pad: string, items = MENU, ouders: Item[] = []): { item: It
   }
   return null;
 }
+
+/** Alle pagina's op volgorde, voor Vorige en Volgende: de pagina's van een hoofdstuk, of het hoofdstuk zelf. */
+export const VOLGORDE: Item[] = MENU.flatMap((h) => h.kinderen ?? [h]);
