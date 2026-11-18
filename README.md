@@ -13,7 +13,8 @@ De pagina's lezen de tokens zelf: een nieuwe kleur of maat in mcg-oneui verschij
 npm run sync            # haalt alles opnieuw uit ../mcg-oneui (of: npm run sync -- <pad>)
 ```
 
-Daarna committen; Vercel bouwt zonder toegang tot mcg-oneui.
+Dat gebeurt vanzelf: elke push naar main van mcg-oneui draait daar `.github/workflows/preso.yml`, die synct, bouwt en
+hier commit (met het secret `PRESO_TOKEN`). Handmatig kan ook; daarna committen, want Vercel bouwt zonder toegang tot mcg-oneui.
 
 ## Lokaal
 

@@ -2,7 +2,7 @@
 
 De presentatielaag van het OneUI design system: alle vastgelegde keuzes, leesbaar voor mensen.
 
-- **Bron is mcg-oneui.** `src/oneui/` niet met de hand aanpassen: wijzig mcg-oneui en draai `npm run sync`.
+- **Bron is mcg-oneui.** `src/oneui/` niet met de hand aanpassen: wijzig mcg-oneui; de workflow `preso` daar synct vanzelf (of draai `npm run sync`).
 - **Data, niet overtypen.** Kleuren, maten en tekststijlen komen uit `src/oneui/tokens.json` (`src/lib/tokens.ts`).
   Tekst die uitlegt, komt uit de docs van mcg-oneui (`src/oneui/docs/`) of de regels van Myndlet; verzin geen regels.
   Staat iets alleen in Figma (zoals elevation), zeg dat op de pagina.
