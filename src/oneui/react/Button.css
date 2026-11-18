@@ -1,0 +1,108 @@
+/* OneUI Button. Alleen tokens uit dist/tokens.css; geen losse kleuren of maten. */
+
+.oneui-button {
+  --_bg: transparent;
+  --_bg-hover: transparent;
+  --_bg-pressed: transparent;
+  --_fg: var(--oneui-text-high);
+  --_border: transparent;
+  --_pad-x: var(--oneui-spacing-xl);
+  --_height: var(--oneui-size-2xl);
+  --_icon: var(--oneui-size-2xs);
+  --_ring: var(--oneui-stroke-action-subtle);
+
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: var(--_height);
+  padding: 0 var(--_pad-x);
+  border: var(--oneui-border-thin) solid var(--_border);
+  border-radius: var(--oneui-radius-full);
+  background: var(--_bg);
+  color: var(--_fg);
+  font-family: var(--oneui-type-label-m-family);
+  font-weight: var(--oneui-type-label-m-weight);
+  font-size: var(--oneui-type-label-m-size);
+  line-height: var(--oneui-type-label-m-line-height);
+  letter-spacing: var(--oneui-type-label-m-letter-spacing);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+.oneui-button__content { display: inline-flex; align-items: center; gap: var(--oneui-spacing-md); }
+
+/* Iconen erven de labelkleur (currentColor) en de maat van de knop. */
+.oneui-button__icon { display: inline-flex; flex: none; width: var(--_icon); height: var(--_icon); }
+.oneui-button__icon > svg { width: 100%; height: 100%; }
+
+/* Maten: hoogte 36 / 40 / 48, icoon 16 / 20 / 24 */
+.oneui-button--sm { --_pad-x: var(--oneui-spacing-lg); --_height: var(--oneui-size-xl); --_icon: var(--oneui-size-2xs); }
+.oneui-button--md { --_pad-x: var(--oneui-spacing-xl); --_height: var(--oneui-size-2xl); --_icon: var(--oneui-size-xs); }
+.oneui-button--lg {
+  --_pad-x: var(--oneui-spacing-3xl); --_height: var(--oneui-size-3xl); --_icon: var(--oneui-size-sm);
+  font-family: var(--oneui-type-label-l-family);
+  font-weight: var(--oneui-type-label-l-weight);
+  font-size: var(--oneui-type-label-l-size);
+  line-height: var(--oneui-type-label-l-line-height);
+  letter-spacing: var(--oneui-type-label-l-letter-spacing);
+}
+
+/* Types */
+.oneui-button--primary {
+  --_bg: var(--oneui-surface-action-bold);
+  --_bg-hover: var(--oneui-surface-action-bold-hover);
+  --_bg-pressed: var(--oneui-surface-action-bold-pressed);
+  --_fg: var(--oneui-text-on-action-bold);
+  --_ring: var(--oneui-interaction-focusring);
+}
+.oneui-button--secondary {
+  --_bg: var(--oneui-surface-action-subtle);
+  --_bg-hover: var(--oneui-surface-action-subtle-hover);
+  --_bg-pressed: var(--oneui-surface-action-subtle-pressed);
+  --_fg: var(--oneui-text-on-action-subtle);
+}
+.oneui-button--outline {
+  --_border: var(--oneui-stroke-action-subtle);
+  --_bg-hover: var(--oneui-surface-secondary-subtle);
+  --_bg-pressed: var(--oneui-surface-secondary-subtle-pressed);
+}
+.oneui-button--ghost {
+  --_bg-hover: var(--oneui-surface-secondary-subtle);
+  --_bg-pressed: var(--oneui-surface-secondary-subtle-pressed);
+}
+
+/* States */
+.oneui-button:hover:not(:disabled):not(.is-loading) { background: var(--_bg-hover); }
+.oneui-button:active:not(:disabled):not(.is-loading) { background: var(--_bg-pressed); }
+
+/* Focus: de ring staat buiten de knop in de eigen kleur (primary magenta, de rest sky), zodat de maat niet
+   verschuift. Alleen bij toetsenbordfocus. */
+.oneui-button:focus-visible {
+  outline: var(--oneui-border-thick) solid var(--_ring);
+  outline-offset: var(--oneui-spacing-2xs);
+}
+
+.oneui-button:disabled {
+  --_bg: var(--oneui-surface-disabled);
+  --_fg: var(--oneui-text-disabled);
+  --_border: transparent;
+  cursor: not-allowed;
+}
+.oneui-button--outline:disabled { --_bg: transparent; --_border: var(--oneui-stroke-disabled); }
+.oneui-button--ghost:disabled { --_bg: transparent; }
+
+/* Laden: label onzichtbaar maar ruimte behouden, spinner in het midden. */
+.oneui-button.is-loading { cursor: progress; }
+.oneui-button.is-loading .oneui-button__content { visibility: hidden; }
+.oneui-button__spinner { position: absolute; inset: 0; display: grid; place-items: center; }
+.oneui-button__spinner > svg { width: var(--_icon); height: var(--_icon); animation: oneui-spin 800ms linear infinite; }
+@keyframes oneui-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) { .oneui-button__spinner > svg { animation-duration: 2400ms; } }
+
+.oneui-visually-hidden {
+  position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;
+  clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}

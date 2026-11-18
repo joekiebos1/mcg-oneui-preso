@@ -1,0 +1,10 @@
+/* Basis van de pagina: achtergrond, tekstkleur en lettertype uit de tokens. Licht en donker volgen data-theme of de
+   systeeminstelling. */
+html, body { margin: 0; background: var(--oneui-surface-page); color: var(--oneui-text-high); }
+body {
+  font-family: var(--oneui-type-body-m-family);
+  font-size: var(--oneui-type-body-m-size);
+  line-height: var(--oneui-type-body-m-line-height);
+  -webkit-font-smoothing: antialiased;
+}
+*, *::before, *::after { box-sizing: border-box; }

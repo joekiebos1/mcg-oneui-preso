@@ -1,0 +1,25 @@
+/* OneUI Stepper. Alleen tokens uit dist/tokens.css. Stip 8 px, aan de rand 4 px; inactief op 20%. */
+
+.oneui-stepper {
+  --_dot: var(--oneui-surface-neutral-bold);
+  display: inline-flex;
+  align-items: center;
+  gap: var(--oneui-spacing-md);
+}
+.oneui-stepper--dark { --_dot: var(--oneui-icon-on-bold); }
+
+.oneui-stepper__dot {
+  flex: none;
+  width: var(--oneui-spacing-md);
+  height: var(--oneui-spacing-md);
+  border-radius: var(--oneui-radius-full);
+  background: var(--_dot);
+  opacity: 0.2;
+  transition: width 160ms ease, height 160ms ease, opacity 160ms ease;
+}
+.oneui-stepper__dot.is-current { opacity: 1; }
+.oneui-stepper__dot.is-small { width: var(--oneui-spacing-xs); height: var(--oneui-spacing-xs); }
+
+@media (prefers-reduced-motion: reduce) {
+  .oneui-stepper__dot { transition: none; }
+}

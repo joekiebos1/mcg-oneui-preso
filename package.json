@@ -1,0 +1,27 @@
+{
+  "name": "mcg-oneui-preso",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "description": "De keuzes van het MCG OneUI design system, leesbaar voor mensen.",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "preview": "vite preview",
+    "sync": "node scripts/sync-oneui.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/dm-sans": "5.1.0",
+    "@fontsource-variable/el-messiri": "5.1.0",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "react-router-dom": "6.26.2"
+  },
+  "devDependencies": {
+    "@types/react": "18.3.11",
+    "@types/react-dom": "18.3.0",
+    "@vitejs/plugin-react": "4.3.2",
+    "typescript": "5.6.3",
+    "vite": "5.4.8"
+  }
+}
