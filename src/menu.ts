@@ -1,15 +1,13 @@
 // Het menu van de presentatielaag, zoals in de Myndlet-app: hoofdstukken met een icoon, de pagina's eronder; Assets
-// en Componenten met een chevron. Product en Content met een lijn ertussen, Patronen eronder met alleen een lijn. `klaar: false` = staat in het menu, maar is nog niet ingevuld. Componenten volgen de docs van mcg-oneui.
+// en Componenten met een chevron. Product, Content en Patronen met een lijn ertussen. `klaar: false` = staat in het menu, maar is nog niet ingevuld. Componenten volgen de docs van mcg-oneui.
 import { createElement, type ReactNode } from "react";
 import { componenten } from "./lib/docs";
 import * as I from "./components/Iconen";
 
 export interface Item {
   titel: string; pad: string; klaar?: boolean; kinderen?: Item[]; icoon?: ReactNode;
-  /** de groep begint hier, met een lijn en zijn naam erboven: Product, Content, Bibliotheek */
+  /** de groep begint hier, met een lijn en zijn naam erboven: Product, Content, Patronen, Bibliotheek */
   groep?: string;
-  /** alleen een lijn erboven, zonder naam: Patronen */
-  lijn?: boolean;
   /** een lange lijst klap je zelf open en dicht; de rest toont zijn pagina's als je in het hoofdstuk bent */
   chevron?: boolean;
 }
@@ -55,9 +53,7 @@ export const MENU: Item[] = [
   ] },
   { titel: "Beeld", pad: "/beeld", icoon: ic(I.IcoonBeeld) },
   { titel: "Geluid", pad: "/geluid", icoon: ic(I.IcoonGeluid) },
-  { lijn: true, titel: "Patronen", pad: "/patronen", icoon: ic(I.IcoonPatroon), kinderen: [
-    { titel: "Opdrachten", pad: "/patronen/opdrachten" },
-  ] },
+  { groep: "Patronen", titel: "Opdrachten", pad: "/opdrachten", icoon: ic(I.IcoonOpdracht) },
   { groep: "Bibliotheek", titel: "Assets", pad: "/assets", icoon: ic(I.IcoonAssets), chevron: true, kinderen: [
     { titel: "Logo", pad: "/assets/logo" },
   ] },

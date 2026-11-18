@@ -19,7 +19,7 @@ export const IcoonGeluid = () => <Svg><path d="M4 10v4M8 7v10M12 4.5v15M16 8v8M2
 export const IcoonComponent = () => <Svg><rect x="4" y="4" width="7" height="7" rx="1.5" /><rect x="13" y="4" width="7" height="7" rx="1.5" /><rect x="4" y="13" width="7" height="7" rx="1.5" /><rect x="13" y="13" width="7" height="7" rx="3.5" /></Svg>;
 export const IcoonToegang = () => <Svg><circle cx="12" cy="5" r="1.75" /><path d="M5 8.5c2.5.8 4.8 1.2 7 1.2s4.5-.4 7-1.2M12 9.7V14m0 0-3 6m3-6 3 6" /></Svg>;
 export const IcoonSurface = () => <Svg><rect x="7" y="4" width="13" height="10" rx="2" /><path d="M4 9v8.5A2.5 2.5 0 0 0 6.5 20H16" /></Svg>;
-export const IcoonPatroon = () => <Svg><rect x="4" y="4" width="8" height="6" rx="1.5" /><rect x="12" y="14" width="8" height="6" rx="1.5" /><path d="M8 10v5a2 2 0 0 0 2 2h2" /></Svg>;
+export const IcoonOpdracht = () => <Svg><rect x="4" y="4" width="16" height="16" rx="2.5" /><path d="m8 12 2.5 2.5L16 9" /></Svg>;
 export const IcoonMotion = () => <Svg><path d="M4 16c3 0 4-8 8-8s5 8 8 8" /><circle cx="20" cy="16" r="1.5" /></Svg>;
 export const IcoonTaal = () => <Svg><path d="M5 6.5h14M5 11.5h14M5 16.5h9" /></Svg>;
 export const IcoonAssets = () => <Svg><path d="M4 8.5 12 4l8 4.5-8 4.5Z" /><path d="m4 12.5 8 4.5 8-4.5M4 16.5 12 21l8-4.5" /></Svg>;

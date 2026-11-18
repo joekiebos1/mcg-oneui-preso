@@ -54,7 +54,6 @@ function Menu({ smal }: { smal: boolean }) {
         return (
           <div key={h.pad} className={"nav-groep" + (isOpen ? " open" : "")}>
             {h.groep && <div className="nav-scheiding"><span className="nav-label">{h.groep}</span></div>}
-            {h.lijn && <div className="nav-scheiding" />}
             {h.chevron ? (
               <button type="button" className="nav-item" aria-expanded={isOpen} data-actief={actief ? "" : undefined}
                 title={smal ? h.titel : undefined} onClick={() => wissel(h.pad)}>
@@ -192,7 +191,7 @@ const OUD: Record<string, string> = {
   "/foundations": "/kleuren", "/foundations/colours": "/kleuren/kleuren", "/foundations/type": "/typografie/lettertype",
   "/foundations/spacing": "/layout/space", "/foundations/radius": "/vormen/hoeken", "/foundations/border": "/vormen/randen",
   "/foundations/iconography": "/iconen/iconen", "/components": "/componenten", "/rules/content/illustraties": "/illustraties/over",
-  "/rules/content/beeldtaal": "/illustraties/gebruik", "/foundations/elevation": "/surfaces/elevation", "/foundations/size": "/vormen/maten", "/logo": "/assets/logo", "/logo/logo": "/assets/logo", "/logo/gebruik": "/assets/logo",
+  "/rules/content/beeldtaal": "/illustraties/gebruik", "/foundations/elevation": "/surfaces/elevation", "/foundations/size": "/vormen/maten", "/logo": "/assets/logo", "/patronen": "/opdrachten", "/patronen/opdrachten": "/opdrachten", "/logo/logo": "/assets/logo", "/logo/gebruik": "/assets/logo",
   "/foundations/motion": "/motion", "/rules/content/copy": "/taal/schrijfstijl",
 };
 
