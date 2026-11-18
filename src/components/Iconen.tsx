@@ -21,6 +21,7 @@ export const IcoonToegang = () => <Svg><circle cx="12" cy="5" r="1.75" /><path d
 export const IcoonSurface = () => <Svg><rect x="7" y="4" width="13" height="10" rx="2" /><path d="M4 9v8.5A2.5 2.5 0 0 0 6.5 20H16" /></Svg>;
 export const IcoonMotion = () => <Svg><path d="M4 16c3 0 4-8 8-8s5 8 8 8" /><circle cx="20" cy="16" r="1.5" /></Svg>;
 export const IcoonTaal = () => <Svg><path d="M5 6.5h14M5 11.5h14M5 16.5h9" /></Svg>;
+export const IcoonAssets = () => <Svg><path d="M4 8.5 12 4l8 4.5-8 4.5Z" /><path d="m4 12.5 8 4.5 8-4.5M4 16.5 12 21l8-4.5" /></Svg>;
 export const IcoonChevron = () => <Svg><path d="m9 6 6 6-6 6" /></Svg>;
 export const IcoonZijbalk = () => <Svg><rect x="3.5" y="4.5" width="17" height="15" rx="2.5" /><path d="M9.5 4.5v15" /></Svg>;
 export const IcoonLinks = () => <Svg><path d="M15 6l-6 6 6 6" /></Svg>;

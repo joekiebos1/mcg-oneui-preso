@@ -34,8 +34,8 @@ function Keuze<T extends string>({ label, waarde, opties, zet }: { label: string
   );
 }
 
-/** Het menu zoals in de Myndlet-app: een hoofdstuk met icoon en chevron klapt zijn pagina's open; een hoofdstuk
- *  zonder pagina's is zelf de link. Het hoofdstuk waar je bent, staat open. */
+/** Het menu zoals in de Myndlet-app. Een hoofdstuk is een link naar zijn eerste pagina; ben je erin, dan staan zijn
+ *  pagina's eronder. Assets en Componenten (chevron) klap je zelf open en dicht. Een groep begint met een lijn. */
 function Menu({ smal }: { smal: boolean }) {
   const { pathname } = useLocation();
   const hier = MENU.find((h) => pathname === h.pad || pathname.startsWith(h.pad + "/"))?.pad;
@@ -45,23 +45,26 @@ function Menu({ smal }: { smal: boolean }) {
   return (
     <div className="nav">
       {MENU.map((h) => {
-        const isOpen = open.has(h.pad) && !smal;
         const actief = h.pad === hier;
+        const isOpen = !smal && !!h.kinderen && (h.chevron ? open.has(h.pad) : actief);
         return (
           <div key={h.pad} className={"nav-groep" + (isOpen ? " open" : "")}>
-            {h.kinderen ? (
+            {h.groep && <div className="nav-scheiding"><span className="nav-label">{h.groep}</span></div>}
+            {h.chevron ? (
               <button type="button" className="nav-item" aria-expanded={isOpen} data-actief={actief ? "" : undefined}
                 title={smal ? h.titel : undefined} onClick={() => wissel(h.pad)}>
                 {h.icoon}<span className="nav-label">{h.titel}</span><span className="nav-chevron"><IcoonChevron /></span>
               </button>
             ) : (
-              <NavLink to={h.pad} end className={"nav-item" + (h.klaar ? "" : " leeg")} title={smal ? h.titel : undefined}>
+              <NavLink to={h.kinderen?.[0]?.pad ?? h.pad} end title={smal ? h.titel : undefined}
+                className={"nav-item" + (h.klaar ? "" : " leeg") + (actief && (h.kinderen || smal) ? " in" : "")}
+                aria-current={actief ? "page" : undefined}>
                 {h.icoon}<span className="nav-label">{h.titel}</span>
               </NavLink>
             )}
-            {h.kinderen && isOpen && (
+            {isOpen && (
               <div className="nav-sub">
-                {h.kinderen.map((k) => (
+                {h.kinderen!.map((k) => (
                   <NavLink key={k.pad} to={k.pad} end className={"nav-item sub" + (k.klaar ? "" : " leeg")}>
                     <span className="nav-label">{k.titel}</span>
                   </NavLink>
@@ -150,7 +153,7 @@ const OUD: Record<string, string> = {
   "/foundations": "/kleuren", "/foundations/colours": "/kleuren/kleuren", "/foundations/type": "/typografie/lettertype",
   "/foundations/spacing": "/layout/space", "/foundations/radius": "/vormen/hoeken", "/foundations/border": "/vormen/randen",
   "/foundations/iconography": "/iconen/iconen", "/components": "/componenten", "/rules/content/illustraties": "/illustraties/over",
-  "/rules/content/beeldtaal": "/illustraties/gebruik", "/foundations/elevation": "/surfaces/elevation", "/foundations/size": "/vormen/maten",
+  "/rules/content/beeldtaal": "/illustraties/gebruik", "/foundations/elevation": "/surfaces/elevation", "/foundations/size": "/vormen/maten", "/logo": "/assets/logo", "/logo/logo": "/assets/logo", "/logo/gebruik": "/assets/logo",
   "/foundations/motion": "/motion", "/rules/content/copy": "/taal/schrijfstijl",
 };
 

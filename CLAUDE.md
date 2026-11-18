@@ -7,7 +7,8 @@ De presentatielaag van het OneUI design system: alle vastgelegde keuzes, leesbaa
   Tekst die uitlegt, komt uit de docs van mcg-oneui (`src/oneui/docs/`) of de regels van Myndlet; verzin geen regels.
   Staat iets alleen in Figma (zoals elevation), zeg dat op de pagina.
 - **Opgebouwd met OneUI zelf**: de Text-component en alleen `--oneui-*`-tokens in `src/app.css`. Geen losse kleuren of maten.
-- **Menu** in `src/menu.ts`, zoals de Myndlet-app: hoofdstukken met icoon en chevron, de pagina's eronder; onderaan elke
-  pagina Vorige en Volgende (eigenaar 2026-11-18). `klaar: true` is gevuld; de rest toont "Nog niet vastgelegd".
+- **Menu** in `src/menu.ts`, zoals de Myndlet-app: hoofdstukken met icoon, de pagina's eronder als je in het hoofdstuk
+  bent; Product en Content met een lijn erboven; Assets en Componenten met een chevron. Onderaan elke pagina Vorige en
+  Volgende (eigenaar 2026-11-18). `klaar: true` is gevuld; de rest toont "Nog niet vastgelegd".
 - `npm run build` moet slagen. Naar `main` = live op Vercel.
 - Nederlands, korte zinnen, ook in het menu (eigenaar 2026-11-18).
