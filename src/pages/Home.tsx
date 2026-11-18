@@ -15,8 +15,8 @@ export function Home() {
                 {{
                   Foundations: "Kleur, typografie, ruimte en vorm.",
                   Components: "De onderdelen van de interface, in alle toestanden, met documentatie. Nu: Button.",
-                  Rules: "Hoe we pagina's, flows en content maken: video, copy en audio.",
-                  Patterns: "Terugkerende oplossingen die uit componenten bestaan.",
+                  Rules: "Product (de interface: schermen en flows) en content (wat je laat zien: video, illustraties, tekst, audio).",
+                  Patterns: "Waar product en content samenkomen, zoals een video in een les of een illustratie in een leeg scherm.",
                 }[m.titel]}
               </Text>
               {!m.klaar && <Text as="span" variant="label-s" color="low">Volgt</Text>}
