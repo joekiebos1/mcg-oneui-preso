@@ -1,3 +1,4 @@
 {
+  "ignoreCommand": "sh scripts/vercel-overslaan.sh",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
