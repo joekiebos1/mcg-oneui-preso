@@ -49,7 +49,6 @@ export const MENU: Item[] = [
   ] },
   { titel: "Beeld", pad: "/beeld", icoon: ic(I.IcoonBeeld) },
   { titel: "Video", pad: "/video", icoon: ic(I.IcoonVideo) },
-  { titel: "Spraak", pad: "/spraak", icoon: ic(I.IcoonSpraak) },
   { titel: "Geluid", pad: "/geluid", icoon: ic(I.IcoonGeluid) },
   { titel: "Componenten", pad: "/componenten", icoon: ic(I.IcoonComponent), klaar: true,
     kinderen: componenten().map((c) => ({ titel: c.naam, pad: `/componenten/${c.slug}`, klaar: true })) },
