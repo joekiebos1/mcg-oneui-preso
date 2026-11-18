@@ -17,7 +17,7 @@ for (const f of readdirSync(join(bron, "react/src"))) {
   if (/\.(tsx|css)$/.test(f) && !/\.test\./.test(f)) cpSync(join(bron, "react/src", f), join(doel, "react", f));
 }
 mkdirSync(join(doel, "docs/components"), { recursive: true });
-for (const f of ["kleur.md", "typografie.md", "ruimte.md"]) cpSync(join(bron, "docs/foundations", f), join(doel, "docs", f));
+for (const f of ["kleur.md", "typografie.md", "ruimte.md", "motion.md"]) cpSync(join(bron, "docs/foundations", f), join(doel, "docs", f));
 for (const f of ["button.md"]) cpSync(join(bron, "docs/components", f), join(doel, "docs/components", f));
 let versie = "onbekend";
 try { versie = execSync("git log -1 --format=%h%x20%cs", { cwd: bron }).toString().trim(); } catch {}

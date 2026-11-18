@@ -12,7 +12,7 @@ export const MENU: Item[] = [
       { titel: "Size", pad: "/foundations/size", klaar: true },
       { titel: "Elevation", pad: "/foundations/elevation", klaar: true },
       { titel: "Iconography", pad: "/foundations/iconography" },
-      { titel: "Motion", pad: "/foundations/motion" },
+      { titel: "Motion", pad: "/foundations/motion", klaar: true },
     ],
   },
   {

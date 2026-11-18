@@ -188,3 +188,10 @@ b { font-weight: 600; }
 @media (max-width: 860px) {
   .probeer { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* lopende tekst en genummerde lijsten uit de docs (src/lib/markdown.tsx) */
+.leestekst { max-width: var(--leesbreedte); }
+.regels.genummerd { counter-reset: stap; }
+.regels.genummerd li { counter-increment: stap; }
+.regels.genummerd li::before { content: counter(stap); width: auto; height: auto; border-radius: 0; background: none; margin-top: 0;
+  color: var(--oneui-surface-primary-bold); font-weight: 600; }

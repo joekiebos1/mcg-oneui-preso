@@ -10,6 +10,7 @@ import { Colours } from "./pages/foundations/Colours";
 import { Type } from "./pages/foundations/Type";
 import { Maten } from "./pages/foundations/Maten";
 import { Elevation } from "./pages/foundations/Elevation";
+import { Motion } from "./pages/foundations/Motion";
 import { ButtonPagina } from "./pages/components/ButtonPagina";
 
 type Brand = "classic" | "round";
@@ -79,6 +80,7 @@ export function App() {
           <Route path="/" element={<Home />} />
           <Route path="/foundations" element={<FoundationsIndex />} />
           <Route path="/foundations/colours" element={<Colours />} />
+          <Route path="/foundations/motion" element={<Motion />} />
           <Route path="/foundations/type" element={<Type />} />
           <Route path="/foundations/spacing" element={<Maten groep="spacing" />} />
           <Route path="/foundations/radius" element={<Maten groep="radius" />} />
