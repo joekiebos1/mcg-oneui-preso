@@ -166,7 +166,6 @@ export function ButtonPagina() {
         </div>
         <Regels items={[
           "Een icoon na het label (chevron) suggereert navigatie.",
-          "In Mendix kan een knop maar één icoon hebben; twee iconen is een voorstel.",
           "Een knop met alleen een icoon is een Icon Button, met een toegankelijk label.",
         ]} />
       </Sectie>
@@ -193,10 +192,9 @@ export function ButtonPagina() {
         ]} />
       </Sectie>
 
-      <Sectie titel="In code en Mendix">
+      <Sectie titel="In code">
         <Regels items={[
           <><b>React:</b> <code>{"<Button variant=\"primary\" size=\"md\">Opslaan</Button>"}</code> uit de OneUI-library.</>,
-          <><b>Mendix:</b> de gewone actieknop, gestijld via het thema (btn-primary, btn-secondary enzovoort). Route: Atlas.</>,
           <><b>Figma:</b> DS Components › Button.</>,
         ]} />
       </Sectie>
