@@ -19,6 +19,9 @@ export const IcoonSpraak = () => <Svg><rect x="9" y="3.5" width="6" height="11" 
 export const IcoonGeluid = () => <Svg><path d="M4 10v4M8 7v10M12 4.5v15M16 8v8M20 10.5v3" /></Svg>;
 export const IcoonComponent = () => <Svg><rect x="4" y="4" width="7" height="7" rx="1.5" /><rect x="13" y="4" width="7" height="7" rx="1.5" /><rect x="4" y="13" width="7" height="7" rx="1.5" /><rect x="13" y="13" width="7" height="7" rx="3.5" /></Svg>;
 export const IcoonToegang = () => <Svg><circle cx="12" cy="5" r="1.75" /><path d="M5 8.5c2.5.8 4.8 1.2 7 1.2s4.5-.4 7-1.2M12 9.7V14m0 0-3 6m3-6 3 6" /></Svg>;
+export const IcoonSurface = () => <Svg><rect x="7" y="4" width="13" height="10" rx="2" /><path d="M4 9v8.5A2.5 2.5 0 0 0 6.5 20H16" /></Svg>;
+export const IcoonMotion = () => <Svg><path d="M4 16c3 0 4-8 8-8s5 8 8 8" /><circle cx="20" cy="16" r="1.5" /></Svg>;
+export const IcoonTaal = () => <Svg><path d="M5 6.5h14M5 11.5h14M5 16.5h9" /></Svg>;
 export const IcoonChevron = () => <Svg><path d="m9 6 6 6-6 6" /></Svg>;
 export const IcoonZijbalk = () => <Svg><rect x="3.5" y="4.5" width="17" height="15" rx="2.5" /><path d="M9.5 4.5v15" /></Svg>;
 export const IcoonLinks = () => <Svg><path d="M15 6l-6 6 6 6" /></Svg>;

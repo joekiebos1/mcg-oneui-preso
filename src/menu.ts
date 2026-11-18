@@ -34,6 +34,13 @@ export const MENU: Item[] = [
     { titel: "Grid", pad: "/layout/grid" },
     { titel: "Space", pad: "/layout/space", klaar: true },
   ] },
+  { titel: "Surfaces", pad: "/surfaces", icoon: ic(I.IcoonSurface), klaar: true, kinderen: [
+    { titel: "Elevation", pad: "/surfaces/elevation", klaar: true },
+  ] },
+  { titel: "Motion", pad: "/motion", icoon: ic(I.IcoonMotion), klaar: true },
+  { titel: "Taal", pad: "/taal", icoon: ic(I.IcoonTaal), klaar: true, kinderen: [
+    { titel: "Schrijfstijl", pad: "/taal/schrijfstijl", klaar: true },
+  ] },
   { titel: "Illustraties", pad: "/illustraties", icoon: ic(I.IcoonIllustratie), klaar: true, kinderen: [
     { titel: "Over illustraties", pad: "/illustraties/over", klaar: true },
     { titel: "Hoe te gebruiken", pad: "/illustraties/gebruik", klaar: true },
