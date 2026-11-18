@@ -69,5 +69,9 @@ export function vind(pad: string, items = MENU, ouders: Item[] = []): { item: It
   return null;
 }
 
-/** Alle pagina's op volgorde, voor Vorige en Volgende: de pagina's van een hoofdstuk, of het hoofdstuk zelf. */
-export const VOLGORDE: Item[] = MENU.flatMap((h) => h.kinderen ?? [h]);
+/** Het anker van een deel in zijn hoofdstuk: het laatste stuk van zijn pad ("/kleuren/gebruik" → "gebruik"). */
+export const anker = (k: Item) => k.pad.split("/").pop() ?? "";
+
+/** Alle pagina's op volgorde, voor Vorige en Volgende: een hoofdstuk is één pagina; bij Assets en Componenten (chevron)
+ *  telt elke pagina eronder. */
+export const VOLGORDE: Item[] = MENU.flatMap((h) => (h.chevron && h.kinderen ? h.kinderen : [h]));

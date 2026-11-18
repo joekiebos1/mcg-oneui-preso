@@ -1,8 +1,11 @@
 import { useEffect, useState } from "react";
-import { Navigate, NavLink, Route, Routes, useLocation } from "react-router-dom";
-import { MENU } from "./menu";
-import { IcoonChevron, IcoonZijbalk } from "./components/Iconen";
+import { Link, Navigate, NavLink, Route, Routes, useLocation } from "react-router-dom";
+import { MENU, anker, type Item } from "./menu";
+import { Deel } from "./pages/Pagina";
+import { Pagina } from "./pages/Pagina";
 import { Text } from "./oneui/react/Text";
+import type { ReactElement } from "react";
+import { IcoonChevron, IcoonZijbalk } from "./components/Iconen";
 import { ONEUI_VERSIE } from "./oneui/versie";
 import { Home } from "./pages/Home";
 import { Placeholder } from "./pages/Placeholder";
@@ -37,7 +40,7 @@ function Keuze<T extends string>({ label, waarde, opties, zet }: { label: string
 /** Het menu zoals in de Myndlet-app. Een hoofdstuk is een link naar zijn eerste pagina; ben je erin, dan staan zijn
  *  pagina's eronder. Assets en Componenten (chevron) klap je zelf open en dicht. Een groep begint met een lijn. */
 function Menu({ smal }: { smal: boolean }) {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   const hier = MENU.find((h) => pathname === h.pad || pathname.startsWith(h.pad + "/"))?.pad;
   const [open, setOpen] = useState<Set<string>>(() => new Set(hier ? [hier] : []));
   useEffect(() => { if (hier) setOpen((o) => (o.has(hier) ? o : new Set(o).add(hier))); }, [hier]);
@@ -56,7 +59,7 @@ function Menu({ smal }: { smal: boolean }) {
                 {h.icoon}<span className="nav-label">{h.titel}</span><span className="nav-chevron"><IcoonChevron /></span>
               </button>
             ) : (
-              <NavLink to={h.kinderen?.[0]?.pad ?? h.pad} end title={smal ? h.titel : undefined}
+              <NavLink to={h.pad} end title={smal ? h.titel : undefined}
                 className={"nav-item" + (h.klaar ? "" : " leeg") + (actief && (h.kinderen || smal) ? " in" : "")}
                 aria-current={actief ? "page" : undefined}>
                 {h.icoon}<span className="nav-label">{h.titel}</span>
@@ -64,10 +67,15 @@ function Menu({ smal }: { smal: boolean }) {
             )}
             {isOpen && (
               <div className="nav-sub">
-                {h.kinderen!.map((k) => (
+                {h.kinderen!.map((k) => h.chevron ? (
                   <NavLink key={k.pad} to={k.pad} end className={"nav-item sub" + (k.klaar ? "" : " leeg")}>
                     <span className="nav-label">{k.titel}</span>
                   </NavLink>
+                ) : (
+                  // een deel van het hoofdstuk: een anker op dezelfde pagina
+                  <Link key={k.pad} to={`${h.pad}#${anker(k)}`} className={"nav-item sub" + (k.klaar ? "" : " leeg") + (hash === "#" + anker(k) ? " active" : "")}>
+                    <span className="nav-label">{k.titel}</span>
+                  </Link>
                 ))}
               </div>
             )}
@@ -89,7 +97,7 @@ export function App() {
     document.documentElement.dataset.theme = thema;
     try { localStorage.setItem("oneui-brand", brand); localStorage.setItem("oneui-thema", thema); localStorage.setItem("oneui-smal", smal ? "1" : "0"); } catch {}
   }, [brand, thema, smal]);
-  useEffect(() => { setOpen(false); document.querySelector(".inhoud")?.scrollTo(0, 0); }, [loc.pathname]);
+  useEffect(() => { setOpen(false); if (!loc.hash) document.querySelector(".inhoud")?.scrollTo(0, 0); }, [loc.pathname, loc.hash]);
 
   return (
     <div className={"studio" + (smal ? " smal" : "")}>
@@ -114,25 +122,17 @@ export function App() {
       <main className="inhoud">
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/kleuren/kleuren" element={<Colours />} />
-          <Route path="/kleuren/gebruik" element={<DocOp pad="docs/kleur.md" bron="docs/foundations/kleur.md" />} />
-          <Route path="/iconen/iconen" element={<DocOp pad="docs/components/icon.md" map="components" bron="docs/components/icon.md" />} />
-          <Route path="/iconen/gebruik" element={<DocOp pad="docs/besluiten/003-icoon-een-laag.md" map="besluiten" bron="docs/besluiten/003-icoon-een-laag.md" />} />
-          <Route path="/typografie/lettertype" element={<Type />} />
-          <Route path="/typografie/gebruik" element={<DocOp pad="docs/typografie.md" bron="docs/foundations/typografie.md" />} />
-          <Route path="/vormen/hoeken" element={<Maten groep="radius" />} />
-          <Route path="/vormen/randen" element={<Maten groep="border" />} />
-          <Route path="/layout/space" element={<Maten groep="spacing" />} />
-          <Route path="/illustraties/over" element={<DocOp pad="rules/content/illustraties.md" bron="rules/content/illustraties.md" />} />
-          <Route path="/illustraties/gebruik" element={<DocOp pad="rules/content/beeldtaal.md" bron="rules/content/beeldtaal.md" />} />
+          {/* een hoofdstuk is één pagina met zijn delen onder elkaar; het oude adres van een deel wordt een anker */}
+          {MENU.filter((h) => h.kinderen && !h.chevron).flatMap((h) => [
+            <Route key={h.pad} path={h.pad} element={<Hoofdstuk h={h} />} />,
+            ...h.kinderen!.map((k) => <Route key={k.pad} path={k.pad} element={<Navigate to={`${h.pad}#${anker(k)}`} replace />} />),
+          ])}
+          {Object.entries(INHOUD).filter(([pad]) => !MENU.some((h) => h.kinderen && !h.chevron && h.kinderen.some((k) => k.pad === pad)))
+            .map(([pad, el]) => <Route key={pad} path={pad} element={el} />)}
           <Route path="/componenten/button" element={<ButtonPagina />} />
           <Route path="/componenten/:slug" element={<Component />} />
           {/* niet in het menu, wel te bereiken: tot de eigenaar ze een plek geeft */}
           <Route path="/decisions/:slug" element={<Besluit />} />
-          <Route path="/vormen/maten" element={<Maten groep="size" />} />
-          <Route path="/surfaces/elevation" element={<Elevation />} />
-          <Route path="/motion" element={<DocOp pad="docs/motion.md" bron="docs/foundations/motion.md" />} />
-          <Route path="/taal/schrijfstijl" element={<DocOp pad="rules/content/schrijfstijl.md" bron="rules/content/schrijfstijl.md" />} />
           {/* oude adressen */}
           {Object.entries(OUD).map(([van, naar]) => <Route key={van} path={van} element={<Navigate to={naar} replace />} />)}
           <Route path="/components/:slug" element={<NaarComponent />} />
@@ -147,6 +147,48 @@ export function App() {
 function DocOp({ pad, titel, map = "", bron }: { pad: string; titel?: string; map?: string; bron?: string }) {
   const md = doc(pad);
   return md ? <Doc md={md} titel={titel} link={linkVoor(map)} bron={bron} /> : <Placeholder />;
+}
+
+// Wat er op elke pagina staat, op het pad uit het menu. Binnen een hoofdstuk wordt het een deel van de pagina.
+const INHOUD: Record<string, ReactElement> = {
+  "/kleuren/kleuren": <Colours />,
+  "/kleuren/gebruik": <DocOp pad="docs/kleur.md" bron="docs/foundations/kleur.md" />,
+  "/iconen/iconen": <DocOp pad="docs/components/icon.md" map="components" bron="docs/components/icon.md" />,
+  "/iconen/gebruik": <DocOp pad="docs/besluiten/003-icoon-een-laag.md" map="besluiten" bron="docs/besluiten/003-icoon-een-laag.md" />,
+  "/typografie/lettertype": <Type />,
+  "/typografie/gebruik": <DocOp pad="docs/typografie.md" bron="docs/foundations/typografie.md" />,
+  "/vormen/hoeken": <Maten groep="radius" />,
+  "/vormen/randen": <Maten groep="border" />,
+  "/vormen/maten": <Maten groep="size" />,
+  "/layout/space": <Maten groep="spacing" />,
+  "/surfaces/elevation": <Elevation />,
+  "/motion": <DocOp pad="docs/motion.md" bron="docs/foundations/motion.md" />,
+  "/taal/schrijfstijl": <DocOp pad="rules/content/schrijfstijl.md" bron="rules/content/schrijfstijl.md" />,
+  "/illustraties/over": <DocOp pad="rules/content/illustraties.md" bron="rules/content/illustraties.md" />,
+  "/illustraties/gebruik": <DocOp pad="rules/content/beeldtaal.md" bron="rules/content/beeldtaal.md" />,
+};
+
+/** Een hoofdstuk als één pagina: elk deel onder elkaar, met de naam uit het menu als kop. */
+function Hoofdstuk({ h }: { h: Item }) {
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (!hash) return;
+    const t = requestAnimationFrame(() => document.getElementById(hash.slice(1))?.scrollIntoView({ block: "start" }));
+    return () => cancelAnimationFrame(t);
+  }, [hash]);
+  return (
+    <Pagina titel={h.titel}>
+      {h.kinderen!.map((k) => (
+        <Deel.Provider key={k.pad} value={{ titel: k.titel === h.titel ? "" : k.titel, id: anker(k) }}>
+          {INHOUD[k.pad] ?? (
+            <Pagina>
+              <div className="leeg-vak"><Text variant="body-m" color="medium">Nog niet vastgelegd.</Text></div>
+            </Pagina>
+          )}
+        </Deel.Provider>
+      ))}
+    </Pagina>
+  );
 }
 
 const OUD: Record<string, string> = {

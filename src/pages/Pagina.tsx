@@ -1,13 +1,27 @@
-import type { ReactNode } from "react";
+import { createContext, useContext, type ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { VOLGORDE, vind } from "../menu";
 import { Button } from "../oneui/react/Button";
 import { IcoonLinks, IcoonRechts } from "../components/Iconen";
 import { Text } from "../oneui/react/Text";
 
+/** Binnen een hoofdstuk is een pagina een deel: een kop met de naam uit het menu, zonder kruimelpad en zonder
+ *  Vorige en Volgende. De pagina's van een hoofdstuk staan zo onder elkaar op één pagina. */
+export const Deel = createContext<{ titel: string; id: string } | null>(null);
+
 export function Pagina({ titel, intro, children }: { titel?: string; intro?: ReactNode; children?: ReactNode }) {
   const { pathname } = useLocation();
   const plek = vind(pathname);
+  const deel = useContext(Deel);
+  if (deel) return (
+    <section className="deel" id={deel.id}>
+      <header className="deelkop">
+        {deel.titel && <Text as="h2" variant="display-s">{deel.titel}</Text>}
+        {intro && <Text variant="body-l" color="medium" className="intro">{intro}</Text>}
+      </header>
+      {children}
+    </section>
+  );
   return (
     <article className="pagina">
       <header className="paginakop">
@@ -45,10 +59,11 @@ function VorigeVolgende() {
 }
 
 export function Sectie({ titel, uitleg, children }: { titel: string; uitleg?: ReactNode; children: ReactNode }) {
+  const deel = useContext(Deel);      // in een deel van een hoofdstuk een niveau lager
   return (
     <section className="sectie">
       <div className="sectiekop">
-        <Text as="h2" variant="heading-l">{titel}</Text>
+        <Text as={deel ? "h3" : "h2"} variant={deel ? "heading-m" : "heading-l"}>{titel}</Text>
         {uitleg && <Text variant="body-m" color="medium" className="uitleg">{uitleg}</Text>}
       </div>
       {children}
