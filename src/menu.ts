@@ -29,6 +29,7 @@ export const MENU: Item[] = [
   { titel: "Vormen", pad: "/vormen", icoon: ic(I.IcoonVorm), klaar: true, kinderen: [
     { titel: "Hoeken", pad: "/vormen/hoeken", klaar: true },
     { titel: "Randen", pad: "/vormen/randen", klaar: true },
+    { titel: "Maten", pad: "/vormen/maten", klaar: true },
   ] },
   { titel: "Layout", pad: "/layout", icoon: ic(I.IcoonLayout), klaar: true, kinderen: [
     { titel: "Grid", pad: "/layout/grid" },

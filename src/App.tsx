@@ -126,7 +126,7 @@ export function App() {
           <Route path="/componenten/:slug" element={<Component />} />
           {/* niet in het menu, wel te bereiken: tot de eigenaar ze een plek geeft */}
           <Route path="/decisions/:slug" element={<Besluit />} />
-          <Route path="/foundations/size" element={<Maten groep="size" />} />
+          <Route path="/vormen/maten" element={<Maten groep="size" />} />
           <Route path="/surfaces/elevation" element={<Elevation />} />
           <Route path="/motion" element={<DocOp pad="docs/motion.md" bron="docs/foundations/motion.md" />} />
           <Route path="/taal/schrijfstijl" element={<DocOp pad="rules/content/schrijfstijl.md" bron="rules/content/schrijfstijl.md" />} />
@@ -150,7 +150,7 @@ const OUD: Record<string, string> = {
   "/foundations": "/kleuren", "/foundations/colours": "/kleuren/kleuren", "/foundations/type": "/typografie/lettertype",
   "/foundations/spacing": "/layout/space", "/foundations/radius": "/vormen/hoeken", "/foundations/border": "/vormen/randen",
   "/foundations/iconography": "/iconen/iconen", "/components": "/componenten", "/rules/content/illustraties": "/illustraties/over",
-  "/rules/content/beeldtaal": "/illustraties/gebruik", "/foundations/elevation": "/surfaces/elevation",
+  "/rules/content/beeldtaal": "/illustraties/gebruik", "/foundations/elevation": "/surfaces/elevation", "/foundations/size": "/vormen/maten",
   "/foundations/motion": "/motion", "/rules/content/copy": "/taal/schrijfstijl",
 };
 
