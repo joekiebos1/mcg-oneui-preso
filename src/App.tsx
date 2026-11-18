@@ -54,6 +54,7 @@ function Menu({ smal }: { smal: boolean }) {
         return (
           <div key={h.pad} className={"nav-groep" + (isOpen ? " open" : "")}>
             {h.groep && <div className="nav-scheiding"><span className="nav-label">{h.groep}</span></div>}
+            {h.lijn && <div className="nav-scheiding" />}
             {h.chevron ? (
               <button type="button" className="nav-item" aria-expanded={isOpen} data-actief={actief ? "" : undefined}
                 title={smal ? h.titel : undefined} onClick={() => wissel(h.pad)}>
