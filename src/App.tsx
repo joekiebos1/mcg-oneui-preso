@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Link, Navigate, NavLink, Route, Routes, useLocation } from "react-router-dom";
+import { Navigate, NavLink, Route, Routes, useLocation } from "react-router-dom";
 import { MENU, anker, type Item } from "./menu";
 import { Deel } from "./pages/Pagina";
 import { Pagina } from "./pages/Pagina";
@@ -37,10 +37,10 @@ function Keuze<T extends string>({ label, waarde, opties, zet }: { label: string
   );
 }
 
-/** Het menu zoals in de Myndlet-app. Een hoofdstuk is een link naar zijn eerste pagina; ben je erin, dan staan zijn
- *  pagina's eronder. Assets en Componenten (chevron) klap je zelf open en dicht. Een groep begint met een lijn. */
+/** Het menu zoals in de Myndlet-app: één link per hoofdstuk. Alleen Assets en Componenten (chevron) klap je open en
+ *  dicht. Een groep begint met een lijn. */
 function Menu({ smal }: { smal: boolean }) {
-  const { pathname, hash } = useLocation();
+  const { pathname } = useLocation();
   const hier = MENU.find((h) => pathname === h.pad || pathname.startsWith(h.pad + "/"))?.pad;
   const [open, setOpen] = useState<Set<string>>(() => new Set(hier ? [hier] : []));
   useEffect(() => { if (hier) setOpen((o) => (o.has(hier) ? o : new Set(o).add(hier))); }, [hier]);
@@ -49,7 +49,7 @@ function Menu({ smal }: { smal: boolean }) {
     <div className="nav">
       {MENU.map((h) => {
         const actief = h.pad === hier;
-        const isOpen = !smal && !!h.kinderen && (h.chevron ? open.has(h.pad) : actief);
+        const isOpen = !smal && !!h.chevron && !!h.kinderen && open.has(h.pad);   // alleen Assets en Componenten klappen uit
         return (
           <div key={h.pad} className={"nav-groep" + (isOpen ? " open" : "")}>
             {h.groep && <div className="nav-scheiding"><span className="nav-label">{h.groep}</span></div>}
@@ -60,22 +60,17 @@ function Menu({ smal }: { smal: boolean }) {
               </button>
             ) : (
               <NavLink to={h.pad} end title={smal ? h.titel : undefined}
-                className={"nav-item" + (h.klaar ? "" : " leeg") + (actief && (h.kinderen || smal) ? " in" : "")}
+                className={"nav-item" + (h.klaar ? "" : " leeg")}
                 aria-current={actief ? "page" : undefined}>
                 {h.icoon}<span className="nav-label">{h.titel}</span>
               </NavLink>
             )}
             {isOpen && (
               <div className="nav-sub">
-                {h.kinderen!.map((k) => h.chevron ? (
+                {h.kinderen!.map((k) => (
                   <NavLink key={k.pad} to={k.pad} end className={"nav-item sub" + (k.klaar ? "" : " leeg")}>
                     <span className="nav-label">{k.titel}</span>
                   </NavLink>
-                ) : (
-                  // een deel van het hoofdstuk: een anker op dezelfde pagina
-                  <Link key={k.pad} to={`${h.pad}#${anker(k)}`} className={"nav-item sub" + (k.klaar ? "" : " leeg") + (hash === "#" + anker(k) ? " active" : "")}>
-                    <span className="nav-label">{k.titel}</span>
-                  </Link>
                 ))}
               </div>
             )}
