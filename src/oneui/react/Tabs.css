@@ -1,0 +1,33 @@
+/* OneUI Tabs. Per tab: inhoud met padding 0 16 (spacing/xl), daaronder op 12 (spacing/lg) de lijn over de hele tab:
+   2 in stroke/neutral/low, hover stroke/neutral/medium, actief 3 in stroke/primary/medium. */
+.oneui-tabs { display: flex; overflow-x: auto; scrollbar-width: none; }
+.oneui-tabs::-webkit-scrollbar { display: none; }
+.oneui-tab {
+  appearance: none; border: 0; background: transparent; cursor: pointer; padding: 0; margin: 0; flex: none;
+  display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); color: var(--oneui-text-medium);
+  font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);
+  font-size: var(--oneui-type-label-m-size); line-height: var(--oneui-type-label-m-line-height);
+  letter-spacing: var(--oneui-type-label-m-letter-spacing);
+}
+.oneui-tab__inhoud { display: inline-flex; align-items: center; gap: var(--oneui-spacing-md); padding: 0 var(--oneui-spacing-xl); white-space: nowrap; }
+.oneui-tab__lijn { display: block; height: var(--oneui-border-thick); background: var(--oneui-stroke-neutral-low); margin-top: calc(var(--oneui-border-thin) * 1); }
+.oneui-tab__icoon { display: inline-flex; width: var(--oneui-size-xs); height: var(--oneui-size-xs); color: var(--oneui-icon-medium); }
+.oneui-tab__icoon > svg { width: 100%; height: 100%; }
+.oneui-tab:hover:not(:disabled) { color: var(--oneui-text-high); }
+.oneui-tab:hover:not(:disabled) .oneui-tab__lijn { background: var(--oneui-stroke-neutral-medium); }
+.oneui-tab.is-actief { color: var(--oneui-text-high); }
+.oneui-tab.is-actief .oneui-tab__icoon { color: var(--oneui-icon-primary); }
+.oneui-tab.is-actief .oneui-tab__lijn, .oneui-tab.is-actief:hover .oneui-tab__lijn {
+  height: calc(var(--oneui-border-thick) + var(--oneui-border-thin)); margin-top: 0; background: var(--oneui-stroke-primary-medium);
+}
+.oneui-tab:disabled { cursor: not-allowed; color: var(--oneui-text-disabled); }
+.oneui-tab:disabled .oneui-tab__icoon { color: var(--oneui-icon-disabled); }
+.oneui-tab:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-stroke-secondary-medium); outline-offset: var(--oneui-spacing-2xs); border-radius: var(--oneui-radius-xs); }
+/* de teller: Badge counter, neutral bold, size s (20 hoog) */
+.oneui-tab__teller {
+  display: inline-grid; place-items: center; min-width: var(--oneui-size-xs); height: var(--oneui-size-xs);
+  padding: 0 var(--oneui-spacing-xs); border-radius: var(--oneui-radius-full);
+  background: var(--oneui-surface-inverse); color: var(--oneui-text-on-inverse); font-variant-numeric: tabular-nums;
+  font-family: var(--oneui-type-label-s-family); font-weight: var(--oneui-type-label-s-weight);
+  font-size: var(--oneui-type-label-s-size); line-height: 1;
+}

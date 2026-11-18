@@ -1,0 +1,28 @@
+/* OneUI Toggle. Baan 32 × 18 (size/lg; size/2xs + spacing/2xs), knop 16, rand eromheen border/thin. */
+.oneui-toggle {
+  --_breed: var(--oneui-size-lg); --_hoog: calc(var(--oneui-size-2xs) + var(--oneui-spacing-2xs)); --_rand: var(--oneui-border-thin);
+  --_knop: calc(var(--_hoog) - 2 * var(--_rand));
+  position: relative; display: inline-flex; align-items: center; gap: var(--oneui-spacing-md); cursor: pointer;
+  color: var(--oneui-text-high);
+  font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);
+  font-size: var(--oneui-type-label-m-size); line-height: var(--oneui-type-label-m-line-height);
+  letter-spacing: var(--oneui-type-label-m-letter-spacing);
+}
+.oneui-toggle__veld { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: inherit; }
+.oneui-toggle__baan {
+  position: relative; flex: none; width: var(--_breed); height: var(--_hoog); border-radius: var(--oneui-radius-full);
+  background: var(--oneui-surface-disabled); transition: background-color 160ms ease;
+}
+.oneui-toggle__knop {
+  position: absolute; top: var(--_rand); left: var(--_rand); width: var(--_knop); height: var(--_knop);
+  border-radius: var(--oneui-radius-full); background: var(--oneui-text-on-bold);
+  box-shadow: 0 var(--oneui-border-thin) var(--oneui-border-thick) var(--oneui-effect-shadow-key); transition: transform 160ms ease;
+}
+.oneui-toggle__veld:checked + .oneui-toggle__baan { background: var(--oneui-surface-primary-bold); }
+.oneui-toggle__veld:checked + .oneui-toggle__baan .oneui-toggle__knop { transform: translateX(calc(var(--_breed) - var(--_knop) - 2 * var(--_rand))); }
+.oneui-toggle__veld:focus-visible + .oneui-toggle__baan { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs); }
+/* uitgeschakeld: uit is een verzonken baan, aan is de aan-kleur op 30 % (zoals in Figma) */
+.oneui-toggle.is-disabled { cursor: not-allowed; color: var(--oneui-text-disabled); }
+.oneui-toggle.is-disabled .oneui-toggle__baan { background: var(--oneui-surface-sunken); }
+.oneui-toggle.is-disabled .oneui-toggle__veld:checked + .oneui-toggle__baan { background: var(--oneui-surface-primary-bold); opacity: 0.3; }
+@media (prefers-reduced-motion: reduce) { .oneui-toggle__baan, .oneui-toggle__knop { transition: none; } }

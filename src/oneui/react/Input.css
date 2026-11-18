@@ -1,0 +1,20 @@
+/* OneUI Input. Het vak en de tekst staan in Veld.css. */
+.oneui-vak--textarea { align-items: flex-start; }
+/* search: een pil met een vergrootglas (Figma: DOC — Input) */
+.oneui-vak--search { --_radius: var(--oneui-radius-full); }
+.oneui-vak--textarea .oneui-vak__tekst { resize: vertical; min-height: calc(var(--oneui-type-label-m-line-height) * 2); }
+/* number: geen pijltjes van de browser */
+.oneui-vak__tekst[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+.oneui-vak__tekst[type="number"]::-webkit-inner-spin-button, .oneui-vak__tekst[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; margin: 0; }
+.oneui-vak__tekst[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+/* code: vierkante vakjes van 48 (sm 40), het cijfer in het midden */
+.oneui-code { display: flex; gap: var(--oneui-spacing-md); }
+.oneui-code__vak { width: var(--oneui-size-3xl); height: var(--oneui-size-3xl); padding: 0; justify-content: center; }
+.oneui-code__vak.oneui-vak--sm { width: var(--oneui-size-2xl); height: var(--oneui-size-2xl); }
+.oneui-code__vak .oneui-vak__tekst { text-align: center; }
+/* search met een waarde: een kruisje om te wissen (Figma: Input, search, filled) */
+.oneui-vak__wis { display: inline-flex; flex: none; width: var(--oneui-size-xs); height: var(--oneui-size-xs); padding: 0;
+  border: 0; background: none; color: var(--oneui-icon-medium); border-radius: var(--oneui-radius-full); cursor: pointer; }
+.oneui-vak__wis:hover { color: var(--oneui-icon-high); }
+.oneui-vak__wis:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs); }
+.oneui-vak__wis svg { width: 100%; height: 100%; }

@@ -1,0 +1,11 @@
+/* OneUI Select. Het vak staat in Veld.css; de pijl ligt over de rechterkant van de select heen. */
+.oneui-select { padding: 0; }
+.oneui-select__veld {
+  appearance: none; -webkit-appearance: none; cursor: pointer; width: 100%;
+  padding: var(--_pad-y) calc(var(--_pad-x) + var(--oneui-size-xs) + var(--oneui-spacing-md)) var(--_pad-y) var(--_pad-x);
+  border-radius: var(--_radius);
+}
+.oneui-select__veld.is-leeg { color: var(--oneui-text-low); }
+.oneui-veld.is-disabled .oneui-select__veld { color: var(--oneui-text-disabled); cursor: not-allowed; }
+.oneui-select__veld option { color: var(--oneui-text-high); }
+.oneui-select__chevron { position: absolute; right: var(--_pad-x); pointer-events: none; }

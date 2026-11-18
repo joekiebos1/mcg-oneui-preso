@@ -1,0 +1,48 @@
+/* Wat Input, Select en Editor delen (Figma: Label, Body, Hint). Alleen tokens. */
+.oneui-veld { display: flex; flex-direction: column; gap: var(--oneui-spacing-xs); min-width: 0; }
+.oneui-veld__label {
+  color: var(--oneui-text-high);
+  font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);
+  font-size: var(--oneui-type-label-m-size); line-height: var(--oneui-type-label-m-line-height);
+  letter-spacing: var(--oneui-type-label-m-letter-spacing);
+}
+.oneui-veld__hint {
+  display: flex; gap: var(--oneui-spacing-md); justify-content: space-between; color: var(--oneui-text-medium);
+  font-family: var(--oneui-type-body-xs-family); font-weight: var(--oneui-type-body-xs-weight);
+  font-size: var(--oneui-type-body-xs-size); line-height: var(--oneui-type-body-xs-line-height);
+  letter-spacing: var(--oneui-type-body-xs-letter-spacing);
+}
+.oneui-veld__rechts { margin-left: auto; font-variant-numeric: tabular-nums; }
+.oneui-veld.is-error .oneui-veld__melding { color: var(--oneui-text-high); }
+.oneui-veld.is-disabled .oneui-veld__label, .oneui-veld.is-disabled .oneui-veld__hint { color: var(--oneui-text-disabled); }
+
+/* Het vak zelf (Figma: Body). md 48 hoog, sm 40. Focus is een rand van 2 in secondary, zonder te verschuiven. */
+.oneui-vak {
+  --_pad-y: var(--oneui-spacing-lg); --_pad-x: var(--oneui-spacing-xl); --_radius: var(--oneui-radius-lg);
+  --_rand: var(--oneui-stroke-neutral-low); --_dik: 0px;
+  position: relative; display: flex; align-items: center; gap: var(--oneui-spacing-md); min-width: 0;
+  padding: var(--_pad-y) var(--_pad-x); border-radius: var(--_radius);
+  background: var(--oneui-surface-default); color: var(--oneui-text-high);
+  box-shadow: inset 0 0 0 calc(var(--oneui-border-thin) + var(--_dik)) var(--_rand);
+  transition: box-shadow 120ms ease;
+}
+.oneui-vak--sm { --_pad-y: var(--oneui-spacing-md); --_pad-x: var(--oneui-spacing-lg); --_radius: var(--oneui-radius-md); }
+.oneui-vak:hover { --_rand: var(--oneui-stroke-neutral-high); }
+.oneui-vak:focus-within { --_rand: var(--oneui-stroke-secondary-medium); --_dik: var(--oneui-border-thin); }
+.oneui-veld.is-error .oneui-vak { background: var(--oneui-surface-negative-subtle); --_rand: var(--oneui-stroke-negative-medium); }
+.oneui-veld.is-error .oneui-vak:focus-within { --_rand: var(--oneui-stroke-negative-medium); }
+.oneui-veld.is-disabled .oneui-vak { background: var(--oneui-surface-disabled); --_rand: var(--oneui-stroke-disabled); color: var(--oneui-text-disabled); }
+
+/* De tekst in het vak: label/M */
+.oneui-vak__tekst {
+  flex: 1; min-width: 0; margin: 0; padding: 0; border: 0; outline: 0; background: transparent; color: inherit;
+  font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);
+  font-size: var(--oneui-type-label-m-size); line-height: var(--oneui-type-label-m-line-height);
+  letter-spacing: var(--oneui-type-label-m-letter-spacing);
+}
+.oneui-vak__tekst::placeholder { color: var(--oneui-text-low); opacity: 1; }
+.oneui-vak__tekst:disabled { cursor: not-allowed; }
+.oneui-veld.is-disabled .oneui-vak__tekst::placeholder { color: var(--oneui-text-disabled); }
+.oneui-vak__icoon { display: inline-flex; flex: none; width: var(--oneui-size-xs); height: var(--oneui-size-xs); color: var(--oneui-icon-medium); }
+.oneui-vak__icoon > svg { width: 100%; height: 100%; }
+.oneui-veld.is-disabled .oneui-vak__icoon { color: var(--oneui-icon-disabled); }
