@@ -1,7 +1,5 @@
 # Icon Button
 
-**Mendix-route:** Atlas. Mendix-knop met alleen een icoon, eigen klasse in het thema.
-
 ## Varianten
 
 | Eigenschap | Waarden |

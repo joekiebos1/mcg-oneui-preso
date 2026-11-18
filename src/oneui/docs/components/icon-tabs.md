@@ -1,7 +1,5 @@
 # Icon tabs
 
-**Mendix-route:** Te bepalen. Tab container met iconen. Kan de standaard tab container dit, dan Atlas; anders een widget.
-
 ## Varianten
 
 | Eigenschap | Waarden |

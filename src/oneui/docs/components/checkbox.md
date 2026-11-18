@@ -1,7 +1,5 @@
 # Checkbox
 
-**Mendix-route:** Atlas. Mendix-checkbox, gestijld via het thema.
-
 ## Varianten
 
 | Eigenschap | Waarden |

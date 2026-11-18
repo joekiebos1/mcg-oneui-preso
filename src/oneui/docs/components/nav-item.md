@@ -1,7 +1,5 @@
 # Nav item
 
-**Mendix-route:** Atlas. Navigatie-item in het Atlas-navigatielayout, gestijld via het thema.
-
 ## Varianten
 
 | Eigenschap | Waarden |

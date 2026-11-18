@@ -1,7 +1,5 @@
 # Event indicator
 
-**Mendix-route:** Atlas. Container met een klasse in het thema.
-
 ## Varianten
 
 | Eigenschap | Waarden |

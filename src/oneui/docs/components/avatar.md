@@ -1,7 +1,5 @@
 # Avatar
 
-**Mendix-route:** Widget. Foto met terugval op initialen vraagt logica. Eigen pluggable widget in React.
-
 ## Varianten
 
 | Eigenschap | Waarden |

@@ -1,7 +1,5 @@
 # Icon
 
-**Mendix-route:** Iconen. Komt uit DS-Icons: SVG-set in het thema, of één Icon-widget. Development bepaalt welke.
-
 ## Varianten
 
 | Eigenschap | Waarden |

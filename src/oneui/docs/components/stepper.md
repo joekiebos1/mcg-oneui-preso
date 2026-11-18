@@ -1,7 +1,5 @@
 # Stepper
 
-**Mendix-route:** Te bepalen. Nog geen keuze: development bepaalt de route.
-
 ## Varianten
 
 | Eigenschap | Waarden |

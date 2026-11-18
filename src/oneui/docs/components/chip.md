@@ -1,7 +1,5 @@
 # Chip
 
-**Mendix-route:** Widget. Mendix heeft geen chip met selectiegedrag. Eigen pluggable widget in React.
-
 ## Varianten
 
 | Eigenschap | Waarden |

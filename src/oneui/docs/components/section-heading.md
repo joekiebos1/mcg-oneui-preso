@@ -1,7 +1,5 @@
 # Section heading
 
-**Mendix-route:** Atlas. Building block: kop plus knoppen, met de stijlen uit het thema.
-
 ## Varianten
 
 | Eigenschap | Waarden |

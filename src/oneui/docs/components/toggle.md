@@ -1,7 +1,5 @@
 # Toggle
 
-**Mendix-route:** Atlas. Mendix-checkbox in de weergave als schakelaar, gestijld via het thema.
-
 ## Varianten
 
 | Eigenschap | Waarden |

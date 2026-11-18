@@ -1,7 +1,5 @@
 # Page heading
 
-**Mendix-route:** Atlas. Building block voor de paginakop, met de stijlen uit het thema.
-
 ## Varianten
 
 | Eigenschap | Waarden |

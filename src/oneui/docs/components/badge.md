@@ -1,7 +1,5 @@
 # Badge
 
-**Mendix-route:** Atlas. Badge-klasse in het thema, op een tekst of container.
-
 ## Varianten
 
 | Eigenschap | Waarden |

@@ -1,23 +1,21 @@
 # Componenten
 
-| Component | Mendix-route |
-|---|---|
-| [Button](button.md) | Atlas |
-| [Icon Button](icon-button.md) | Atlas |
-| [Input](input.md) | Atlas |
-| [Select](select.md) | Atlas |
-| [Checkbox](checkbox.md) | Atlas |
-| [Radio](radio.md) | Atlas |
-| [Editor](editor.md) | Atlas |
-| [Chip](chip.md) | Widget |
-| [Toggle](toggle.md) | Atlas |
-| [Badge](badge.md) | Atlas |
-| [Avatar](avatar.md) | Widget |
-| [Icon](icon.md) | Iconen |
-| [Event indicator](event-indicator.md) | Atlas |
-| [Icon tabs](icon-tabs.md) | Te bepalen |
-| [Tabs](tabs.md) | Atlas |
-| [Nav item](nav-item.md) | Atlas |
-| [Section heading](section-heading.md) | Atlas |
-| [Page heading](page-heading.md) | Atlas |
-| [Stepper](stepper.md) | Te bepalen |
+- [Button](button.md)
+- [Icon Button](icon-button.md)
+- [Input](input.md)
+- [Select](select.md)
+- [Checkbox](checkbox.md)
+- [Radio](radio.md)
+- [Editor](editor.md)
+- [Chip](chip.md)
+- [Toggle](toggle.md)
+- [Badge](badge.md)
+- [Avatar](avatar.md)
+- [Icon](icon.md)
+- [Event indicator](event-indicator.md)
+- [Icon tabs](icon-tabs.md)
+- [Tabs](tabs.md)
+- [Nav item](nav-item.md)
+- [Section heading](section-heading.md)
+- [Page heading](page-heading.md)
+- [Stepper](stepper.md)

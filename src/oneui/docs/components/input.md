@@ -1,7 +1,5 @@
 # Input
 
-**Mendix-route:** Atlas. Mendix tekstveld en tekstvak, gestijld via het thema.
-
 ## Varianten
 
 | Eigenschap | Waarden |

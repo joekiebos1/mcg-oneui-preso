@@ -1,7 +1,5 @@
 # Tabs
 
-**Mendix-route:** Atlas. Mendix tab container, gestijld via het thema.
-
 ## Varianten
 
 | Eigenschap | Waarden |

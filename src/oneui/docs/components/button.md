@@ -1,7 +1,5 @@
 # Button
 
-**Mendix-route:** Atlas. Mendix-knop (action button), gestijld via het thema: btn-primary, btn-secondary enzovoort.
-
 ## Varianten
 
 | Eigenschap | Waarden |
@@ -59,7 +57,7 @@ In MCG is primary magenta met wit en secondary donker sky (sky/700) met wit; don
 ### Iconen
 
 Optioneel vóór en/of na het label. Het icoon heeft de kleur van het label en groeit mee met de maat. Een icoon na het
-label (chevron) suggereert navigatie. In Mendix kan een knop maar één icoon hebben; twee iconen is een voorstel.
+label (chevron) suggereert navigatie.
 
 ### Toegankelijkheid
 
@@ -76,7 +74,7 @@ label (chevron) suggereert navigatie. In Mendix kan een knop maar één icoon he
 
 ## Referentie
 
-React: `react/src/Button.tsx` en `Button.css`. Mendix (startpunt): `dist/mendix/`.
+React: `react/src/Button.tsx` en `Button.css`.
 <!-- /handmatig -->
 
 _Bron: DS-Components in Figma. Varianten en instellingen worden gegenereerd door `scripts/docs.mjs`._

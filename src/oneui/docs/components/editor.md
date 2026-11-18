@@ -1,7 +1,5 @@
 # Editor
 
-**Mendix-route:** Atlas. Bestaande rich-text-widget uit de Mendix Marketplace, gestijld via het thema.
-
 ## Varianten
 
 | Eigenschap | Waarden |

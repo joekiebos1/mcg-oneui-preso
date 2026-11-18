@@ -1,7 +1,5 @@
 # Select
 
-**Mendix-route:** Atlas. Mendix drop-down of combo box, gestijld via het thema.
-
 ## Varianten
 
 | Eigenschap | Waarden |

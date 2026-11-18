@@ -1,7 +1,5 @@
 # Radio
 
-**Mendix-route:** Atlas. Mendix radio buttons, gestijld via het thema.
-
 ## Varianten
 
 | Eigenschap | Waarden |
