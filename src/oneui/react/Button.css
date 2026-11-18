@@ -59,10 +59,10 @@
   --_ring: var(--oneui-interaction-focusring);
 }
 .oneui-button--secondary {
-  --_bg: var(--oneui-surface-action-subtle);
-  --_bg-hover: var(--oneui-surface-action-subtle-hover);
-  --_bg-pressed: var(--oneui-surface-action-subtle-pressed);
-  --_fg: var(--oneui-text-on-action-subtle);
+  --_bg: var(--oneui-surface-secondary-bold);
+  --_bg-hover: var(--oneui-surface-secondary-bold-hover);
+  --_bg-pressed: var(--oneui-surface-secondary-bold-pressed);
+  --_fg: var(--oneui-text-on-bold-secondary);
 }
 .oneui-button--outline {
   --_border: var(--oneui-stroke-action-subtle);

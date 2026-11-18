@@ -28,6 +28,9 @@ function lees(tree: Tree, prefix: string, laag: string, uit: Token[]) {
       };
       uit.push(t);
       alle[naam] = t;
+      // een token kan ook kinderen hebben (text/on-bold en text/on-bold/secondary)
+      const kinderen = Object.fromEntries(Object.entries(v).filter(([k]) => !k.startsWith("$"))) as Tree;
+      if (Object.keys(kinderen).length) lees(kinderen, naam, laag, uit);
     } else lees(v as Tree, naam, laag, uit);
   }
   return uit;

@@ -3,6 +3,7 @@ import { Button, type ButtonSize, type ButtonType } from "../../oneui/react/Butt
 import { Text } from "../../oneui/react/Text";
 import { los } from "../../lib/tokens";
 import { Pagina, Regels, Sectie } from "../Pagina";
+import buttonMd from "../../oneui/docs/components/button.md?raw";
 
 // Bron: mcg-oneui docs/components/button.md en react/src/Button.tsx (src/oneui/).
 const TYPES: ButtonType[] = ["primary", "secondary", "outline", "ghost"];
@@ -80,12 +81,20 @@ function Staten() {
   );
 }
 
-const KLEUREN: [ButtonType, string | null, string | null, string | null, string | null, string][] = [
-  ["primary", "surface/action/bold", "surface/action/bold-hover", "surface/action/bold-pressed", null, "text/on-action/bold"],
-  ["secondary", "surface/action/subtle", "surface/action/subtle-hover", "surface/action/subtle-pressed", null, "text/on-action/subtle"],
-  ["outline", null, "surface/secondary/subtle", "surface/secondary/subtle-pressed", "stroke/action/subtle", "text/high"],
-  ["ghost", null, "surface/secondary/subtle", "surface/secondary/subtle-pressed", null, "text/high"],
-];
+// De kleurentabel uit button.md ("Kleuren per type en state"), zodat een wijziging in mcg-oneui hier vanzelf meekomt.
+function kleurtabel(): [string, (string | null)[]][] {
+  const blok = buttonMd.split("### Kleuren per type en state")[1] ?? "";
+  const rijen: [string, (string | null)[]][] = [];
+  for (const r of blok.split("\n")) {
+    if (!/^\|\s*(primary|secondary|outline|ghost)\s*\|/.test(r)) continue;
+    const c = r.split("|").slice(1, -1).map(x => x.trim().replace(/`/g, ""));
+    const vlak = c[1] === "—" ? null : c[1];
+    const voluit = (x: string) => (x === "—" ? null : x.startsWith("…") ? (vlak ?? "").replace(/\/[^/]+$/, "") + x.slice(1) : x);
+    rijen.push([c[0], [vlak, ...c.slice(2).map(voluit)]]);
+  }
+  return rijen;
+}
+const KLEUREN = kleurtabel();
 function Tok({ n }: { n: string | null }) {
   if (!n) return <Text as="span" variant="body-s" color="low">—</Text>;
   const { waarde, keten } = los(`{${n}}`);
@@ -132,12 +141,12 @@ export function ButtonPagina() {
         </div>
       </Sectie>
 
-      <Sectie titel="Kleuren" uitleg="Per type en toestand het token, met waar het naartoe wijst in het huidige thema. Primary is magenta met wit, secondary sky met donkere tekst.">
+      <Sectie titel="Kleuren" uitleg={<>Per type en toestand het token, met waar het naartoe wijst in het huidige thema. {(buttonMd.match(/In MCG is [^\n]*/) ?? [""])[0]}</>}>
         <div className="tabel-scroll">
           <table className="tabel">
             <thead><tr><th>Type</th><th>Vlak</th><th>Hover</th><th>Ingedrukt</th><th>Rand</th><th>Label en icoon</th></tr></thead>
             <tbody>
-              {KLEUREN.map(([t, ...k]) => (
+              {KLEUREN.map(([t, k]) => (
                 <tr key={t}><td><b>{t}</b></td>{k.map((n, i) => <td key={i}><Tok n={n} /></td>)}</tr>
               ))}
             </tbody>
