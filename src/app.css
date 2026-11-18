@@ -4,6 +4,8 @@
 html, body, #root { height: 100%; }
 a { color: inherit; text-decoration: none; }
 code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85em; color: var(--oneui-text-medium); }
+.codeblok { margin: 0; padding: var(--oneui-spacing-xl); overflow-x: auto; border-radius: var(--oneui-radius-xl); background: var(--oneui-surface-sunken); max-width: 100%; }
+.codeblok code { color: var(--oneui-text-high); line-height: 1.6; white-space: pre; }
 b { font-weight: 600; }
 :focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-stroke-primary-high); outline-offset: var(--oneui-spacing-2xs); }
 
@@ -229,3 +231,16 @@ b { font-weight: 600; }
 .deel + .deel { padding-top: var(--oneui-spacing-6xl); box-shadow: inset 0 var(--oneui-border-thin) 0 var(--oneui-stroke-neutral-low); }
 .deelkop { display: flex; flex-direction: column; gap: var(--oneui-spacing-xl); }
 .deelkop h2 { margin: 0; text-box: trim-both cap alphabetic; }
+
+/* ---------- voorbeelden van componenten ---------- */
+.staten { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--oneui-spacing-3xl) var(--oneui-spacing-2xl);
+  padding: var(--oneui-spacing-3xl); border-radius: var(--oneui-radius-xl); background: var(--oneui-surface-default);
+  box-shadow: inset 0 0 0 var(--oneui-border-thin) var(--oneui-stroke-neutral-low); }
+.staten + .staten { margin-top: var(--oneui-spacing-lg); }
+.staten.breed { grid-template-columns: minmax(0, 1fr); }
+.staat { display: flex; flex-direction: column; gap: var(--oneui-spacing-md); min-width: 0; }
+.staat__inhoud { min-width: 0; }
+.stapel { display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); }
+.inspring { display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); padding-left: var(--oneui-spacing-3xl); }
+.groep { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); }
+.groep legend { padding: 0; margin-bottom: var(--oneui-spacing-lg); }

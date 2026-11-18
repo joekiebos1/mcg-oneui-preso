@@ -1,10 +1,10 @@
-// Markdown uit mcg-oneui leesbaar maken: koppen (## en ###), alinea's, lijsten (- en 1.), tabellen, vet, cursief, code
+// Markdown uit mcg-oneui leesbaar maken: koppen (## en ###), alinea's, lijsten (- en 1.), tabellen, codeblokken, vet, cursief, code
 // en links. Genoeg voor de docs en de regels; wat er niet in past, staat er als gewone tekst.
 import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Text } from "../oneui/react/Text";
 
-export interface Blok { soort: "alinea" | "lijst" | "genummerd" | "tabel" | "kop3"; regels: string[] }
+export interface Blok { soort: "alinea" | "lijst" | "genummerd" | "tabel" | "kop3" | "code"; regels: string[] }
 export interface Deel { kop: string | null; blokken: Blok[] }
 
 /** De titel (# …) van een document. */
@@ -14,8 +14,14 @@ export const titel = (md: string) => md.match(/^# (.+)$/m)?.[1].trim() ?? "";
 export function delen(md: string): Deel[] {
   const uit: Deel[] = [{ kop: null, blokken: [] }];
   let blok: Blok | null = null;
+  let code: Blok | null = null;
   for (const r of md.replace(/<!--[\s\S]*?-->/g, "").split("\n")) {
     const deel = uit[uit.length - 1];
+    if (r.trim().startsWith("```")) {
+      if (code) code = null; else { code = { soort: "code", regels: [] }; deel.blokken.push(code); }
+      blok = null; continue;
+    }
+    if (code) { code.regels.push(r); continue; }
     if (r.startsWith("# ")) { blok = null; continue; }
     if (r.startsWith("## ")) { uit.push({ kop: r.slice(3).trim(), blokken: [] }); blok = null; continue; }
     if (r.startsWith("### ")) { deel.blokken.push({ soort: "kop3", regels: [r.slice(4).trim()] }); blok = null; continue; }
@@ -66,6 +72,7 @@ export function Blokken({ blokken, link }: { blokken: Blok[]; link?: Linker }) {
     <>
       {blokken.map((b, i) => {
         if (b.soort === "alinea") return <Text key={i} variant="body-m" className="leestekst">{inline(b.regels.join(" "), link)}</Text>;
+        if (b.soort === "code") return <pre key={i} className="codeblok"><code>{b.regels.join("\n")}</code></pre>;
         if (b.soort === "kop3") return <Text key={i} as="h3" variant="title-m">{inline(b.regels[0], link)}</Text>;
         if (b.soort === "tabel") {
           const [kop, , ...rijen] = b.regels;

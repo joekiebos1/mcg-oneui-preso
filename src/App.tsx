@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { Navigate, NavLink, Route, Routes, useLocation } from "react-router-dom";
 import { MENU, anker, type Item } from "./menu";
 import { Deel } from "./pages/Pagina";
-import { Pagina } from "./pages/Pagina";
+import { Pagina, Sectie } from "./pages/Pagina";
+import { VOORBEELDEN } from "./pages/components/Voorbeelden";
 import { Text } from "./oneui/react/Text";
 import type { ReactElement } from "react";
 import { IcoonChevron, IcoonZijbalk } from "./components/Iconen";
@@ -201,7 +202,11 @@ function NaarComponent() {
 
 function Component() {
   const { slug = "" } = useParams();
-  return <DocOp pad={`docs/components/${slug}.md`} map="components" bron={`docs/components/${slug}.md`} />;
+  const md = doc(`docs/components/${slug}.md`);
+  const Voorbeeld = VOORBEELDEN[slug];
+  if (!md) return <Placeholder />;
+  return <Doc md={md} link={linkVoor("components")} bron={`docs/components/${slug}.md`}
+    boven={Voorbeeld && <Sectie titel="Voorbeelden" uitleg="Werkende componenten uit mcg-oneui: probeer ze uit."><Voorbeeld /></Sectie>} />;
 }
 
 function Besluit() {
