@@ -1,6 +1,9 @@
 // Het menu van de presentatielaag. `klaar: false` = staat in het menu, maar is nog niet ingevuld.
+import { besluiten, componenten } from "./lib/docs";
+
 export interface Item { titel: string; pad: string; klaar?: boolean; kinderen?: Item[] }
 
+// Components en Decisions komen uit de docs van mcg-oneui: een nieuw document staat er vanzelf bij.
 export const MENU: Item[] = [
   {
     titel: "Foundations", pad: "/foundations", klaar: true, kinderen: [
@@ -11,30 +14,32 @@ export const MENU: Item[] = [
       { titel: "Border", pad: "/foundations/border", klaar: true },
       { titel: "Size", pad: "/foundations/size", klaar: true },
       { titel: "Elevation", pad: "/foundations/elevation", klaar: true },
-      { titel: "Iconography", pad: "/foundations/iconography" },
+      { titel: "Iconography", pad: "/foundations/iconography", klaar: true },
       { titel: "Motion", pad: "/foundations/motion", klaar: true },
     ],
   },
   {
-    titel: "Components", pad: "/components", klaar: true, kinderen: [
-      { titel: "Button", pad: "/components/button", klaar: true },
-    ],
+    titel: "Components", pad: "/components", klaar: true,
+    kinderen: componenten().map((c) => ({ titel: c.naam, pad: `/components/${c.slug}`, klaar: true })),
   },
   {
-    titel: "Rules", pad: "/rules", kinderen: [
-      { titel: "Product", pad: "/rules/product", kinderen: [
+    titel: "Rules", pad: "/rules", klaar: true, kinderen: [
+      { titel: "Product", pad: "/rules/product", klaar: true, kinderen: [
         { titel: "Page level", pad: "/rules/product/page" },
         { titel: "Flow level", pad: "/rules/product/flow" },
       ] },
-      { titel: "Content", pad: "/rules/content", kinderen: [
-        { titel: "Video", pad: "/rules/content/video" },
-        { titel: "Copy", pad: "/rules/content/copy" },
-        { titel: "Audio", pad: "/rules/content/audio" },
-        { titel: "Illustraties", pad: "/rules/content/illustraties" },
+      { titel: "Content", pad: "/rules/content", klaar: true, kinderen: [
+        { titel: "Copy", pad: "/rules/content/copy", klaar: true },
+        { titel: "Illustraties", pad: "/rules/content/illustraties", klaar: true },
+        { titel: "Beeldtaal", pad: "/rules/content/beeldtaal", klaar: true },
       ] },
     ],
   },
   { titel: "Patterns", pad: "/patterns" },
+  {
+    titel: "Decisions", pad: "/decisions", klaar: true,
+    kinderen: besluiten().map((b) => ({ titel: b.titel.replace(/^(\d+) — /, "$1 · "), pad: `/decisions/${b.slug}`, klaar: true })),
+  },
 ];
 
 export function vind(pad: string, items = MENU, ouders: Item[] = []): { item: Item; ouders: Item[] } | null {

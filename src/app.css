@@ -195,3 +195,6 @@ b { font-weight: 600; }
 .regels.genummerd li { counter-increment: stap; }
 .regels.genummerd li::before { content: counter(stap); width: auto; height: auto; border-radius: 0; background: none; margin-top: 0;
   color: var(--oneui-surface-primary-bold); font-weight: 600; }
+.tabel.doc td:first-child { white-space: normal; }
+.tabel.doc td, .tabel.doc th { vertical-align: top; }
+.bron { margin: 0; color: var(--oneui-text-low); }

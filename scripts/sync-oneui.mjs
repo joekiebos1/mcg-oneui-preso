@@ -18,7 +18,10 @@ for (const f of readdirSync(join(bron, "react/src"))) {
 }
 mkdirSync(join(doel, "docs/components"), { recursive: true });
 for (const f of ["kleur.md", "typografie.md", "ruimte.md", "motion.md"]) cpSync(join(bron, "docs/foundations", f), join(doel, "docs", f));
-for (const f of ["button.md"]) cpSync(join(bron, "docs/components", f), join(doel, "docs/components", f));
+// alle docs van de componenten, de besluiten, en de regels (rules/): de presentatielaag toont alles wat er is
+for (const f of readdirSync(join(bron, "docs/components"))) if (f.endsWith(".md")) cpSync(join(bron, "docs/components", f), join(doel, "docs/components", f));
+cpSync(join(bron, "docs/besluiten"), join(doel, "docs/besluiten"), { recursive: true });
+cpSync(join(bron, "rules"), join(doel, "rules"), { recursive: true });
 let versie = "onbekend";
 try { versie = execSync("git log -1 --format=%h%x20%cs", { cwd: bron }).toString().trim(); } catch {}
 writeFileSync(join(doel, "BRON.md"), `Gekopieerd uit mcg-oneui (${versie}) met \`npm run sync\`. Niet hier aanpassen: wijzig mcg-oneui en sync opnieuw.\n`);

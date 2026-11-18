@@ -10,7 +10,9 @@ import { Colours } from "./pages/foundations/Colours";
 import { Type } from "./pages/foundations/Type";
 import { Maten } from "./pages/foundations/Maten";
 import { Elevation } from "./pages/foundations/Elevation";
-import { Motion } from "./pages/foundations/Motion";
+import { Doc } from "./pages/Doc";
+import { doc, linkVoor } from "./lib/docs";
+import { useParams } from "react-router-dom";
 import { ButtonPagina } from "./pages/components/ButtonPagina";
 
 type Brand = "classic" | "round";
@@ -80,7 +82,15 @@ export function App() {
           <Route path="/" element={<Home />} />
           <Route path="/foundations" element={<FoundationsIndex />} />
           <Route path="/foundations/colours" element={<Colours />} />
-          <Route path="/foundations/motion" element={<Motion />} />
+          <Route path="/foundations/motion" element={<DocOp pad="docs/motion.md" bron="docs/foundations/motion.md" />} />
+          <Route path="/foundations/iconography" element={<DocOp pad="docs/components/icon.md" titel="Iconography" map="components" bron="docs/components/icon.md" />} />
+          <Route path="/components/:slug" element={<Component />} />
+          <Route path="/rules" element={<DocOp pad="rules/README.md" titel="Rules" bron="rules/README.md" />} />
+          <Route path="/rules/product" element={<DocOp pad="rules/product/README.md" bron="rules/product/README.md" />} />
+          <Route path="/rules/content/copy" element={<DocOp pad="rules/content/schrijfstijl.md" bron="rules/content/schrijfstijl.md" />} />
+          <Route path="/rules/content/illustraties" element={<DocOp pad="rules/content/illustraties.md" bron="rules/content/illustraties.md" />} />
+          <Route path="/rules/content/beeldtaal" element={<DocOp pad="rules/content/beeldtaal.md" bron="rules/content/beeldtaal.md" />} />
+          <Route path="/decisions/:slug" element={<Besluit />} />
           <Route path="/foundations/type" element={<Type />} />
           <Route path="/foundations/spacing" element={<Maten groep="spacing" />} />
           <Route path="/foundations/radius" element={<Maten groep="radius" />} />
@@ -93,4 +103,20 @@ export function App() {
       </main>
     </div>
   );
+}
+
+/** Een document uit mcg-oneui; bestaat het (nog) niet, dan de gewone lege pagina. */
+function DocOp({ pad, titel, map = "", bron }: { pad: string; titel?: string; map?: string; bron?: string }) {
+  const md = doc(pad);
+  return md ? <Doc md={md} titel={titel} link={linkVoor(map)} bron={bron} /> : <Placeholder />;
+}
+
+function Component() {
+  const { slug = "" } = useParams();
+  return <DocOp pad={`docs/components/${slug}.md`} map="components" bron={`docs/components/${slug}.md`} />;
+}
+
+function Besluit() {
+  const { slug = "" } = useParams();
+  return <DocOp pad={`docs/besluiten/${slug}.md`} map="besluiten" bron={`docs/besluiten/${slug}.md`} />;
 }

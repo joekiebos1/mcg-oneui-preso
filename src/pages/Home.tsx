@@ -14,9 +14,10 @@ export function Home() {
               <Text as="span" variant="body-s" color="medium">
                 {{
                   Foundations: "Kleur, typografie, ruimte en vorm.",
-                  Components: "De onderdelen van de interface, in alle toestanden, met documentatie. Nu: Button.",
-                  Rules: "Product (de interface: schermen en flows) en content (wat je laat zien: video, illustraties, tekst, audio).",
+                  Components: "De onderdelen van de interface, met hun varianten, instellingen en Mendix-route.",
+                  Rules: "Product (de interface: schermen en flows) en content: de schrijfstijl, de illustratiestijl en de beeldtaal.",
                   Patterns: "Waar product en content samenkomen, zoals een video in een les of een illustratie in een leeg scherm.",
+                  Decisions: "Waarom het systeem is zoals het is: de besluiten, met hun datum.",
                 }[m.titel]}
               </Text>
               {!m.klaar && <Text as="span" variant="label-s" color="low">Volgt</Text>}
