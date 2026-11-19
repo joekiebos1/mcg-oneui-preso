@@ -39,8 +39,8 @@ Het vak is hetzelfde als bij Input.
 | md (standaard) | 48 | `spacing/lg` | `spacing/xl` | `radius/lg` |
 | sm | 40 | `spacing/md` | `spacing/lg` | `radius/md` |
 
-Vlak `surface/default`. Rand `border/thin` in `stroke/neutral/low`, hover `stroke/neutral/high`, focus 2 breed in
-`stroke/sky/medium` (het vak verschuift niet). Tekst label/M in `text/high`, placeholder `text/low`. Iconen
+Het vak is dat van Input: een gevuld vlak zonder rand (`surface/sunken`, `radius/2xl`), hover een stap dieper, bij focus
+`surface/default` met schaduw. Tekst label/M in `text/high`, placeholder `text/low`. Iconen
 `size/xs` in `icon/medium`, `spacing/md` van de tekst.
 
 Rechts een chevron omlaag (`size/xs`, `icon/medium`). Niets gekozen: de placeholder in `text/low`.
@@ -54,8 +54,8 @@ De state **open** in Figma is in React de lijst van de browser zelf (een native 
 | label | label/M, `text/high` |
 | hulptekst | body/XS, `text/medium` |
 | ruimte tussen label, vak en hulptekst | `spacing/xs` |
-| fout | vak `surface/negative/subtle`, rand `stroke/negative/medium`; de melding vervangt de hulptekst |
-| uitgeschakeld | vak `surface/disabled`, rand `stroke/disabled`, tekst `text/disabled` |
+| fout | vak `surface/negative/subtle`, zonder rand; de melding in `icon/negative` vervangt de hulptekst |
+| uitgeschakeld | vak `surface/disabled`, tekst `text/disabled` |
 
 ## React
 

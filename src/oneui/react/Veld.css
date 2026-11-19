@@ -16,7 +16,7 @@
   letter-spacing: var(--oneui-type-body-xs-letter-spacing);
 }
 .oneui-veld__rechts { margin-left: auto; font-variant-numeric: tabular-nums; }
-.oneui-veld.is-error .oneui-veld__melding { color: var(--oneui-stroke-negative-high); }
+.oneui-veld.is-error .oneui-veld__melding { color: var(--oneui-icon-negative); }
 .oneui-veld.is-disabled .oneui-veld__label, .oneui-veld.is-disabled .oneui-veld__hint { color: var(--oneui-text-disabled); }
 
 /* Het vak zelf (Figma: Body), in de stijl Rond: een gevuld vlak zonder rand. md 48 hoog, sm 40.

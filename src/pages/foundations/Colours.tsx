@@ -74,7 +74,7 @@ function Semantisch() {
     surface: "Vlakken: de pagina, kaarten, en gekleurde vlakken per rol (subtle, bold, deep).",
     text: "Tekstkleuren, van high (belangrijk) tot low, plus tekst op gekleurde vlakken.",
     icon: "Iconen. Meestal gelijk aan de tekst ernaast.",
-    stroke: "Randen en lijnen.",
+    stroke: "Twee lijnen: low voor een scheidingslijn, medium voor een vorm die 3:1 moet halen. Componenten hebben geen randen.",
     interaction: "Focus en selectie.",
     effect: "De kleuren van schaduwen (zie Elevation).",
   };

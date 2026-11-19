@@ -174,7 +174,6 @@
   --oneui-icon-warning: var(--oneui-orange-600);
   --oneui-stroke-neutral-low: var(--oneui-slate-200);
   --oneui-stroke-neutral-medium: var(--oneui-slate-500);
-  --oneui-stroke-disabled: var(--oneui-slate-200);
   --oneui-surface-overlay: #0000007a;
   --oneui-effect-shadow-key: #2327291a;
   --oneui-effect-shadow-ambient: #2327290f;
@@ -202,28 +201,6 @@
   --oneui-surface-amber-deep: var(--oneui-amber-950);
   --oneui-surface-amber-subtle-hover: var(--oneui-amber-200);
   --oneui-surface-amber-subtle-pressed: var(--oneui-amber-300);
-  --oneui-stroke-magenta-medium: var(--oneui-magenta-600);
-  --oneui-stroke-magenta-low: var(--oneui-magenta-200);
-  --oneui-stroke-sky-medium: var(--oneui-sky-600);
-  --oneui-stroke-sky-low: var(--oneui-sky-200);
-  --oneui-stroke-amber-medium: var(--oneui-amber-600);
-  --oneui-stroke-amber-low: var(--oneui-amber-200);
-  --oneui-stroke-positive-medium: var(--oneui-green-600);
-  --oneui-stroke-positive-low: var(--oneui-green-200);
-  --oneui-stroke-negative-medium: var(--oneui-red-600);
-  --oneui-stroke-negative-low: var(--oneui-red-200);
-  --oneui-stroke-warning-medium: var(--oneui-orange-600);
-  --oneui-stroke-warning-low: var(--oneui-orange-200);
-  --oneui-stroke-informative-medium: var(--oneui-sky-600);
-  --oneui-stroke-informative-low: var(--oneui-sky-200);
-  --oneui-stroke-neutral-high: var(--oneui-slate-700);
-  --oneui-stroke-magenta-high: var(--oneui-magenta-800);
-  --oneui-stroke-sky-high: var(--oneui-sky-800);
-  --oneui-stroke-amber-high: var(--oneui-amber-800);
-  --oneui-stroke-positive-high: var(--oneui-green-800);
-  --oneui-stroke-negative-high: var(--oneui-red-800);
-  --oneui-stroke-warning-high: var(--oneui-orange-800);
-  --oneui-stroke-informative-high: var(--oneui-sky-800);
   --oneui-surface-neutral-subtle: var(--oneui-slate-100);
   --oneui-surface-neutral-subtle-hover: var(--oneui-slate-200);
   --oneui-surface-neutral-subtle-pressed: var(--oneui-slate-300);
@@ -249,7 +226,6 @@
   --oneui-surface-action-secondary-hover: var(--oneui-sky-300);
   --oneui-surface-action-secondary-pressed: var(--oneui-sky-400);
   --oneui-text-on-action-secondary: var(--oneui-sky-950);
-  --oneui-stroke-action-secondary: var(--oneui-sky-600);
   --oneui-surface-violet-subtle: var(--oneui-violet-100);
   --oneui-surface-violet-bold: var(--oneui-violet-600);
   --oneui-icon-violet: var(--oneui-violet-600);
@@ -259,9 +235,6 @@
   --oneui-surface-violet-deep: var(--oneui-violet-950);
   --oneui-surface-violet-subtle-hover: var(--oneui-violet-200);
   --oneui-surface-violet-subtle-pressed: var(--oneui-violet-300);
-  --oneui-stroke-violet-medium: var(--oneui-violet-600);
-  --oneui-stroke-violet-low: var(--oneui-violet-200);
-  --oneui-stroke-violet-high: var(--oneui-violet-800);
   --oneui-text-on-bold-violet: var(--oneui-base-white);
 }
 
@@ -305,7 +278,6 @@
   --oneui-icon-warning: var(--oneui-orange-300);
   --oneui-stroke-neutral-low: var(--oneui-slate-800);
   --oneui-stroke-neutral-medium: var(--oneui-slate-500);
-  --oneui-stroke-disabled: var(--oneui-slate-800);
   --oneui-surface-overlay: #000000a3;
   --oneui-effect-shadow-key: #0000005c;
   --oneui-effect-shadow-ambient: #0000003d;
@@ -333,28 +305,6 @@
   --oneui-surface-amber-deep: var(--oneui-amber-950);
   --oneui-surface-amber-subtle-hover: var(--oneui-amber-900);
   --oneui-surface-amber-subtle-pressed: var(--oneui-amber-800);
-  --oneui-stroke-magenta-medium: var(--oneui-magenta-400);
-  --oneui-stroke-magenta-low: var(--oneui-magenta-800);
-  --oneui-stroke-sky-medium: var(--oneui-sky-400);
-  --oneui-stroke-sky-low: var(--oneui-sky-800);
-  --oneui-stroke-amber-medium: var(--oneui-amber-400);
-  --oneui-stroke-amber-low: var(--oneui-amber-800);
-  --oneui-stroke-positive-medium: var(--oneui-green-400);
-  --oneui-stroke-positive-low: var(--oneui-green-800);
-  --oneui-stroke-negative-medium: var(--oneui-red-400);
-  --oneui-stroke-negative-low: var(--oneui-red-800);
-  --oneui-stroke-warning-medium: var(--oneui-orange-400);
-  --oneui-stroke-warning-low: var(--oneui-orange-800);
-  --oneui-stroke-informative-medium: var(--oneui-sky-400);
-  --oneui-stroke-informative-low: var(--oneui-sky-800);
-  --oneui-stroke-neutral-high: var(--oneui-slate-300);
-  --oneui-stroke-magenta-high: var(--oneui-magenta-200);
-  --oneui-stroke-sky-high: var(--oneui-sky-200);
-  --oneui-stroke-amber-high: var(--oneui-amber-200);
-  --oneui-stroke-positive-high: var(--oneui-green-200);
-  --oneui-stroke-negative-high: var(--oneui-red-200);
-  --oneui-stroke-warning-high: var(--oneui-orange-200);
-  --oneui-stroke-informative-high: var(--oneui-sky-200);
   --oneui-surface-neutral-subtle: var(--oneui-slate-900);
   --oneui-surface-neutral-subtle-hover: var(--oneui-slate-800);
   --oneui-surface-neutral-subtle-pressed: var(--oneui-slate-700);
@@ -380,7 +330,6 @@
   --oneui-surface-action-secondary-hover: var(--oneui-sky-300);
   --oneui-surface-action-secondary-pressed: var(--oneui-sky-400);
   --oneui-text-on-action-secondary: var(--oneui-sky-950);
-  --oneui-stroke-action-secondary: var(--oneui-sky-400);
   --oneui-surface-violet-subtle: var(--oneui-violet-950);
   --oneui-surface-violet-bold: var(--oneui-violet-600);
   --oneui-icon-violet: var(--oneui-violet-300);
@@ -390,9 +339,6 @@
   --oneui-surface-violet-deep: var(--oneui-violet-950);
   --oneui-surface-violet-subtle-hover: var(--oneui-violet-900);
   --oneui-surface-violet-subtle-pressed: var(--oneui-violet-800);
-  --oneui-stroke-violet-medium: var(--oneui-violet-400);
-  --oneui-stroke-violet-low: var(--oneui-violet-800);
-  --oneui-stroke-violet-high: var(--oneui-violet-200);
   --oneui-text-on-bold-violet: var(--oneui-base-white);
 }
 
@@ -437,7 +383,6 @@
     --oneui-icon-warning: var(--oneui-orange-300);
     --oneui-stroke-neutral-low: var(--oneui-slate-800);
     --oneui-stroke-neutral-medium: var(--oneui-slate-500);
-    --oneui-stroke-disabled: var(--oneui-slate-800);
     --oneui-surface-overlay: #000000a3;
     --oneui-effect-shadow-key: #0000005c;
     --oneui-effect-shadow-ambient: #0000003d;
@@ -465,28 +410,6 @@
     --oneui-surface-amber-deep: var(--oneui-amber-950);
     --oneui-surface-amber-subtle-hover: var(--oneui-amber-900);
     --oneui-surface-amber-subtle-pressed: var(--oneui-amber-800);
-    --oneui-stroke-magenta-medium: var(--oneui-magenta-400);
-    --oneui-stroke-magenta-low: var(--oneui-magenta-800);
-    --oneui-stroke-sky-medium: var(--oneui-sky-400);
-    --oneui-stroke-sky-low: var(--oneui-sky-800);
-    --oneui-stroke-amber-medium: var(--oneui-amber-400);
-    --oneui-stroke-amber-low: var(--oneui-amber-800);
-    --oneui-stroke-positive-medium: var(--oneui-green-400);
-    --oneui-stroke-positive-low: var(--oneui-green-800);
-    --oneui-stroke-negative-medium: var(--oneui-red-400);
-    --oneui-stroke-negative-low: var(--oneui-red-800);
-    --oneui-stroke-warning-medium: var(--oneui-orange-400);
-    --oneui-stroke-warning-low: var(--oneui-orange-800);
-    --oneui-stroke-informative-medium: var(--oneui-sky-400);
-    --oneui-stroke-informative-low: var(--oneui-sky-800);
-    --oneui-stroke-neutral-high: var(--oneui-slate-300);
-    --oneui-stroke-magenta-high: var(--oneui-magenta-200);
-    --oneui-stroke-sky-high: var(--oneui-sky-200);
-    --oneui-stroke-amber-high: var(--oneui-amber-200);
-    --oneui-stroke-positive-high: var(--oneui-green-200);
-    --oneui-stroke-negative-high: var(--oneui-red-200);
-    --oneui-stroke-warning-high: var(--oneui-orange-200);
-    --oneui-stroke-informative-high: var(--oneui-sky-200);
     --oneui-surface-neutral-subtle: var(--oneui-slate-900);
     --oneui-surface-neutral-subtle-hover: var(--oneui-slate-800);
     --oneui-surface-neutral-subtle-pressed: var(--oneui-slate-700);
@@ -512,7 +435,6 @@
     --oneui-surface-action-secondary-hover: var(--oneui-sky-300);
     --oneui-surface-action-secondary-pressed: var(--oneui-sky-400);
     --oneui-text-on-action-secondary: var(--oneui-sky-950);
-    --oneui-stroke-action-secondary: var(--oneui-sky-400);
     --oneui-surface-violet-subtle: var(--oneui-violet-950);
     --oneui-surface-violet-bold: var(--oneui-violet-600);
     --oneui-icon-violet: var(--oneui-violet-300);
@@ -522,9 +444,6 @@
     --oneui-surface-violet-deep: var(--oneui-violet-950);
     --oneui-surface-violet-subtle-hover: var(--oneui-violet-900);
     --oneui-surface-violet-subtle-pressed: var(--oneui-violet-800);
-    --oneui-stroke-violet-medium: var(--oneui-violet-400);
-    --oneui-stroke-violet-low: var(--oneui-violet-800);
-    --oneui-stroke-violet-high: var(--oneui-violet-200);
     --oneui-text-on-bold-violet: var(--oneui-base-white);
   }
 }

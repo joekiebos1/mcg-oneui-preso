@@ -1,5 +1,5 @@
 /* OneUI Tabs. Per tab: inhoud met padding 0 16 (spacing/xl), daaronder op 12 (spacing/lg) de lijn over de hele tab:
-   2 in stroke/neutral/low, hover stroke/neutral/medium, actief 3 in stroke/magenta/medium. */
+   2 in stroke/neutral/low, hover stroke/neutral/medium, actief 3 in surface/magenta/bold. */
 .oneui-tabs { display: flex; overflow-x: auto; scrollbar-width: none; }
 .oneui-tabs::-webkit-scrollbar { display: none; }
 .oneui-tab {
@@ -18,11 +18,11 @@
 .oneui-tab.is-actief { color: var(--oneui-text-high); }
 .oneui-tab.is-actief .oneui-tab__icoon { color: var(--oneui-icon-magenta); }
 .oneui-tab.is-actief .oneui-tab__lijn, .oneui-tab.is-actief:hover .oneui-tab__lijn {
-  height: calc(var(--oneui-border-thick) + var(--oneui-border-thin)); margin-top: 0; background: var(--oneui-stroke-magenta-medium);
+  height: calc(var(--oneui-border-thick) + var(--oneui-border-thin)); margin-top: 0; background: var(--oneui-surface-magenta-bold);
 }
 .oneui-tab:disabled { cursor: not-allowed; color: var(--oneui-text-disabled); }
 .oneui-tab:disabled .oneui-tab__icoon { color: var(--oneui-icon-disabled); }
-.oneui-tab:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-stroke-sky-medium); outline-offset: var(--oneui-spacing-2xs); border-radius: var(--oneui-radius-xs); }
+.oneui-tab:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs); border-radius: var(--oneui-radius-xs); }
 /* de teller: Badge counter, neutral bold, size s (20 hoog) */
 .oneui-tab__teller {
   display: inline-grid; place-items: center; min-width: var(--oneui-size-xs); height: var(--oneui-size-xs);

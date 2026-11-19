@@ -66,7 +66,7 @@ cursor in `interaction/focusRing`. Tekst label/M in `text/high`, placeholder `te
 | label | label/M, `text/high`, ingesprongen tot de tekst in het vak (`spacing/xl`, bij sm `spacing/lg`) |
 | hulptekst | body/XS, `text/medium`, net zo ingesprongen |
 | ruimte tussen label, vak en hulptekst | `spacing/sm` |
-| fout | vak `surface/negative/subtle`, zonder rand; de melding in `stroke/negative/high` vervangt de hulptekst |
+| fout | vak `surface/negative/subtle`, zonder rand; de melding in `icon/negative` vervangt de hulptekst |
 | uitgeschakeld | vak `surface/disabled`, tekst `text/disabled` |
 
 Select deelt dit vak. De Editor heeft nog een rand; die volgt later.

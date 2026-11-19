@@ -22,6 +22,10 @@ Amber loopt van geel (zon) via goud naar terracotta.
 2. **semantic**: wat componenten gebruiken (`surface/…`, `text/…`, `icon/…`, `stroke/…`), in licht en donker. Het
    wijst direct naar de ladders; er is geen brand-laag ([besluit 006](../besluiten/006-geen-brand-laag.md)).
 
+Lijnen zijn er nog twee ([besluit 007](../besluiten/007-twee-lijnen.md)): `stroke/neutral/low` voor een scheidingslijn of
+een lijn in tekst, `stroke/neutral/medium` voor een vorm die 3:1 moet halen. Componenten hebben geen randen
+([besluit 004](../besluiten/004-rond-vlakken-geen-randen.md)); focus is `interaction/focusRing`.
+
 De semantiek heeft twee soorten namen:
 
 - **functie**, waar de naam iets zegt over wat het doet: `action/primary` en `action/secondary` (knoppen),
@@ -65,8 +69,8 @@ illustratie naadloos aansluit op een slide met `surface/<kleur>/deep`.
 
 Knoppen hebben hun eigen rol: `surface/action/primary` is sky/700 met wit (hover 800, ingedrukt 900),
 `surface/action/secondary` is sky/200 met sky/950 (hover 300, ingedrukt 400). Dat staat los van subtle, bold en deep:
-`surface/sky/bold` blijft sky/400, voor vlakken en accenten. `interaction/focusRing` en `stroke/action/secondary` zijn
-sky/600 (donker sky/400).
+`surface/sky/bold` blijft sky/400, voor vlakken en accenten. `interaction/focusRing` is sky/600
+(donker sky/400).
 
 ## Regels
 
