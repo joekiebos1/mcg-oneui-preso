@@ -1,0 +1,11 @@
+/* OneUI Icon: de zeven maten uit DS Components › Icon (12, 16, 20, 24, 32, 40, 48). Er is geen size-token van 12:
+   2xs is driekwart van size/2xs, zoals het vinkje in een kleine checkbox. Een component dat een icoon draagt, zet
+   zelf de maat (dat wint van deze klassen). */
+.oneui-icon { display: inline-block; flex: none; vertical-align: middle; width: var(--_maat); height: var(--_maat); }
+.oneui-icon--2xs { --_maat: calc(var(--oneui-size-2xs) * 0.75); }
+.oneui-icon--xs { --_maat: var(--oneui-size-2xs); }
+.oneui-icon--s { --_maat: var(--oneui-size-xs); }
+.oneui-icon--m { --_maat: var(--oneui-size-sm); }
+.oneui-icon--l { --_maat: var(--oneui-size-lg); }
+.oneui-icon--xl { --_maat: var(--oneui-size-2xl); }
+.oneui-icon--2xl { --_maat: var(--oneui-size-3xl); }

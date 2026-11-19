@@ -4,6 +4,9 @@
 - [Icon Button](icon-button.md)
 - [Input](input.md)
 - [Select](select.md)
+- [Checkbox](checkbox.md)
+- [Radio](radio.md)
+- [Editor](editor.md)
 - [Toggle](toggle.md)
 - [Icon](icon.md)
 - [Nav item](nav-item.md)
@@ -15,9 +18,6 @@
 
 ## Nog niet in Rond
 
-- [Checkbox](checkbox.md)
-- [Radio](radio.md)
-- [Editor](editor.md)
 - [Chip](chip.md)
 - [Badge](badge.md)
 - [Avatar](avatar.md)

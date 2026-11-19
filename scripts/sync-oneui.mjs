@@ -15,7 +15,7 @@ cpSync(join(bron, "dist/tokens.css"), join(doel, "tokens.css"));
 cpSync(join(bron, "dist/tokens.json"), join(doel, "tokens.json"));
 cpSync(join(bron, "dist/fonts"), join(doel, "fonts"), { recursive: true });
 for (const f of readdirSync(join(bron, "react/src"))) {
-  if (/\.(tsx|css)$/.test(f) && !/\.test\./.test(f)) cpSync(join(bron, "react/src", f), join(doel, "react", f));
+  if ((/\.(tsx|css)$/.test(f) || f === "icondata.ts") && !/\.test\./.test(f)) cpSync(join(bron, "react/src", f), join(doel, "react", f));
 }
 mkdirSync(join(doel, "docs/components"), { recursive: true });
 for (const f of ["kleur.md", "typografie.md", "ruimte.md", "motion.md"]) cpSync(join(bron, "docs/foundations", f), join(doel, "docs", f));

@@ -1,6 +1,8 @@
-/* Checkbox en Radio (Figma: box of radio, en Label). md 20, sm 16; ruimte ernaast spacing/md. */
+/* Checkbox en Radio (Figma: box of radio, en Label), in de stijl Rond: een gevuld vlak zonder rand, zoals de baan van
+   Toggle. Uit is grijs (surface/neutral/subtle-pressed), aan is action/primary met het teken in text/on-action/primary.
+   md 20, sm 16; ruimte ernaast spacing/md. Focus: alleen bij het toetsenbord, een ring los van het vakje. */
 .oneui-keuze {
-  --_maat: var(--oneui-size-xs); --_rand: var(--oneui-stroke-neutral-medium); --_dik: var(--oneui-border-thin);
+  --_maat: var(--oneui-size-xs); --_vlak: var(--oneui-surface-neutral-subtle-pressed);
   position: relative; display: inline-flex; align-items: flex-start; gap: var(--oneui-spacing-md); cursor: pointer;
   color: var(--oneui-text-high);
   font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);
@@ -13,30 +15,44 @@
 .oneui-keuze__vak {
   flex: none; display: inline-grid; place-items: center; width: var(--_maat); height: var(--_maat);
   margin-top: calc((var(--oneui-type-label-m-line-height) - var(--_maat)) / 2);
-  background: var(--oneui-surface-default); box-shadow: inset 0 0 0 var(--_dik) var(--_rand);
-  color: var(--oneui-text-on-bold-sky); transition: background-color 120ms ease, box-shadow 120ms ease;
+  background: var(--_vlak); color: var(--oneui-text-on-action-primary);
+  transition: background-color 160ms ease, transform 160ms ease;
 }
-.oneui-keuze:hover .oneui-keuze__vak { --_rand: var(--oneui-stroke-neutral-high); }
+.oneui-keuze:hover .oneui-keuze__veld:not(:disabled) + .oneui-keuze__vak {
+  --_vlak: color-mix(in srgb, var(--oneui-surface-neutral-subtle-pressed), var(--oneui-icon-high) 10%);
+}
 .oneui-keuze__veld:checked + .oneui-keuze__vak, .oneui-keuze__veld:indeterminate + .oneui-keuze__vak {
-  background: var(--oneui-surface-sky-bold); --_rand: var(--oneui-stroke-sky-medium);
+  --_vlak: var(--oneui-surface-action-primary);
 }
-.oneui-keuze__veld:focus-visible + .oneui-keuze__vak { --_rand: var(--oneui-stroke-sky-medium); --_dik: var(--oneui-border-thick); }
+.oneui-keuze:hover .oneui-keuze__veld:is(:checked, :indeterminate):not(:disabled) + .oneui-keuze__vak {
+  --_vlak: var(--oneui-surface-action-primary-hover);
+}
+.oneui-keuze:active .oneui-keuze__veld:not(:disabled) + .oneui-keuze__vak { transform: scale(0.9); }
+.oneui-keuze__veld:focus-visible + .oneui-keuze__vak {
+  outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs);
+}
 .oneui-keuze.is-disabled { cursor: not-allowed; color: var(--oneui-text-disabled); }
-.oneui-keuze.is-disabled .oneui-keuze__vak { background: var(--oneui-surface-disabled); --_rand: var(--oneui-stroke-disabled); color: var(--oneui-icon-disabled); }
+.oneui-keuze.is-disabled .oneui-keuze__vak { --_vlak: var(--oneui-surface-disabled); color: var(--oneui-icon-disabled); }
+.oneui-keuze.is-disabled .oneui-keuze__veld:is(:checked, :indeterminate) + .oneui-keuze__vak {
+  --_vlak: var(--oneui-surface-action-primary); color: var(--oneui-text-on-action-primary); opacity: 0.35;
+}
 .oneui-keuze__label:empty { display: none; }
 
-/* Checkbox: radius/xs; vink of streep (md 16, sm 12) alleen als hij aan staat */
-.oneui-checkbox .oneui-keuze__vak { border-radius: var(--oneui-radius-xs); }
+/* Checkbox: radius/sm (sm radius/xs); vink of streep (md 16, sm 12) alleen als hij aan staat, met een dikke lijn */
+.oneui-checkbox .oneui-keuze__vak { border-radius: var(--oneui-radius-sm); }
+.oneui-checkbox.oneui-keuze--sm .oneui-keuze__vak { border-radius: var(--oneui-radius-xs); }
 .oneui-checkbox__teken { display: none; width: var(--oneui-size-2xs); height: var(--oneui-size-2xs); }
 .oneui-keuze--sm .oneui-checkbox__teken { width: calc(var(--oneui-size-2xs) * 0.75); height: calc(var(--oneui-size-2xs) * 0.75); }
-.oneui-checkbox__teken > svg { width: 100%; height: 100%; }
+.oneui-checkbox__teken > svg { width: 100%; height: 100%; stroke-width: 3; }
 .oneui-keuze__veld:checked:not(:indeterminate) + .oneui-keuze__vak .is-vink,
 .oneui-keuze__veld:indeterminate + .oneui-keuze__vak .is-min { display: inline-flex; }
 
-/* Radio: rond, een stip van 8 (sm 6) in icon/on-bold */
+/* Radio: rond, een witte stip van 8 (sm 6) die erin springt */
 .oneui-radio .oneui-keuze__vak { border-radius: var(--oneui-radius-full); }
-.oneui-radio__stip { width: var(--oneui-spacing-md); height: var(--oneui-spacing-md); border-radius: var(--oneui-radius-full); background: var(--oneui-icon-on-bold); transform: scale(0); transition: transform 120ms ease; }
+.oneui-radio__stip {
+  width: var(--oneui-spacing-md); height: var(--oneui-spacing-md); border-radius: var(--oneui-radius-full);
+  background: var(--oneui-text-on-action-primary); transform: scale(0); transition: transform 200ms cubic-bezier(0.3, 1.4, 0.5, 1);
+}
 .oneui-keuze--sm .oneui-radio__stip { width: var(--oneui-spacing-sm); height: var(--oneui-spacing-sm); }
 .oneui-keuze__veld:checked + .oneui-keuze__vak .oneui-radio__stip { transform: scale(1); }
-.oneui-keuze.is-disabled .oneui-radio__stip { background: var(--oneui-icon-disabled); }
 @media (prefers-reduced-motion: reduce) { .oneui-keuze__vak, .oneui-radio__stip { transition: none; } }

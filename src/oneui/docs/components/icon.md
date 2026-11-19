@@ -46,7 +46,23 @@ Het volle icoon volgt vaste regels, zodat het bij elk icoon hetzelfde voelt:
 ## Referentie
 
 Figma: DS Components › Icon (de laag Icon Asset is blootgesteld, zodat Fill in het eigenschappenpaneel staat) en
-DS-Icons › Icons met fill. In code is een icoon een SVG met `currentColor`; een Icon-component in code volgt.
+DS-Icons › Icons met fill.
+
+## In code
+
+```tsx
+import { Icon } from "@mcg/oneui-react";
+
+<Icon name="moon" />                 {/* lijn, 24 px, decoratief */}
+<Icon name="moon" fill size="l" />   {/* vol, 32 px */}
+<Icon name="star" label="Favoriet" /> {/* zonder tekst ernaast: met label */}
+```
+
+- `name` is een van de 65 iconen uit DS-Icons › Icons met fill. De paden staan in `react/src/icondata.ts`, gemaakt
+  door `scripts/iconen.mjs` uit `figma/export/iconen.json`. Nieuwe iconen: exporteer opnieuw uit Figma, niet overtypen.
+- Kleur via `currentColor`: zet `color` op de plek waar het icoon staat, met een icon-token.
+- In een component geef je de naam mee en bepaalt het component maat en vulling: List item vol (`iconFill={false}`
+  voor de lijn), Nav item vol als het actief is, Button en Icon Button lijn (Icon Button: `iconFill`).
 <!-- /handmatig -->
 
 _Bron: DS-Components in Figma. Varianten en instellingen worden gegenereerd door `scripts/docs.mjs`._

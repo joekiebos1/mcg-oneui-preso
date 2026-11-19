@@ -26,15 +26,18 @@ _Nog in te vullen._
 
 ## Specificatie
 
+In de stijl Rond: een gevuld vlak zonder rand, zoals Input. Geen lijnen in de werkbalk.
+
 | deel | token |
 |---|---|
-| vak | `radius/lg`, `surface/default`, rand `border/thin` in `stroke/neutral/medium` |
-| focus | rand 2 breed in `stroke/sky/medium` |
+| vak | `radius/2xl`, `surface/sunken`; hover een stap dieper |
+| focus | het vlak wordt `surface/default` en krijgt de schaduw van Input |
 | tekst | padding `spacing/xl`, label/M, `text/high`; placeholder `text/low` |
-| werkbalk | onder de tekst, padding `spacing/md` `spacing/lg`, lijn erboven `stroke/neutral/low` |
-| knoppen | `size/sm` (24), `radius/sm`, icoon `size/2xs` in `icon/medium`; aan `surface/sky/subtle` |
-| groepen | `spacing/md` ertussen, gescheiden door een lijn van `size/xs` hoog |
-| uitgeschakeld | vlak `surface/disabled`, rand `stroke/disabled`, tekst `text/disabled` |
+| werkbalk | onder de tekst, padding `spacing/md` opzij en onder, geen lijn erboven |
+| knoppen | rond, `size/md` (28), icoon `size/2xs` in `icon/medium`; hover `surface/neutral/subtle-hover`, aan `surface/sky/subtle`; ingedrukt schaal 0,92 |
+| groepen | `spacing/lg` ertussen, geen scheidingslijn |
+| focus op een knop | een ring van `border/thick` in `interaction/focusRing` |
+| uitgeschakeld | vlak `surface/disabled`, tekst `text/disabled` |
 
 Werkbalk: vet, cursief, onderstreept · kop 1, kop 2 · genummerd, opsomming · lijn, link. Kop 1 is title/L, kop 2
 title/M.

@@ -16,6 +16,8 @@ import { Nav, NavItem } from "../../oneui/react/NavItem";
 import { ProgressBar, ProgressRing } from "../../oneui/react/Progress";
 import { Slider } from "../../oneui/react/Slider";
 import { Dialog } from "../../oneui/react/Dialog";
+import { Icon } from "../../oneui/react/Icon";
+import { ICOONNAMEN } from "../../oneui/react/icondata";
 import { IcoonComponent, IcoonKleur, IcoonIcoon } from "../../components/Iconen";
 
 const Staat = ({ naam, children }: { naam: string; children: ReactNode }) => (
@@ -30,15 +32,6 @@ const Plus = () => <S><path d="M12 5v14M5 12h14" /></S>;
 const Zoek = () => <S><circle cx="11" cy="11" r="6.5" /><path d="m16 16 4 4" /></S>;
 const Hart = () => <S><path d="M12 19s-7-4.4-7-9.5A3.8 3.8 0 0 1 12 7.3a3.8 3.8 0 0 1 7 2.2C19 14.6 12 19 12 19Z" /></S>;
 const Meer = () => <S><path d="M6 12h.01M12 12h.01M18 12h.01" /></S>;
-const Huis = () => <S><path d="M4.5 10.5 12 4.5l7.5 6V19a1 1 0 0 1-1 1h-13a1 1 0 0 1-1-1Z" /><path d="M10 20v-5h4v5" /></S>;
-const Mensen = () => <S><circle cx="9" cy="8.5" r="3" /><path d="M3.5 19a5.5 5.5 0 0 1 11 0M15.5 5.7a3 3 0 0 1 0 5.6M17 13.6a5.5 5.5 0 0 1 3.5 5.4" /></S>;
-const Agenda = () => <S><rect x="4" y="5.5" width="16" height="14.5" rx="2.5" /><path d="M4 10h16M8.5 3.5v4M15.5 3.5v4" /></S>;
-const Bericht = () => <S><path d="M5 5.5h14a1.5 1.5 0 0 1 1.5 1.5v9a1.5 1.5 0 0 1-1.5 1.5H10l-4.5 3v-3H5A1.5 1.5 0 0 1 3.5 16V7A1.5 1.5 0 0 1 5 5.5Z" /></S>;
-const Grafiek = () => <S><path d="M5 19v-6M12 19V5M19 19v-9" /></S>;
-const Speel = () => <S><path d="M8 5.5v13l10-6.5Z" /></S>;
-const Wind = () => <S><path d="M4 9h10a2.5 2.5 0 1 0-2.5-2.5M4 15h13a2.5 2.5 0 1 1-2.5 2.5M4 12h7" /></S>;
-const Pen = () => <S><path d="M14.5 5.5 18.5 9.5 9 19H5v-4Z" /></S>;
-const Maan = () => <S><path d="M19 14.5A7.5 7.5 0 0 1 9.5 5 7.5 7.5 0 1 0 19 14.5Z" /></S>;
 const Pauze = () => <S><path d="M9 6v12M15 6v12" /></S>;
 const Vink = () => <S><path d="m5 12.5 4.5 4.5L19 7.5" /></S>;
 
@@ -185,19 +178,19 @@ function ListVoorbeelden() {
       <Staat naam="op de pagina">
         <div className="paginavlak">
           <List>
-            <ListItem title="Wat is slaapdruk?" description="Video · 3 min" icon={<Speel />} tone="magenta" done
+            <ListItem title="Wat is slaapdruk?" description="Video · 3 min" icon="video" tone="magenta" done
               trailing={<span className="vinkbol"><Vink /></span>} />
-            <ListItem title="Ademhaling 4-7-8" description="Oefening · 5 min" icon={<Wind />} tone="sky" onClick={() => {}} />
-            <ListItem title="Slaapdagboek" description="Opdracht · elke ochtend" icon={<Pen />} tone="amber" onClick={() => {}} />
-            <ListItem title="Een vast ritme" description="Les 4 · nog niet open" icon={<Maan />} tone="violet" trailing="ma" />
+            <ListItem title="Ademhaling 4-7-8" description="Oefening · 5 min" icon="sparkle" tone="sky" onClick={() => {}} />
+            <ListItem title="Slaapdagboek" description="Opdracht · elke ochtend" icon="pen-writing" tone="amber" onClick={() => {}} />
+            <ListItem title="Een vast ritme" description="Les 4 · nog niet open" icon="moon" tone="violet" trailing="ma" />
           </List>
         </div>
       </Staat>
       <Staat naam="surface sunken, in een wit vlak">
         <List surface="sunken">
-          <ListItem title="Sanne de Vries" description="Laatste sessie gisteren" icon={<Mensen />} onClick={() => {}} />
-          <ListItem title="Ahmed Benali" description="Nieuw bericht" icon={<Bericht />} onClick={() => {}} />
-          <ListItem title="Archief" description="Niet beschikbaar" icon={<Agenda />} onClick={() => {}} disabled />
+          <ListItem title="Sanne de Vries" description="Laatste sessie gisteren" icon="user" onClick={() => {}} />
+          <ListItem title="Ahmed Benali" description="Nieuw bericht" icon="message-smile" onClick={() => {}} />
+          <ListItem title="Archief" description="Niet beschikbaar" icon="calendar" onClick={() => {}} disabled />
         </List>
       </Staat>
     </div>
@@ -207,9 +200,9 @@ function ListVoorbeelden() {
 function NavVoorbeelden() {
   const [hier, setHier] = useState("vandaag");
   const items = [
-    { id: "vandaag", label: "Vandaag", icon: <Huis /> }, { id: "clienten", label: "Cliënten", icon: <Mensen />, counter: 4 },
-    { id: "agenda", label: "Agenda", icon: <Agenda /> }, { id: "berichten", label: "Berichten", icon: <Bericht /> },
-    { id: "resultaten", label: "Resultaten", icon: <Grafiek /> },
+    { id: "vandaag", label: "Vandaag", icon: "house-3" as const }, { id: "clienten", label: "Cliënten", icon: "users" as const, counter: 4 },
+    { id: "agenda", label: "Agenda", icon: "calendar" as const }, { id: "berichten", label: "Berichten", icon: "message-smile" as const },
+    { id: "resultaten", label: "Resultaten", icon: "chart" as const },
   ];
   return (
     <div className="staten">
@@ -280,9 +273,30 @@ function DialogVoorbeelden() {
   );
 }
 
+function IconVoorbeelden() {
+  const [vol, setVol] = useState(false);
+  return (
+    <div className="staten breed">
+      <Staat naam="lijn en vol">
+        <Toggle label="Vol" checked={vol} onChange={setVol} />
+        <div className="iconenraster">
+          {ICOONNAMEN.map(n => (
+            <span key={n} className="iconencel" title={n}><Icon name={n} fill={vol} /><Text as="span" variant="body-xs" color="low">{n}</Text></span>
+          ))}
+        </div>
+      </Staat>
+      <Staat naam="maten: 2xs 12 · xs 16 · s 20 · m 24 · l 32 · xl 40 · 2xl 48">
+        <div className="iconenmaten">
+          {(["2xs", "xs", "s", "m", "l", "xl", "2xl"] as const).map(m => <Icon key={m} name="heart-2" fill={vol} size={m} />)}
+        </div>
+      </Staat>
+    </div>
+  );
+}
+
 export const VOORBEELDEN: Record<string, () => ReactNode> = {
   input: InputVoorbeelden, select: SelectVoorbeelden, checkbox: CheckboxVoorbeelden, radio: RadioVoorbeelden,
   toggle: ToggleVoorbeelden, tabs: TabsVoorbeelden, editor: EditorVoorbeelden,
-  "icon-button": IconButtonVoorbeelden, "list-item": ListVoorbeelden, "nav-item": NavVoorbeelden,
+  icon: IconVoorbeelden, "icon-button": IconButtonVoorbeelden, "list-item": ListVoorbeelden, "nav-item": NavVoorbeelden,
   "progress-bar": ProgressBarVoorbeelden, "progress-ring": ProgressRingVoorbeelden, slider: SliderVoorbeelden, dialog: DialogVoorbeelden,
 };

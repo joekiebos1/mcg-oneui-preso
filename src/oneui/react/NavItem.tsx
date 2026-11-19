@@ -1,4 +1,5 @@
 import { forwardRef, type HTMLAttributes, type MouseEventHandler, type ReactNode } from "react";
+import { alsIcoon, type IconName } from "./Icon";
 import "./NavItem.css";
 
 export type NavItemOrientation = "vertical" | "horizontal";
@@ -22,8 +23,8 @@ export function Nav({ orientation = "vertical", className, children, ...rest }: 
 
 export interface NavItemProps {
   label: ReactNode;
-  /** Een icoon vooraan. Het mag een merkkleur hebben; de pil zelf blijft neutraal of sky. */
-  icon?: ReactNode;
+  /** Een icoon vooraan: een naam uit DS-Icons (lijn, vol als het item actief is) of een eigen SVG. */
+  icon?: ReactNode | IconName;
   /** Een aantal rechts, zoals ongelezen berichten. */
   counter?: number;
   /** De pagina waar je bent: een sky pil, en `aria-current="page"`. */
@@ -44,7 +45,7 @@ export const NavItem = forwardRef<HTMLElement, NavItemProps>(function NavItem(
     .filter(Boolean).join(" ");
   const inhoud = (
     <>
-      {icon && <span className="oneui-navitem__icon" aria-hidden="true">{icon}</span>}
+      {icon && <span className="oneui-navitem__icon" aria-hidden="true">{alsIcoon(icon, !!active)}</span>}
       <span className="oneui-navitem__label">{label}</span>
       {counter !== undefined && counter > 0 && <span className="oneui-navitem__counter">{counter > 99 ? "99+" : counter}</span>}
     </>

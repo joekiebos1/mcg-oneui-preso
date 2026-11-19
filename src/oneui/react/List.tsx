@@ -1,5 +1,6 @@
 import { forwardRef, type HTMLAttributes, type MouseEventHandler, type ReactNode } from "react";
 import { IcoonChevronRechts } from "./iconen";
+import { alsIcoon, type IconName } from "./Icon";
 import "./List.css";
 
 export type ListSurface = "default" | "sunken";
@@ -31,8 +32,10 @@ export interface ListItemProps extends Omit<HTMLAttributes<HTMLLIElement>, "titl
   title: ReactNode;
   /** De regel eronder, in body/S en text/medium. */
   description?: ReactNode;
-  /** Een icoon in een cirkel vooraan. */
-  icon?: ReactNode;
+  /** Een icoon in een cirkel vooraan: een naam uit DS-Icons (vol, zie `iconFill`) of een eigen SVG. */
+  icon?: ReactNode | IconName;
+  /** Een icoon met een naam is in een List item vol. Zet dit op false voor de lijn. */
+  iconFill?: boolean;
   /** De kleur van die cirkel: een subtle vlak met het icoon in de deep kleur. Merkkleuren mogen hier, in het icoon. */
   tone?: ListItemTone;
   /** Iets anders vooraan in plaats van het icoon, zoals een Avatar. */
@@ -50,14 +53,14 @@ export interface ListItemProps extends Omit<HTMLAttributes<HTMLLIElement>, "titl
 
 /** OneUI List item. Een eigen wit vlak (radius/3xl, minstens 72 hoog), titel en beschrijving, iets vooraan en rechts. */
 export const ListItem = forwardRef<HTMLLIElement, ListItemProps>(function ListItem(
-  { title, description, icon, tone = "neutral", leading, trailing, href, onClick, done, disabled, className, ...rest },
+  { title, description, icon, iconFill = true, tone = "neutral", leading, trailing, href, onClick, done, disabled, className, ...rest },
   ref,
 ) {
   const open = !!(href || onClick);
   const rechts = trailing ?? (open ? <span className="oneui-listitem__chevron"><IcoonChevronRechts /></span> : null);
   const inhoud = (
     <>
-      {leading ?? (icon && <span className={`oneui-listitem__bol oneui-listitem__bol--${tone}`} aria-hidden="true">{icon}</span>)}
+      {leading ?? (icon && <span className={`oneui-listitem__bol oneui-listitem__bol--${tone}`} aria-hidden="true">{alsIcoon(icon, iconFill)}</span>)}
       <span className="oneui-listitem__tekst">
         <span className="oneui-listitem__titel">{title}</span>
         {description && <span className="oneui-listitem__beschrijving">{description}</span>}

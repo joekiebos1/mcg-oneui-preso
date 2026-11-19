@@ -27,7 +27,7 @@ _Nog in te vullen._
 
 ## Specificatie
 
-Hoeken `radius/xs`.
+In de stijl Rond: een gevuld vlak zonder rand, zoals de baan van Toggle. Hoeken `radius/sm` (sm `radius/xs`).
 
 | maat | vakje | teken |
 |---|---|---|
@@ -36,16 +36,19 @@ Hoeken `radius/xs`.
 
 Label label/M in `text/high`, `spacing/md` naast het vakje.
 
-| state | vlak | rand |
-|---|---|---|
-| uit | `surface/default` | `border/thin`, `stroke/neutral/medium` |
-| hover | — | `stroke/neutral/high` |
-| aan | `surface/sky/bold` | `stroke/sky/medium` |
-| focus (toetsenbord) | — | `border/thick`, `stroke/sky/medium` |
-| uitgeschakeld | `surface/disabled` | `stroke/disabled`; label `text/disabled` |
+| state | vlak |
+|---|---|
+| uit | `surface/neutral/subtle-pressed` |
+| hover | een stap dieper (10 % `icon/high` erdoor) |
+| aan | `surface/action/primary`, hover `surface/action/primary-hover` |
+| ingedrukt | schaal 0,9 |
+| focus (toetsenbord) | een ring van `border/thick` in `interaction/focusRing`, `spacing/2xs` los van het vakje |
+| uitgeschakeld | `surface/disabled`, aan op 35 %; label `text/disabled` |
 
-Vink en streep in `text/on-bold/sky`. Figma gebruikt `icon/high`; dat werd onleesbaar toen secondary bold
-donker sky (sky/700) werd, dus volgt het teken de tekst op secondary bold.
+Vink en streep in `text/on-action/primary`, met een dikke lijn (3).
+
+Let op: uit haalt 1,5:1 tegen wit, net als de baan van Toggle. WCAG vraagt 3:1 voor de vorm van een bediening; het label
+ernaast maakt hem herkenbaar, maar een los vakje zonder label is te licht.
 
 ## React
 

@@ -1,4 +1,5 @@
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { alsIcoon, type IconName } from "./Icon";
 import "./IconButton.css";
 
 export type IconButtonType = "primary" | "secondary" | "neutral" | "ghost"
@@ -9,8 +10,10 @@ export type IconButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
 export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type" | "children"> {
   /** Wat de knop doet, voor schermlezers en als tooltip. Verplicht: er staat geen tekst op. */
   "aria-label": string;
-  /** Het icoon: een SVG die `currentColor` gebruikt. Kleur en maat komen van de knop. */
-  icon: ReactNode;
+  /** Het icoon: een naam uit DS-Icons, of een SVG die `currentColor` gebruikt. Kleur en maat komen van de knop. */
+  icon: ReactNode | IconName;
+  /** Vol in plaats van lijn, bijv. voor een favoriet die aan staat. */
+  iconFill?: boolean;
   /** primary en secondary uit de action-tokens, neutral een grijs vlak (standaard), ghost kaal. */
   variant?: IconButtonType;
   /** Doorsnee 28, 36, 40, 48 of 56; het icoon 16, 16, 20, 24 of 24. */
@@ -21,7 +24,7 @@ export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonEle
 
 /** OneUI Icon Button. Figma: DS Components › Icon Button. Een cirkel, altijd een vlak of kaal, nooit een rand. */
 export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(function IconButton(
-  { icon, variant = "neutral", size = "md", htmlType = "button", className, title, ...rest },
+  { icon, iconFill = false, variant = "neutral", size = "md", htmlType = "button", className, title, ...rest },
   ref,
 ) {
   const type = variant === "outline" ? "neutral" : variant;
@@ -29,7 +32,7 @@ export const IconButton = forwardRef<HTMLButtonElement, IconButtonProps>(functio
     <button ref={ref} type={htmlType} title={title ?? rest["aria-label"]}
       className={["oneui-iconbutton", `oneui-iconbutton--${type}`, `oneui-iconbutton--${size}`, className].filter(Boolean).join(" ")}
       {...rest}>
-      <span className="oneui-iconbutton__icon" aria-hidden="true">{icon}</span>
+      <span className="oneui-iconbutton__icon" aria-hidden="true">{alsIcoon(icon, iconFill)}</span>
     </button>
   );
 });

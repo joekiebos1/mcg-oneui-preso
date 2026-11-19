@@ -27,24 +27,28 @@ _Nog in te vullen._
 
 ## Specificatie
 
-Rond (`radius/full`).
+In de stijl Rond: een gevuld vlak zonder rand, zoals de baan van Toggle. Rond (`radius/full`).
 
-| maat | vakje | teken |
+| maat | rondje | teken |
 |---|---|---|
-| md (standaard) | `size/xs` (20) | stip `spacing/md` (8) |
-| sm | `size/2xs` (16) | stip `spacing/sm` (6) |
+| md (standaard) | `size/xs` (20) | stip 8 (`spacing/md`) |
+| sm | `size/2xs` (16) | 6 (`spacing/sm`) |
 
-Label label/M in `text/high`, `spacing/md` naast het vakje.
+Label label/M in `text/high`, `spacing/md` naast het rondje.
 
-| state | vlak | rand |
-|---|---|---|
-| uit | `surface/default` | `border/thin`, `stroke/neutral/medium` |
-| hover | — | `stroke/neutral/high` |
-| aan | `surface/sky/bold` | `stroke/sky/medium` |
-| focus (toetsenbord) | — | `border/thick`, `stroke/sky/medium` |
-| uitgeschakeld | `surface/disabled` | `stroke/disabled`; label `text/disabled` |
+| state | vlak |
+|---|---|
+| uit | `surface/neutral/subtle-pressed` |
+| hover | een stap dieper (10 % `icon/high` erdoor) |
+| aan | `surface/action/primary`, hover `surface/action/primary-hover` |
+| ingedrukt | schaal 0,9 |
+| focus (toetsenbord) | een ring van `border/thick` in `interaction/focusRing`, `spacing/2xs` los van het rondje |
+| uitgeschakeld | `surface/disabled`, aan op 35 %; label `text/disabled` |
 
-De stip in `icon/on-bold`, uitgeschakeld `icon/disabled`.
+De stip in `text/on-action/primary`.
+
+Let op: uit haalt 1,5:1 tegen wit, net als de baan van Toggle. WCAG vraagt 3:1 voor de vorm van een bediening; het label
+ernaast maakt hem herkenbaar, maar een los rondje zonder label is te licht.
 
 ## React
 

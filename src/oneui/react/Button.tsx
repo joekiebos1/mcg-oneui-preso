@@ -1,4 +1,5 @@
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
+import { alsIcoon, type IconName } from "./Icon";
 import "./Button.css";
 
 export type ButtonType = "primary" | "secondary" | "neutral" | "ghost"
@@ -12,9 +13,9 @@ export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement
   /** Hoogte 36, 40 of 48. Het icoon groeit mee: 16, 20 of 24. */
   size?: ButtonSize;
   /** Icoon vóór de tekst. Een SVG die `currentColor` gebruikt; kleur en maat komen van de knop. */
-  iconLeft?: ReactNode;
+  iconLeft?: ReactNode | IconName;
   /** Icoon na de tekst. Een chevron suggereert navigatie, geen actie. */
-  iconRight?: ReactNode;
+  iconRight?: ReactNode | IconName;
   /** Toont de spinner en verbergt het label, zonder dat de knop van breedte verandert. */
   loading?: boolean;
   /** Wat een schermlezer hoort tijdens het laden. */
@@ -48,9 +49,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       {...rest}
     >
       <span className="oneui-button__content" aria-hidden={loading || undefined}>
-        {iconLeft && <span className="oneui-button__icon">{iconLeft}</span>}
+        {iconLeft && <span className="oneui-button__icon">{alsIcoon(iconLeft)}</span>}
         <span className="oneui-button__label">{children}</span>
-        {iconRight && <span className="oneui-button__icon">{iconRight}</span>}
+        {iconRight && <span className="oneui-button__icon">{alsIcoon(iconRight)}</span>}
       </span>
       {loading && (
         <span className="oneui-button__spinner" role="status">
