@@ -22,7 +22,7 @@
   font-size: var(--oneui-type-label-s-size); line-height: var(--oneui-type-label-s-line-height); font-variant-numeric: tabular-nums;
 }
 
-.oneui-slider__veld {
+.oneui-slider__veld { -webkit-tap-highlight-color: transparent;
   -webkit-appearance: none; appearance: none; display: block; width: 100%; height: var(--_duim); margin: 0; padding: 0;
   background: transparent; cursor: pointer;
 }

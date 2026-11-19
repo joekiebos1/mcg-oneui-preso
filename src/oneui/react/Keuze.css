@@ -4,6 +4,8 @@
 .oneui-keuze {
   --_maat: var(--oneui-size-sm); --_vlak: var(--oneui-stroke-neutral-medium);
   position: relative; display: inline-flex; align-items: flex-start; gap: var(--oneui-spacing-lg); cursor: pointer;
+  /* niet over de hele breedte rekken in een kolom, en geen grijs tapvlak op iOS: dat flitste als een sprong over de hele regel */
+  width: fit-content; max-width: 100%; -webkit-tap-highlight-color: transparent;
   color: var(--oneui-text-high);
   font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);
   font-size: var(--oneui-type-label-m-size); line-height: var(--oneui-type-label-m-line-height);

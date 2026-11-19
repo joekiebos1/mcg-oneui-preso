@@ -13,7 +13,7 @@
 .oneui-code__vak.oneui-vak--sm { width: var(--oneui-size-2xl); height: var(--oneui-size-2xl); }
 .oneui-code__vak .oneui-vak__tekst { text-align: center; }
 /* search met een waarde: een rond knopje met een kruisje om te wissen (Figma: Input, search, filled) */
-.oneui-vak__wis { display: inline-grid; place-items: center; flex: none; width: var(--oneui-size-sm); height: var(--oneui-size-sm);
+.oneui-vak__wis { -webkit-tap-highlight-color: transparent; display: inline-grid; place-items: center; flex: none; width: var(--oneui-size-sm); height: var(--oneui-size-sm);
   margin-right: calc(-1 * var(--oneui-spacing-xs)); padding: 0; border: 0; border-radius: var(--oneui-radius-full);
   background: var(--oneui-surface-neutral-subtle-pressed); color: var(--oneui-icon-high); cursor: pointer; }
 .oneui-vak__wis:hover { background: color-mix(in srgb, var(--oneui-surface-neutral-subtle-pressed), var(--oneui-icon-high) 12%); }

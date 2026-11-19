@@ -2,7 +2,7 @@
    2 in stroke/neutral/low, hover stroke/neutral/medium, actief 3 in surface/magenta/bold. */
 .oneui-tabs { display: flex; overflow-x: auto; scrollbar-width: none; }
 .oneui-tabs::-webkit-scrollbar { display: none; }
-.oneui-tab {
+.oneui-tab { -webkit-tap-highlight-color: transparent;
   appearance: none; border: 0; background: transparent; cursor: pointer; padding: 0; margin: 0; flex: none;
   display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); color: var(--oneui-text-medium);
   font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);

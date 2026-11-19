@@ -36,7 +36,7 @@
 }
 .oneui-editor__groep { display: inline-flex; align-items: center; gap: var(--oneui-spacing-2xs); }
 .oneui-editor__knop {
-  appearance: none; border: 0; padding: 0; cursor: pointer; display: inline-grid; place-items: center;
+  appearance: none; border: 0; padding: 0; cursor: pointer; display: inline-grid; -webkit-tap-highlight-color: transparent; place-items: center;
   width: var(--oneui-size-md); height: var(--oneui-size-md); border-radius: var(--oneui-radius-full);
   background: transparent; color: var(--oneui-icon-medium); transition: background-color 120ms ease, transform 120ms ease;
 }
