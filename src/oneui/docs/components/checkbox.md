@@ -27,14 +27,14 @@ _Nog in te vullen._
 
 ## Specificatie
 
-In de stijl Rond: een gevuld vlak zonder rand, zoals de baan van Toggle. Hoeken `radius/sm` (sm `radius/xs`).
+In de stijl Rond: een gevuld vlak zonder rand, zoals de baan van Toggle. Hoeken `radius/md` (sm `radius/sm`).
 
 | maat | vakje | teken |
 |---|---|---|
-| md (standaard) | `size/xs` (20) | vink of streep 16 |
-| sm | `size/2xs` (16) | 12 |
+| md (standaard) | `size/sm` (24) | vink of streep 16 |
+| sm | `size/xs` (20) | 14 |
 
-Label label/M in `text/high`, `spacing/md` naast het vakje.
+Label label/M in `text/high`, `spacing/lg` naast het vakje (sm `spacing/md`); de eerste regel staat midden naast het vakje.
 
 | state | vlak |
 |---|---|

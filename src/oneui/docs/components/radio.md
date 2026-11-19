@@ -31,10 +31,10 @@ In de stijl Rond: een gevuld vlak zonder rand, zoals de baan van Toggle. Rond (`
 
 | maat | rondje | teken |
 |---|---|---|
-| md (standaard) | `size/xs` (20) | stip 8 (`spacing/md`) |
-| sm | `size/2xs` (16) | 6 (`spacing/sm`) |
+| md (standaard) | `size/sm` (24) | stip 10 |
+| sm | `size/xs` (20) | stip 8 (`spacing/md`) |
 
-Label label/M in `text/high`, `spacing/md` naast het rondje.
+Label label/M in `text/high`, `spacing/lg` naast het rondje (sm `spacing/md`); de eerste regel staat midden naast het rondje.
 
 | state | vlak |
 |---|---|
