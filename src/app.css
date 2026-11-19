@@ -128,9 +128,10 @@ b { font-weight: 600; }
 .staal .hex { opacity: .85; }
 .staal .ratio { opacity: .85; font-variant-numeric: tabular-nums; }
 
-.deeps { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--oneui-spacing-lg); }
-.deep { position: relative; display: flex; flex-direction: column; gap: var(--oneui-spacing-md); padding: var(--oneui-spacing-2xl); border-radius: var(--oneui-radius-xl); min-height: 200px; justify-content: flex-end; }
-.deep .bold { position: absolute; top: var(--oneui-spacing-2xl); right: var(--oneui-spacing-2xl); width: var(--oneui-size-2xl); height: var(--oneui-size-2xl); border-radius: var(--oneui-radius-full); }
+.drie { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: var(--oneui-spacing-2xl); }
+.drierol { display: grid; gap: var(--oneui-spacing-md); }
+.drierij { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--oneui-spacing-xs); }
+.drievlak { display: flex; flex-direction: column; justify-content: flex-end; gap: var(--oneui-spacing-2xs); min-height: 120px; padding: var(--oneui-spacing-lg); border-radius: var(--oneui-radius-xl); }
 
 .tabs { display: flex; flex-wrap: wrap; gap: var(--oneui-spacing-xs); }
 .tabs button.aan { background: var(--oneui-surface-neutral-bold); color: var(--oneui-text-on-inverse); }

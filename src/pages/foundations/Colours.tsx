@@ -106,21 +106,25 @@ function Semantisch() {
   );
 }
 
-function Deep() {
+function Drie() {
   const rij = [["primary", "magenta"], ["secondary", "sky"], ["accent", "amber"], ["accent-2", "violet"]];
+  const hex = (n: string) => los(token(n)?.waarde).waarde;
   return (
-    <div className="deeps">
+    <div className="drie">
       {rij.map(([rol, ladder]) => {
-        const deep = los(`{${ladder}/950}`).waarde;
-        const bold = los(token(`surface/${rol}/bold`)?.waarde).waarde;
+        const subtle = hex(`surface/${rol}/subtle`), bold = hex(`surface/${rol}/bold`), deep = hex(`surface/${rol}/deep`) ?? los(`{${ladder}/950}`).waarde;
+        const opSubtle = hex(`text/on-subtle/${rol}`), opBold = hex(`text/on-bold/${rol}`) ?? hex("text/on-bold"), opDeep = hex("text/on-deep");
+        const vlak = (naam: string, bg: string, fg: string) => (
+          <div className="drievlak" style={{ background: bg, color: fg }}>
+            <Text as="span" variant="label-m" style={{ color: fg }}>{naam}</Text>
+            <Text as="span" variant="body-xs" style={{ color: fg }}>{bg.toUpperCase()}</Text>
+          </div>
+        );
         return (
-          <div key={rol} className="deep" style={{ background: deep }}>
-            <Text as="span" variant="label-m" style={{ color: bold }}>{rol}</Text>
-            <Text as="span" variant="heading-m" style={{ color: "#fff" }}>{ladder}/950</Text>
-            <span className="bold" style={{ background: bold }} />
-            <Text as="span" variant="body-xs" style={{ color: los(`{${ladder}/200}`).waarde }}>
-              bold ernaast {fmt(contrast(deep, bold))}:1 · wit erop {fmt(contrast(deep, "#ffffff"))}:1
-            </Text>
+          <div key={rol} className="drierol">
+            <Text as="span" variant="title-s">{rol} <Text as="span" variant="body-s" color="low">{ladder}</Text></Text>
+            <div className="drierij">{vlak("Subtle", subtle, opSubtle)}{vlak("Bold", bold, opBold)}{vlak("Deep", deep, opDeep)}</div>
+            <Text variant="body-xs" color="medium">Bold op subtle {fmt(contrast(bold, subtle))}:1 · bold op deep {fmt(contrast(bold, deep))}:1 · tekst op deep {fmt(contrast(opDeep, deep))}:1</Text>
           </div>
         );
       })}
@@ -173,8 +177,8 @@ export function Colours() {
         ))}
       </Sectie>
 
-      <Sectie titel="Deep" uitleg="De donkerste stap (950) van elke merkkleur, als donkere achtergrond of naast bold. In licht en donker thema gelijk. Tekst erop is wit.">
-        <Deep />
+      <Sectie titel="Subtle, bold en deep" uitleg="Per merkkleur drie stappen: subtle is licht pastel, bold is fel, deep is donker. Elk vlak met de tekstkleur die erop hoort.">
+        <Drie />
       </Sectie>
 
       <Sectie titel="Semantische tokens" uitleg="Wat componenten gebruiken, per soort. Rechts zie je waar elk token naartoe wijst, in licht en donker.">
