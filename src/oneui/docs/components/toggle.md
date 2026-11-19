@@ -21,8 +21,8 @@ _Nog in te vullen._
 | deel | token |
 |---|---|
 | baan | 56 breed (`size/4xl`), 32 hoog (`size/lg`), `radius/full`, `spacing/xs` binnenrand |
-| knop | 24 (`size/sm`), `surface/default`, zachte schaduw; aan met een vinkje van 16 in `surface/action/primary` |
-| label | body/M, `text/high`, `spacing/lg` naast de baan |
+| knop | 24 (`size/sm`), `surface/default`, zachte schaduw; geen teken erin |
+| label | label/M, `text/high`, `spacing/lg` naast de baan (dezelfde stijl als Checkbox, Radio en het label boven een veld) |
 
 | state | uit | aan |
 |---|---|---|

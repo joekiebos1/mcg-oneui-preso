@@ -1,5 +1,4 @@
 import { forwardRef, type InputHTMLAttributes, type ReactNode } from "react";
-import { IcoonVink } from "./iconen";
 import "./Toggle.css";
 
 export interface ToggleProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "type" | "onChange" | "size"> {
@@ -10,7 +9,7 @@ export interface ToggleProps extends Omit<InputHTMLAttributes<HTMLInputElement>,
 
 /**
  * OneUI Toggle. Figma: DS Components › Toggle (State: active, disabled; checked). Een checkbox met de rol switch: hij
- * werkt meteen, zonder opslaan. Rond: een dikke baan met een grote knop, met een vinkje als hij aan staat.
+ * werkt meteen, zonder opslaan. Rond: een dikke baan met een grote witte knop.
  */
 export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(function Toggle(
   { label, disabled, className, onChange, ...rest },
@@ -21,7 +20,7 @@ export const Toggle = forwardRef<HTMLInputElement, ToggleProps>(function Toggle(
       <input ref={ref} type="checkbox" role="switch" className="oneui-toggle__veld" disabled={disabled}
         onChange={(e) => onChange?.(e.target.checked)} {...rest} />
       <span className="oneui-toggle__baan" aria-hidden="true">
-        <span className="oneui-toggle__knop"><span className="oneui-toggle__vink"><IcoonVink /></span></span>
+        <span className="oneui-toggle__knop" />
       </span>
       {label && <span className="oneui-toggle__label">{label}</span>}
     </label>

@@ -1,13 +1,14 @@
 /* OneUI Toggle, in de stijl Rond: een dikke baan van 56 × 32 (size/4xl × size/lg) en een grote knop van 24 (size/sm)
-   met een vinkje als hij aan staat. Uit is grijs, aan is action/primary (sky). */
+   (geen teken erin). Uit is grijs, aan is action/primary (sky). Het label is label/M, net als bij Checkbox, Radio en
+   het label boven een veld. */
 .oneui-toggle {
   --_breed: var(--oneui-size-4xl); --_hoog: var(--oneui-size-lg); --_binnen: var(--oneui-spacing-xs);
   --_knop: var(--oneui-size-sm);
   position: relative; display: inline-flex; align-items: center; gap: var(--oneui-spacing-lg); cursor: pointer;
   color: var(--oneui-text-high);
-  font-family: var(--oneui-type-body-m-family); font-weight: var(--oneui-type-body-m-weight);
-  font-size: var(--oneui-type-body-m-size); line-height: var(--oneui-type-body-m-line-height);
-  letter-spacing: var(--oneui-type-body-m-letter-spacing);
+  font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);
+  font-size: var(--oneui-type-label-m-size); line-height: var(--oneui-type-label-m-line-height);
+  letter-spacing: var(--oneui-type-label-m-letter-spacing);
 }
 .oneui-toggle__veld { position: absolute; inset: 0; width: 100%; height: 100%; margin: 0; opacity: 0; cursor: inherit; }
 .oneui-toggle__baan {
@@ -19,20 +20,16 @@
   background: color-mix(in srgb, var(--oneui-surface-neutral-subtle-pressed), var(--oneui-icon-high) 10%);
 }
 .oneui-toggle__knop {
-  display: grid; place-items: center; width: var(--_knop); height: var(--_knop);
+  display: block; width: var(--_knop); height: var(--_knop);
   border-radius: var(--oneui-radius-full); background: var(--oneui-surface-default);
   box-shadow: 0 var(--oneui-border-thin) var(--oneui-border-thick) var(--oneui-effect-shadow-key);
   transition: transform 240ms cubic-bezier(0.3, 1.4, 0.5, 1);
 }
-.oneui-toggle__vink { display: inline-flex; width: var(--oneui-size-2xs); height: var(--oneui-size-2xs);
-  color: var(--oneui-surface-action-primary); opacity: 0; transition: opacity 160ms ease; }
-.oneui-toggle__vink > svg { width: 100%; height: 100%; stroke-width: 2.5; }
 .oneui-toggle__veld:checked + .oneui-toggle__baan { background: var(--oneui-surface-action-primary); }
 .oneui-toggle:hover .oneui-toggle__veld:checked:not(:disabled) + .oneui-toggle__baan { background: var(--oneui-surface-action-primary-hover); }
 .oneui-toggle__veld:checked + .oneui-toggle__baan .oneui-toggle__knop {
   transform: translateX(calc(var(--_breed) - var(--_knop) - 2 * var(--_binnen)));
 }
-.oneui-toggle__veld:checked + .oneui-toggle__baan .oneui-toggle__vink { opacity: 1; }
 /* Focus: alleen bij het toetsenbord, een ring los van de baan. */
 .oneui-toggle__veld:focus-visible + .oneui-toggle__baan {
   outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs);
@@ -42,4 +39,4 @@
 .oneui-toggle.is-disabled .oneui-toggle__baan { background: var(--oneui-surface-disabled); }
 .oneui-toggle.is-disabled .oneui-toggle__knop { box-shadow: none; }
 .oneui-toggle.is-disabled .oneui-toggle__veld:checked + .oneui-toggle__baan { background: var(--oneui-surface-action-primary); opacity: 0.35; }
-@media (prefers-reduced-motion: reduce) { .oneui-toggle__baan, .oneui-toggle__knop, .oneui-toggle__vink { transition: none; } }
+@media (prefers-reduced-motion: reduce) { .oneui-toggle__baan, .oneui-toggle__knop { transition: none; } }
