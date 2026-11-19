@@ -9,7 +9,7 @@
   --_pad-x: var(--oneui-spacing-xl);
   --_height: var(--oneui-size-2xl);
   --_icon: var(--oneui-size-2xs);
-  --_ring: var(--oneui-stroke-action-subtle);
+  --_ring: var(--oneui-stroke-action-secondary);
 
   position: relative;
   display: inline-flex;
@@ -52,20 +52,20 @@
 
 /* Types */
 .oneui-button--primary {
-  --_bg: var(--oneui-surface-action-bold);
-  --_bg-hover: var(--oneui-surface-action-bold-hover);
-  --_bg-pressed: var(--oneui-surface-action-bold-pressed);
-  --_fg: var(--oneui-text-on-action-bold);
+  --_bg: var(--oneui-surface-action-primary);
+  --_bg-hover: var(--oneui-surface-action-primary-hover);
+  --_bg-pressed: var(--oneui-surface-action-primary-pressed);
+  --_fg: var(--oneui-text-on-action-primary);
   --_ring: var(--oneui-interaction-focusring);
 }
 .oneui-button--secondary {
-  --_bg: var(--oneui-surface-secondary-bold);
-  --_bg-hover: var(--oneui-surface-secondary-bold-hover);
-  --_bg-pressed: var(--oneui-surface-secondary-bold-pressed);
-  --_fg: var(--oneui-text-on-bold-secondary);
+  --_bg: var(--oneui-surface-action-secondary);
+  --_bg-hover: var(--oneui-surface-action-secondary-hover);
+  --_bg-pressed: var(--oneui-surface-action-secondary-pressed);
+  --_fg: var(--oneui-text-on-action-secondary);
 }
 .oneui-button--outline {
-  --_border: var(--oneui-stroke-action-subtle);
+  --_border: var(--oneui-stroke-action-secondary);
   --_bg-hover: var(--oneui-surface-secondary-subtle);
   --_bg-pressed: var(--oneui-surface-secondary-subtle-pressed);
 }

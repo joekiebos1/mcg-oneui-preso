@@ -6,7 +6,7 @@ hetzelfde als `magenta/600`.
 
 | Rol | Ladder | Gebruik |
 |---|---|---|
-| primary | magenta | primaire knop, focus, merkmomenten |
+| primary | magenta | focus, merkmomenten (knoppen hebben een eigen rol: action) |
 | secondary | sky | rustige vlakken, links, ondersteunende accenten |
 | accent | amber | warmte, uitlichten |
 | accent-2 | violet | tweede accent: dromen, verdieping, een vierde hoofdstukkleur |
@@ -56,8 +56,8 @@ illustratie naadloos aansluit op een slide met `surface/<rol>/deep`.
 
 ## Knoppen (action)
 
-`surface/action/*`, `text/on-action/*` en `stroke/action/subtle` lopen via `brand/action/light|dark/*`.
-Primary is magenta (witte tekst). Secondary gebruikt `surface/secondary/bold` (sky/400) met `text/on-bold/secondary` (donker). De outline-rand is sky; in Classic en Round gelijk.
+`surface/action/*`, `text/on-action/*` en `stroke/action/secondary` lopen via `brand/action/light|dark/*`.
+Knoppen hebben hun eigen rol: `action/primary` is sky/700 met wit (hover 800, ingedrukt 900), `action/secondary` is sky/200 met sky/950 (hover 300, ingedrukt 400). Dat staat los van subtle, bold en deep van de merkkleuren: sky bold blijft sky/400, voor vlakken en accenten. De outline-rand is sky; in Classic en Round gelijk.
 
 ## Regels
 

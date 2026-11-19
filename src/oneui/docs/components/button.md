@@ -40,17 +40,17 @@ Hoeken `radius/full`. Ruimte tussen icoon en label `spacing/md` (8). Rand `borde
 
 | type | vlak | hover | ingedrukt | rand | label en icoon |
 |---|---|---|---|---|---|
-| primary | `surface/action/bold` | `…/bold-hover` | `…/bold-pressed` | — | `text/on-action/bold` |
-| secondary | `surface/secondary/bold` | `…/bold-hover` | `…/bold-pressed` | — | `text/on-bold/secondary` |
-| outline | — | `surface/secondary/subtle` | `surface/secondary/subtle-pressed` | `stroke/action/subtle` | `text/high` |
+| primary | `surface/action/primary` | `…/primary-hover` | `…/primary-pressed` | — | `text/on-action/primary` |
+| secondary | `surface/action/secondary` | `…/secondary-hover` | `…/secondary-pressed` | — | `text/on-action/secondary` |
+| outline | — | `surface/secondary/subtle` | `surface/secondary/subtle-pressed` | `stroke/action/secondary` | `text/high` |
 | ghost | — | `surface/secondary/subtle` | `surface/secondary/subtle-pressed` | — | `text/high` |
 
-In MCG is primary magenta met wit en secondary sky (sky/400) met donkere tekst; donker thema via dezelfde tokens.
+In MCG is primary sky/700 met wit en secondary sky/200 met sky/950; hover en ingedrukt gaan telkens één stap dieper. Donker thema via dezelfde tokens.
 
 - **Uitgeschakeld:** vlak `surface/disabled`, label `text/disabled`; outline en ghost zonder vlak, outline met rand
   `stroke/disabled`. Geen doorschijnendheid.
 - **Focus:** een ring buiten de knop, `border/thick` breed en `spacing/2xs` los van de knop, alleen bij toetsenbordfocus.
-  Kleur: `interaction/focusRing` bij primary, `stroke/action/subtle` bij de rest. De knop verschuift niet.
+  Kleur: `interaction/focusRing` bij primary, `stroke/action/secondary` bij de rest. De knop verschuift niet.
 - **Laden:** het label blijft onzichtbaar staan (de knop houdt zijn breedte), een spinner in het midden. De knop is dan
   niet klikbaar en meldt aan schermlezers dat hij bezig is.
 
