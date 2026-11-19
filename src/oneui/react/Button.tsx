@@ -1,11 +1,13 @@
 import { forwardRef, type ButtonHTMLAttributes, type ReactNode } from "react";
 import "./Button.css";
 
-export type ButtonType = "primary" | "secondary" | "outline" | "ghost";
+export type ButtonType = "primary" | "secondary" | "neutral" | "ghost"
+  /** @deprecated Rond heeft geen randen: outline toont als neutral. */
+  | "outline";
 export type ButtonSize = "sm" | "md" | "lg";
 
 export interface ButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type"> {
-  /** Nadruk. primary = de ene actie die telt; daarna secondary, outline, ghost. */
+  /** Nadruk. primary = de ene actie die telt; daarna secondary, neutral, ghost. Altijd een vlak, nooit een rand. */
   variant?: ButtonType;
   /** Hoogte 36, 40 of 48. Het icoon groeit mee: 16, 20 of 24. */
   size?: ButtonSize;
@@ -31,7 +33,8 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     disabled, className, children, onClick, ...rest },
   ref,
 ) {
-  const classes = ["oneui-button", `oneui-button--${variant}`, `oneui-button--${size}`, loading && "is-loading", className]
+  const type = variant === "outline" ? "neutral" : variant;
+  const classes = ["oneui-button", `oneui-button--${type}`, `oneui-button--${size}`, loading && "is-loading", className]
     .filter(Boolean).join(" ");
   return (
     <button

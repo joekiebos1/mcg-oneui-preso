@@ -1,0 +1,63 @@
+/* OneUI Slider, in de stijl Rond. Baan 8 dik (spacing/md) in surface/sunken, gevuld in action/primary; duim 28 (size/md),
+   wit met een schaduw en een sky stip; de waarde in een donkere pil erboven. */
+.oneui-slider {
+  --_duim: var(--oneui-size-md); --_dik: var(--oneui-spacing-md);
+  --_vul: var(--oneui-surface-action-primary); --_baan: var(--oneui-surface-sunken);
+  display: flex; flex-direction: column; gap: var(--oneui-spacing-md); min-width: 0;
+}
+.oneui-slider__label {
+  color: var(--oneui-text-high);
+  font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);
+  font-size: var(--oneui-type-label-m-size); line-height: var(--oneui-type-label-m-line-height);
+}
+.oneui-slider__spoor { position: relative; }
+.oneui-slider:has(.oneui-slider__bel) .oneui-slider__spoor { padding-top: var(--oneui-spacing-4xl); }
+
+/* De pil staat boven het midden van de duim: de duim loopt van een halve duim tot een halve duim van de rand. */
+.oneui-slider__bel {
+  position: absolute; top: 0; left: calc(var(--_duim) / 2 + var(--_deel) * (100% - var(--_duim)));
+  transform: translateX(-50%); padding: var(--oneui-spacing-2xs) var(--oneui-spacing-md); border-radius: var(--oneui-radius-full);
+  background: var(--oneui-surface-inverse); color: var(--oneui-text-on-inverse); white-space: nowrap; pointer-events: none;
+  font-family: var(--oneui-type-label-s-family); font-weight: var(--oneui-type-label-s-weight);
+  font-size: var(--oneui-type-label-s-size); line-height: var(--oneui-type-label-s-line-height); font-variant-numeric: tabular-nums;
+}
+
+.oneui-slider__veld {
+  -webkit-appearance: none; appearance: none; display: block; width: 100%; height: var(--_duim); margin: 0; padding: 0;
+  background: transparent; cursor: pointer;
+}
+.oneui-slider__veld::-webkit-slider-runnable-track {
+  height: var(--_dik); border-radius: var(--oneui-radius-full);
+  background: linear-gradient(to right, var(--_vul) 0 calc(var(--_duim) / 2 + var(--_deel) * (100% - var(--_duim))), var(--_baan) 0);
+}
+.oneui-slider__veld::-moz-range-track { height: var(--_dik); border-radius: var(--oneui-radius-full); background: var(--_baan); }
+.oneui-slider__veld::-moz-range-progress { height: var(--_dik); border-radius: var(--oneui-radius-full); background: var(--_vul); }
+.oneui-slider__veld::-webkit-slider-thumb {
+  -webkit-appearance: none; appearance: none; box-sizing: border-box; width: var(--_duim); height: var(--_duim);
+  margin-top: calc((var(--_dik) - var(--_duim)) / 2); border: var(--oneui-spacing-sm) solid var(--oneui-surface-default);
+  border-radius: var(--oneui-radius-full); background: var(--_vul);
+  box-shadow: 0 var(--oneui-border-thin) var(--oneui-border-thick) var(--oneui-effect-shadow-key),
+    0 var(--oneui-spacing-xs) var(--oneui-spacing-lg) var(--oneui-effect-shadow-key);
+  transition: transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.oneui-slider__veld::-moz-range-thumb {
+  box-sizing: border-box; width: var(--_duim); height: var(--_duim); border: var(--oneui-spacing-sm) solid var(--oneui-surface-default);
+  border-radius: var(--oneui-radius-full); background: var(--_vul);
+  box-shadow: 0 var(--oneui-border-thin) var(--oneui-border-thick) var(--oneui-effect-shadow-key),
+    0 var(--oneui-spacing-xs) var(--oneui-spacing-lg) var(--oneui-effect-shadow-key);
+}
+.oneui-slider__veld:active::-webkit-slider-thumb { transform: scale(1.1); }
+.oneui-slider__veld:focus-visible { outline: none; }
+.oneui-slider__veld:focus-visible::-webkit-slider-thumb { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs); }
+.oneui-slider__veld:focus-visible::-moz-range-thumb { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs); }
+
+.oneui-slider__schaal {
+  display: flex; justify-content: space-between; gap: var(--oneui-spacing-lg); color: var(--oneui-text-medium);
+  font-family: var(--oneui-type-body-xs-family); font-weight: var(--oneui-type-body-xs-weight);
+  font-size: var(--oneui-type-body-xs-size); line-height: var(--oneui-type-body-xs-line-height);
+}
+.oneui-slider.is-disabled { --_vul: var(--oneui-surface-neutral-subtle-pressed); --_baan: var(--oneui-surface-disabled); }
+.oneui-slider.is-disabled .oneui-slider__veld { cursor: not-allowed; }
+.oneui-slider.is-disabled .oneui-slider__label, .oneui-slider.is-disabled .oneui-slider__schaal { color: var(--oneui-text-disabled); }
+.oneui-slider.is-disabled .oneui-slider__bel { background: var(--oneui-surface-disabled); color: var(--oneui-text-disabled); }
+@media (prefers-reduced-motion: reduce) { .oneui-slider__veld::-webkit-slider-thumb { transition: none; } }

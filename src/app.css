@@ -7,7 +7,7 @@ code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0
 .codeblok { margin: 0; padding: var(--oneui-spacing-xl); overflow-x: auto; border-radius: var(--oneui-radius-xl); background: var(--oneui-surface-sunken); max-width: 100%; }
 .codeblok code { color: var(--oneui-text-high); line-height: 1.6; white-space: pre; }
 b { font-weight: 600; }
-:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-stroke-primary-high); outline-offset: var(--oneui-spacing-2xs); }
+:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs); }
 
 /* ---------- studio, zoals de Myndlet-app: het menu op de grijze pagina, de inhoud een wit vlak met afronding 2xl ---------- */
 .studio {
@@ -212,7 +212,7 @@ b { font-weight: 600; }
 .statenmatrix td { white-space: nowrap; }
 /* Toestanden vastzetten voor de matrix, met dezelfde variabelen als Button.css */
 .staat-hover .oneui-button { background: var(--_bg-hover); }
-.staat-pressed .oneui-button { background: var(--_bg-pressed); }
+.staat-pressed .oneui-button { background: var(--_bg-pressed); transform: scale(0.96); }
 .staat-focus .oneui-button { outline: var(--oneui-border-thick) solid var(--_ring); outline-offset: var(--oneui-spacing-2xs); }
 
 .tokkort { display: flex; flex-direction: column; }
@@ -248,6 +248,12 @@ b { font-weight: 600; }
   box-shadow: inset 0 0 0 var(--oneui-border-thin) var(--oneui-stroke-neutral-low); }
 .staten + .staten { margin-top: var(--oneui-spacing-lg); }
 .staten.breed { grid-template-columns: minmax(0, 1fr); }
+.staat .rij { display: flex; flex-wrap: wrap; align-items: center; gap: var(--oneui-spacing-lg); }
+.paginavlak { padding: var(--oneui-spacing-xl); border-radius: var(--oneui-radius-3xl); background: var(--oneui-surface-page); }
+.zijmenu { max-width: 280px; }
+.vinkbol { display: grid; place-items: center; width: var(--oneui-size-sm); height: var(--oneui-size-sm); border-radius: var(--oneui-radius-full);
+  background: var(--oneui-surface-positive-bold); color: var(--oneui-icon-on-bold); }
+.vinkbol svg { width: var(--oneui-size-2xs); height: var(--oneui-size-2xs); stroke-width: 2.5; }
 .staat { display: flex; flex-direction: column; gap: var(--oneui-spacing-md); min-width: 0; }
 .staat__inhoud { min-width: 0; }
 .stapel { display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); }

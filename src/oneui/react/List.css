@@ -1,0 +1,55 @@
+/* OneUI List, in de stijl Rond: elk item is een eigen rond vlak; ruimte scheidt ze, geen lijnen. */
+.oneui-list {
+  --_vlak: var(--oneui-surface-default);
+  --_vlak-hover: var(--oneui-surface-sunken);
+  display: flex; flex-direction: column; gap: var(--oneui-spacing-md); margin: 0; padding: 0; list-style: none;
+}
+.oneui-list--sunken {
+  --_vlak: var(--oneui-surface-sunken);
+  --_vlak-hover: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-neutral-subtle-pressed));
+}
+.oneui-listitem { margin: 0; }
+.oneui-listitem__vlak {
+  display: flex; align-items: center; gap: var(--oneui-spacing-lg); box-sizing: border-box; width: 100%;
+  min-height: calc(var(--oneui-size-4xl) + var(--oneui-spacing-xl));
+  padding: var(--oneui-spacing-lg) var(--oneui-spacing-xl); margin: 0; border: 0; border-radius: var(--oneui-radius-3xl);
+  background: var(--_vlak); color: var(--oneui-text-high); text-align: left; text-decoration: none; font: inherit;
+  transition: background-color 160ms ease;
+}
+.oneui-listitem.is-open .oneui-listitem__vlak { cursor: pointer; -webkit-tap-highlight-color: transparent; }
+.oneui-listitem.is-open:not(.is-disabled) .oneui-listitem__vlak:hover { background: var(--_vlak-hover); }
+.oneui-listitem__vlak:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs); }
+
+/* Vooraan: een icoon in een cirkel van 40, een subtle vlak met het icoon in de deep kleur */
+.oneui-listitem__bol {
+  display: grid; place-items: center; flex: none; width: var(--oneui-size-2xl); height: var(--oneui-size-2xl);
+  border-radius: var(--oneui-radius-full); background: var(--oneui-surface-sunken); color: var(--oneui-icon-high);
+}
+.oneui-listitem__bol > svg, .oneui-listitem__bol > .oneui-icon { width: var(--oneui-size-xs); height: var(--oneui-size-xs); }
+.oneui-list--sunken .oneui-listitem__bol--neutral { background: var(--oneui-surface-default); }
+.oneui-listitem__bol--primary { background: var(--oneui-surface-primary-subtle); color: var(--oneui-text-on-subtle-primary); }
+.oneui-listitem__bol--secondary { background: var(--oneui-surface-secondary-subtle); color: var(--oneui-text-on-subtle-secondary); }
+.oneui-listitem__bol--accent { background: var(--oneui-surface-accent-subtle); color: var(--oneui-text-on-subtle-accent); }
+.oneui-listitem__bol--accent-2 { background: var(--oneui-surface-accent-2-subtle); color: var(--oneui-text-on-subtle-accent-2); }
+
+.oneui-listitem__tekst { display: flex; flex-direction: column; gap: var(--oneui-spacing-2xs); flex: 1; min-width: 0; }
+.oneui-listitem__titel {
+  font-family: var(--oneui-type-label-l-family); font-weight: var(--oneui-type-label-l-weight);
+  font-size: var(--oneui-type-label-l-size); line-height: var(--oneui-type-label-l-line-height);
+  letter-spacing: var(--oneui-type-label-l-letter-spacing);
+}
+.oneui-listitem__beschrijving {
+  color: var(--oneui-text-medium);
+  font-family: var(--oneui-type-body-s-family); font-weight: var(--oneui-type-body-s-weight);
+  font-size: var(--oneui-type-body-s-size); line-height: var(--oneui-type-body-s-line-height);
+  letter-spacing: var(--oneui-type-body-s-letter-spacing);
+}
+.oneui-listitem__rechts { display: inline-flex; align-items: center; flex: none; color: var(--oneui-text-medium);
+  font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);
+  font-size: var(--oneui-type-label-m-size); line-height: var(--oneui-type-label-m-line-height); }
+.oneui-listitem__chevron { display: inline-flex; width: var(--oneui-size-xs); height: var(--oneui-size-xs); color: var(--oneui-icon-low); }
+.oneui-listitem__chevron > svg { width: 100%; height: 100%; }
+.oneui-listitem.is-done .oneui-listitem__titel { color: var(--oneui-text-medium); }
+.oneui-listitem.is-disabled .oneui-listitem__vlak { cursor: not-allowed; color: var(--oneui-text-disabled); }
+.oneui-listitem.is-disabled .oneui-listitem__beschrijving, .oneui-listitem.is-disabled .oneui-listitem__rechts { color: var(--oneui-text-disabled); }
+@media (prefers-reduced-motion: reduce) { .oneui-listitem__vlak { transition: none; } }

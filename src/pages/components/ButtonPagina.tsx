@@ -6,7 +6,7 @@ import { Pagina, Regels, Sectie } from "../Pagina";
 import buttonMd from "../../oneui/docs/components/button.md?raw";
 
 // Bron: mcg-oneui docs/components/button.md en react/src/Button.tsx (src/oneui/).
-const TYPES: ButtonType[] = ["primary", "secondary", "outline", "ghost"];
+const TYPES: ButtonType[] = ["primary", "secondary", "neutral", "ghost"];
 const MATEN: ButtonSize[] = ["sm", "md", "lg"];
 const STATES = ["default", "hover", "pressed", "focus", "disabled", "loading"] as const;
 const STATE_NL: Record<(typeof STATES)[number], string> = {
@@ -86,7 +86,7 @@ function kleurtabel(): [string, (string | null)[]][] {
   const blok = buttonMd.split("### Kleuren per type en state")[1] ?? "";
   const rijen: [string, (string | null)[]][] = [];
   for (const r of blok.split("\n")) {
-    if (!/^\|\s*(primary|secondary|outline|ghost)\s*\|/.test(r)) continue;
+    if (!/^\|\s*(primary|secondary|neutral|ghost)\s*\|/.test(r)) continue;
     const c = r.split("|").slice(1, -1).map(x => x.trim().replace(/`/g, ""));
     const vlak = c[1] === "—" ? null : c[1];
     const voluit = (x: string) => (x === "—" ? null : x.startsWith("…") ? (vlak ?? "").replace(/\/[^/]+$/, "") + x.slice(1) : x);
@@ -111,7 +111,7 @@ function Tok({ n }: { n: string | null }) {
 
 export function ButtonPagina() {
   return (
-    <Pagina intro="Een knop start een actie. Eén primary per scherm: de actie die er het meest toe doet. Alle andere acties stappen af: secondary, dan outline, dan ghost. Naar een andere pagina gaan is een link, geen knop.">
+    <Pagina intro="Een knop start een actie. Eén primary per scherm: de actie die er het meest toe doet. Alle andere acties stappen af: secondary, dan neutral, dan ghost. Altijd een vlak of kaal, nooit een rand. Naar een andere pagina gaan is een link, geen knop.">
       <Sectie titel="Probeer">
         <Probeer />
       </Sectie>
@@ -120,7 +120,7 @@ export function ButtonPagina() {
         <Staten />
       </Sectie>
 
-      <Sectie titel="Maten" uitleg="Hoekafronding radius/full. Ruimte tussen icoon en label spacing/md (8). Rand border/thin.">
+      <Sectie titel="Maten" uitleg="Hoekafronding radius/full. Ruimte tussen icoon en label spacing/md (8). Geen rand.">
         <div className="maatrij">
           {MATEN.map(m => (
             <div key={m} className="maatknop">
@@ -133,8 +133,8 @@ export function ButtonPagina() {
           <table className="tabel">
             <thead><tr><th>Maat</th><th>Hoogte</th><th>Padding links/rechts</th><th>Tekststijl</th><th>Icoon</th></tr></thead>
             <tbody>
-              <tr><td>sm</td><td><code>size/xl</code> 36</td><td><code>spacing/lg</code> 12</td><td>label/M</td><td><code>size/2xs</code> 16</td></tr>
-              <tr><td>md</td><td><code>size/2xl</code> 40</td><td><code>spacing/xl</code> 16</td><td>label/M</td><td><code>size/xs</code> 20</td></tr>
+              <tr><td>sm</td><td><code>size/xl</code> 36</td><td><code>spacing/xl</code> 16</td><td>label/M</td><td><code>size/2xs</code> 16</td></tr>
+              <tr><td>md</td><td><code>size/2xl</code> 40</td><td><code>spacing/2xl</code> 20</td><td>label/M</td><td><code>size/xs</code> 20</td></tr>
               <tr><td>lg</td><td><code>size/3xl</code> 48</td><td><code>spacing/3xl</code> 24</td><td>label/L</td><td><code>size/sm</code> 24</td></tr>
             </tbody>
           </table>
@@ -144,7 +144,7 @@ export function ButtonPagina() {
       <Sectie titel="Kleuren" uitleg={<>Per type en toestand het token, met waar het naartoe wijst in het huidige thema. {(buttonMd.match(/In MCG is [^\n]*/) ?? [""])[0]}</>}>
         <div className="tabel-scroll">
           <table className="tabel">
-            <thead><tr><th>Type</th><th>Vlak</th><th>Hover</th><th>Ingedrukt</th><th>Rand</th><th>Label en icoon</th></tr></thead>
+            <thead><tr><th>Type</th><th>Vlak</th><th>Hover</th><th>Ingedrukt</th><th>Label en icoon</th></tr></thead>
             <tbody>
               {KLEUREN.map(([t, k]) => (
                 <tr key={t}><td><b>{t}</b></td>{k.map((n, i) => <td key={i}><Tok n={n} /></td>)}</tr>
@@ -153,8 +153,9 @@ export function ButtonPagina() {
           </table>
         </div>
         <Regels items={[
-          <><b>Uitgeschakeld:</b> vlak surface/disabled, label text/disabled. Outline en ghost zonder vlak, outline met rand stroke/disabled. Geen doorschijnendheid.</>,
-          <><b>Focus:</b> een ring buiten de knop, border/thick breed en spacing/2xs los van de knop, alleen bij toetsenbordfocus. Magenta bij primary, sky bij de rest. De knop verschuift niet.</>,
+          <><b>Ingedrukt:</b> de knop veert in tot 96 %.</>,
+          <><b>Uitgeschakeld:</b> vlak surface/disabled, label text/disabled. Ghost zonder vlak. Geen doorschijnendheid.</>,
+          <><b>Focus:</b> een ring buiten de knop, border/thick breed en spacing/2xs los van de knop, alleen bij toetsenbordfocus. In interaction/focusRing (sky), voor elk type. De knop verschuift niet.</>,
           <><b>Laden:</b> het label blijft onzichtbaar staan, zodat de knop zijn breedte houdt, met een spinner in het midden. De knop is dan niet klikbaar en meldt aan schermlezers dat hij bezig is.</>,
         ]} />
       </Sectie>
@@ -162,7 +163,7 @@ export function ButtonPagina() {
       <Sectie titel="Iconen" uitleg="Optioneel vóór en/of na het label. Het icoon heeft de kleur van het label en groeit mee met de maat.">
         <div className="maatrij">
           <Button variant="secondary" iconLeft={<Plus />}>Toevoegen</Button>
-          <Button variant="outline" iconRight={<Chevron />}>Bekijk alles</Button>
+          <Button variant="neutral" iconRight={<Chevron />}>Bekijk alles</Button>
         </div>
         <Regels items={[
           "Een icoon na het label (chevron) suggereert navigatie.",
@@ -179,7 +180,7 @@ export function ButtonPagina() {
           </div>
           <div className="vak">
             <Text variant="title-s">Niet doen</Text>
-            <Regels items={["Twee primaries naast elkaar, of een primary voor annuleren.", "Kleuren of maten aanpassen per knop; vraag een nieuwe variant aan."]} />
+            <Regels items={["Twee primaries naast elkaar, of een primary voor annuleren.", "Een rand om een knop; kies neutral.", "Kleuren of maten aanpassen per knop; vraag een nieuwe variant aan."]} />
             <div className="maatrij"><Button>Annuleren</Button><Button>Opslaan</Button></div>
           </div>
         </div>

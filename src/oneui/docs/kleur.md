@@ -6,7 +6,7 @@ hetzelfde als `magenta/600`.
 
 | Rol | Ladder | Gebruik |
 |---|---|---|
-| primary | magenta | focus, merkmomenten (knoppen hebben een eigen rol: action) |
+| primary | magenta | merkmomenten (knoppen en focus hebben een eigen rol: action) |
 | secondary | sky | rustige vlakken, links, ondersteunende accenten |
 | accent | amber | warmte, uitlichten |
 | accent-2 | violet | tweede accent: dromen, verdieping, een vierde hoofdstukkleur |

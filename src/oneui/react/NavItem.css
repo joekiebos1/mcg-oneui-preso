@@ -1,0 +1,40 @@
+/* OneUI Nav item, in de stijl Rond: elk item is een pil. Actief een sky pil, hover een grijze; geen lijnen. */
+.oneui-nav__lijst { display: flex; flex-direction: column; gap: var(--oneui-spacing-2xs); margin: 0; padding: 0; list-style: none; }
+.oneui-nav--horizontal .oneui-nav__lijst { flex-direction: row; flex-wrap: wrap; gap: var(--oneui-spacing-xs); }
+.oneui-nav__item { margin: 0; }
+
+.oneui-navitem {
+  display: flex; align-items: center; gap: var(--oneui-spacing-lg); box-sizing: border-box; width: 100%;
+  min-height: var(--oneui-size-3xl); padding: 0 var(--oneui-spacing-xl); margin: 0; border: 0;
+  border-radius: var(--oneui-radius-full); background: transparent; color: var(--oneui-text-medium);
+  text-align: left; text-decoration: none; cursor: pointer; -webkit-tap-highlight-color: transparent;
+  font-family: var(--oneui-type-label-l-family); font-weight: var(--oneui-type-label-l-weight);
+  font-size: var(--oneui-type-label-l-size); line-height: var(--oneui-type-label-l-line-height);
+  letter-spacing: var(--oneui-type-label-l-letter-spacing);
+  transition: background-color 160ms ease, color 160ms ease;
+}
+.oneui-navitem--horizontal {
+  width: auto; min-height: var(--oneui-size-2xl); gap: var(--oneui-spacing-md); padding: 0 var(--oneui-spacing-xl);
+  font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);
+  font-size: var(--oneui-type-label-m-size); line-height: var(--oneui-type-label-m-line-height);
+  letter-spacing: var(--oneui-type-label-m-letter-spacing);
+}
+.oneui-navitem__icon { display: inline-flex; flex: none; width: var(--oneui-size-xs); height: var(--oneui-size-xs); color: var(--oneui-icon-medium); }
+.oneui-navitem__icon > svg, .oneui-navitem__icon > .oneui-icon { width: 100%; height: 100%; }
+.oneui-navitem__label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.oneui-navitem__counter {
+  display: inline-grid; place-items: center; flex: none; box-sizing: border-box;
+  min-width: var(--oneui-size-sm); height: var(--oneui-size-sm); padding: 0 var(--oneui-spacing-sm);
+  border-radius: var(--oneui-radius-full); background: var(--oneui-surface-action-primary); color: var(--oneui-text-on-action-primary);
+  font-family: var(--oneui-type-label-s-family); font-weight: var(--oneui-type-label-s-weight);
+  font-size: var(--oneui-type-label-s-size); line-height: var(--oneui-type-label-s-line-height); font-variant-numeric: tabular-nums;
+}
+
+.oneui-navitem:hover:not(:disabled):not(.is-active) { background: var(--oneui-surface-neutral-subtle-hover); color: var(--oneui-text-high); }
+.oneui-navitem:active:not(:disabled):not(.is-active) { background: var(--oneui-surface-neutral-subtle-pressed); }
+.oneui-navitem.is-active { background: var(--oneui-surface-secondary-subtle); color: var(--oneui-text-on-subtle-secondary); cursor: default; }
+.oneui-navitem.is-active .oneui-navitem__icon { color: var(--oneui-icon-secondary); }
+.oneui-navitem:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs); }
+.oneui-navitem.is-disabled { color: var(--oneui-text-disabled); cursor: not-allowed; }
+.oneui-navitem.is-disabled .oneui-navitem__icon { color: var(--oneui-icon-disabled); }
+@media (prefers-reduced-motion: reduce) { .oneui-navitem { transition: none; } }

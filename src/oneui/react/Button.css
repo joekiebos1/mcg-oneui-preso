@@ -1,15 +1,14 @@
-/* OneUI Button. Alleen tokens uit dist/tokens.css; geen losse kleuren of maten. */
+/* OneUI Button, in de stijl Rond: een pil, altijd een vlak of kaal, nooit een rand. Alleen tokens. */
 
 .oneui-button {
   --_bg: transparent;
   --_bg-hover: transparent;
   --_bg-pressed: transparent;
   --_fg: var(--oneui-text-high);
-  --_border: transparent;
-  --_pad-x: var(--oneui-spacing-xl);
+  --_pad-x: var(--oneui-spacing-2xl);
   --_height: var(--oneui-size-2xl);
-  --_icon: var(--oneui-size-2xs);
-  --_ring: var(--oneui-stroke-action-secondary);
+  --_icon: var(--oneui-size-xs);
+  --_ring: var(--oneui-interaction-focusring);
 
   position: relative;
   display: inline-flex;
@@ -17,7 +16,7 @@
   justify-content: center;
   min-height: var(--_height);
   padding: 0 var(--_pad-x);
-  border: var(--oneui-border-thin) solid var(--_border);
+  border: 0;
   border-radius: var(--oneui-radius-full);
   background: var(--_bg);
   color: var(--_fg);
@@ -26,21 +25,22 @@
   font-size: var(--oneui-type-label-m-size);
   line-height: var(--oneui-type-label-m-line-height);
   letter-spacing: var(--oneui-type-label-m-letter-spacing);
+  white-space: nowrap;
   cursor: pointer;
   user-select: none;
   -webkit-tap-highlight-color: transparent;
-  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+  transition: background-color 160ms ease, color 160ms ease, transform 160ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .oneui-button__content { display: inline-flex; align-items: center; gap: var(--oneui-spacing-md); }
 
 /* Iconen erven de labelkleur (currentColor) en de maat van de knop. */
 .oneui-button__icon { display: inline-flex; flex: none; width: var(--_icon); height: var(--_icon); }
-.oneui-button__icon > svg { width: 100%; height: 100%; }
+.oneui-button__icon > svg, .oneui-button__icon > .oneui-icon { width: 100%; height: 100%; }
 
-/* Maten: hoogte 36 / 40 / 48, icoon 16 / 20 / 24 */
-.oneui-button--sm { --_pad-x: var(--oneui-spacing-lg); --_height: var(--oneui-size-xl); --_icon: var(--oneui-size-2xs); }
-.oneui-button--md { --_pad-x: var(--oneui-spacing-xl); --_height: var(--oneui-size-2xl); --_icon: var(--oneui-size-xs); }
+/* Maten: hoogte 36 / 40 / 48, icoon 16 / 20 / 24. Ruim binnenwerk: de pil ademt. */
+.oneui-button--sm { --_pad-x: var(--oneui-spacing-xl); --_height: var(--oneui-size-xl); --_icon: var(--oneui-size-2xs); }
+.oneui-button--md { --_pad-x: var(--oneui-spacing-2xl); --_height: var(--oneui-size-2xl); --_icon: var(--oneui-size-xs); }
 .oneui-button--lg {
   --_pad-x: var(--oneui-spacing-3xl); --_height: var(--oneui-size-3xl); --_icon: var(--oneui-size-sm);
   font-family: var(--oneui-type-label-l-family);
@@ -50,13 +50,12 @@
   letter-spacing: var(--oneui-type-label-l-letter-spacing);
 }
 
-/* Types */
+/* Types: primary en secondary uit de action-tokens (sky), neutral een grijs vlak, ghost kaal. */
 .oneui-button--primary {
   --_bg: var(--oneui-surface-action-primary);
   --_bg-hover: var(--oneui-surface-action-primary-hover);
   --_bg-pressed: var(--oneui-surface-action-primary-pressed);
   --_fg: var(--oneui-text-on-action-primary);
-  --_ring: var(--oneui-interaction-focusring);
 }
 .oneui-button--secondary {
   --_bg: var(--oneui-surface-action-secondary);
@@ -64,22 +63,21 @@
   --_bg-pressed: var(--oneui-surface-action-secondary-pressed);
   --_fg: var(--oneui-text-on-action-secondary);
 }
-.oneui-button--outline {
-  --_border: var(--oneui-stroke-action-secondary);
-  --_bg-hover: var(--oneui-surface-secondary-subtle);
-  --_bg-pressed: var(--oneui-surface-secondary-subtle-pressed);
+.oneui-button--neutral {
+  --_bg: var(--oneui-surface-sunken);
+  --_bg-hover: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-neutral-subtle-pressed));
+  --_bg-pressed: var(--oneui-surface-neutral-subtle-pressed);
 }
 .oneui-button--ghost {
-  --_bg-hover: var(--oneui-surface-secondary-subtle);
-  --_bg-pressed: var(--oneui-surface-secondary-subtle-pressed);
+  --_bg-hover: var(--oneui-surface-neutral-subtle-hover);
+  --_bg-pressed: var(--oneui-surface-neutral-subtle-pressed);
 }
 
-/* States */
+/* States. Ingedrukt veert de pil iets in. */
 .oneui-button:hover:not(:disabled):not(.is-loading) { background: var(--_bg-hover); }
-.oneui-button:active:not(:disabled):not(.is-loading) { background: var(--_bg-pressed); }
+.oneui-button:active:not(:disabled):not(.is-loading) { background: var(--_bg-pressed); transform: scale(0.96); }
 
-/* Focus: de ring staat buiten de knop in de eigen kleur (primary magenta, de rest sky), zodat de maat niet
-   verschuift. Alleen bij toetsenbordfocus. */
+/* Focus: alleen bij het toetsenbord, een ring los van de knop, zodat de maat niet verschuift. */
 .oneui-button:focus-visible {
   outline: var(--oneui-border-thick) solid var(--_ring);
   outline-offset: var(--oneui-spacing-2xs);
@@ -88,10 +86,8 @@
 .oneui-button:disabled {
   --_bg: var(--oneui-surface-disabled);
   --_fg: var(--oneui-text-disabled);
-  --_border: transparent;
   cursor: not-allowed;
 }
-.oneui-button--outline:disabled { --_bg: transparent; --_border: var(--oneui-stroke-disabled); }
 .oneui-button--ghost:disabled { --_bg: transparent; }
 
 /* Laden: label onzichtbaar maar ruimte behouden, spinner in het midden. */
@@ -100,7 +96,11 @@
 .oneui-button__spinner { position: absolute; inset: 0; display: grid; place-items: center; }
 .oneui-button__spinner > svg { width: var(--_icon); height: var(--_icon); animation: oneui-spin 800ms linear infinite; }
 @keyframes oneui-spin { to { transform: rotate(360deg); } }
-@media (prefers-reduced-motion: reduce) { .oneui-button__spinner > svg { animation-duration: 2400ms; } }
+@media (prefers-reduced-motion: reduce) {
+  .oneui-button { transition: none; }
+  .oneui-button:active:not(:disabled):not(.is-loading) { transform: none; }
+  .oneui-button__spinner > svg { animation-duration: 2400ms; }
+}
 
 .oneui-visually-hidden {
   position: absolute; width: 1px; height: 1px; margin: -1px; padding: 0; overflow: hidden;

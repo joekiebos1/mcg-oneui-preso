@@ -320,7 +320,7 @@
   --oneui-surface-overlay: #0000007a;
   --oneui-effect-shadow-key: #2327291a;
   --oneui-effect-shadow-ambient: #2327290f;
-  --oneui-interaction-focusring: var(--oneui-brand-primary-600);
+  --oneui-interaction-focusring: var(--oneui-brand-action-light-stroke);
   --oneui-interaction-focusringoffset: var(--oneui-base-white);
   --oneui-text-on-subtle-primary: var(--oneui-brand-primary-900);
   --oneui-surface-primary-bold-hover: var(--oneui-brand-bold-hover-primary);
@@ -451,7 +451,7 @@
   --oneui-surface-overlay: #000000a3;
   --oneui-effect-shadow-key: #0000005c;
   --oneui-effect-shadow-ambient: #0000003d;
-  --oneui-interaction-focusring: var(--oneui-brand-primary-400);
+  --oneui-interaction-focusring: var(--oneui-brand-action-dark-stroke);
   --oneui-interaction-focusringoffset: var(--oneui-brand-neutral-950);
   --oneui-text-on-subtle-primary: var(--oneui-brand-primary-100);
   --oneui-surface-primary-bold-hover: var(--oneui-brand-bold-hover-primary);
@@ -583,7 +583,7 @@
     --oneui-surface-overlay: #000000a3;
     --oneui-effect-shadow-key: #0000005c;
     --oneui-effect-shadow-ambient: #0000003d;
-    --oneui-interaction-focusring: var(--oneui-brand-primary-400);
+    --oneui-interaction-focusring: var(--oneui-brand-action-dark-stroke);
     --oneui-interaction-focusringoffset: var(--oneui-brand-neutral-950);
     --oneui-text-on-subtle-primary: var(--oneui-brand-primary-100);
     --oneui-surface-primary-bold-hover: var(--oneui-brand-bold-hover-primary);

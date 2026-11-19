@@ -19,3 +19,8 @@
 - [Section heading](section-heading.md)
 - [Page heading](page-heading.md)
 - [Stepper](stepper.md)
+- [List item](list-item.md) (alleen code)
+- [Progress bar](progress-bar.md) (alleen code)
+- [Progress ring](progress-ring.md) (alleen code)
+- [Slider](slider.md) (alleen code)
+- [Dialog](dialog.md) (alleen code)

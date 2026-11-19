@@ -1,0 +1,45 @@
+/* OneUI Dialog, in de stijl Rond: een groot rond vlak met een zachte schaduw, op surface/scrim. Geen lijnen. */
+.oneui-dialog {
+  box-sizing: border-box; width: min(100% - 2 * var(--oneui-spacing-xl), calc(var(--oneui-size-5xl) * 6.25));
+  max-height: calc(100% - 2 * var(--oneui-spacing-xl)); margin: auto; padding: 0; border: 0; overflow: visible;
+  background: transparent; color: var(--oneui-text-high);
+}
+.oneui-dialog::backdrop { background: var(--oneui-surface-scrim); }
+.oneui-dialog__vlak {
+  display: flex; flex-direction: column; gap: var(--oneui-spacing-xl); padding: var(--oneui-spacing-3xl);
+  border-radius: var(--oneui-radius-4xl); background: var(--oneui-surface-default);
+  box-shadow: 0 var(--oneui-spacing-md) var(--oneui-spacing-3xl) var(--oneui-effect-shadow-key),
+    0 var(--oneui-spacing-3xl) var(--oneui-spacing-7xl) var(--oneui-effect-shadow-ambient);
+  max-height: inherit; overflow: auto;
+}
+.oneui-dialog[open] .oneui-dialog__vlak { animation: oneui-dialog-in 240ms cubic-bezier(0.2, 0.8, 0.2, 1); }
+@keyframes oneui-dialog-in { from { opacity: 0; transform: translateY(var(--oneui-spacing-md)) scale(0.98); } }
+
+.oneui-dialog__bol {
+  display: grid; place-items: center; width: var(--oneui-size-4xl); height: var(--oneui-size-4xl);
+  border-radius: var(--oneui-radius-full); background: var(--oneui-surface-sunken); color: var(--oneui-icon-high);
+}
+.oneui-dialog__bol > svg, .oneui-dialog__bol > .oneui-icon { width: var(--oneui-size-lg); height: var(--oneui-size-lg); }
+.oneui-dialog__bol--primary { background: var(--oneui-surface-primary-subtle); color: var(--oneui-text-on-subtle-primary); }
+.oneui-dialog__bol--secondary { background: var(--oneui-surface-secondary-subtle); color: var(--oneui-text-on-subtle-secondary); }
+.oneui-dialog__bol--accent { background: var(--oneui-surface-accent-subtle); color: var(--oneui-text-on-subtle-accent); }
+.oneui-dialog__bol--accent-2 { background: var(--oneui-surface-accent-2-subtle); color: var(--oneui-text-on-subtle-accent-2); }
+
+.oneui-dialog__titel {
+  margin: 0;
+  font-family: var(--oneui-type-heading-m-family); font-weight: var(--oneui-type-heading-m-weight);
+  font-size: var(--oneui-type-heading-m-size); line-height: var(--oneui-type-heading-m-line-height);
+  letter-spacing: var(--oneui-type-heading-m-letter-spacing);
+}
+.oneui-dialog__tekst {
+  color: var(--oneui-text-medium);
+  font-family: var(--oneui-type-body-m-family); font-weight: var(--oneui-type-body-m-weight);
+  font-size: var(--oneui-type-body-m-size); line-height: var(--oneui-type-body-m-line-height);
+}
+.oneui-dialog__tekst > :first-child { margin-top: 0; }
+.oneui-dialog__tekst > :last-child { margin-bottom: 0; }
+.oneui-dialog__acties { display: flex; gap: var(--oneui-spacing-md); margin-top: var(--oneui-spacing-md); }
+.oneui-dialog__acties--stack { flex-direction: column; }
+.oneui-dialog__acties--stack > * { width: 100%; }
+.oneui-dialog__acties--row { justify-content: flex-end; flex-wrap: wrap; }
+@media (prefers-reduced-motion: reduce) { .oneui-dialog[open] .oneui-dialog__vlak { animation: none; } }

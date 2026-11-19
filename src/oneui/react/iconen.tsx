@@ -21,3 +21,4 @@ export const IcoonOpsomming = () => <Svg><path d="M10 6h10M10 12h10M10 18h10" />
 export const IcoonLijn = () => <Svg><path d="M4 12h16" /></Svg>;
 export const IcoonLink = () => <Svg><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1" /></Svg>;
 export const IcoonKruis = () => <Svg><path d="M7 7l10 10M17 7 7 17" /></Svg>;
+export const IcoonChevronRechts = () => <Svg><path d="m9 6 6 6-6 6" /></Svg>;

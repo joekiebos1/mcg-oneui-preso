@@ -12,9 +12,10 @@
 .oneui-code__vak { width: var(--oneui-size-3xl); height: var(--oneui-size-3xl); padding: 0; justify-content: center; }
 .oneui-code__vak.oneui-vak--sm { width: var(--oneui-size-2xl); height: var(--oneui-size-2xl); }
 .oneui-code__vak .oneui-vak__tekst { text-align: center; }
-/* search met een waarde: een kruisje om te wissen (Figma: Input, search, filled) */
-.oneui-vak__wis { display: inline-flex; flex: none; width: var(--oneui-size-xs); height: var(--oneui-size-xs); padding: 0;
-  border: 0; background: none; color: var(--oneui-icon-medium); border-radius: var(--oneui-radius-full); cursor: pointer; }
-.oneui-vak__wis:hover { color: var(--oneui-icon-high); }
+/* search met een waarde: een rond knopje met een kruisje om te wissen (Figma: Input, search, filled) */
+.oneui-vak__wis { display: inline-grid; place-items: center; flex: none; width: var(--oneui-size-sm); height: var(--oneui-size-sm);
+  margin-right: calc(-1 * var(--oneui-spacing-xs)); padding: 0; border: 0; border-radius: var(--oneui-radius-full);
+  background: var(--oneui-surface-neutral-subtle-pressed); color: var(--oneui-icon-high); cursor: pointer; }
+.oneui-vak__wis:hover { background: color-mix(in srgb, var(--oneui-surface-neutral-subtle-pressed), var(--oneui-icon-high) 12%); }
 .oneui-vak__wis:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs); }
-.oneui-vak__wis svg { width: 100%; height: 100%; }
+.oneui-vak__wis svg { width: var(--oneui-size-2xs); height: var(--oneui-size-2xs); }

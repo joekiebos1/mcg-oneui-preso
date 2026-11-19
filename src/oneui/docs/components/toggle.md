@@ -20,17 +20,18 @@ _Nog in te vullen._
 
 | deel | token |
 |---|---|
-| baan | 32 breed (`size/lg`), 18 hoog (`size/2xs` + `spacing/2xs`), `radius/full` |
-| knop | 16, `radius/full`, `text/on-bold`, `border/thin` van de rand |
-| label | label/M, `text/high`, `spacing/md` naast de baan |
+| baan | 56 breed (`size/4xl`), 32 hoog (`size/lg`), `radius/full`, `spacing/xs` binnenrand |
+| knop | 24 (`size/sm`), `surface/default`, zachte schaduw; aan met een vinkje van 16 in `surface/action/primary` |
+| label | body/M, `text/high`, `spacing/lg` naast de baan |
 
 | state | uit | aan |
 |---|---|---|
-| actief | `surface/disabled` | `surface/primary/bold` |
-| uitgeschakeld | `surface/sunken` | `surface/primary/bold` op 30 % |
+| actief | `surface/neutral/subtle-pressed` | `surface/action/primary` (sky 700) |
+| hover | een stap dieper | `surface/action/primary-hover` |
+| uitgeschakeld | `surface/disabled` | `surface/action/primary` op 35 % |
 | focus (toetsenbord) | ring `border/thick` in `interaction/focusRing`, `spacing/2xs` los | zelfde |
 
-De knop schuift in 160 ms; zonder beweging als de gebruiker dat vraagt (`prefers-reduced-motion`).
+De knop schuift in 240 ms met een kleine veer; zonder beweging als de gebruiker dat vraagt (`prefers-reduced-motion`).
 
 ## React
 

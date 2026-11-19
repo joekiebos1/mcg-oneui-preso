@@ -25,8 +25,8 @@
 <!-- handmatig -->
 ## Wanneer gebruiken
 
-Een Input haalt een waarde op bij de gebruiker. Het label staat erboven, hulp of een fout eronder. De rand laat de
-state zien. (Figma: DOC — Input)
+Een Input haalt een waarde op bij de gebruiker. Het label staat erboven, hulp of een fout eronder. Het vlak laat de
+state zien, zonder rand ([besluit 004](../besluiten/004-rond-vlakken-geen-randen.md)). (Figma: DOC — Input)
 
 - **text**: één regel tekst.
 - **search**: zoeken; een pil met een vergrootglas. Met een waarde verschijnt een kruisje om te wissen.
@@ -46,14 +46,16 @@ Alle waarden zijn tokens (`dist/tokens.css`).
 
 | maat | hoogte | padding boven/onder | padding links/rechts | hoeken |
 |---|---|---|---|---|
-| md (standaard) | 48 | `spacing/lg` | `spacing/xl` | `radius/lg` |
-| sm | 40 | `spacing/md` | `spacing/lg` | `radius/md` |
+| md (standaard) | 48 | `spacing/lg` | `spacing/xl` | `radius/2xl` |
+| sm | 40 | `spacing/md` | `spacing/lg` | `radius/xl` |
 
-Vlak `surface/default`. Rand `border/thin` in `stroke/neutral/low`, hover `stroke/neutral/high`, focus 2 breed in
-`stroke/secondary/medium` (het vak verschuift niet). Tekst label/M in `text/high`, placeholder `text/low`. Iconen
-`size/xs` in `icon/medium`, `spacing/md` van de tekst.
+Een gevuld vlak zonder rand: `surface/sunken`. Hover een stap dieper (tussen sunken en `surface/neutral/subtle-pressed`).
+Focus: het vlak wordt `surface/default` met een zachte schaduw (`effect/shadow/key`) en komt los van de pagina; de
+cursor in `interaction/focusRing`. Tekst label/M in `text/high`, placeholder `text/low`. Iconen `size/xs` in
+`icon/medium`, `spacing/md` van de tekst.
 
-- **search:** hoeken `radius/full`.
+- **search:** hoeken `radius/full`. Het kruisje om te wissen is een rond knopje van `size/sm` in
+  `surface/neutral/subtle-pressed`.
 - **code:** vierkante vakjes van `size/3xl` (sm `size/2xl`), `spacing/md` ertussen, het cijfer in het midden.
 - **teller:** rechts in de regel van de hulptekst, body/XS.
 
@@ -61,11 +63,13 @@ Vlak `surface/default`. Rand `border/thin` in `stroke/neutral/low`, hover `strok
 
 | deel | token |
 |---|---|
-| label | label/M, `text/high` |
-| hulptekst | body/XS, `text/medium` |
-| ruimte tussen label, vak en hulptekst | `spacing/xs` |
-| fout | vak `surface/negative/subtle`, rand `stroke/negative/medium`; de melding vervangt de hulptekst |
-| uitgeschakeld | vak `surface/disabled`, rand `stroke/disabled`, tekst `text/disabled` |
+| label | label/M, `text/high`, ingesprongen tot de tekst in het vak (`spacing/xl`, bij sm `spacing/lg`) |
+| hulptekst | body/XS, `text/medium`, net zo ingesprongen |
+| ruimte tussen label, vak en hulptekst | `spacing/sm` |
+| fout | vak `surface/negative/subtle`, zonder rand; de melding in `stroke/negative/high` vervangt de hulptekst |
+| uitgeschakeld | vak `surface/disabled`, tekst `text/disabled` |
+
+Select deelt dit vak. De Editor heeft nog een rand; die volgt later.
 
 ## React
 
