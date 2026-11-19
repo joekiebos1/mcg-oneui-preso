@@ -90,13 +90,14 @@ function Semantisch() {
       <Text variant="body-m" color="medium" className="tabuitleg">{UITLEG[open]}</Text>
       <div className="tabel-scroll">
         <table className="tabel">
-          <thead><tr><th>Token</th><th>Licht</th><th>Donker</th></tr></thead>
+          <thead><tr><th>Token</th><th>Licht</th><th>Donker</th><th>Op subtle</th></tr></thead>
           <tbody>
             {groepen[open].map(t => (
               <tr key={t.naam}>
                 <td><code>{t.naam}</code></td>
                 <td><Swatch waarde={t.waarde} /></td>
                 <td><Swatch waarde={t.donker ?? t.waarde} /></td>
+                <td>{t.opSubtle ? <><Swatch waarde={t.opSubtle.light} /><br /><Swatch waarde={t.opSubtle.dark} /></> : <Text as="span" variant="body-s" color="low">gelijk</Text>}</td>
               </tr>
             ))}
           </tbody>
@@ -180,7 +181,7 @@ export function Colours() {
         <Drie />
       </Sectie>
 
-      <Sectie titel="Semantische tokens" uitleg="Wat componenten gebruiken, per soort. Rechts zie je waar elk token naartoe wijst, in licht en donker.">
+      <Sectie titel="Semantische tokens" uitleg="Wat componenten gebruiken, per soort. Rechts zie je waar elk token naartoe wijst, in licht en donker, en op een vlak van stap 100 (de pagina, een subtle vlak): daar schuift het een stap op (data-ondergrond, besluit 009).">
         <Semantisch />
       </Sectie>
 

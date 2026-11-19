@@ -1,5 +1,7 @@
 /* OneUI tokens (MCG) — gegenereerd door scripts/build.mjs uit figma/. Niet met de hand aanpassen.
-   Thema: data-theme="dark" of de systeeminstelling. */
+   Thema: data-theme="dark" of de systeeminstelling. Ondergrond: data-ondergrond="subtle" op een vlak van stap 100 (de pagina,
+   een subtle vlak): alles erin schuift één stap op (besluit 009). data-ondergrond="default" zet het terug, bijv. in een
+   witte kaart op zo'n vlak. */
 :root {
   --oneui-base-black: #000000;
   --oneui-base-white: #ffffff;
@@ -236,6 +238,7 @@
   --oneui-surface-violet-subtle-hover: var(--oneui-violet-200);
   --oneui-surface-violet-subtle-pressed: var(--oneui-violet-300);
   --oneui-text-on-bold-violet: var(--oneui-base-white);
+  --oneui-surface-control-off: var(--oneui-slate-500);
 }
 
 [data-theme="dark"] {
@@ -340,6 +343,7 @@
   --oneui-surface-violet-subtle-hover: var(--oneui-violet-900);
   --oneui-surface-violet-subtle-pressed: var(--oneui-violet-800);
   --oneui-text-on-bold-violet: var(--oneui-base-white);
+  --oneui-surface-control-off: var(--oneui-slate-500);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -445,6 +449,172 @@
     --oneui-surface-violet-subtle-hover: var(--oneui-violet-900);
     --oneui-surface-violet-subtle-pressed: var(--oneui-violet-800);
     --oneui-text-on-bold-violet: var(--oneui-base-white);
+    --oneui-surface-control-off: var(--oneui-slate-500);
+  }
+}
+
+[data-ondergrond="subtle"] > * {
+  --oneui-surface-sunken: var(--oneui-slate-300);
+  --oneui-surface-disabled: var(--oneui-slate-300);
+  --oneui-surface-magenta-subtle: var(--oneui-magenta-200);
+  --oneui-surface-sky-subtle: var(--oneui-sky-200);
+  --oneui-surface-amber-subtle: var(--oneui-amber-200);
+  --oneui-surface-positive-subtle: var(--oneui-green-200);
+  --oneui-surface-negative-subtle: var(--oneui-red-200);
+  --oneui-surface-warning-subtle: var(--oneui-orange-200);
+  --oneui-surface-informative-subtle: var(--oneui-sky-200);
+  --oneui-text-low: var(--oneui-slate-800);
+  --oneui-surface-sky-subtle-hover: var(--oneui-sky-300);
+  --oneui-surface-sky-subtle-pressed: var(--oneui-sky-400);
+  --oneui-surface-magenta-subtle-hover: var(--oneui-magenta-300);
+  --oneui-surface-magenta-subtle-pressed: var(--oneui-magenta-400);
+  --oneui-icon-sky: var(--oneui-sky-700);
+  --oneui-surface-amber-subtle-hover: var(--oneui-amber-300);
+  --oneui-surface-amber-subtle-pressed: var(--oneui-amber-400);
+  --oneui-surface-neutral-subtle: var(--oneui-slate-200);
+  --oneui-surface-neutral-subtle-hover: var(--oneui-slate-300);
+  --oneui-surface-neutral-subtle-pressed: var(--oneui-slate-400);
+  --oneui-surface-action-secondary: var(--oneui-sky-300);
+  --oneui-surface-action-secondary-hover: var(--oneui-sky-400);
+  --oneui-surface-violet-subtle: var(--oneui-violet-200);
+  --oneui-surface-violet-subtle-hover: var(--oneui-violet-300);
+  --oneui-surface-violet-subtle-pressed: var(--oneui-violet-400);
+}
+[data-ondergrond="default"] > * {
+  --oneui-surface-sunken: var(--oneui-slate-200);
+  --oneui-surface-disabled: var(--oneui-slate-200);
+  --oneui-surface-magenta-subtle: var(--oneui-magenta-100);
+  --oneui-surface-sky-subtle: var(--oneui-sky-100);
+  --oneui-surface-amber-subtle: var(--oneui-amber-100);
+  --oneui-surface-positive-subtle: var(--oneui-green-100);
+  --oneui-surface-negative-subtle: var(--oneui-red-100);
+  --oneui-surface-warning-subtle: var(--oneui-orange-100);
+  --oneui-surface-informative-subtle: var(--oneui-sky-100);
+  --oneui-text-low: var(--oneui-slate-700);
+  --oneui-surface-sky-subtle-hover: var(--oneui-sky-200);
+  --oneui-surface-sky-subtle-pressed: var(--oneui-sky-300);
+  --oneui-surface-magenta-subtle-hover: var(--oneui-magenta-200);
+  --oneui-surface-magenta-subtle-pressed: var(--oneui-magenta-300);
+  --oneui-icon-sky: var(--oneui-sky-600);
+  --oneui-surface-amber-subtle-hover: var(--oneui-amber-200);
+  --oneui-surface-amber-subtle-pressed: var(--oneui-amber-300);
+  --oneui-surface-neutral-subtle: var(--oneui-slate-100);
+  --oneui-surface-neutral-subtle-hover: var(--oneui-slate-200);
+  --oneui-surface-neutral-subtle-pressed: var(--oneui-slate-300);
+  --oneui-surface-action-secondary: var(--oneui-sky-200);
+  --oneui-surface-action-secondary-hover: var(--oneui-sky-300);
+  --oneui-surface-violet-subtle: var(--oneui-violet-100);
+  --oneui-surface-violet-subtle-hover: var(--oneui-violet-200);
+  --oneui-surface-violet-subtle-pressed: var(--oneui-violet-300);
+}
+[data-theme="dark"] [data-ondergrond="subtle"] > *, [data-theme="dark"][data-ondergrond="subtle"] > * {
+  --oneui-surface-sunken: var(--oneui-slate-800);
+  --oneui-surface-disabled: var(--oneui-slate-700);
+  --oneui-surface-magenta-subtle: var(--oneui-magenta-900);
+  --oneui-surface-sky-subtle: var(--oneui-sky-900);
+  --oneui-surface-amber-subtle: var(--oneui-amber-900);
+  --oneui-surface-positive-subtle: var(--oneui-green-900);
+  --oneui-surface-negative-subtle: var(--oneui-red-900);
+  --oneui-surface-warning-subtle: var(--oneui-orange-900);
+  --oneui-surface-informative-subtle: var(--oneui-sky-900);
+  --oneui-text-low: var(--oneui-slate-300);
+  --oneui-surface-sky-subtle-hover: var(--oneui-sky-800);
+  --oneui-surface-sky-subtle-pressed: var(--oneui-sky-700);
+  --oneui-surface-magenta-subtle-hover: var(--oneui-magenta-800);
+  --oneui-surface-magenta-subtle-pressed: var(--oneui-magenta-700);
+  --oneui-icon-sky: var(--oneui-sky-300);
+  --oneui-surface-amber-subtle-hover: var(--oneui-amber-800);
+  --oneui-surface-amber-subtle-pressed: var(--oneui-amber-700);
+  --oneui-surface-neutral-subtle: var(--oneui-slate-800);
+  --oneui-surface-neutral-subtle-hover: var(--oneui-slate-700);
+  --oneui-surface-neutral-subtle-pressed: var(--oneui-slate-600);
+  --oneui-surface-action-secondary: var(--oneui-sky-200);
+  --oneui-surface-action-secondary-hover: var(--oneui-sky-300);
+  --oneui-surface-violet-subtle: var(--oneui-violet-900);
+  --oneui-surface-violet-subtle-hover: var(--oneui-violet-800);
+  --oneui-surface-violet-subtle-pressed: var(--oneui-violet-700);
+}
+[data-theme="dark"] [data-ondergrond="default"] > *, [data-theme="dark"][data-ondergrond="default"] > * {
+  --oneui-surface-sunken: var(--oneui-slate-900);
+  --oneui-surface-disabled: var(--oneui-slate-800);
+  --oneui-surface-magenta-subtle: var(--oneui-magenta-950);
+  --oneui-surface-sky-subtle: var(--oneui-sky-950);
+  --oneui-surface-amber-subtle: var(--oneui-amber-950);
+  --oneui-surface-positive-subtle: var(--oneui-green-950);
+  --oneui-surface-negative-subtle: var(--oneui-red-950);
+  --oneui-surface-warning-subtle: var(--oneui-orange-950);
+  --oneui-surface-informative-subtle: var(--oneui-sky-950);
+  --oneui-text-low: var(--oneui-slate-300);
+  --oneui-surface-sky-subtle-hover: var(--oneui-sky-900);
+  --oneui-surface-sky-subtle-pressed: var(--oneui-sky-800);
+  --oneui-surface-magenta-subtle-hover: var(--oneui-magenta-900);
+  --oneui-surface-magenta-subtle-pressed: var(--oneui-magenta-800);
+  --oneui-icon-sky: var(--oneui-sky-300);
+  --oneui-surface-amber-subtle-hover: var(--oneui-amber-900);
+  --oneui-surface-amber-subtle-pressed: var(--oneui-amber-800);
+  --oneui-surface-neutral-subtle: var(--oneui-slate-900);
+  --oneui-surface-neutral-subtle-hover: var(--oneui-slate-800);
+  --oneui-surface-neutral-subtle-pressed: var(--oneui-slate-700);
+  --oneui-surface-action-secondary: var(--oneui-sky-200);
+  --oneui-surface-action-secondary-hover: var(--oneui-sky-300);
+  --oneui-surface-violet-subtle: var(--oneui-violet-950);
+  --oneui-surface-violet-subtle-hover: var(--oneui-violet-900);
+  --oneui-surface-violet-subtle-pressed: var(--oneui-violet-800);
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) [data-ondergrond="subtle"] > * {
+    --oneui-surface-sunken: var(--oneui-slate-800);
+    --oneui-surface-disabled: var(--oneui-slate-700);
+    --oneui-surface-magenta-subtle: var(--oneui-magenta-900);
+    --oneui-surface-sky-subtle: var(--oneui-sky-900);
+    --oneui-surface-amber-subtle: var(--oneui-amber-900);
+    --oneui-surface-positive-subtle: var(--oneui-green-900);
+    --oneui-surface-negative-subtle: var(--oneui-red-900);
+    --oneui-surface-warning-subtle: var(--oneui-orange-900);
+    --oneui-surface-informative-subtle: var(--oneui-sky-900);
+    --oneui-text-low: var(--oneui-slate-300);
+    --oneui-surface-sky-subtle-hover: var(--oneui-sky-800);
+    --oneui-surface-sky-subtle-pressed: var(--oneui-sky-700);
+    --oneui-surface-magenta-subtle-hover: var(--oneui-magenta-800);
+    --oneui-surface-magenta-subtle-pressed: var(--oneui-magenta-700);
+    --oneui-icon-sky: var(--oneui-sky-300);
+    --oneui-surface-amber-subtle-hover: var(--oneui-amber-800);
+    --oneui-surface-amber-subtle-pressed: var(--oneui-amber-700);
+    --oneui-surface-neutral-subtle: var(--oneui-slate-800);
+    --oneui-surface-neutral-subtle-hover: var(--oneui-slate-700);
+    --oneui-surface-neutral-subtle-pressed: var(--oneui-slate-600);
+    --oneui-surface-action-secondary: var(--oneui-sky-200);
+    --oneui-surface-action-secondary-hover: var(--oneui-sky-300);
+    --oneui-surface-violet-subtle: var(--oneui-violet-900);
+    --oneui-surface-violet-subtle-hover: var(--oneui-violet-800);
+    --oneui-surface-violet-subtle-pressed: var(--oneui-violet-700);
+  }
+  :root:not([data-theme="light"]) [data-ondergrond="default"] > * {
+    --oneui-surface-sunken: var(--oneui-slate-900);
+    --oneui-surface-disabled: var(--oneui-slate-800);
+    --oneui-surface-magenta-subtle: var(--oneui-magenta-950);
+    --oneui-surface-sky-subtle: var(--oneui-sky-950);
+    --oneui-surface-amber-subtle: var(--oneui-amber-950);
+    --oneui-surface-positive-subtle: var(--oneui-green-950);
+    --oneui-surface-negative-subtle: var(--oneui-red-950);
+    --oneui-surface-warning-subtle: var(--oneui-orange-950);
+    --oneui-surface-informative-subtle: var(--oneui-sky-950);
+    --oneui-text-low: var(--oneui-slate-300);
+    --oneui-surface-sky-subtle-hover: var(--oneui-sky-900);
+    --oneui-surface-sky-subtle-pressed: var(--oneui-sky-800);
+    --oneui-surface-magenta-subtle-hover: var(--oneui-magenta-900);
+    --oneui-surface-magenta-subtle-pressed: var(--oneui-magenta-800);
+    --oneui-icon-sky: var(--oneui-sky-300);
+    --oneui-surface-amber-subtle-hover: var(--oneui-amber-900);
+    --oneui-surface-amber-subtle-pressed: var(--oneui-amber-800);
+    --oneui-surface-neutral-subtle: var(--oneui-slate-900);
+    --oneui-surface-neutral-subtle-hover: var(--oneui-slate-800);
+    --oneui-surface-neutral-subtle-pressed: var(--oneui-slate-700);
+    --oneui-surface-action-secondary: var(--oneui-sky-200);
+    --oneui-surface-action-secondary-hover: var(--oneui-sky-300);
+    --oneui-surface-violet-subtle: var(--oneui-violet-950);
+    --oneui-surface-violet-subtle-hover: var(--oneui-violet-900);
+    --oneui-surface-violet-subtle-pressed: var(--oneui-violet-800);
   }
 }
 

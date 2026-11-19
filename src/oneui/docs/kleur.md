@@ -36,6 +36,24 @@ De semantiek heeft twee soorten namen:
 
 `data-theme="dark"` zet het donkere thema aan.
 
+## Ondergrond: op subtle
+
+Subtle is stap 100, net als de pagina (slate/100). Een element op zo'n vlak dat zelf ook maar één stap verschilt, valt
+weg: de secundaire knop (sky/200), een veld (slate/200), een actief menu-item. Daarom heeft de semantiek vier modes:
+licht, donker, **licht op subtle** en **donker op subtle** ([besluit 009](../besluiten/009-ondergrond-subtle.md)).
+
+Op subtle schuift alles één stap op: `action/secondary` wordt sky/300, `surface/sunken` slate/300, de subtle vlakken 200,
+`text/low` slate/800. Wat al genoeg verschilt (de primaire knop, tekst, `surface/control/off`) blijft gelijk.
+
+- **Code:** zet `data-ondergrond="subtle"` op het vlak van stap 100 (de pagina waar componenten direct op staan, een
+  subtle paneel). Het vlak zelf houdt zijn kleur; alles erin schuift op. In een witte kaart op zo'n vlak zet
+  `data-ondergrond="default"` het terug.
+- **Figma:** zet op het frame de mode van de verzameling semantic op *Light on subtle* (of *Dark on subtle*).
+- `npm run check` toetst alle tekst- en iconenparen in de vier modes.
+
+Een keuze die uit staat (Checkbox, Radio, de baan van Toggle) is `surface/control/off`, slate/500: één token, op één plek
+aan te passen ([besluit 008](../besluiten/008-wcag-2-2-aa.md)).
+
 ## Deep: de donkere merkkleur
 
 `surface/magenta/deep`, `surface/sky/deep`, `surface/amber/deep` en `surface/violet/deep` zijn stap 950 van de eigen ladder. Gebruik

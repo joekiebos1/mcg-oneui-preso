@@ -4,7 +4,9 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
 export function maakServer(data) {
-const { P, S } = { P: data.variables.primitives, S: data.variables.semantic };
+const P = data.variables.primitives;
+// vier modes: licht, donker, licht op subtle, donker op subtle (besluit 009); twee waarden = op subtle gelijk
+const S = Object.fromEntries(Object.entries(data.variables.semantic).map(([n, v]) => [n, Array.isArray(v) && v.length === 2 ? [v[0], v[1], v[0], v[1]] : v]));
 const isRef = (v) => typeof v === "string" && v.startsWith("{");
 function resolve(v, mode = 0) {
   while (isRef(v)) {
@@ -27,7 +29,7 @@ const bindings = data.bindings;
 
 // ---- tokens oplossen ----
 const cssVar = (n) => `var(--oneui-${n.replace(/\//g, "-").toLowerCase()})`;
-const semantic = Object.entries(S).filter(([n]) => !n.startsWith("_")).map(([n, v]) => ({ token: n, css: cssVar(n), licht: resolve(v[0], 0), donker: resolve(v[1], 1) }));
+const semantic = Object.entries(S).filter(([n]) => !n.startsWith("_")).map(([n, v]) => ({ token: n, css: cssVar(n), licht: resolve(v[0], 0), donker: resolve(v[1], 1), subtle: v[2] !== v[0] || v[3] !== v[1] ? `${resolve(v[2], 2)} / ${resolve(v[3], 3)}` : "" }));
 const FONTS = [data.typography._family]; // Google Sans Flex Rond
 
 const text = (s) => ({ content: [{ type: "text", text: s }] });
@@ -79,7 +81,7 @@ server.registerTool("tokens", {
 }, async ({ soort, zoek }) => {
   const f = (n) => !zoek || n.toLowerCase().includes(zoek.toLowerCase());
   const parts = [];
-  if (!soort || soort === "kleur") parts.push("## Kleur (semantisch, MCG)\nDonker: `data-theme=\"dark\"`.\n| token | css | licht | donker |\n|---|---|---|---|\n" + semantic.filter((t) => f(t.token)).map((t) => `| ${t.token} | \`${t.css}\` | ${t.licht} | ${t.donker} |`).join("\n"));
+  if (!soort || soort === "kleur") parts.push("## Kleur (semantisch, MCG)\nDonker: `data-theme=\"dark\"`. Op een vlak van stap 100 (pagina, subtle): `data-ondergrond=\"subtle\"` (besluit 009).\n| token | css | licht | donker | op subtle (licht / donker) |\n|---|---|---|---|---|\n" + semantic.filter((t) => f(t.token)).map((t) => `| ${t.token} | \`${t.css}\` | ${t.licht} | ${t.donker} | ${t.subtle} |`).join("\n"));
   if (!soort || soort === "ladder") parts.push("## Kleurladders (primitives)\nVoor content: illustraties, slides, kaarten, infographics. In de interface gebruik je de semantische tokens.\n| ladder | " + STAPPEN.join(" | ") + " |\n|---|" + STAPPEN.map(() => "---").join("|") + "|\n" + families.filter((fam) => f(fam + "/")).map((fam) => `| ${fam} | ${STAPPEN.map((st) => P[`${fam}/${st}`] || "-").join(" | ")} |`).join("\n") + "\nCSS: `var(--oneui-<ladder>-<stap>)`.");
   if (!soort || soort === "typografie") parts.push("## Typografie\nKlasse: `.oneui-text-<rol>-<maat>`.\n| stijl | font | gewicht | maat/regel |\n|---|---|---|---|\n" + Object.entries(typo).filter(([n]) => !n.startsWith("_") && f(n)).map(([n, t]) => `| ${n} | ${typo._family} | ${t[0]} | ${t[1]}/${t[2]} |`).join("\n"));
   if (!soort || soort === "ruimte") parts.push("## Ruimte, hoeken, randen\n" + Object.entries(P).filter(([n]) => /^(spacing|radius|border|size)\//.test(n) && f(n)).map(([n, v]) => `- \`${cssVar(n)}\` = ${v}px`).join("\n"));

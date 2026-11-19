@@ -1,5 +1,5 @@
 /* OneUI Toggle, in de stijl Rond: een dikke baan van 56 × 32 (size/4xl × size/lg) en een grote knop van 24 (size/sm)
-   (geen teken erin). Uit is grijs in stroke/neutral/medium (3:1, besluit 008), aan is action/primary (sky). Het label is label/M, net als bij Checkbox, Radio en
+   (geen teken erin). Uit is grijs in surface/control/off (3:1, besluit 008), aan is action/primary (sky). Het label is label/M, net als bij Checkbox, Radio en
    het label boven een veld. */
 .oneui-toggle {
   --_breed: var(--oneui-size-4xl); --_hoog: var(--oneui-size-lg); --_binnen: var(--oneui-spacing-xs);
@@ -15,10 +15,10 @@
 .oneui-toggle__baan {
   position: relative; flex: none; display: flex; align-items: center; box-sizing: border-box;
   width: var(--_breed); height: var(--_hoog); padding: var(--_binnen); border-radius: var(--oneui-radius-full);
-  background: var(--oneui-stroke-neutral-medium); transition: background-color 200ms ease;
+  background: var(--oneui-surface-control-off); transition: background-color 200ms ease;
 }
 .oneui-toggle:hover .oneui-toggle__veld:not(:disabled):not(:checked) + .oneui-toggle__baan {
-  background: color-mix(in srgb, var(--oneui-stroke-neutral-medium), var(--oneui-icon-high) 15%);
+  background: color-mix(in srgb, var(--oneui-surface-control-off), var(--oneui-icon-high) 15%);
 }
 .oneui-toggle__knop {
   display: block; width: var(--_knop); height: var(--_knop);

@@ -12,6 +12,8 @@ export interface Token {
   waarde: unknown;
   /** donker thema (alleen semantic) */
   donker?: unknown;
+  /** op een vlak van stap 100 (data-ondergrond="subtle", besluit 009), alleen als het anders is */
+  opSubtle?: { light: unknown; dark: unknown };
   extra?: Record<string, unknown>;
 }
 
@@ -23,6 +25,7 @@ function lees(tree: Tree, prefix: string, laag: string, uit: Token[]) {
       const t: Token = {
         naam, type: v.$type, waarde: v.$value, extra: v.$extensions,
         donker: v.$extensions?.["oneui.dark"],
+        opSubtle: v.$extensions?.["oneui.op-subtle"] as Token["opSubtle"],
       };
       uit.push(t);
       alle[naam] = t;
