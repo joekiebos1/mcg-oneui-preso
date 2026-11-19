@@ -33,9 +33,9 @@ Wij geloven in jouw kracht. Elke tekst draagt bij aan minstens één van deze vi
 ## Taal
 
 - **Aanspreken.** Altijd je en jij, één persoon, actief, in de tegenwoordige tijd. Nooit u, men of "mensen doen soms". Voorbeelden en ervaringen mogen in de verleden tijd.
-- **Zinnen.** Eén gedachte per zin, hoogstens vijftien woorden. Oorzaak en gevolg in dezelfde zin. Weinig bijzinnen en komma's.
+- **Zinnen.** Kort en helder, meestal tot vijftien woorden. Wissel af: een langere zin met want of dus houdt oorzaak en gevolg bij elkaar, een korte zin geeft nadruk. Een rij heel korte zinnen klinkt als een lijst.
 - **Een eigen zin per signaal.** Waar een lichamelijk signaal of gevoel in beeld komt, krijgt het een korte zin voor zich alleen: "Je hart gaat tekeer. Je krijgt het benauwd." Zo heeft het beeld een ritme om op te lopen. Een lange opsomming kan het beeld niet volgen.
-- **Alinea's.** Eén boodschap per alinea, hoogstens drie zinnen.
+- **Alinea's.** Eén boodschap per alinea, meestal twee of drie zinnen. Een tekst is een verhaal: elke alinea volgt uit de vorige.
 - **Woorden.** Gewone woorden, liefst niet langer dan vier lettergrepen. Eerst de beschrijving, dan pas de vakterm, en die altijd met uitleg. Geen Engelse leenwoorden, geen afkortingen.
 - **Letterlijk.** Geen beeldspraak, metaforen of woordgrappen; alleen in een mindful activiteit mag een beeld (scripts/mindful.md). Ze worden letterlijk opgevat en zijn lastig te vertalen.
   Een begrip leg je uit met een concreet voorbeeld uit het dagelijks leven; wat dan nog abstract is, laat het beeld zien
