@@ -7,7 +7,7 @@ import { Pagina, Regels, Sectie } from "../Pagina";
 const INKT = String(token("slate/950")?.waarde ?? "#2a2824");
 
 const ROLLEN: { rol: string; ladder: string; gebruik: string }[] = [
-  { rol: "primary", ladder: "magenta", gebruik: "Focus, merkmomenten. Knoppen hebben een eigen rol: action." },
+  { rol: "primary", ladder: "magenta", gebruik: "Merkmomenten. Knoppen en focus hebben een eigen rol: action." },
   { rol: "secondary", ladder: "sky", gebruik: "Rustige vlakken, links, ondersteunende accenten." },
   { rol: "accent", ladder: "amber", gebruik: "Warmte, uitlichten. Loopt van geel via goud naar terracotta." },
   { rol: "accent-2", ladder: "violet", gebruik: "Tweede accent: dromen, verdieping, een vierde hoofdstukkleur." },
