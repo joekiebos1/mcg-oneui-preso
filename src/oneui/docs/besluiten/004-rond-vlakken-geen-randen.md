@@ -20,6 +20,10 @@ De componenten volgen de stijl Rond, zoals in de schetsen die zijn goedgekeurd:
 - **Kleur.** De interface gebruikt alleen sky en neutraal: action/primary (sky 700) en action/secondary (sky 200) voor
   wat je aanklikt of aanzet, `surface/sky/subtle` voor wat actief is. Merkkleuren alleen in iconen (bijvoorbeeld
   de cirkel vooraan in een lijstitem); signaalkleuren voor meldingen.
+- **Uitzondering: een keuze die uit staat.** Checkbox, Radio en Toggle hebben uit een rand van `border/thick` in
+  `stroke/neutral/medium`; aan zijn ze een vol vlak in action/primary. Zonder rand haalt de lege stand geen 3:1
+  (WCAG 2.2 AA, 1.4.11, [besluit 008](008-wcag-2-2-aa.md)). Uit heeft een rand, aan is vol: voor alle drie hetzelfde
+  (eigenaar 2026-11-19).
 - **Focus** alleen bij het toetsenbord: een ring van `border/thick` in `interaction/focusRing`, `spacing/2xs` los.
 
 ## Waarom
@@ -32,4 +36,4 @@ ronde letter en zijn op een telefoon groter om aan te tikken.
 - Code: Button, Icon Button, Input (en Select, dat hetzelfde vak deelt), Toggle, Dialog, List, Nav item,
   Progress bar, Progress ring en Slider in `react/src`.
 - Figma: de componenten in DS Components volgen nog; tot dan wijkt Figma hier af van code.
-- Checkbox, Radio, Tabs en Editor zijn nog niet in Rond gezet.
+- Tabs staat nog niet in Rond.

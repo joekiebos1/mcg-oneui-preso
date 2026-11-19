@@ -21,14 +21,14 @@ _Nog in te vullen._
 | deel | token |
 |---|---|
 | baan | 56 breed (`size/4xl`), 32 hoog (`size/lg`), `radius/full`, `spacing/xs` binnenrand |
-| knop | 24 (`size/sm`), `surface/default`, zachte schaduw; geen teken erin |
+| knop | 24 (`size/sm`), geen teken erin; uit `stroke/neutral/medium` zonder schaduw, aan `text/on-action/primary` (wit, ook in donker) met zachte schaduw |
 | label | label/M, `text/high`, `spacing/lg` naast de baan (dezelfde stijl als Checkbox, Radio en het label boven een veld) |
 
 | state | uit | aan |
 |---|---|---|
-| actief | `stroke/neutral/medium` (3:1, besluit 008) | `surface/action/primary` (sky 700) |
-| hover | een stap dieper | `surface/action/primary-hover` |
-| uitgeschakeld | `surface/disabled` | `surface/action/primary` op 35 % |
+| actief | `surface/default` met een rand van `border/thick` in `stroke/neutral/medium` (3:1, besluit 008) | `surface/action/primary` (sky 700), zonder rand |
+| hover | vlak `surface/neutral/subtle-hover`, rand en knop `icon/medium` | `surface/action/primary-hover` |
+| uitgeschakeld | `surface/disabled` zonder rand, witte knop | `surface/action/primary` op 35 % |
 | focus (toetsenbord) | ring `border/thick` in `interaction/focusRing`, `spacing/2xs` los | zelfde |
 
 De knop schuift in 240 ms met een kleine veer; zonder beweging als de gebruiker dat vraagt (`prefers-reduced-motion`).
