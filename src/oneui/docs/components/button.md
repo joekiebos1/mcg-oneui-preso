@@ -43,7 +43,7 @@ Hoeken `radius/full`. Ruimte tussen icoon en label `spacing/md` (8). Geen rand.
 |---|---|---|---|---|
 | primary | `surface/action/primary` | `…/primary-hover` | `…/primary-pressed` | `text/on-action/primary` |
 | secondary | `surface/action/secondary` | `…/secondary-hover` | `…/secondary-pressed` | `text/on-action/secondary` |
-| neutral | `surface/sunken` | tussen sunken en `surface/neutral/subtle-pressed` | `surface/neutral/subtle-pressed` | `text/high` |
+| neutral | `surface/action/neutral` | `surface/action/neutral-hover` | `surface/action/neutral-pressed` | `text/high` |
 | ghost | — | `surface/neutral/subtle-hover` | `surface/neutral/subtle-pressed` | `text/high` |
 
 `outline` (Figma) toont in code als neutral; de prop werkt nog, maar is verouderd.

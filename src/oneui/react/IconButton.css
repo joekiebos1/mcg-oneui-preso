@@ -1,8 +1,8 @@
 /* OneUI Icon Button, in de stijl Rond: een cirkel met een vlak, nooit een rand. Kleuren zoals de Button. */
 .oneui-iconbutton {
-  --_bg: var(--oneui-surface-sunken);
-  --_bg-hover: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-neutral-subtle-pressed));
-  --_bg-pressed: var(--oneui-surface-neutral-subtle-pressed);
+  --_bg: var(--oneui-surface-action-neutral);
+  --_bg-hover: var(--oneui-surface-action-neutral-hover);
+  --_bg-pressed: var(--oneui-surface-action-neutral-pressed);
   --_fg: var(--oneui-icon-high);
   --_maat: var(--oneui-size-2xl); --_icon: var(--oneui-size-xs);
   display: inline-grid; place-items: center; flex: none; width: var(--_maat); height: var(--_maat); padding: 0;

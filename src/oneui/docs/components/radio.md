@@ -38,8 +38,8 @@ Label label/M in `text/high`, `spacing/lg` naast het rondje; de eerste regel sta
 
 | state | vlak |
 |---|---|
-| uit | `stroke/neutral/medium` (3:1 op `surface/default` en `surface/page`) |
-| hover | een stap dieper (15 % `icon/high` erdoor) |
+| uit | `surface/action/neutral` (slate/200; haalt nu geen 3:1, uitzondering in [besluit 008](../besluiten/008-wcag-2-2-aa.md)) |
+| hover | `surface/action/neutral-hover` (slate/300) |
 | aan | `surface/action/primary`, hover `surface/action/primary-hover` |
 | ingedrukt | schaal 0,9 |
 | focus (toetsenbord) | een ring van `border/thick` in `interaction/focusRing`, `spacing/2xs` los van het rondje |
@@ -47,8 +47,8 @@ Label label/M in `text/high`, `spacing/lg` naast het rondje; de eerste regel sta
 
 De stip in `text/on-action/primary`.
 
-Uit haalt 3:1 tegen wit en de pagina: WCAG 2.2 AA, 1.4.11 ([besluit 008](../besluiten/008-wcag-2-2-aa.md)). Niet op
-`surface/sunken` zetten: daar haalt hij 2,97:1.
+Uit is dezelfde grijs als de neutrale knop. Dat haalt geen 3:1 (WCAG 2.2 AA, 1.4.11): een bewuste uitzondering voor nu
+([besluit 008](../besluiten/008-wcag-2-2-aa.md)).
 
 ## React
 

@@ -17,6 +17,7 @@ schuift alles erin één stap op, zodat het weer twee stappen van zijn ondergron
 | token | licht | licht op subtle | donker | donker op subtle |
 |---|---|---|---|---|
 | `surface/action/secondary` (hover, ingedrukt) | sky/200 (300, 400) | sky/300 (400, 400) | sky/200 (300, 400) | gelijk |
+| `surface/action/neutral` (hover, ingedrukt) | slate/200 (300, 400) | slate/300 (400, 400) | slate/800 (700, 700) | gelijk |
 | `surface/sunken`, `surface/disabled` | slate/200 | slate/300 | slate/900, 800 | slate/800, 700 |
 | `surface/neutral/subtle` (hover, ingedrukt) | slate/100 (200, 300) | slate/200 (300, 400) | slate/900 (800, 700) | slate/800 (700, 600) |
 | `surface/<kleur>/subtle` (hover, ingedrukt) | 100 (200, 300) | 200 (300, 400) | 950 (900, 800) | 900 (800, 700) |

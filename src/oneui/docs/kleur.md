@@ -43,7 +43,7 @@ weg: de secundaire knop (sky/200), een veld (slate/200), een actief menu-item. D
 licht, donker, **licht op subtle** en **donker op subtle** ([besluit 009](../besluiten/009-ondergrond-subtle.md)).
 
 Op subtle schuift alles één stap op: `action/secondary` wordt sky/300, `surface/sunken` slate/300, de subtle vlakken 200,
-`text/low` slate/800. Wat al genoeg verschilt (de primaire knop, tekst, `stroke/neutral/medium`) blijft gelijk.
+`text/low` slate/800, `action/neutral` slate/300. Wat al genoeg verschilt (de primaire knop, tekst) blijft gelijk.
 
 - **Code:** zet `data-ondergrond="subtle"` op het vlak van stap 100 (de pagina waar componenten direct op staan, een
   subtle paneel). Het vlak zelf houdt zijn kleur; alles erin schuift op. In een witte kaart op zo'n vlak zet
@@ -51,7 +51,8 @@ Op subtle schuift alles één stap op: `action/secondary` wordt sky/300, `surfac
 - **Figma:** zet op het frame de mode van de verzameling semantic op *Light on subtle* (of *Dark on subtle*).
 - `npm run check` toetst alle tekst- en iconenparen in de vier modes.
 
-Een keuze die uit staat (Checkbox, Radio, de baan van Toggle) is `stroke/neutral/medium`, slate/500 ([besluit 008](../besluiten/008-wcag-2-2-aa.md)).
+Een keuze die uit staat (Checkbox, Radio, de baan van Toggle) is `surface/action/neutral`, net als de neutrale knop. Op
+subtle schuift die mee naar slate/300. Hij haalt geen 3:1: een uitzondering voor nu ([besluit 008](../besluiten/008-wcag-2-2-aa.md)).
 
 ## Deep: de donkere merkkleur
 
@@ -85,7 +86,9 @@ illustratie naadloos aansluit op een slide met `surface/<kleur>/deep`.
 ## Knoppen (action)
 
 Knoppen hebben hun eigen rol: `surface/action/primary` is sky/700 met wit (hover 800, ingedrukt 900),
-`surface/action/secondary` is sky/200 met sky/950 (hover 300, ingedrukt 400). Dat staat los van subtle, bold en deep:
+`surface/action/secondary` is sky/200 met sky/950 (hover 300, ingedrukt 400), en `surface/action/neutral` is slate/200
+met `text/high` (hover 300, ingedrukt 400): de neutrale knop, en een Checkbox, Radio of Toggle die uit staat. Dat staat
+los van subtle, bold en deep:
 `surface/sky/bold` blijft sky/400, voor vlakken en accenten. `interaction/focusRing` is sky/600
 (donker sky/400).
 

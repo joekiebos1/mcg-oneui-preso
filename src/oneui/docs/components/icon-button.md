@@ -36,7 +36,7 @@ toegankelijk label.
 |---|---|---|---|---|
 | primary | `surface/action/primary` | `…/primary-hover` | `…/primary-pressed` | `text/on-action/primary` |
 | secondary | `surface/action/secondary` | `…/secondary-hover` | `…/secondary-pressed` | `text/on-action/secondary` |
-| neutral (standaard) | `surface/sunken` | een stap dieper | `surface/neutral/subtle-pressed` | `icon/high` |
+| neutral (standaard) | `surface/action/neutral` | `surface/action/neutral-hover` | `surface/action/neutral-pressed` | `icon/high` |
 | ghost | — | `surface/neutral/subtle-hover` | `surface/neutral/subtle-pressed` | `icon/high` |
 
 Uitgeschakeld: `surface/disabled` met `icon/disabled`, ghost zonder vlak. Ingedrukt veert de cirkel in tot 92 %.
