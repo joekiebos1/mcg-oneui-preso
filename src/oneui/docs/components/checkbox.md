@@ -34,7 +34,7 @@ In de stijl Rond: een gevuld vlak zonder rand, zoals de baan van Toggle. Hoeken 
 | md (standaard) | `size/sm` (24) | vink of streep 16 |
 | sm | `size/xs` (20) | 14 |
 
-Label label/M in `text/high`, `spacing/lg` naast het vakje (sm `spacing/md`); de eerste regel staat midden naast het vakje.
+Label label/M in `text/high`, `spacing/lg` naast het vakje; de eerste regel staat midden naast het vakje.
 
 | state | vlak |
 |---|---|

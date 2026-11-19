@@ -5,7 +5,7 @@ import "./Keuze.css";
 export interface CheckboxProps extends Omit<InputHTMLAttributes<HTMLInputElement>, "size" | "type" | "onChange"> {
   /** De tekst naast het vakje. Zonder label geef je het vakje een `aria-label`. */
   label?: ReactNode;
-  /** md 20 (standaard), sm 16. */
+  /** md 24 (standaard), sm 20. */
   size?: "md" | "sm";
   /** Half aangevinkt: een deel van wat eronder valt, staat aan. */
   indeterminate?: boolean;

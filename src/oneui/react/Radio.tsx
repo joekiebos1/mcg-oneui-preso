@@ -7,7 +7,7 @@ export interface RadioProps extends Omit<InputHTMLAttributes<HTMLInputElement>, 
   /** Radio's met dezelfde `name` horen bij elkaar: er kan er één aan staan. */
   name: string;
   value: string;
-  /** md 20 (standaard), sm 16. */
+  /** md 24 (standaard), sm 20. */
   size?: "md" | "sm";
   onChange?: (value: string) => void;
 }
