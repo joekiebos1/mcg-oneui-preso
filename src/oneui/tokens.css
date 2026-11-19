@@ -1,14 +1,14 @@
 /* OneUI tokens (MCG) — gegenereerd door scripts/build.mjs uit figma/. Niet met de hand aanpassen.
-   Thema: data-theme="dark" of de systeeminstelling. Ondergrond: data-ondergrond="subtle" op een vlak van stap 100 (de pagina,
-   een subtle vlak): alles erin schuift één stap op (besluit 009). data-ondergrond="default" zet het terug, bijv. in een
-   witte kaart op zo'n vlak. */
+   Thema: data-theme="dark" of de systeeminstelling. Ondergrond: de pagina (body) en elk vlak met data-ondergrond="subtle"
+   (een subtle vlak): alles erin schuift één stap op (besluit 009, 012). data-ondergrond="default" zet het terug: op een
+   witte kaart of een wit paneel op de pagina. */
 :root {
   --oneui-base-black: #000000;
   --oneui-base-white: #ffffff;
   --oneui-slate-50: #fafaf9;
   --oneui-slate-100: #f8f8f7;
-  --oneui-slate-200: #f0efeb;
-  --oneui-slate-300: #d3d1c9;
+  --oneui-slate-200: #ebe9e5;
+  --oneui-slate-300: #dbd9d2;
   --oneui-slate-400: #bcb9b0;
   --oneui-slate-500: #8e8b80;
   --oneui-slate-600: #77756b;
@@ -18,8 +18,8 @@
   --oneui-slate-950: #2a2824;
   --oneui-magenta-50: #fff8fa;
   --oneui-magenta-100: #fff6f8;
-  --oneui-magenta-200: #feeaef;
-  --oneui-magenta-300: #fac3d0;
+  --oneui-magenta-200: #fde1e8;
+  --oneui-magenta-300: #fbcad6;
   --oneui-magenta-400: #efa5b6;
   --oneui-magenta-500: #d96582;
   --oneui-magenta-600: #cf3e65;
@@ -29,8 +29,8 @@
   --oneui-magenta-950: #530624;
   --oneui-sky-50: #f1fdfc;
   --oneui-sky-100: #edfbfb;
-  --oneui-sky-200: #ddf4f3;
-  --oneui-sky-300: #a5dcdb;
+  --oneui-sky-200: #d4f0ef;
+  --oneui-sky-300: #b6e3e2;
   --oneui-sky-400: #79c8c6;
   --oneui-sky-500: #39999e;
   --oneui-sky-600: #1f828b;
@@ -40,8 +40,8 @@
   --oneui-sky-950: #022d38;
   --oneui-amber-50: #fffaea;
   --oneui-amber-100: #fef8e4;
-  --oneui-amber-200: #fdeec0;
-  --oneui-amber-300: #f8cc54;
+  --oneui-amber-200: #fce8b0;
+  --oneui-amber-300: #f9d575;
   --oneui-amber-400: #ebb00c;
   --oneui-amber-500: #d3700d;
   --oneui-amber-600: #c35110;
@@ -51,8 +51,8 @@
   --oneui-amber-950: #49180d;
   --oneui-violet-50: #faf9ff;
   --oneui-violet-100: #f8f7fe;
-  --oneui-violet-200: #efedfd;
-  --oneui-violet-300: #d3cbf7;
+  --oneui-violet-200: #eae6fc;
+  --oneui-violet-300: #dad3f9;
   --oneui-violet-400: #bdb0ed;
   --oneui-violet-500: #927ada;
   --oneui-violet-600: #805dd2;
@@ -62,8 +62,8 @@
   --oneui-violet-950: #311955;
   --oneui-green-50: #f4fcf3;
   --oneui-green-100: #f3faf4;
-  --oneui-green-200: #e1f3e7;
-  --oneui-green-300: #a3ddc6;
+  --oneui-green-200: #d9f0e3;
+  --oneui-green-300: #b9e5d1;
   --oneui-green-400: #6ecba1;
   --oneui-green-500: #3c9b6f;
   --oneui-green-600: #32835d;
@@ -73,8 +73,8 @@
   --oneui-green-950: #002f1a;
   --oneui-red-50: #fef9f9;
   --oneui-red-100: #fff6f6;
-  --oneui-red-200: #ffeaea;
-  --oneui-red-300: #fdc4bb;
+  --oneui-red-200: #ffe2e0;
+  --oneui-red-300: #fecbc4;
   --oneui-red-400: #fca294;
   --oneui-red-500: #e95d48;
   --oneui-red-600: #d43d27;
@@ -84,8 +84,8 @@
   --oneui-red-950: #590000;
   --oneui-orange-50: #fff9f0;
   --oneui-orange-100: #fff7ed;
-  --oneui-orange-200: #ffecd8;
-  --oneui-orange-300: #ffc69a;
+  --oneui-orange-200: #ffe4cb;
+  --oneui-orange-300: #ffcea7;
   --oneui-orange-400: #fba56a;
   --oneui-orange-500: #e66200;
   --oneui-orange-600: #ca4b00;
@@ -244,7 +244,7 @@
   --oneui-surface-page: var(--oneui-slate-950);
   --oneui-surface-default: var(--oneui-slate-900);
   --oneui-surface-raised: var(--oneui-slate-800);
-  --oneui-surface-sunken: var(--oneui-slate-900);
+  --oneui-surface-sunken: var(--oneui-slate-950);
   --oneui-surface-inverse: var(--oneui-slate-50);
   --oneui-surface-disabled: var(--oneui-slate-800);
   --oneui-surface-magenta-subtle: var(--oneui-magenta-950);
@@ -349,7 +349,7 @@
     --oneui-surface-page: var(--oneui-slate-950);
     --oneui-surface-default: var(--oneui-slate-900);
     --oneui-surface-raised: var(--oneui-slate-800);
-    --oneui-surface-sunken: var(--oneui-slate-900);
+    --oneui-surface-sunken: var(--oneui-slate-950);
     --oneui-surface-inverse: var(--oneui-slate-50);
     --oneui-surface-disabled: var(--oneui-slate-800);
     --oneui-surface-magenta-subtle: var(--oneui-magenta-950);
@@ -450,6 +450,7 @@
   }
 }
 
+:where(body) > *,
 [data-ondergrond="subtle"] > * {
   --oneui-surface-sunken: var(--oneui-slate-300);
   --oneui-surface-disabled: var(--oneui-slate-300);
@@ -502,6 +503,7 @@
   --oneui-surface-action-neutral: var(--oneui-slate-200);
   --oneui-surface-action-neutral-hover: var(--oneui-slate-300);
 }
+:where([data-theme="dark"] body, body[data-theme="dark"]) > *,
 [data-theme="dark"] [data-ondergrond="subtle"] > *, [data-theme="dark"][data-ondergrond="subtle"] > * {
   --oneui-surface-sunken: var(--oneui-slate-800);
   --oneui-surface-disabled: var(--oneui-slate-700);
@@ -529,7 +531,7 @@
   --oneui-surface-action-neutral-hover: var(--oneui-slate-700);
 }
 [data-theme="dark"] [data-ondergrond="default"] > *, [data-theme="dark"][data-ondergrond="default"] > * {
-  --oneui-surface-sunken: var(--oneui-slate-900);
+  --oneui-surface-sunken: var(--oneui-slate-950);
   --oneui-surface-disabled: var(--oneui-slate-800);
   --oneui-surface-magenta-subtle: var(--oneui-magenta-950);
   --oneui-surface-sky-subtle: var(--oneui-sky-950);
@@ -555,6 +557,7 @@
   --oneui-surface-action-neutral-hover: var(--oneui-slate-700);
 }
 @media (prefers-color-scheme: dark) {
+  :where(:root:not([data-theme="light"]) body) > *,
   :root:not([data-theme="light"]) [data-ondergrond="subtle"] > * {
     --oneui-surface-sunken: var(--oneui-slate-800);
     --oneui-surface-disabled: var(--oneui-slate-700);
@@ -582,7 +585,7 @@
     --oneui-surface-action-neutral-hover: var(--oneui-slate-700);
   }
   :root:not([data-theme="light"]) [data-ondergrond="default"] > * {
-    --oneui-surface-sunken: var(--oneui-slate-900);
+    --oneui-surface-sunken: var(--oneui-slate-950);
     --oneui-surface-disabled: var(--oneui-slate-800);
     --oneui-surface-magenta-subtle: var(--oneui-magenta-950);
     --oneui-surface-sky-subtle: var(--oneui-sky-950);

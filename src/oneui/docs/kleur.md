@@ -2,7 +2,8 @@
 
 Vier merkkleuren, elk een ladder van 50 tot 950, plus slate als neutraal en drie signaalkleuren.
 Elke stap heeft in elke ladder dezelfde lichtheid. Daardoor gedraagt bijvoorbeeld `sky/600` zich qua contrast
-hetzelfde als `magenta/600`.
+hetzelfde als `magenta/600`. De stappen zijn klein aan de lichte kant en worden geleidelijk groter; vanaf 500 zijn ze
+gelijk ([besluit 011](../besluiten/011-ladder-200-300.md)).
 
 | Ladder | Gebruik |
 |---|---|
@@ -46,10 +47,13 @@ licht, donker, **licht op subtle** en **donker op subtle** ([besluit 009](../bes
 Op subtle schuift alles één stap op: `action/secondary` wordt sky/300, `surface/sunken` slate/300, de subtle vlakken 200,
 `text/low` slate/800, `action/neutral` slate/300. Wat al genoeg verschilt (de primaire knop, tekst) blijft gelijk.
 
-- **Code:** zet `data-ondergrond="subtle"` op het vlak van stap 100 (de pagina waar componenten direct op staan, een
-  subtle paneel). Het vlak zelf houdt zijn kleur; alles erin schuift op. In een witte kaart op zo'n vlak zet
-  `data-ondergrond="default"` het terug.
-- **Figma:** zet op het frame de mode van de verzameling semantic op *Light on subtle* (of *Dark on subtle*).
+- **De pagina staat standaard op subtle** ([besluit 012](../besluiten/012-pagina-op-subtle.md)): alles in `body` schuift
+  vanzelf op. Een witte kaart of een wit paneel op de pagina krijgt `data-ondergrond="default"`; Dialog en een witte
+  List doen dat zelf.
+- **Code:** zet `data-ondergrond="subtle"` op een ander vlak van stap 100 (een subtle paneel in een witte kaart). Het
+  vlak zelf houdt zijn kleur; alles erin schuift op.
+- **Figma:** zet op het frame de mode van de verzameling semantic op *Light on subtle* (of *Dark on subtle*): op elk
+  frame met `surface/page`, en op een subtle vlak. Een witte kaart erin zet je terug op *Light*.
 - `npm run check` toetst alle tekst- en iconenparen in de vier modes.
 
 Een keuze die uit staat (Checkbox, Radio, de baan van Toggle) is `surface/action/neutral`, net als de neutrale knop. Op

@@ -1,10 +1,14 @@
 /* OneUI List, in de stijl Rond: elk item is een eigen rond vlak; ruimte scheidt ze, geen lijnen. */
-.oneui-list {
+/* de kleuren op de items, niet op de lijst: een witte lijst zet de ondergrond terug (data-ondergrond="default"), en dat
+   geldt pas voor wat erin staat */
+.oneui-list > * {
   --_vlak: var(--oneui-surface-default);
   --_vlak-hover: var(--oneui-surface-sunken);
+}
+.oneui-list {
   display: flex; flex-direction: column; gap: var(--oneui-spacing-md); margin: 0; padding: 0; list-style: none;
 }
-.oneui-list--sunken {
+.oneui-list--sunken > * {
   --_vlak: var(--oneui-surface-sunken);
   --_vlak-hover: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-action-neutral-hover));
 }

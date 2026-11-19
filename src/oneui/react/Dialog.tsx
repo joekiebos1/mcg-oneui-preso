@@ -39,6 +39,7 @@ export function Dialog({ open, onClose, title, children, icon, tone = "sky", act
   }, [open]);
   return (
     <dialog ref={ref} className={["oneui-dialog", className].filter(Boolean).join(" ")} aria-labelledby={titelId}
+      data-ondergrond="default"
       onCancel={(e) => { e.preventDefault(); onClose(); }}
       onClick={(e) => { if (dismissable && e.target === ref.current) onClose(); }}>
       <div className="oneui-dialog__vlak">

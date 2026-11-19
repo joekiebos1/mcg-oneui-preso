@@ -21,12 +21,12 @@ Uitgeschakeld valt buiten 1.4.11.
 ## Gevolg
 
 Voor 1.4.11 moet een Checkbox of Radio die uit staat, en de baan van een Toggle die uit staat, 3:1 halen: slate/500
-(3,4:1 op wit). Slate/400 haalt 1,96:1, slate/300 1,5:1. Een lichte baan met een witte knop (zoals iOS) haalt het niet:
+(3,4:1 op wit). Slate/400 haalt 1,96:1, slate/300 1,4:1. Een lichte baan met een witte knop (zoals iOS) haalt het niet:
 de vorm van de bediening zelf moet 3:1 halen.
 
 ## Uitzondering, voor nu
 
-Checkbox, Radio en Toggle zijn uit `surface/action/neutral` (slate/200, 1,1:1 op wit), net als de neutrale knop. Ze
+Checkbox, Radio en Toggle zijn uit `surface/action/neutral` (slate/200, 1,2:1 op wit), net als de neutrale knop. Ze
 halen 1.4.11 dus niet. Dat is een bewuste keuze voor nu (eigenaar 2026-11-19); `npm run check` toetst dit paar niet.
 Terug naar AA: `surface/action/neutral` van de keuzes naar slate/500, of een eigen token daarvoor.
 

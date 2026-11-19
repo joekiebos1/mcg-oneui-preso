@@ -79,10 +79,10 @@ Regeltabel: lijnfamilie
 
 | familie | grond | vlak | lijn | waarvoor |
 |---|---|---|---|---|
-| geel | `#49180D` | `#D3700D` | `#FDEEC0` | warm: een gezicht, inslapen, de presentator |
-| roze | `#530624` | `#B02C54` | `#FEEAEF` | het lichaam, het hart |
-| blauw | `#022D38` | `#136B77` | `#DDF4F3` | uitleg, schema's, diepte |
-| paars | `#311955` | `#6A4AB4` | `#EFEDFD` | dromen, de hersenen |
+| geel | `#49180D` | `#D3700D` | `#FCE8B0` | warm: een gezicht, inslapen, de presentator |
+| roze | `#530624` | `#B02C54` | `#FDE1E8` | het lichaam, het hart |
+| blauw | `#022D38` | `#136B77` | `#D4F0EF` | uitleg, schema's, diepte |
+| paars | `#311955` | `#6A4AB4` | `#EAE6FC` | dromen, de hersenen |
 
 - De tinten komen uit de ladders van het design system (OneUI): grond stap 950 (gelijk aan deep), vlak stap 700, lijn
   stap 200; geel heeft het vlak op stap 500 (was 450; die heeft OneUI sinds 2026-11-13 niet meer, eigenaar: "zet het maar op
@@ -94,10 +94,10 @@ Regeltabel: lijnfamilie licht
 
 | familie | grond | vlak | lijn | diepte |
 |---|---|---|---|---|
-| geel | `#FEF8E4` | `#F8CC54` | `#49180D` | `#D3700D` |
-| roze | `#FFF6F8` | `#FAC3D0` | `#530624` | `#D96582` |
-| blauw | `#EDFBFB` | `#A5DCDB` | `#022D38` | `#39999E` |
-| paars | `#F8F7FE` | `#D3CBF7` | `#311955` | `#927ADA` |
+| geel | `#FEF8E4` | `#F9D575` | `#49180D` | `#D3700D` |
+| roze | `#FFF6F8` | `#FBCAD6` | `#530624` | `#D96582` |
+| blauw | `#EDFBFB` | `#B6E3E2` | `#022D38` | `#39999E` |
+| paars | `#F8F7FE` | `#DAD3F9` | `#311955` | `#927ADA` |
 
 - **De stijl van elke illustratie** (eigenaar, 2026-11-13): grond stap 100, vlak stap 300, diepte stap 500, lijn stap
   950 van de ladder in OneUI. De lijn heeft dezelfde kleur als de grond van de tabel `lijnfamilie`.
@@ -160,8 +160,8 @@ Regeltabel: palet
 | violet | `#805DD2` | `#6A4AB4` |
 | druif | `#6A4AB4` | `#573994` |
 | aubergine | `#442875` | `#311955` |
-| lila | `#D3CBF7` | `#BDB0ED` |
-| lichtlila | `#EFEDFD` | `#D3CBF7` |
+| lila | `#DAD3F9` | `#BDB0ED` |
+| lichtlila | `#EAE6FC` | `#DAD3F9` |
 
 Regeltabel: familie
 

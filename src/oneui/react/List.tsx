@@ -21,7 +21,8 @@ export const List = forwardRef<HTMLUListElement, ListProps>(function List(
   ref,
 ) {
   return (
-    <ul ref={ref} className={["oneui-list", `oneui-list--${surface}`, className].filter(Boolean).join(" ")} {...rest}>
+    <ul ref={ref} className={["oneui-list", `oneui-list--${surface}`, className].filter(Boolean).join(" ")}
+      data-ondergrond={surface === "default" ? "default" : undefined} {...rest}>
       {children}
     </ul>
   );
