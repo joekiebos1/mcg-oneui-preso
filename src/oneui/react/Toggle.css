@@ -23,7 +23,7 @@
   display: block; width: var(--_knop); height: var(--_knop);
   border-radius: var(--oneui-radius-full); background: var(--oneui-text-on-action-primary);
   box-shadow: 0 var(--oneui-border-thin) var(--oneui-border-thick) var(--oneui-effect-shadow-key);
-  transition: transform 240ms cubic-bezier(0.3, 1.4, 0.5, 1);
+  transition: transform 240ms cubic-bezier(0.3, 1.4, 0.5, 1); will-change: transform;
 }
 .oneui-toggle__veld:checked + .oneui-toggle__baan { background: var(--oneui-surface-action-primary); }
 .oneui-toggle:hover .oneui-toggle__veld:checked:not(:disabled) + .oneui-toggle__baan { background: var(--oneui-surface-action-primary-hover); }

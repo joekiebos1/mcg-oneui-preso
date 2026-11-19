@@ -17,6 +17,8 @@
   margin-top: max(0px, (1lh - var(--_maat)) / 2);
   background: var(--_vlak); color: var(--oneui-text-on-action-primary);
   transition: background-color 160ms ease, transform 160ms ease;
+  /* een eigen laag, ook in rust: anders schuift Safari het vakje aan het eind van de animatie een halve pixel op */
+  will-change: transform;
 }
 .oneui-keuze:hover .oneui-keuze__veld:not(:disabled) + .oneui-keuze__vak {
   --_vlak: color-mix(in srgb, var(--oneui-stroke-neutral-medium), var(--oneui-icon-high) 15%);
