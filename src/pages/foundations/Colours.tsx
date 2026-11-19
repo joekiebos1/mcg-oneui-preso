@@ -20,7 +20,7 @@ const ROLLEN: { rol: string; ladder: string; gebruik: string }[] = [
 
 const GROEPEN: [string, string[], string][] = [
   ["Merk", ["magenta", "sky", "amber", "violet"], "De vier merkkleuren."],
-  ["Neutraal", ["slate", "grey"], "Slate is de neutrale kleur van het merk, met een warme ondertoon. Grey heeft geen rol."],
+  ["Neutraal", ["slate"], "Slate is de neutrale kleur van het merk, met een warme ondertoon."],
   ["Signaal", ["green", "red", "orange"], "Alleen voor meldingen en status."],
 ];
 

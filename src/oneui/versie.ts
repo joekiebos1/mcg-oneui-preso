@@ -1,1 +1,1 @@
-export const ONEUI_VERSIE = "736c8a4 2026-11-18";
+export const ONEUI_VERSIE = "0ae075f 2026-11-19";
