@@ -157,7 +157,7 @@ export function Colours() {
               <div key={r.rol} className="rol">
                 <div className="rolstrook">{l.map(s => <i key={s.stap} style={{ background: s.hex }} />)}</div>
                 <div>
-                  <Text as="span" variant="title-s">{r.rol}</Text> <Text as="span" variant="body-s" color="low">{r.ladder}</Text>
+                  <Text as="span" variant="title-s">{r.rol}</Text>{r.ladder !== r.rol && <> <Text as="span" variant="body-s" color="low">{r.ladder}</Text></>}
                   <Text variant="body-s" color="medium">{r.gebruik}</Text>
                 </div>
               </div>
@@ -171,7 +171,7 @@ export function Colours() {
           <div key={titel} className="laddergroep">
             <Text as="h3" variant="title-m">{titel}</Text>
             <Text variant="body-s" color="medium">{uitleg}</Text>
-            {ls.map(l => <Ladder key={l} naam={l} rol={ROLLEN.filter(r => r.ladder === l).map(r => r.rol).join(", ") || undefined} />)}
+            {ls.map(l => <Ladder key={l} naam={l} rol={ROLLEN.filter(r => r.ladder === l && r.rol !== l).map(r => r.rol).join(", ") || undefined} />)}
           </div>
         ))}
       </Sectie>

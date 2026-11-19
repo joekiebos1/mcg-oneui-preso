@@ -42,7 +42,7 @@ function Specimen({ rol, maat }: { rol: string; maat: string }) {
 export function Type() {
   return (
     <Pagina intro="Eén lettertype, vijf rollen, elk met een paar vaste maten. Kies een rol op wat de tekst doet, niet op hoe groot hij moet zijn.">
-      <Sectie titel="Lettertype" uitleg="SIL Open Font License, zelf gehost.">
+      <Sectie titel="Familie" uitleg="SIL Open Font License, zelf gehost.">
         <div className="vak familie">
           <Text variant="display-s">Google Sans Flex Rond</Text>
           <Text variant="body-s" color="medium">Google Sans Flex met rondheid 25 en breedte 90 vast in het lettertype. Display, heading en title 600, label 500, body 350: iets lichter dan normaal.</Text>
