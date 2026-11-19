@@ -1,9 +1,22 @@
 {
   "ignoreCommand": "sh scripts/vercel-overslaan.sh",
-  "functions": { "api/mcp.mjs": { "includeFiles": "mcp/**" } },
+  "functions": {
+    "api/mcp.mjs": {
+      "includeFiles": "mcp/**"
+    }
+  },
   "rewrites": [
-    { "source": "/mcp", "destination": "/api/mcp" },
-    { "source": "/mcp/:sleutel", "destination": "/api/mcp?sleutel=:sleutel" },
-    { "source": "/((?!api/).*)", "destination": "/index.html" }
+    {
+      "source": "/mcp",
+      "destination": "/api/mcp"
+    },
+    {
+      "source": "/mcp/:sleutel",
+      "destination": "/api/mcp?sleutel=:sleutel"
+    },
+    {
+      "source": "/((?!api/|\\.well-known/).*)",
+      "destination": "/index.html"
+    }
   ]
 }
