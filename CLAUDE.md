@@ -11,5 +11,6 @@ De presentatielaag van het OneUI design system: alle vastgelegde keuzes, leesbaa
   Componenten, Assets; daarnaast een paneel met de hoofdstukken van die groep (eigenaar 2026-11-18). Een hoofdstuk is één pagina
   met zijn delen onder elkaar; Componenten en Assets zijn eigen groepen. Onderaan elke
   pagina Vorige en Volgende. `klaar: true` is gevuld; de rest toont "Nog niet vastgelegd".
+- **De MCP** van OneUI staat ook hier online: `api/mcp.mjs` op `/mcp/<sleutel>`, met de server en gegevens uit mcg-oneui in `mcp/` (via de sync, niet met de hand). Zonder `ONEUI_MCP_SLEUTEL` in Vercel staat hij dicht.
 - `npm run build` moet slagen. Naar `main` = live op Vercel, maar alleen als de site verandert (`scripts/vercel-overslaan.sh`). Vercel Hobby geeft 100 deploys per dag voor het hele account: bundel wijzigingen in één push.
 - Nederlands, korte zinnen, ook in het menu (eigenaar 2026-11-18).

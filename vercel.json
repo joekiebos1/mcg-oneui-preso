@@ -1,4 +1,9 @@
 {
   "ignoreCommand": "sh scripts/vercel-overslaan.sh",
-  "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
+  "functions": { "api/mcp.mjs": { "includeFiles": "mcp/**" } },
+  "rewrites": [
+    { "source": "/mcp", "destination": "/api/mcp" },
+    { "source": "/mcp/:sleutel", "destination": "/api/mcp?sleutel=:sleutel" },
+    { "source": "/((?!api/).*)", "destination": "/index.html" }
+  ]
 }

@@ -13,9 +13,11 @@
   "dependencies": {
     "@fontsource-variable/dm-sans": "5.1.0",
     "@fontsource-variable/el-messiri": "5.1.0",
+    "@modelcontextprotocol/sdk": "1.32.1",
     "react": "18.3.1",
     "react-dom": "18.3.1",
-    "react-router-dom": "6.26.2"
+    "react-router-dom": "6.26.2",
+    "zod": "4.6.7"
   },
   "devDependencies": {
     "@types/react": "18.3.11",
