@@ -238,7 +238,6 @@
   --oneui-surface-violet-subtle-hover: var(--oneui-violet-200);
   --oneui-surface-violet-subtle-pressed: var(--oneui-violet-300);
   --oneui-text-on-bold-violet: var(--oneui-base-white);
-  --oneui-surface-control-off: var(--oneui-slate-500);
 }
 
 [data-theme="dark"] {
@@ -343,7 +342,6 @@
   --oneui-surface-violet-subtle-hover: var(--oneui-violet-900);
   --oneui-surface-violet-subtle-pressed: var(--oneui-violet-800);
   --oneui-text-on-bold-violet: var(--oneui-base-white);
-  --oneui-surface-control-off: var(--oneui-slate-500);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -449,7 +447,6 @@
     --oneui-surface-violet-subtle-hover: var(--oneui-violet-900);
     --oneui-surface-violet-subtle-pressed: var(--oneui-violet-800);
     --oneui-text-on-bold-violet: var(--oneui-base-white);
-    --oneui-surface-control-off: var(--oneui-slate-500);
   }
 }
 

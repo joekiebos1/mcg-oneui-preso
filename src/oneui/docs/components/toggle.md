@@ -26,7 +26,7 @@ _Nog in te vullen._
 
 | state | uit | aan |
 |---|---|---|
-| actief | `surface/control/off` (3:1, besluit 008) | `surface/action/primary` (sky 700) |
+| actief | `stroke/neutral/medium` (3:1, besluit 008) | `surface/action/primary` (sky 700) |
 | hover | een stap dieper | `surface/action/primary-hover` |
 | uitgeschakeld | `surface/disabled` | `surface/action/primary` op 35 % |
 | focus (toetsenbord) | ring `border/thick` in `interaction/focusRing`, `spacing/2xs` los | zelfde |

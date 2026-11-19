@@ -38,7 +38,7 @@ Label label/M in `text/high`, `spacing/lg` naast het rondje; de eerste regel sta
 
 | state | vlak |
 |---|---|
-| uit | `surface/control/off` (3:1 op `surface/default` en `surface/page`) |
+| uit | `stroke/neutral/medium` (3:1 op `surface/default` en `surface/page`) |
 | hover | een stap dieper (15 % `icon/high` erdoor) |
 | aan | `surface/action/primary`, hover `surface/action/primary-hover` |
 | ingedrukt | schaal 0,9 |

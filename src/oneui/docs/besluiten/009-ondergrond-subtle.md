@@ -36,5 +36,3 @@ Wit (`surface/default`) helpt niet: wit op de pagina is 1,06:1.
   waarden op subtle anders is.
 - Figma: de mode van de verzameling semantic op het frame.
 - `npm run check` toetst alle paren in de vier modes; `npm run vergelijk` vergelijkt alle vier met Figma.
-
-Ook nieuw: `surface/control/off` (slate/500) voor een keuze die uit staat, zodat die op één plek te veranderen is.
