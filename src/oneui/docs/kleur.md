@@ -33,7 +33,7 @@ ze als donkere achtergrond of als contrastkleur naast bold. Ze zijn in licht en 
 | | deep | bold ernaast | wit erop |
 |---|---|---|---|
 | primary | magenta/950 | 3,2:1 | 14,8:1 |
-| secondary | sky/950 | 2,4:1 (onder de 3:1, zie test secondary bold) | 14,6:1 |
+| secondary | sky/950 | 7,6:1 | 14,6:1 |
 | accent | amber/950 | 7,6:1 | 14,8:1 |
 | accent-2 | violet/950 | 3,2:1 | 15,1:1 |
 
@@ -57,7 +57,7 @@ illustratie naadloos aansluit op een slide met `surface/<rol>/deep`.
 ## Knoppen (action)
 
 `surface/action/*`, `text/on-action/*` en `stroke/action/subtle` lopen via `brand/action/light|dark/*`.
-Primary is magenta (witte tekst). Secondary gebruikt `surface/secondary/bold` (sky/700) met `text/on-bold/secondary` (wit). De outline-rand is sky; in Classic en Round gelijk.
+Primary is magenta (witte tekst). Secondary gebruikt `surface/secondary/bold` (sky/400) met `text/on-bold/secondary` (donker). De outline-rand is sky; in Classic en Round gelijk.
 
 ## Regels
 

@@ -45,7 +45,7 @@ Hoeken `radius/full`. Ruimte tussen icoon en label `spacing/md` (8). Rand `borde
 | outline | — | `surface/secondary/subtle` | `surface/secondary/subtle-pressed` | `stroke/action/subtle` | `text/high` |
 | ghost | — | `surface/secondary/subtle` | `surface/secondary/subtle-pressed` | — | `text/high` |
 
-In MCG is primary magenta met wit en secondary donker sky (sky/700) met wit; donker thema via dezelfde tokens.
+In MCG is primary magenta met wit en secondary sky (sky/400) met donkere tekst; donker thema via dezelfde tokens.
 
 - **Uitgeschakeld:** vlak `surface/disabled`, label `text/disabled`; outline en ghost zonder vlak, outline met rand
   `stroke/disabled`. Geen doorschijnendheid.

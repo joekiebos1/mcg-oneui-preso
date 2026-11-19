@@ -146,13 +146,13 @@
   --oneui-brand-accent-950: var(--oneui-amber-950);
   --oneui-brand-bold-hover-accent: var(--oneui-brand-accent-300);
   --oneui-brand-bold-hover-primary: var(--oneui-magenta-700);
-  --oneui-brand-bold-hover-secondary: var(--oneui-brand-secondary-800);
+  --oneui-brand-bold-hover-secondary: var(--oneui-brand-secondary-300);
   --oneui-brand-bold-pressed-accent: var(--oneui-brand-accent-200);
   --oneui-brand-bold-pressed-primary: var(--oneui-magenta-800);
-  --oneui-brand-bold-pressed-secondary: var(--oneui-brand-secondary-900);
+  --oneui-brand-bold-pressed-secondary: var(--oneui-brand-secondary-200);
   --oneui-brand-bold-accent: var(--oneui-brand-accent-400);
   --oneui-brand-bold-primary: var(--oneui-magenta-600);
-  --oneui-brand-bold-secondary: var(--oneui-brand-secondary-700);
+  --oneui-brand-bold-secondary: var(--oneui-brand-secondary-400);
   --oneui-brand-informative-100: var(--oneui-sky-100);
   --oneui-brand-informative-200: var(--oneui-sky-200);
   --oneui-brand-informative-300: var(--oneui-sky-300);
@@ -191,7 +191,7 @@
   --oneui-brand-on-bold-negative: var(--oneui-base-white);
   --oneui-brand-on-bold-positive: var(--oneui-base-white);
   --oneui-brand-on-bold-primary: var(--oneui-base-white);
-  --oneui-brand-on-bold-secondary: var(--oneui-base-white);
+  --oneui-brand-on-bold-secondary: var(--oneui-brand-neutral-950);
   --oneui-brand-on-bold-warning: var(--oneui-base-white);
   --oneui-brand-positive-100: var(--oneui-green-100);
   --oneui-brand-positive-200: var(--oneui-green-200);
