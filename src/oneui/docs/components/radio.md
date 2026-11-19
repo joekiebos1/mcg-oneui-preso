@@ -27,7 +27,7 @@ _Nog in te vullen._
 
 ## Specificatie
 
-Uit is een leeg rondje met een rand, aan is een vol vlak. Dezelfde regel als Toggle ([besluit 004](../besluiten/004-rond-vlakken-geen-randen.md), uitzondering). Rond (`radius/full`).
+In de stijl Rond: een gevuld vlak zonder rand, zoals de baan van Toggle. Rond (`radius/full`).
 
 | maat | rondje | teken |
 |---|---|---|
@@ -36,18 +36,18 @@ Uit is een leeg rondje met een rand, aan is een vol vlak. Dezelfde regel als Tog
 
 Label label/M in `text/high`, `spacing/lg` naast het rondje; de eerste regel staat midden naast het rondje.
 
-| state | vlak en rand |
+| state | vlak |
 |---|---|
-| uit | `surface/default` met een rand van `border/thick` in `stroke/neutral/medium` (3:1 op `surface/default` en `surface/page`) |
-| hover | uit: vlak `surface/neutral/subtle-hover`, rand `icon/medium`; aan: zie hieronder |
-| aan | `surface/action/primary` zonder rand, hover `surface/action/primary-hover` |
+| uit | `stroke/neutral/medium` (3:1 op `surface/default` en `surface/page`) |
+| hover | een stap dieper (15 % `icon/high` erdoor) |
+| aan | `surface/action/primary`, hover `surface/action/primary-hover` |
 | ingedrukt | schaal 0,9 |
 | focus (toetsenbord) | een ring van `border/thick` in `interaction/focusRing`, `spacing/2xs` los van het rondje |
-| uitgeschakeld | `surface/disabled` zonder rand, aan op 35 %; label `text/disabled` |
+| uitgeschakeld | `surface/disabled`, aan op 35 %; label `text/disabled` |
 
 De stip in `text/on-action/primary`.
 
-De rand haalt 3:1 tegen wit en de pagina: WCAG 2.2 AA, 1.4.11 ([besluit 008](../besluiten/008-wcag-2-2-aa.md)). Niet op
+Uit haalt 3:1 tegen wit en de pagina: WCAG 2.2 AA, 1.4.11 ([besluit 008](../besluiten/008-wcag-2-2-aa.md)). Niet op
 `surface/sunken` zetten: daar haalt hij 2,97:1.
 
 ## React

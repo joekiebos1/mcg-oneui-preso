@@ -1,9 +1,8 @@
-/* Checkbox en Radio (Figma: box of radio, en Label). Uit is een leeg vakje met een rand van border/thick in
-   stroke/neutral/medium (3:1, WCAG 2.2 AA, besluit 008); aan is een vol vlak in action/primary met het teken in
-   text/on-action/primary. Dezelfde regel als Toggle: uit heeft een rand, aan is vol (besluit 004, uitzondering).
+/* Checkbox en Radio (Figma: box of radio, en Label), in de stijl Rond: een gevuld vlak zonder rand, zoals de baan van
+   Toggle. Uit is grijs in stroke/neutral/medium (3:1, WCAG 2.2 AA, besluit 008), aan is action/primary met het teken in text/on-action/primary.
    md 24, sm 20; ruimte ernaast spacing/lg. Focus: alleen bij het toetsenbord, een ring los van het vakje. */
 .oneui-keuze {
-  --_maat: var(--oneui-size-sm); --_vlak: var(--oneui-surface-default); --_rand: var(--oneui-stroke-neutral-medium);
+  --_maat: var(--oneui-size-sm); --_vlak: var(--oneui-stroke-neutral-medium);
   position: relative; display: inline-flex; align-items: flex-start; gap: var(--oneui-spacing-lg); cursor: pointer;
   color: var(--oneui-text-high);
   font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);
@@ -17,26 +16,24 @@
   flex: none; display: inline-grid; place-items: center; width: var(--_maat); height: var(--_maat);
   margin-top: max(0px, (1lh - var(--_maat)) / 2);
   background: var(--_vlak); color: var(--oneui-text-on-action-primary);
-  box-shadow: inset 0 0 0 var(--oneui-border-thick) var(--_rand);
-  transition: background-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+  transition: background-color 160ms ease, transform 160ms ease;
 }
 .oneui-keuze:hover .oneui-keuze__veld:not(:disabled) + .oneui-keuze__vak {
-  --_vlak: var(--oneui-surface-neutral-subtle-hover); --_rand: var(--oneui-icon-medium);
+  --_vlak: color-mix(in srgb, var(--oneui-stroke-neutral-medium), var(--oneui-icon-high) 15%);
 }
 .oneui-keuze__veld:checked + .oneui-keuze__vak, .oneui-checkbox .oneui-keuze__veld:indeterminate + .oneui-keuze__vak {
-  --_vlak: var(--oneui-surface-action-primary); --_rand: transparent;
+  --_vlak: var(--oneui-surface-action-primary);
 }
 .oneui-keuze:hover .oneui-keuze__veld:checked:not(:disabled) + .oneui-keuze__vak,
 .oneui-checkbox:hover .oneui-keuze__veld:indeterminate:not(:disabled) + .oneui-keuze__vak {
-  --_vlak: var(--oneui-surface-action-primary-hover); --_rand: transparent;
+  --_vlak: var(--oneui-surface-action-primary-hover);
 }
 .oneui-keuze:active .oneui-keuze__veld:not(:disabled) + .oneui-keuze__vak { transform: scale(0.9); }
 .oneui-keuze__veld:focus-visible + .oneui-keuze__vak {
   outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs);
 }
 .oneui-keuze.is-disabled { cursor: not-allowed; color: var(--oneui-text-disabled); }
-/* uitgeschakeld valt buiten 1.4.11: een vlak zonder rand */
-.oneui-keuze.is-disabled .oneui-keuze__vak { --_vlak: var(--oneui-surface-disabled); --_rand: transparent; color: var(--oneui-icon-disabled); }
+.oneui-keuze.is-disabled .oneui-keuze__vak { --_vlak: var(--oneui-surface-disabled); color: var(--oneui-icon-disabled); }
 .oneui-keuze.is-disabled .oneui-keuze__veld:checked + .oneui-keuze__vak,
 .oneui-checkbox.is-disabled .oneui-keuze__veld:indeterminate + .oneui-keuze__vak {
   --_vlak: var(--oneui-surface-action-primary); color: var(--oneui-text-on-action-primary); opacity: 0.35;

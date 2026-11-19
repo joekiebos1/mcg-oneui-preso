@@ -20,9 +20,9 @@ De componenten volgen de stijl Rond, zoals in de schetsen die zijn goedgekeurd:
 - **Kleur.** De interface gebruikt alleen sky en neutraal: action/primary (sky 700) en action/secondary (sky 200) voor
   wat je aanklikt of aanzet, `surface/sky/subtle` voor wat actief is. Merkkleuren alleen in iconen (bijvoorbeeld
   de cirkel vooraan in een lijstitem); signaalkleuren voor meldingen.
-- **Uitzondering: een keuze die uit staat.** Checkbox, Radio en Toggle hebben uit een rand van `border/thick` in
-  `stroke/neutral/medium`; aan zijn ze een vol vlak in action/primary. Zonder rand haalt de lege stand geen 3:1
-  (WCAG 2.2 AA, 1.4.11, [besluit 008](008-wcag-2-2-aa.md)). Uit heeft een rand, aan is vol: voor alle drie hetzelfde
+- **Een keuze die uit staat is een vol vlak.** Checkbox, Radio en de baan van Toggle zijn uit `stroke/neutral/medium`
+  (slate/500), zonder rand; aan `surface/action/primary`. Lichter kan niet zonder rand: dan haalt de lege stand geen
+  3:1 (WCAG 2.2 AA, [besluit 008](008-wcag-2-2-aa.md)). Een rand en keuzetegels zijn overwogen en voor nu niet gekozen
   (eigenaar 2026-11-19).
 - **Focus** alleen bij het toetsenbord: een ring van `border/thick` in `interaction/focusRing`, `spacing/2xs` los.
 
