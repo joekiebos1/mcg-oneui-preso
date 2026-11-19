@@ -49,13 +49,13 @@ Alle waarden zijn tokens (`dist/tokens.css`).
 | md (standaard) | 48 | `spacing/lg` | `spacing/xl` | `radius/2xl` |
 | sm | 40 | `spacing/md` | `spacing/lg` | `radius/xl` |
 
-Een gevuld vlak zonder rand: `surface/sunken`. Hover een stap dieper (tussen sunken en `surface/neutral/subtle-pressed`).
+Een gevuld vlak zonder rand: `surface/sunken`. Hover een stap dieper (tussen sunken en `surface/action/neutral-hover`).
 Focus: het vlak wordt `surface/default` met een zachte schaduw (`effect/shadow/key`) en komt los van de pagina; de
 cursor in `interaction/focusRing`. Tekst label/M in `text/high`, placeholder `text/low`. Iconen `size/xs` in
 `icon/medium`, `spacing/md` van de tekst.
 
 - **search:** hoeken `radius/full`. Het kruisje om te wissen is een rond knopje van `size/sm` in
-  `surface/neutral/subtle-pressed`.
+  `surface/action/neutral-hover`.
 - **code:** vierkante vakjes van `size/3xl` (sm `size/2xl`), `spacing/md` ertussen, het cijfer in het midden.
 - **teller:** rechts in de regel van de hulptekst, body/XS.
 

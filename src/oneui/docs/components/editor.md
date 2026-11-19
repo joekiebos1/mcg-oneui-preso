@@ -34,7 +34,7 @@ In de stijl Rond: een gevuld vlak zonder rand, zoals Input. Geen lijnen in de we
 | focus | het vlak wordt `surface/default` en krijgt de schaduw van Input |
 | tekst | padding `spacing/xl`, label/M, `text/high`; placeholder `text/low` |
 | werkbalk | onder de tekst, padding `spacing/md` opzij en onder, geen lijn erboven |
-| knoppen | rond, `size/md` (28), icoon `size/2xs` in `icon/medium`; hover `surface/neutral/subtle-hover`, aan `surface/sky/subtle`; ingedrukt schaal 0,92 |
+| knoppen | rond, `size/md` (28), icoon `size/2xs` in `icon/medium`; hover `surface/action/neutral`, aan `surface/sky/subtle`; ingedrukt schaal 0,92 |
 | groepen | `spacing/lg` ertussen, geen scheidingslijn |
 | focus op een knop | een ring van `border/thick` in `interaction/focusRing` |
 | uitgeschakeld | vlak `surface/disabled`, tekst `text/disabled` |

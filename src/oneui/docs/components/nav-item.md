@@ -42,7 +42,7 @@ Hoeken `radius/full`.
 | state | vlak | tekst | icoon |
 |---|---|---|---|
 | default | — | `text/medium` | `icon/medium` (of een merkkleur) |
-| hover | `surface/neutral/subtle-hover` | `text/high` | — |
+| hover | `surface/action/neutral` | `text/high` | — |
 | active | `surface/sky/subtle` | `text/on-subtle/sky` | `icon/sky` |
 | disabled | — | `text/disabled` | `icon/disabled` |
 

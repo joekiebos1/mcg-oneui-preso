@@ -30,7 +30,7 @@
   transition: background-color 160ms ease, box-shadow 160ms ease;
 }
 .oneui-vak--sm { --_pad-y: var(--oneui-spacing-md); --_pad-x: var(--oneui-spacing-lg); --_radius: var(--oneui-radius-xl); }
-.oneui-vak:hover { --_vlak: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-neutral-subtle-pressed)); }
+.oneui-vak:hover { --_vlak: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-action-neutral-hover)); }
 .oneui-vak:focus-within {
   --_vlak: var(--oneui-surface-default);
   box-shadow: 0 var(--oneui-border-thin) var(--oneui-border-thick) var(--oneui-effect-shadow-key),

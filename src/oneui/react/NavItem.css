@@ -30,8 +30,8 @@
   font-size: var(--oneui-type-label-s-size); line-height: var(--oneui-type-label-s-line-height); font-variant-numeric: tabular-nums;
 }
 
-.oneui-navitem:hover:not(:disabled):not(.is-active) { background: var(--oneui-surface-neutral-subtle-hover); color: var(--oneui-text-high); }
-.oneui-navitem:active:not(:disabled):not(.is-active) { background: var(--oneui-surface-neutral-subtle-pressed); }
+.oneui-navitem:hover:not(:disabled):not(.is-active) { background: var(--oneui-surface-action-neutral); color: var(--oneui-text-high); }
+.oneui-navitem:active:not(:disabled):not(.is-active) { background: var(--oneui-surface-action-neutral-hover); }
 .oneui-navitem.is-active { background: var(--oneui-surface-sky-subtle); color: var(--oneui-text-on-subtle-sky); cursor: default; }
 .oneui-navitem.is-active .oneui-navitem__icon { color: var(--oneui-icon-sky); }
 .oneui-navitem:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs); }

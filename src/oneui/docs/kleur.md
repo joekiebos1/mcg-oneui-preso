@@ -30,7 +30,8 @@ De semantiek heeft twee soorten namen:
 
 - **functie**, waar de naam iets zegt over wat het doet: `action/primary` en `action/secondary` (knoppen),
   `interaction/focusRing`, de signalen (`positive`, `negative`, `warning`, `informative`) en de neutrale opbouw
-  (`surface/page`, `surface/sunken`, `text/high` …);
+  (`surface/page`, `surface/sunken`, `text/high` …). Neutraal heeft geen subtle: een licht grijs vlak is
+  `surface/page` of `surface/sunken` ([besluit 010](../besluiten/010-neutrale-vlakken.md));
 - **kleur**, waar het om de kleur zelf gaat: `surface/sky/subtle`, `surface/magenta/bold`, `icon/amber`,
   `text/on-bold/violet`. Elke kleur heeft subtle (licht), bold (fel) en deep (donker).
 
@@ -87,8 +88,9 @@ illustratie naadloos aansluit op een slide met `surface/<kleur>/deep`.
 
 Knoppen hebben hun eigen rol: `surface/action/primary` is sky/700 met wit (hover 800, ingedrukt 900),
 `surface/action/secondary` is sky/200 met sky/950 (hover 300, ingedrukt 400), en `surface/action/neutral` is slate/200
-met `text/high` (hover 300, ingedrukt 400): de neutrale knop, en een Checkbox, Radio of Toggle die uit staat. Dat staat
-los van subtle, bold en deep:
+met `text/high` (hover 300, ingedrukt 400): de neutrale knop, en een Checkbox, Radio of Toggle die uit staat. Een
+knop zonder vlak (ghost, Nav item) krijgt bij hover `surface/action/neutral` en ingedrukt `surface/action/neutral-hover`.
+Dat staat los van subtle, bold en deep:
 `surface/sky/bold` blijft sky/400, voor vlakken en accenten. `interaction/focusRing` is sky/600
 (donker sky/400).
 

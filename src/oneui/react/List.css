@@ -6,7 +6,7 @@
 }
 .oneui-list--sunken {
   --_vlak: var(--oneui-surface-sunken);
-  --_vlak-hover: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-neutral-subtle-pressed));
+  --_vlak-hover: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-action-neutral-hover));
 }
 .oneui-listitem { margin: 0; }
 .oneui-listitem__vlak {

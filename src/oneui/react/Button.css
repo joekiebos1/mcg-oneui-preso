@@ -69,8 +69,8 @@
   --_bg-pressed: var(--oneui-surface-action-neutral-pressed);
 }
 .oneui-button--ghost {
-  --_bg-hover: var(--oneui-surface-neutral-subtle-hover);
-  --_bg-pressed: var(--oneui-surface-neutral-subtle-pressed);
+  --_bg-hover: var(--oneui-surface-action-neutral);
+  --_bg-pressed: var(--oneui-surface-action-neutral-hover);
 }
 
 /* States. Ingedrukt veert de pil iets in. */

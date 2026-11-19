@@ -6,7 +6,7 @@
   display: flex; flex-direction: column; min-width: 0; border-radius: var(--oneui-radius-2xl);
   background: var(--_vlak); transition: background-color 160ms ease, box-shadow 160ms ease;
 }
-.oneui-editor:hover { --_vlak: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-neutral-subtle-pressed)); }
+.oneui-editor:hover { --_vlak: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-action-neutral-hover)); }
 .oneui-editor:focus-within {
   --_vlak: var(--oneui-surface-default);
   box-shadow: 0 var(--oneui-border-thin) var(--oneui-border-thick) var(--oneui-effect-shadow-key),
@@ -41,7 +41,7 @@
   background: transparent; color: var(--oneui-icon-medium); transition: background-color 120ms ease, transform 120ms ease;
 }
 .oneui-editor__knop > svg { width: var(--oneui-size-2xs); height: var(--oneui-size-2xs); }
-.oneui-editor__knop:hover:not(:disabled) { background: var(--oneui-surface-neutral-subtle-hover); color: var(--oneui-icon-high); }
+.oneui-editor__knop:hover:not(:disabled) { background: var(--oneui-surface-action-neutral); color: var(--oneui-icon-high); }
 .oneui-editor__knop:active:not(:disabled) { transform: scale(0.92); }
 .oneui-editor__knop[aria-pressed="true"] { background: var(--oneui-surface-sky-subtle); color: var(--oneui-icon-high); }
 .oneui-editor__knop:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: 0; }

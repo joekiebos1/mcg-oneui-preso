@@ -20,7 +20,7 @@ duim, en de waarde erboven in een pil ([besluit 004](../besluiten/004-rond-vlakk
 | waarde | een pil in `surface/inverse` met `text/on-inverse`, label/S, boven het midden van de duim |
 | label | label/M, `text/high` |
 | schaal | body/XS, `text/medium`, links en rechts onder de baan |
-| uitgeschakeld | baan `surface/disabled`, vulling en stip `surface/neutral/subtle-pressed`, tekst `text/disabled` |
+| uitgeschakeld | baan `surface/disabled`, vulling en stip `surface/action/neutral-hover`, tekst `text/disabled` |
 
 Focus alleen bij het toetsenbord: de ring om de duim.
 

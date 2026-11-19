@@ -19,7 +19,6 @@ schuift alles erin één stap op, zodat het weer twee stappen van zijn ondergron
 | `surface/action/secondary` (hover, ingedrukt) | sky/200 (300, 400) | sky/300 (400, 400) | sky/200 (300, 400) | gelijk |
 | `surface/action/neutral` (hover, ingedrukt) | slate/200 (300, 400) | slate/300 (400, 400) | slate/800 (700, 700) | gelijk |
 | `surface/sunken`, `surface/disabled` | slate/200 | slate/300 | slate/900, 800 | slate/800, 700 |
-| `surface/neutral/subtle` (hover, ingedrukt) | slate/100 (200, 300) | slate/200 (300, 400) | slate/900 (800, 700) | slate/800 (700, 600) |
 | `surface/<kleur>/subtle` (hover, ingedrukt) | 100 (200, 300) | 200 (300, 400) | 950 (900, 800) | 900 (800, 700) |
 | `surface/<signaal>/subtle` | 100 | 200 | 950 | 900 |
 | `text/low` | slate/700 | slate/800 | slate/300 | gelijk |
@@ -27,6 +26,8 @@ schuift alles erin één stap op, zodat het weer twee stappen van zijn ondergron
 
 `text/low` en `icon/sky` schuiven mee omdat ze op slate/300 anders onder 4,5:1 en 3:1 komen. Ingedrukt van de
 secundaire knop blijft sky/400: sky/500 haalt met de tekst erop 4,3:1.
+
+`surface/neutral/subtle` stond hier ook; die is weg ([besluit 010](010-neutrale-vlakken.md)).
 
 Wit (`surface/default`) helpt niet: wit op de pagina is 1,06:1.
 

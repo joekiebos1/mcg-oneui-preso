@@ -56,7 +56,7 @@
   font-family: var(--oneui-type-body-xs-family); font-weight: var(--oneui-type-body-xs-weight);
   font-size: var(--oneui-type-body-xs-size); line-height: var(--oneui-type-body-xs-line-height);
 }
-.oneui-slider.is-disabled { --_vul: var(--oneui-surface-neutral-subtle-pressed); --_baan: var(--oneui-surface-disabled); }
+.oneui-slider.is-disabled { --_vul: var(--oneui-surface-action-neutral-hover); --_baan: var(--oneui-surface-disabled); }
 .oneui-slider.is-disabled .oneui-slider__veld { cursor: not-allowed; }
 .oneui-slider.is-disabled .oneui-slider__label, .oneui-slider.is-disabled .oneui-slider__schaal { color: var(--oneui-text-disabled); }
 .oneui-slider.is-disabled .oneui-slider__bel { background: var(--oneui-surface-disabled); color: var(--oneui-text-disabled); }
