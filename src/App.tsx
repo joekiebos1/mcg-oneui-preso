@@ -131,11 +131,11 @@ export function App() {
         </button>
       )}
       {groep && (
-        <aside id="paneel" className="paneel" aria-label={groep.titel}>
+        <aside id="paneel" className="paneel" data-ondergrond="default" aria-label={groep.titel}>
           <Paneel key={groep.titel} groep={groep} />
         </aside>
       )}
-      <main className="inhoud">
+      <main className="inhoud" data-ondergrond="default">
         <Routes>
           <Route path="/" element={<Home />} />
           {/* een hoofdstuk is één pagina met zijn delen onder elkaar; het oude adres van een deel wordt een anker */}
