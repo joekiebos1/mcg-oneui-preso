@@ -19,7 +19,6 @@ import { doc, linkVoor } from "./lib/docs";
 import { useParams } from "react-router-dom";
 import { ButtonPagina } from "./pages/components/ButtonPagina";
 
-type Brand = "classic" | "round";
 type Thema = "light" | "dark";
 
 const bewaard = <T extends string>(k: string, std: T): T => {
@@ -94,7 +93,6 @@ function Paneel({ groep }: { groep: Groep }) {
 }
 
 export function App() {
-  const [brand, setBrand] = useState<Brand>(() => bewaard("oneui-brand", "round"));
   const [thema, setThema] = useState<Thema>(() => bewaard("oneui-thema", "light"));
   const [open, setOpen] = useState(false);
   const [smal, setSmal] = useState(() => bewaard<string>("oneui-smal", "0") === "1");
@@ -102,10 +100,9 @@ export function App() {
   const groep = groepVan(loc.pathname);
   const [paneelOpen, setPaneelOpen] = useState(false);
   useEffect(() => {
-    document.documentElement.dataset.brand = brand;
     document.documentElement.dataset.theme = thema;
-    try { localStorage.setItem("oneui-brand", brand); localStorage.setItem("oneui-thema", thema); localStorage.setItem("oneui-smal", smal ? "1" : "0"); } catch {}
-  }, [brand, thema, smal]);
+    try { localStorage.setItem("oneui-thema", thema); localStorage.setItem("oneui-smal", smal ? "1" : "0"); } catch {}
+  }, [thema, smal]);
   useEffect(() => { setOpen(false); setPaneelOpen(false); if (!loc.hash) document.querySelector(".inhoud")?.scrollTo(0, 0); }, [loc.pathname, loc.hash]);
 
   return (
@@ -120,7 +117,6 @@ export function App() {
         </button>
         <NavLink to="/" className="logo"><Text as="span" variant="title-m">OneUI</Text></NavLink>
         <div className="instellingen">
-          <Keuze label="Brand" waarde={brand} zet={setBrand} opties={[["classic", "Classic"], ["round", "Round"]]} />
           <Keuze label="Thema" waarde={thema} zet={setThema} opties={[["light", "Licht"], ["dark", "Donker"]]} />
         </div>
       </header>

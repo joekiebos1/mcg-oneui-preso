@@ -44,7 +44,7 @@ b { font-weight: 600; }
   line-height: var(--oneui-type-label-m-line-height); color: var(--oneui-text-medium); }
 .nav-item svg { flex: none; color: var(--oneui-icon-medium); }
 .nav-item:hover { background: var(--oneui-surface-neutral-subtle-hover); color: var(--oneui-text-high); }
-.nav-item.active { background: var(--oneui-surface-secondary-subtle); color: var(--oneui-text-on-subtle-secondary); }
+.nav-item.active { background: var(--oneui-surface-sky-subtle); color: var(--oneui-text-on-subtle-sky); }
 .nav-item.active svg { color: currentColor; }
 .nav-item[data-actief] { color: var(--oneui-text-high); }
 .studio.smal .nav-item[data-actief] svg { color: var(--oneui-icon-high); }
@@ -55,7 +55,7 @@ b { font-weight: 600; }
 .nav-item.leeg { color: var(--oneui-text-low); }
 .studio.smal .zijbalk { width: 72px; }
 .studio.smal .nav-item { justify-content: center; padding: 0; }
-.studio.smal .nav-item[data-actief] { background: var(--oneui-surface-secondary-subtle); color: var(--oneui-text-on-subtle-secondary); }
+.studio.smal .nav-item[data-actief] { background: var(--oneui-surface-sky-subtle); color: var(--oneui-text-on-subtle-sky); }
 .studio.smal .nav-label, .studio.smal .nav-chevron, .studio.smal .versie { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) { .nav-chevron { transition: none; } }
 
@@ -90,7 +90,7 @@ b { font-weight: 600; }
 
 .regels { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); max-width: var(--leesbreedte); }
 .regels li { display: grid; grid-template-columns: var(--oneui-spacing-xl) 1fr; }
-.regels li::before { content: ""; width: var(--oneui-spacing-sm); height: var(--oneui-spacing-sm); border-radius: var(--oneui-radius-full); background: var(--oneui-surface-primary-bold); margin-top: 0.6em; }
+.regels li::before { content: ""; width: var(--oneui-spacing-sm); height: var(--oneui-spacing-sm); border-radius: var(--oneui-radius-full); background: var(--oneui-surface-magenta-bold); margin-top: 0.6em; }
 
 .tegels { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--oneui-spacing-lg); }
 .tegel {
@@ -158,11 +158,11 @@ b { font-weight: 600; }
 .maatnaam { display: flex; gap: var(--oneui-spacing-md); align-items: baseline; }
 .maatbeeld { display: flex; align-items: center; min-height: var(--oneui-size-sm); }
 .maatcode { justify-self: end; }
-.maatvoorbeeld.spacing { display: block; border-radius: var(--oneui-radius-xs); background: var(--oneui-surface-primary-bold); }
-.maatvoorbeeld.radius { display: block; width: var(--oneui-size-5xl); height: var(--oneui-size-5xl); background: var(--oneui-surface-secondary-subtle);
-  box-shadow: inset 0 0 0 var(--oneui-border-thick) var(--oneui-stroke-secondary-high); }
+.maatvoorbeeld.spacing { display: block; border-radius: var(--oneui-radius-xs); background: var(--oneui-surface-magenta-bold); }
+.maatvoorbeeld.radius { display: block; width: var(--oneui-size-5xl); height: var(--oneui-size-5xl); background: var(--oneui-surface-sky-subtle);
+  box-shadow: inset 0 0 0 var(--oneui-border-thick) var(--oneui-stroke-sky-high); }
 .maatvoorbeeld.border { display: block; width: 100%; max-width: 320px; height: var(--oneui-size-2xl); border-style: solid; border-color: var(--oneui-stroke-neutral-high); border-radius: var(--oneui-radius-md); }
-.maatvoorbeeld.size { display: block; border-radius: var(--oneui-radius-sm); background: var(--oneui-surface-accent-subtle); box-shadow: inset 0 0 0 var(--oneui-border-thin) var(--oneui-stroke-accent-high); }
+.maatvoorbeeld.size { display: block; border-radius: var(--oneui-radius-sm); background: var(--oneui-surface-amber-subtle); box-shadow: inset 0 0 0 var(--oneui-border-thin) var(--oneui-stroke-amber-high); }
 .maat-leeg { color: var(--oneui-text-low); }
 
 /* ---------- elevation ---------- */
@@ -231,7 +231,7 @@ b { font-weight: 600; }
 .regels.genummerd { counter-reset: stap; }
 .regels.genummerd li { counter-increment: stap; }
 .regels.genummerd li::before { content: counter(stap); width: auto; height: auto; border-radius: 0; background: none; margin-top: 0;
-  color: var(--oneui-surface-primary-bold); font-weight: 600; }
+  color: var(--oneui-surface-magenta-bold); font-weight: 600; }
 .tabel.doc td:first-child { white-space: normal; }
 .tabel.doc td, .tabel.doc th { vertical-align: top; }
 .bron { margin: 0; color: var(--oneui-text-low); }

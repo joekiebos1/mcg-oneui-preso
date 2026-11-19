@@ -22,16 +22,10 @@ export function Home() {
           })}
         </div>
       </Sectie>
-      <Sectie titel="Twee brands, twee thema's" uitleg="Rechtsboven kies je de brand en het thema. Alles op deze site past zich aan, net als in de producten.">
-        <div className="naast">
-          <div className="vak">
-            <Text variant="title-s">Classic</Text>
-            <Text variant="body-s" color="medium">El Messiri voor koppen, DM Sans voor de interface. De standaard in code.</Text>
-          </div>
-          <div className="vak">
-            <Text variant="title-s">Round</Text>
-            <Text variant="body-s" color="medium">Google Sans Flex Rond voor alles. Dezelfde kleuren; alleen de letter verschilt.</Text>
-          </div>
+      <Sectie titel="Eén stijl, twee thema's" uitleg="Rechtsboven kies je licht of donker. Alles op deze site past zich aan, net als in de producten.">
+        <div className="vak">
+          <Text variant="title-s">Google Sans Flex Rond</Text>
+          <Text variant="body-s" color="medium">Eén lettertype voor alles, met ronde uiteinden.</Text>
         </div>
       </Sectie>
     </Pagina>

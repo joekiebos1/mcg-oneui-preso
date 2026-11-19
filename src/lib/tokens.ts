@@ -6,14 +6,12 @@ type Tree = { [k: string]: Tree | Leaf };
 const isLeaf = (x: unknown): x is Leaf => !!x && typeof x === "object" && "$value" in (x as object);
 
 export interface Token {
-  /** naam zoals in Figma: "magenta/600", "brand/primary/600", "surface/page" */
+  /** naam zoals in Figma: "magenta/600", "surface/page" */
   naam: string;
   type: string;
   waarde: unknown;
   /** donker thema (alleen semantic) */
   donker?: unknown;
-  /** brand Round, als die afwijkt */
-  round?: unknown;
   extra?: Record<string, unknown>;
 }
 
@@ -24,11 +22,11 @@ function lees(tree: Tree, prefix: string, laag: string, uit: Token[]) {
     if (isLeaf(v)) {
       const t: Token = {
         naam, type: v.$type, waarde: v.$value, extra: v.$extensions,
-        donker: v.$extensions?.["oneui.dark"], round: v.$extensions?.["oneui.round"],
+        donker: v.$extensions?.["oneui.dark"],
       };
       uit.push(t);
       alle[naam] = t;
-      // een token kan ook kinderen hebben (text/on-bold en text/on-bold/secondary)
+      // een token kan ook kinderen hebben (text/on-bold en text/on-bold/sky)
       const kinderen = Object.fromEntries(Object.entries(v).filter(([k]) => !k.startsWith("$"))) as Tree;
       if (Object.keys(kinderen).length) lees(kinderen, naam, laag, uit);
     } else lees(v as Tree, naam, laag, uit);
@@ -38,14 +36,13 @@ function lees(tree: Tree, prefix: string, laag: string, uit: Token[]) {
 
 const t = raw as unknown as Record<string, Tree>;
 export const primitives = lees(t.primitive, "", "primitive", []);
-export const brand = lees(t.brand, "brand", "brand", []);
 export const semantic = lees(t.semantic, "", "semantic", []);
 
 /** "{magenta/600}" → "magenta/600", anders null */
 export const alias = (w: unknown): string | null =>
   typeof w === "string" && /^\{.+\}$/.test(w) ? w.slice(1, -1) : null;
 
-/** Volgt aliassen tot een echte waarde. Geeft ook de keten terug ("surface/page → brand/neutral/100 → slate/100"). */
+/** Volgt aliassen tot een echte waarde. Geeft ook de keten terug ("surface/page → slate/100"). */
 export function los(w: unknown, keten: string[] = []): { waarde: string; keten: string[] } {
   const a = alias(w);
   if (!a) return { waarde: String(w), keten };

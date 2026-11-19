@@ -1,6 +1,6 @@
 import { useLayoutEffect, useRef, useState } from "react";
 import { Text, type TextStyle } from "../../oneui/react/Text";
-import { useOmgeving } from "../../lib/brand";
+import { useOmgeving } from "../../lib/omgeving";
 import { typografie } from "../../lib/tokens";
 import { Pagina, Regels, Sectie } from "../Pagina";
 
@@ -14,7 +14,7 @@ const ROLLEN: Record<string, { doet: string; zin: string }> = {
 
 function Specimen({ rol, maat }: { rol: string; maat: string }) {
   const ref = useRef<HTMLElement>(null);
-  const { brand } = useOmgeving();
+  const { thema } = useOmgeving();
   const [m, setM] = useState("");
   useLayoutEffect(() => {
     const el = ref.current; if (!el) return;
@@ -26,7 +26,7 @@ function Specimen({ rol, maat }: { rol: string; maat: string }) {
       setM(`${fam} · ${c.fontWeight} · ${Math.round(parseFloat(c.fontSize))}/${Math.round(parseFloat(c.lineHeight))} · ${String(pct).replace(".", ",")}%`);
     };
     meet(); document.fonts?.ready.then(meet);
-  }, [brand]);
+  }, [thema]);
   const variant = `${rol}-${maat.toLowerCase()}` as TextStyle;
   return (
     <div className="specimen">
@@ -40,22 +40,12 @@ function Specimen({ rol, maat }: { rol: string; maat: string }) {
 }
 
 export function Type() {
-  const { brand } = useOmgeving();
-  const round = brand === "round";
   return (
-    <Pagina intro="Twee families in Classic, één in Round. Vijf rollen, elk met een paar vaste maten. Kies een rol op wat de tekst doet, niet op hoe groot hij moet zijn.">
-      <Sectie titel="Families" uitleg="Alle lettertypes vallen onder de SIL Open Font License en worden zelf gehost. Wissel rechtsboven van brand om het verschil te zien.">
-        <div className="naast">
-          <div className="vak familie">
-            <Text variant="label-m" color="low">Display en heading</Text>
-            <Text variant="display-s">{round ? "Google Sans Flex Rond" : "El Messiri"}</Text>
-            <Text variant="body-s" color="medium">{round ? "Gewicht 600, rondheid 25 en breedte 90 vast in het lettertype." : "Gewicht 400. Het merk: warm, met karakter."}</Text>
-          </div>
-          <div className="vak familie">
-            <Text variant="label-m" color="low">Interface: title, body, label</Text>
-            <Text variant="title-xl">{round ? "Google Sans Flex Rond" : "DM Sans"}</Text>
-            <Text variant="body-s" color="medium">{round ? "Body in gewicht 350, iets lichter dan normaal." : "Body in 400, title 600, label 500."}</Text>
-          </div>
+    <Pagina intro="Eén lettertype, vijf rollen, elk met een paar vaste maten. Kies een rol op wat de tekst doet, niet op hoe groot hij moet zijn.">
+      <Sectie titel="Lettertype" uitleg="SIL Open Font License, zelf gehost.">
+        <div className="vak familie">
+          <Text variant="display-s">Google Sans Flex Rond</Text>
+          <Text variant="body-s" color="medium">Google Sans Flex met rondheid 25 en breedte 90 vast in het lettertype. Display, heading en title 600, label 500, body 350: iets lichter dan normaal.</Text>
         </div>
       </Sectie>
 
@@ -71,7 +61,7 @@ export function Type() {
         <Regels items={[
           <><b>Maten groeien met vaste stappen:</b> +2 tot M, daarna +4 (body 16 → 20 → 24). Zo blijft XL groter dan L zonder in de kopmaten te komen.</>,
           <><b>Slides gebruiken XL en L, de app M en kleiner.</b> Er zijn geen aparte modes.</>,
-          <><b>Letterafstand:</b> body en label 0,5% in beide brands. Display en heading -4% in Classic, -2% in Round; title 0 in Classic, -1% in Round.</>,
+          <><b>Letterafstand:</b> display en heading -2%, title -1%, body en label 0,5%.</>,
           <><b>Regelhoogte</b> per rol een vaste verhouding op het 4px-raster: display 1,1–1,2, heading ~1,3, title 1,25–1,4, body ~1,5, label ~1,4.</>,
           <><b>Display en heading staan op cap height tot baseline</b> (vertical trim). De ruimte rond een kop regel je met spacing.</>,
         ]} />

@@ -40,11 +40,11 @@ Label label/M in `text/high`, `spacing/md` naast het vakje.
 |---|---|---|
 | uit | `surface/default` | `border/thin`, `stroke/neutral/medium` |
 | hover | — | `stroke/neutral/high` |
-| aan | `surface/secondary/bold` | `stroke/secondary/medium` |
-| focus (toetsenbord) | — | `border/thick`, `stroke/secondary/medium` |
+| aan | `surface/sky/bold` | `stroke/sky/medium` |
+| focus (toetsenbord) | — | `border/thick`, `stroke/sky/medium` |
 | uitgeschakeld | `surface/disabled` | `stroke/disabled`; label `text/disabled` |
 
-Vink en streep in `text/on-bold/secondary`. Figma gebruikt `icon/high`; dat werd onleesbaar toen secondary bold
+Vink en streep in `text/on-bold/sky`. Figma gebruikt `icon/high`; dat werd onleesbaar toen secondary bold
 donker sky (sky/700) werd, dus volgt het teken de tekst op secondary bold.
 
 ## React

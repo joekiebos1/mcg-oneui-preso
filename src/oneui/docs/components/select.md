@@ -40,7 +40,7 @@ Het vak is hetzelfde als bij Input.
 | sm | 40 | `spacing/md` | `spacing/lg` | `radius/md` |
 
 Vlak `surface/default`. Rand `border/thin` in `stroke/neutral/low`, hover `stroke/neutral/high`, focus 2 breed in
-`stroke/secondary/medium` (het vak verschuift niet). Tekst label/M in `text/high`, placeholder `text/low`. Iconen
+`stroke/sky/medium` (het vak verschuift niet). Tekst label/M in `text/high`, placeholder `text/low`. Iconen
 `size/xs` in `icon/medium`, `spacing/md` van de tekst.
 
 Rechts een chevron omlaag (`size/xs`, `icon/medium`). Niets gekozen: de placeholder in `text/low`.

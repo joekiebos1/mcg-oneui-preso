@@ -43,7 +43,7 @@ Hoeken `radius/full`.
 |---|---|---|---|
 | default | — | `text/medium` | `icon/medium` (of een merkkleur) |
 | hover | `surface/neutral/subtle-hover` | `text/high` | — |
-| active | `surface/secondary/subtle` | `text/on-subtle/secondary` | `icon/secondary` |
+| active | `surface/sky/subtle` | `text/on-subtle/sky` | `icon/sky` |
 | disabled | — | `text/disabled` | `icon/disabled` |
 
 De teller is een pil van `size/sm` hoog in `surface/action/primary` met `text/on-action/primary`, label/S; boven 99

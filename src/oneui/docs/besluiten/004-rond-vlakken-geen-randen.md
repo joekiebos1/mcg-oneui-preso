@@ -18,7 +18,7 @@ De componenten volgen de stijl Rond, zoals in de schetsen die zijn goedgekeurd:
 - **Ruim binnenwerk.** Knoppen hebben meer ruimte naast het label; label en hint van een veld staan in lijn met de
   tekst in het vak.
 - **Kleur.** De interface gebruikt alleen sky en neutraal: action/primary (sky 700) en action/secondary (sky 200) voor
-  wat je aanklikt of aanzet, `surface/secondary/subtle` voor wat actief is. Merkkleuren alleen in iconen (bijvoorbeeld
+  wat je aanklikt of aanzet, `surface/sky/subtle` voor wat actief is. Merkkleuren alleen in iconen (bijvoorbeeld
   de cirkel vooraan in een lijstitem); signaalkleuren voor meldingen.
 - **Focus** alleen bij het toetsenbord: een ring van `border/thick` in `interaction/focusRing`, `spacing/2xs` los.
 

@@ -5,7 +5,7 @@
   display: flex; flex-direction: column; min-width: 0; border-radius: var(--oneui-radius-lg);
   background: var(--oneui-surface-default); box-shadow: inset 0 0 0 calc(var(--oneui-border-thin) + var(--_dik)) var(--_rand);
 }
-.oneui-editor:focus-within { --_rand: var(--oneui-stroke-secondary-medium); --_dik: var(--oneui-border-thin); }
+.oneui-editor:focus-within { --_rand: var(--oneui-stroke-sky-medium); --_dik: var(--oneui-border-thin); }
 .oneui-editor.is-disabled { background: var(--oneui-surface-disabled); --_rand: var(--oneui-stroke-disabled); }
 .oneui-editor__tekst {
   min-height: calc(var(--oneui-size-5xl) * 3); padding: var(--oneui-spacing-xl); outline: 0; overflow-wrap: anywhere;
@@ -23,7 +23,7 @@
 .oneui-editor__tekst h2 { margin: var(--oneui-spacing-lg) 0 var(--oneui-spacing-md); font-family: var(--oneui-type-title-m-family); font-weight: var(--oneui-type-title-m-weight); font-size: var(--oneui-type-title-m-size); line-height: var(--oneui-type-title-m-line-height); }
 .oneui-editor__tekst ul, .oneui-editor__tekst ol { padding-left: var(--oneui-spacing-2xl); }
 .oneui-editor__tekst hr { border: 0; height: var(--oneui-border-thin); background: var(--oneui-stroke-neutral-low); margin: var(--oneui-spacing-lg) 0; }
-.oneui-editor__tekst a { color: var(--oneui-text-high); text-decoration: underline; text-decoration-color: var(--oneui-stroke-secondary-medium); }
+.oneui-editor__tekst a { color: var(--oneui-text-high); text-decoration: underline; text-decoration-color: var(--oneui-stroke-sky-medium); }
 .oneui-editor__werkbalk {
   display: flex; flex-wrap: wrap; align-items: center; gap: var(--oneui-spacing-md);
   padding: var(--oneui-spacing-md) var(--oneui-spacing-lg);
@@ -40,6 +40,6 @@
 }
 .oneui-editor__knop > svg { width: var(--oneui-size-2xs); height: var(--oneui-size-2xs); }
 .oneui-editor__knop:hover:not(:disabled) { background: var(--oneui-surface-neutral-subtle-hover); color: var(--oneui-icon-high); }
-.oneui-editor__knop[aria-pressed="true"] { background: var(--oneui-surface-secondary-subtle); color: var(--oneui-icon-high); }
-.oneui-editor__knop:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-stroke-secondary-medium); outline-offset: 0; }
+.oneui-editor__knop[aria-pressed="true"] { background: var(--oneui-surface-sky-subtle); color: var(--oneui-icon-high); }
+.oneui-editor__knop:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-stroke-sky-medium); outline-offset: 0; }
 .oneui-editor__knop:disabled { cursor: not-allowed; color: var(--oneui-icon-disabled); }

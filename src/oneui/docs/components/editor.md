@@ -29,10 +29,10 @@ _Nog in te vullen._
 | deel | token |
 |---|---|
 | vak | `radius/lg`, `surface/default`, rand `border/thin` in `stroke/neutral/medium` |
-| focus | rand 2 breed in `stroke/secondary/medium` |
+| focus | rand 2 breed in `stroke/sky/medium` |
 | tekst | padding `spacing/xl`, label/M, `text/high`; placeholder `text/low` |
 | werkbalk | onder de tekst, padding `spacing/md` `spacing/lg`, lijn erboven `stroke/neutral/low` |
-| knoppen | `size/sm` (24), `radius/sm`, icoon `size/2xs` in `icon/medium`; aan `surface/secondary/subtle` |
+| knoppen | `size/sm` (24), `radius/sm`, icoon `size/2xs` in `icon/medium`; aan `surface/sky/subtle` |
 | groepen | `spacing/md` ertussen, gescheiden door een lijn van `size/xs` hoog |
 | uitgeschakeld | vlak `surface/disabled`, rand `stroke/disabled`, tekst `text/disabled` |
 

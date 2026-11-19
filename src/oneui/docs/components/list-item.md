@@ -23,7 +23,7 @@ tonen.
 | ruimte tussen items | `spacing/md` |
 | titel | label/L, `text/high`; afgerond `text/medium` |
 | beschrijving | body/S, `text/medium` |
-| cirkel vooraan | `size/2xl` (40), `surface/{rol}/subtle` met het icoon (20) in `text/on-subtle/{rol}` |
+| cirkel vooraan | `size/2xl` (40), `surface/{kleur}/subtle` met het icoon (20) in `text/on-subtle/{kleur}` |
 | rechts | label/M in `text/medium`; bij een item dat je opent anders een chevron in `icon/low` |
 | hover | `surface/sunken` (op sunken een stap dieper) |
 
@@ -33,7 +33,7 @@ tonen.
 import { List, ListItem } from "@mcg/oneui-react";
 
 <List>
-  <ListItem title="Ademhaling 4-7-8" description="Oefening · 5 min" icon={<IcoonWind />} tone="secondary" href="/oefening/478" />
+  <ListItem title="Ademhaling 4-7-8" description="Oefening · 5 min" icon={<IcoonWind />} tone="sky" href="/oefening/478" />
   <ListItem title="Een vast ritme" description="Les 4 · nog niet open" trailing="ma" />
 </List>
 ```
@@ -41,7 +41,7 @@ import { List, ListItem } from "@mcg/oneui-react";
 | prop | waarden | standaard |
 |---|---|---|
 | `title`, `description` | tekst | — |
-| `icon` + `tone` | een icoon; `neutral` · `primary` · `secondary` · `accent` · `accent-2` | `neutral` |
+| `icon` + `tone` | een icoon; `neutral` · `magenta` · `sky` · `amber` · `violet` | `neutral` |
 | `leading` | iets anders vooraan, zoals een Avatar | — |
 | `trailing` | tekst, een badge of een vinkje | chevron als hij opent |
 | `href` of `onClick` | een link of een knop | — |

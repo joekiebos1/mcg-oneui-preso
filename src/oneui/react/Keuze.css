@@ -14,13 +14,13 @@
   flex: none; display: inline-grid; place-items: center; width: var(--_maat); height: var(--_maat);
   margin-top: calc((var(--oneui-type-label-m-line-height) - var(--_maat)) / 2);
   background: var(--oneui-surface-default); box-shadow: inset 0 0 0 var(--_dik) var(--_rand);
-  color: var(--oneui-text-on-bold-secondary); transition: background-color 120ms ease, box-shadow 120ms ease;
+  color: var(--oneui-text-on-bold-sky); transition: background-color 120ms ease, box-shadow 120ms ease;
 }
 .oneui-keuze:hover .oneui-keuze__vak { --_rand: var(--oneui-stroke-neutral-high); }
 .oneui-keuze__veld:checked + .oneui-keuze__vak, .oneui-keuze__veld:indeterminate + .oneui-keuze__vak {
-  background: var(--oneui-surface-secondary-bold); --_rand: var(--oneui-stroke-secondary-medium);
+  background: var(--oneui-surface-sky-bold); --_rand: var(--oneui-stroke-sky-medium);
 }
-.oneui-keuze__veld:focus-visible + .oneui-keuze__vak { --_rand: var(--oneui-stroke-secondary-medium); --_dik: var(--oneui-border-thick); }
+.oneui-keuze__veld:focus-visible + .oneui-keuze__vak { --_rand: var(--oneui-stroke-sky-medium); --_dik: var(--oneui-border-thick); }
 .oneui-keuze.is-disabled { cursor: not-allowed; color: var(--oneui-text-disabled); }
 .oneui-keuze.is-disabled .oneui-keuze__vak { background: var(--oneui-surface-disabled); --_rand: var(--oneui-stroke-disabled); color: var(--oneui-icon-disabled); }
 .oneui-keuze__label:empty { display: none; }

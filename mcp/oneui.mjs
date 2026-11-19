@@ -4,13 +4,12 @@ import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js";
 import { z } from "zod";
 
 export function maakServer(data) {
-const { P, B, S } = { P: data.variables.primitives, B: data.variables.brand, S: data.variables.semantic };
+const { P, S } = { P: data.variables.primitives, S: data.variables.semantic };
 const isRef = (v) => typeof v === "string" && v.startsWith("{");
-function resolve(v, mode = 0, brand = 0) {
+function resolve(v, mode = 0) {
   while (isRef(v)) {
     const n = v.slice(1, -1);
     if (n in P) v = P[n];
-    else if (n in B) v = B[n][brand];
     else if (n in S) v = S[n][mode];
     else throw new Error("Onbekende verwijzing: " + n);
   }
@@ -29,7 +28,7 @@ const bindings = data.bindings;
 // ---- tokens oplossen ----
 const cssVar = (n) => `var(--oneui-${n.replace(/\//g, "-").toLowerCase()})`;
 const semantic = Object.entries(S).filter(([n]) => !n.startsWith("_")).map(([n, v]) => ({ token: n, css: cssVar(n), licht: resolve(v[0], 0), donker: resolve(v[1], 1) }));
-const FONTS = [...new Set([...B["type/brand/family"], ...B["type/ui/family"]])]; // El Messiri, DM Sans, Inter
+const FONTS = [data.typography._family]; // Google Sans Flex Rond
 
 const text = (s) => ({ content: [{ type: "text", text: s }] });
 const words = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").split(/[^a-z0-9]+/).filter((w) => w.length > 2);
@@ -78,7 +77,7 @@ server.registerTool("tokens", {
   const parts = [];
   if (!soort || soort === "kleur") parts.push("## Kleur (semantisch, MCG)\nDonker: `data-theme=\"dark\"`.\n| token | css | licht | donker |\n|---|---|---|---|\n" + semantic.filter((t) => f(t.token)).map((t) => `| ${t.token} | \`${t.css}\` | ${t.licht} | ${t.donker} |`).join("\n"));
   if (!soort || soort === "ladder") parts.push("## Kleurladders (primitives)\nVoor content: illustraties, slides, kaarten, infographics. In de interface gebruik je de semantische tokens.\n| ladder | " + STAPPEN.join(" | ") + " |\n|---|" + STAPPEN.map(() => "---").join("|") + "|\n" + families.filter((fam) => f(fam + "/")).map((fam) => `| ${fam} | ${STAPPEN.map((st) => P[`${fam}/${st}`] || "-").join(" | ")} |`).join("\n") + "\nCSS: `var(--oneui-<ladder>-<stap>)`.");
-  if (!soort || soort === "typografie") parts.push("## Typografie\nKlasse: `.oneui-text-<rol>-<maat>`.\n| stijl | font | gewicht | maat/regel |\n|---|---|---|---|\n" + Object.entries(typo).filter(([n]) => !n.startsWith("_") && f(n)).map(([n, t]) => `| ${n} | ${B[`type/${t[0]}/family`][0]} | ${t[1]} | ${t[2]}/${t[3]} |`).join("\n"));
+  if (!soort || soort === "typografie") parts.push("## Typografie\nKlasse: `.oneui-text-<rol>-<maat>`.\n| stijl | font | gewicht | maat/regel |\n|---|---|---|---|\n" + Object.entries(typo).filter(([n]) => !n.startsWith("_") && f(n)).map(([n, t]) => `| ${n} | ${typo._family} | ${t[0]} | ${t[1]}/${t[2]} |`).join("\n"));
   if (!soort || soort === "ruimte") parts.push("## Ruimte, hoeken, randen\n" + Object.entries(P).filter(([n]) => /^(spacing|radius|border|size)\//.test(n) && f(n)).map(([n, v]) => `- \`${cssVar(n)}\` = ${v}px`).join("\n"));
   return text(parts.join("\n\n"));
 });
@@ -130,7 +129,7 @@ server.registerTool("controleer", {
     for (const m of l.matchAll(/(?:margin|padding|gap|top|left|right|bottom|border-radius|inset)[\w-]*\s*:\s*([^;}{]+)/gi))
       for (const px of m[1].matchAll(/(-?\d+(?:\.\d+)?)px/g)) if (!scale.has(Math.abs(+px[1]))) issues.push(`r${n}: ${px[0]} staat niet in de schaal (${[...scale].filter((v) => v < 100).sort((a, b) => a - b).join(", ")})`);
     const ff = l.match(/font-family\s*:\s*([^;]+)/i);
-    if (ff && !(/var\(--oneui-(font|type-)/.test(ff[1]) || FONTS.some((x) => ff[1].includes(x)))) issues.push(`r${n}: lettertype ${ff[1].trim()} → gebruik var(--oneui-font-ui) of var(--oneui-font-brand)`);
+    if (ff && !(/var\(--oneui-(font|type-)/.test(ff[1]) || FONTS.some((x) => ff[1].includes(x)))) issues.push(`r${n}: lettertype ${ff[1].trim()} → gebruik var(--oneui-font)`);
     for (const m of l.matchAll(new RegExp(`--oneui-(${families.join("|")})-\\d+`, "g"))) issues.push(`r${n}: primitive ${m[0]} → gebruik een semantisch token (surface/…, text/…, icon/…, stroke/…)`);
     for (const m of l.matchAll(/font-size\s*:\s*(\d[^;}]*)/gi)) issues.push(`r${n}: losse font-size ${m[1].trim()} → gebruik een tekststijl (.oneui-text-…)`);
   });
@@ -142,15 +141,15 @@ server.registerTool("controleer", {
 server.registerTool("afhankelijkheden", {
   title: "Afhankelijkheden van een token",
   description: "Laat zien wat er van een token afhangt: welke tokens ernaar verwijzen en hoe vaak Icons en Components het gebruiken. Gebruik dit ALTIJD voordat je een token, verzameling of mode verwijdert of hernoemt.",
-  inputSchema: { token: z.string().describe("Tokennaam, bijv. 'icon/low' of 'brand/neutral/500'") },
+  inputSchema: { token: z.string().describe("Tokennaam, bijv. 'icon/low' of 'slate/500'") },
 }, async ({ token }) => {
   const ref = `{${token}}`;
   const aliassen = [];
-  for (const [coll, o] of [["brand", B], ["semantic", S]])
+  for (const [coll, o] of [["semantic", S]])
     for (const [n, v] of Object.entries(o)) if (!n.startsWith("_") && [].concat(v).includes(ref)) aliassen.push(`${coll}::${n}`);
   const gebruik = [];
   for (const [f, { tokens = {} }] of Object.entries(bindings)) for (const [k, a] of Object.entries(tokens)) if (k.endsWith("::" + token)) gebruik.push(`${f}: ${a}×`);
-  const bestaat = token in P || token in B || token in S;
+  const bestaat = token in P || token in S;
   return text([`**${token}** ${bestaat ? "bestaat" : "bestaat NIET in Foundations"}.`,
     `Verwezen door: ${aliassen.length ? aliassen.join(", ") : "geen andere tokens"}.`,
     `Gebruikt in: ${gebruik.length ? gebruik.join(", ") : "geen koppelingen in Icons of Components (volgens figma/bindings.json)"}.`,

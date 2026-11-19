@@ -35,10 +35,10 @@ _Nog in te vullen._
 |---|---|---|
 | default | `text/medium` | 2, `stroke/neutral/low` |
 | hover | `text/high` | 2, `stroke/neutral/medium` |
-| actief | `text/high` (icoon `icon/primary`) | 3, `stroke/primary/medium` |
+| actief | `text/high` (icoon `icon/magenta`) | 3, `stroke/magenta/medium` |
 | uitgeschakeld | `text/disabled` | 2, `stroke/neutral/low` |
 
-Focus (toetsenbord): `border/thick` in `stroke/secondary/medium`. Past de rij niet, dan scrolt hij horizontaal.
+Focus (toetsenbord): `border/thick` in `stroke/sky/medium`. Past de rij niet, dan scrolt hij horizontaal.
 
 ## React
 

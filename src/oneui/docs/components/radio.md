@@ -40,8 +40,8 @@ Label label/M in `text/high`, `spacing/md` naast het vakje.
 |---|---|---|
 | uit | `surface/default` | `border/thin`, `stroke/neutral/medium` |
 | hover | — | `stroke/neutral/high` |
-| aan | `surface/secondary/bold` | `stroke/secondary/medium` |
-| focus (toetsenbord) | — | `border/thick`, `stroke/secondary/medium` |
+| aan | `surface/sky/bold` | `stroke/sky/medium` |
+| focus (toetsenbord) | — | `border/thick`, `stroke/sky/medium` |
 | uitgeschakeld | `surface/disabled` | `stroke/disabled`; label `text/disabled` |
 
 De stip in `icon/on-bold`, uitgeschakeld `icon/disabled`.

@@ -86,8 +86,8 @@ Regeltabel: lijnfamilie
 
 - De tinten komen uit de ladders van het design system (OneUI): grond stap 950 (gelijk aan deep), vlak stap 700, lijn
   stap 200; geel heeft het vlak op stap 500 (was 450; die heeft OneUI sinds 2026-11-13 niet meer, eigenaar: "zet het maar op
-  500"). De families horen bij de rollen van OneUI:
-  roze primary, blauw secondary, geel accent, paars accent-2. Zo sluit een illustratie
+  500"). De families zijn de kleuren van OneUI:
+  roze magenta, blauw sky, geel amber, paars violet. Zo sluit een illustratie
   naadloos aan op een slide of scherm in dezelfde kleur. Verandert een ladder in OneUI, dan verandert deze tabel mee.
 
 Regeltabel: lijnfamilie licht

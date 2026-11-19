@@ -20,10 +20,10 @@
   border-radius: var(--oneui-radius-full); background: var(--oneui-surface-sunken); color: var(--oneui-icon-high);
 }
 .oneui-dialog__bol > svg, .oneui-dialog__bol > .oneui-icon { width: var(--oneui-size-lg); height: var(--oneui-size-lg); }
-.oneui-dialog__bol--primary { background: var(--oneui-surface-primary-subtle); color: var(--oneui-text-on-subtle-primary); }
-.oneui-dialog__bol--secondary { background: var(--oneui-surface-secondary-subtle); color: var(--oneui-text-on-subtle-secondary); }
-.oneui-dialog__bol--accent { background: var(--oneui-surface-accent-subtle); color: var(--oneui-text-on-subtle-accent); }
-.oneui-dialog__bol--accent-2 { background: var(--oneui-surface-accent-2-subtle); color: var(--oneui-text-on-subtle-accent-2); }
+.oneui-dialog__bol--magenta { background: var(--oneui-surface-magenta-subtle); color: var(--oneui-text-on-subtle-magenta); }
+.oneui-dialog__bol--sky { background: var(--oneui-surface-sky-subtle); color: var(--oneui-text-on-subtle-sky); }
+.oneui-dialog__bol--amber { background: var(--oneui-surface-amber-subtle); color: var(--oneui-text-on-subtle-amber); }
+.oneui-dialog__bol--violet { background: var(--oneui-surface-violet-subtle); color: var(--oneui-text-on-subtle-violet); }
 
 .oneui-dialog__titel {
   margin: 0;

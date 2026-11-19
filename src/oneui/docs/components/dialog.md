@@ -20,7 +20,7 @@ zachte schaduw op een scrim ([besluit 004](../besluiten/004-rond-vlakken-geen-ra
 | vlak | `surface/default`, `radius/4xl`, `spacing/3xl` padding, `spacing/xl` tussen de delen, hoogstens 400 breed |
 | schaduw | `effect/shadow/key` en `effect/shadow/ambient`, zacht en wijd |
 | achtergrond | `surface/scrim` |
-| icoon | een cirkel van `size/4xl` (56) in `surface/{rol}/subtle`, het icoon (32) in `text/on-subtle/{rol}` |
+| icoon | een cirkel van `size/4xl` (56) in `surface/{kleur}/subtle`, het icoon (32) in `text/on-subtle/{kleur}` |
 | titel | heading/M, `text/high` |
 | tekst | body/M, `text/medium` |
 | knoppen | `stack`: onder elkaar over de hele breedte (standaard, ook op de telefoon); `row`: rechts naast elkaar |
@@ -30,7 +30,7 @@ zachte schaduw op een scrim ([besluit 004](../besluiten/004-rond-vlakken-geen-ra
 ```tsx
 import { Dialog, Button } from "@mcg/oneui-react";
 
-<Dialog open={open} onClose={() => setOpen(false)} title="Even pauzeren?" icon={<IcoonPauze />} tone="accent"
+<Dialog open={open} onClose={() => setOpen(false)} title="Even pauzeren?" icon={<IcoonPauze />} tone="amber"
   actions={<><Button size="lg">Pauzeren</Button><Button size="lg" variant="ghost" onClick={() => setOpen(false)}>Doorgaan</Button></>}>
   Je voortgang blijft bewaard. Je kunt morgen verder waar je gebleven bent.
 </Dialog>
@@ -40,7 +40,7 @@ import { Dialog, Button } from "@mcg/oneui-react";
 |---|---|---|
 | `open`, `onClose` | open of dicht; sluiten bij Escape of een klik op de achtergrond | — |
 | `title`, `children` | de vraag en de uitleg | — |
-| `icon` + `tone` | een icoon; `neutral` · `primary` · `secondary` · `accent` · `accent-2` | `secondary` |
+| `icon` + `tone` | een icoon; `neutral` · `magenta` · `sky` · `amber` · `violet` | `sky` |
 | `actions` | de knoppen | — |
 | `actionsLayout` | `stack` · `row` | `stack` |
 | `dismissable` | sluiten met een klik op de achtergrond | `true` |

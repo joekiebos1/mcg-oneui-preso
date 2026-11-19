@@ -185,11 +185,11 @@ function ListVoorbeelden() {
       <Staat naam="op de pagina">
         <div className="paginavlak">
           <List>
-            <ListItem title="Wat is slaapdruk?" description="Video · 3 min" icon={<Speel />} tone="primary" done
+            <ListItem title="Wat is slaapdruk?" description="Video · 3 min" icon={<Speel />} tone="magenta" done
               trailing={<span className="vinkbol"><Vink /></span>} />
-            <ListItem title="Ademhaling 4-7-8" description="Oefening · 5 min" icon={<Wind />} tone="secondary" onClick={() => {}} />
-            <ListItem title="Slaapdagboek" description="Opdracht · elke ochtend" icon={<Pen />} tone="accent" onClick={() => {}} />
-            <ListItem title="Een vast ritme" description="Les 4 · nog niet open" icon={<Maan />} tone="accent-2" trailing="ma" />
+            <ListItem title="Ademhaling 4-7-8" description="Oefening · 5 min" icon={<Wind />} tone="sky" onClick={() => {}} />
+            <ListItem title="Slaapdagboek" description="Opdracht · elke ochtend" icon={<Pen />} tone="amber" onClick={() => {}} />
+            <ListItem title="Een vast ritme" description="Les 4 · nog niet open" icon={<Maan />} tone="violet" trailing="ma" />
           </List>
         </div>
       </Staat>
@@ -268,7 +268,7 @@ function DialogVoorbeelden() {
     <div className="staten">
       <Staat naam="stack (standaard)"><Button variant="secondary" onClick={() => setOpen("stack")}>Open de dialoog</Button></Staat>
       <Staat naam="row"><Button variant="neutral" onClick={() => setOpen("row")}>Open de dialoog</Button></Staat>
-      <Dialog open={open === "stack"} onClose={dicht} title="Even pauzeren?" icon={<Pauze />} tone="accent"
+      <Dialog open={open === "stack"} onClose={dicht} title="Even pauzeren?" icon={<Pauze />} tone="amber"
         actions={<><Button size="lg" onClick={dicht}>Pauzeren</Button><Button size="lg" variant="ghost" onClick={dicht}>Doorgaan</Button></>}>
         Je voortgang blijft bewaard. Je kunt morgen verder waar je gebleven bent.
       </Dialog>

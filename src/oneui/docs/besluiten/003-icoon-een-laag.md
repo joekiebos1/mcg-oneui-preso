@@ -17,7 +17,7 @@ vulling van `icon` met een semantisch icoontoken.
 | inactief, bijvoorbeeld een tab die niet geselecteerd is | icon/low |
 | vol merkvlak (bold, deep) | icon/on-bold |
 | donker vlak of scrim | icon/on-inverse |
-| betekenis | icon/primary, positive, negative, warning |
+| betekenis | icon/magenta, positive, negative, warning |
 | uitgeschakeld | icon/disabled |
 
 In code is dit `currentColor`: de component zet `color`, het icoon volgt.
@@ -27,7 +27,7 @@ In code is dit `currentColor`: de component zet `color`, het icoon volgt.
 - Omdat elk icoon precies één laag met dezelfde naam heeft, blijft een kleuroverride staan als je het icoon wisselt.
   Getest: kleur gezet, drie keer gewisseld, kleur bleef volledig.
 - Het past bij de rest van het systeem: iconen gebruiken de gewone semantische tokens (`icon/high`, `icon/medium`,
-  `icon/low`, `icon/primary`, `icon/on-deep`, …). Geen aparte verzameling; Foundations heeft alleen primitives, brand en
+  `icon/low`, `icon/magenta`, `icon/on-deep`, …). Geen aparte verzameling; Foundations heeft alleen primitives, brand en
   semantic. Licht en donker regelt de semantische laag.
 - Zo werken de grote Figma-bibliotheken: Material Symbols, Atlassian, Untitled UI.
 
@@ -55,7 +55,7 @@ In code is dit `currentColor`: de component zet `color`, het icoon volgt.
   naam één keer.
 - 2026-10-23: Components bijgewerkt. Elk icoon kreeg de kleur van zijn oude mode op de laag `icon`; de oude modes
   zijn gewist. Gecorrigeerd: iconen op sky (secondary bold, ook checkbox en icon tabs) naar `icon/high`, iconen in
-  focus/open en in de horizontale Nav item naar `icon/secondary` (de oude mode heette daar 'secondary'), Avatar naar
-  `icon/primary` (foto: `icon/medium`). 32 verweesde iconen in Editor vervangen door DS Icons. DOC — Icon beschrijft
+  focus/open en in de horizontale Nav item naar `icon/sky` (de oude mode heette daar 'secondary'), Avatar naar
+  `icon/magenta` (foto: `icon/medium`). 32 verweesde iconen in Editor vervangen door DS Icons. DOC — Icon beschrijft
   het nieuwe systeem. Open: in donker thema wordt `icon/high` licht; op sky-vlakken past dan geen bestaand icoontoken.
 - Daarna: het Myndlet-werkbestand.

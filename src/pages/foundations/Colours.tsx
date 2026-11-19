@@ -7,12 +7,12 @@ import { Pagina, Regels, Sectie } from "../Pagina";
 const INKT = String(token("slate/950")?.waarde ?? "#2a2824");
 
 const ROLLEN: { rol: string; ladder: string; gebruik: string }[] = [
-  { rol: "primary", ladder: "magenta", gebruik: "Merkmomenten. Knoppen en focus hebben een eigen rol: action." },
-  { rol: "secondary", ladder: "sky", gebruik: "Rustige vlakken, links, ondersteunende accenten." },
-  { rol: "accent", ladder: "amber", gebruik: "Warmte, uitlichten. Loopt van geel via goud naar terracotta." },
-  { rol: "accent-2", ladder: "violet", gebruik: "Tweede accent: dromen, verdieping, een vierde hoofdstukkleur." },
+  { rol: "magenta", ladder: "magenta", gebruik: "Merkmomenten." },
+  { rol: "sky", ladder: "sky", gebruik: "De interface: knoppen, focus en wat actief is (action). Ook rustige vlakken en links." },
+  { rol: "amber", ladder: "amber", gebruik: "Warmte, uitlichten. Loopt van geel via goud naar terracotta." },
+  { rol: "violet", ladder: "violet", gebruik: "Tweede accent: dromen, verdieping, een vierde hoofdstukkleur." },
   { rol: "neutral", ladder: "slate", gebruik: "Tekst, randen, achtergronden." },
-  { rol: "informative", ladder: "sky", gebruik: "Informatieve meldingen. Sky is dus ook secondary." },
+  { rol: "informative", ladder: "sky", gebruik: "Informatieve meldingen." },
   { rol: "positive", ladder: "green", gebruik: "Gelukt, goed." },
   { rol: "negative", ladder: "red", gebruik: "Fout, verwijderen." },
   { rol: "warning", ladder: "orange", gebruik: "Let op." },
@@ -107,7 +107,7 @@ function Semantisch() {
 }
 
 function Drie() {
-  const rij = [["primary", "magenta"], ["secondary", "sky"], ["accent", "amber"], ["accent-2", "violet"]];
+  const rij = [["magenta", "magenta"], ["sky", "sky"], ["amber", "amber"], ["violet", "violet"]];
   const hex = (n: string) => los(token(n)?.waarde).waarde;
   return (
     <div className="drie">
@@ -122,7 +122,7 @@ function Drie() {
         );
         return (
           <div key={rol} className="drierol">
-            <Text as="span" variant="title-s">{rol} <Text as="span" variant="body-s" color="low">{ladder}</Text></Text>
+            <Text as="span" variant="title-s">{rol}</Text>
             <div className="drierij">{vlak("Subtle", subtle, opSubtle)}{vlak("Bold", bold, opBold)}{vlak("Deep", deep, opDeep)}</div>
             <Text variant="body-xs" color="medium">Bold op subtle {fmt(contrast(bold, subtle))}:1 · bold op deep {fmt(contrast(bold, deep))}:1 · tekst op deep {fmt(contrast(opDeep, deep))}:1</Text>
           </div>
@@ -133,24 +133,23 @@ function Drie() {
 }
 
 export function Colours() {
-  const voorbeeld = token("surface/primary/bold");
+  const voorbeeld = token("surface/action/primary");
   return (
     <Pagina intro="Vier merkkleuren, elk een ladder van 50 tot 950, plus slate als neutraal en drie signaalkleuren. Elke stap heeft in elke ladder dezelfde lichtheid: sky/600 gedraagt zich qua contrast hetzelfde als magenta/600.">
-      <Sectie titel="Drie lagen" uitleg="Een component kiest nooit zelf een kleur uit een ladder. Het gebruikt een semantisch token, dat via de brand-laag naar een ladder wijst. Zo kan een kleur op één plek veranderen.">
+      <Sectie titel="Twee lagen" uitleg="Een component kiest nooit zelf een kleur uit een ladder. Het gebruikt een semantisch token, dat naar een ladder wijst. Zo kan een kleur op één plek veranderen.">
         <div className="lagen">
           <div className="vak"><Text variant="label-m" color="low">1 · Primitives</Text><Text variant="title-s">De ladders</Text><Text variant="body-s" color="medium">Ruwe kleuren: <code>magenta/600</code>. Alleen voor illustraties, slides en het maken van tokens.</Text></div>
-          <div className="vak"><Text variant="label-m" color="low">2 · Brand</Text><Text variant="title-s">Een ladder per rol</Text><Text variant="body-s" color="medium"><code>brand/primary/600</code>. Classic en Round hebben dezelfde kleuren.</Text></div>
-          <div className="vak"><Text variant="label-m" color="low">3 · Semantic</Text><Text variant="title-s">Wat het doet</Text><Text variant="body-s" color="medium"><code>surface/primary/bold</code>, in licht en donker. Dit gebruiken componenten.</Text></div>
+          <div className="vak"><Text variant="label-m" color="low">2 · Semantic</Text><Text variant="title-s">Wat het doet, of welke kleur</Text><Text variant="body-s" color="medium">Een functie (<code>surface/action/primary</code>, <code>text/high</code>, <code>surface/negative/subtle</code>) of een kleur (<code>surface/sky/bold</code>), in licht en donker. Dit gebruiken componenten.</Text></div>
         </div>
         {voorbeeld && (
           <div className="keten">
             <Text variant="body-s" color="medium">Voorbeeld: de primaire knop</Text>
-            <Swatch waarde={`{surface/primary/bold}`} />
+            <Swatch waarde={`{surface/action/primary}`} />
           </div>
         )}
       </Sectie>
 
-      <Sectie titel="Rollen" uitleg="Elke rol hoort bij één ladder.">
+      <Sectie titel="Kleuren" uitleg="Welke ladder waarvoor is.">
         <div className="rollen">
           {ROLLEN.map(r => {
             const l = ladders()[r.ladder];
@@ -190,7 +189,7 @@ export function Colours() {
           <><b>Gebruik semantische tokens.</b> Primitives alleen in illustraties, slides en de definitie van tokens zelf.</>,
           <><b>Tekst op een vol merkvlak:</b> wit op magenta en violet, antraciet (slate/950) op sky en amber. De tokens text/on-bold regelen dit.</>,
           <><b>Eén ding in de contrastkleur.</b> Op een gekleurd vlak krijgt alleen het belangrijkste element de diepe tint van dezelfde familie.</>,
-          <><b>Contrast:</b> tekst minstens 4,5:1, iconen en randen 3:1. Alle tekstparen worden voor beide brands in licht en donker gecontroleerd.</>,
+          <><b>Contrast:</b> tekst minstens 4,5:1, iconen en randen 3:1. Alle tekstparen worden in licht en donker gecontroleerd.</>,
           <><b>Bold op magenta deep</b> haalt 3,2:1: alleen voor tekst vanaf 24 px.</>,
         ]} />
       </Sectie>

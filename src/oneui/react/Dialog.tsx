@@ -2,7 +2,7 @@ import { useEffect, useId, useRef, type ReactNode } from "react";
 import "./Dialog.css";
 
 export type DialogActions = "stack" | "row";
-export type DialogTone = "neutral" | "primary" | "secondary" | "accent" | "accent-2";
+export type DialogTone = "neutral" | "magenta" | "sky" | "amber" | "violet";
 
 export interface DialogProps {
   open: boolean;
@@ -27,7 +27,7 @@ export interface DialogProps {
  * OneUI Dialog, in de stijl Rond: een groot rond vlak (radius/4xl) met een zachte schaduw op een scrim. Een native
  * `<dialog>` met `showModal()`: de focus blijft erin, Escape sluit, de rest van de pagina is inert.
  */
-export function Dialog({ open, onClose, title, children, icon, tone = "secondary", actions, actionsLayout = "stack",
+export function Dialog({ open, onClose, title, children, icon, tone = "sky", actions, actionsLayout = "stack",
   dismissable = true, className }: DialogProps) {
   const ref = useRef<HTMLDialogElement>(null);
   const titelId = useId();

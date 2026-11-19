@@ -3,7 +3,7 @@ import { IcoonChevronRechts } from "./iconen";
 import "./List.css";
 
 export type ListSurface = "default" | "sunken";
-export type ListItemTone = "neutral" | "primary" | "secondary" | "accent" | "accent-2";
+export type ListItemTone = "neutral" | "magenta" | "sky" | "amber" | "violet";
 
 export interface ListProps extends HTMLAttributes<HTMLUListElement> {
   /** De vlakken van de items: default (wit, op de grijze pagina) of sunken (grijs, in een wit vlak). */

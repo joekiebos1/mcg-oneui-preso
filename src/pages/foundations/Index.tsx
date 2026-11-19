@@ -4,8 +4,8 @@ import { Text } from "../../oneui/react/Text";
 import { Pagina } from "../Pagina";
 
 const OVER: Record<string, string> = {
-  Colours: "Vier merkkleuren, een neutraal en drie signaalkleuren, in drie lagen: primitives, brand en semantic.",
-  Type: "Twee families per brand, vijf rollen, van display tot label.",
+  Colours: "Vier merkkleuren, een neutraal en drie signaalkleuren, in twee lagen: primitives en semantic.",
+  Type: "Eén lettertype, vijf rollen, van display tot label.",
   Spacing: "Eén schaal voor alle afstanden, van 2 tot 80 px.",
   Radius: "De afronding van hoeken, van scherp tot helemaal rond.",
   Border: "Drie diktes voor randen en lijnen.",
