@@ -38,8 +38,8 @@ Label label/M in `text/high`, `spacing/lg` naast het rondje; de eerste regel sta
 
 | state | vlak |
 |---|---|
-| uit | `surface/neutral/subtle-pressed` |
-| hover | een stap dieper (10 % `icon/high` erdoor) |
+| uit | `stroke/neutral/medium` (3:1 op `surface/default` en `surface/page`) |
+| hover | een stap dieper (15 % `icon/high` erdoor) |
 | aan | `surface/action/primary`, hover `surface/action/primary-hover` |
 | ingedrukt | schaal 0,9 |
 | focus (toetsenbord) | een ring van `border/thick` in `interaction/focusRing`, `spacing/2xs` los van het rondje |
@@ -47,8 +47,8 @@ Label label/M in `text/high`, `spacing/lg` naast het rondje; de eerste regel sta
 
 De stip in `text/on-action/primary`.
 
-Let op: uit haalt 1,5:1 tegen wit, net als de baan van Toggle. WCAG vraagt 3:1 voor de vorm van een bediening; het label
-ernaast maakt hem herkenbaar, maar een los rondje zonder label is te licht.
+Uit haalt 3:1 tegen wit en de pagina: WCAG 2.2 AA, 1.4.11 ([besluit 008](../besluiten/008-wcag-2-2-aa.md)). Niet op
+`surface/sunken` zetten: daar haalt hij 2,97:1.
 
 ## React
 

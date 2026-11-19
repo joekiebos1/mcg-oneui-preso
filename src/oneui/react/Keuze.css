@@ -1,8 +1,8 @@
 /* Checkbox en Radio (Figma: box of radio, en Label), in de stijl Rond: een gevuld vlak zonder rand, zoals de baan van
-   Toggle. Uit is grijs (surface/neutral/subtle-pressed), aan is action/primary met het teken in text/on-action/primary.
+   Toggle. Uit is grijs in stroke/neutral/medium (3:1, WCAG 2.2 AA, besluit 008), aan is action/primary met het teken in text/on-action/primary.
    md 24, sm 20; ruimte ernaast spacing/lg. Focus: alleen bij het toetsenbord, een ring los van het vakje. */
 .oneui-keuze {
-  --_maat: var(--oneui-size-sm); --_vlak: var(--oneui-surface-neutral-subtle-pressed);
+  --_maat: var(--oneui-size-sm); --_vlak: var(--oneui-stroke-neutral-medium);
   position: relative; display: inline-flex; align-items: flex-start; gap: var(--oneui-spacing-lg); cursor: pointer;
   color: var(--oneui-text-high);
   font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);
@@ -19,7 +19,7 @@
   transition: background-color 160ms ease, transform 160ms ease;
 }
 .oneui-keuze:hover .oneui-keuze__veld:not(:disabled) + .oneui-keuze__vak {
-  --_vlak: color-mix(in srgb, var(--oneui-surface-neutral-subtle-pressed), var(--oneui-icon-high) 10%);
+  --_vlak: color-mix(in srgb, var(--oneui-stroke-neutral-medium), var(--oneui-icon-high) 15%);
 }
 .oneui-keuze__veld:checked + .oneui-keuze__vak, .oneui-checkbox .oneui-keuze__veld:indeterminate + .oneui-keuze__vak {
   --_vlak: var(--oneui-surface-action-primary);
