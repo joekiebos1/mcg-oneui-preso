@@ -9,7 +9,7 @@ export type IconButtonSize = "xs" | "sm" | "md" | "lg" | "xl";
 export interface IconButtonProps extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, "type" | "children"> {
   /** Wat de knop doet, voor schermlezers en als tooltip. Verplicht: er staat geen tekst op. */
   "aria-label": string;
-  /** Het icoon: een `<Icon>` of een SVG die `currentColor` gebruikt. Kleur en maat komen van de knop. */
+  /** Het icoon: een SVG die `currentColor` gebruikt. Kleur en maat komen van de knop. */
   icon: ReactNode;
   /** primary en secondary uit de action-tokens, neutral een grijs vlak (standaard), ghost kaal. */
   variant?: IconButtonType;

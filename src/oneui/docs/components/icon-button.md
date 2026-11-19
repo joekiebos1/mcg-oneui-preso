@@ -20,6 +20,7 @@ toegankelijk label.
 - Doe: een icoon dat iedereen kent (vergrootglas, kruis, plus). Twijfel je, gebruik dan een Button met tekst.
 - Doe: neutral als standaard; primary alleen als dit de hoofdactie van het scherm is.
 - Niet: een rand om de cirkel; outline toont als neutral.
+- In Figma staat het icoon in een Icon-component; daar kies je ook lijn of vol.
 
 ## Specificatie
 
@@ -44,7 +45,7 @@ Focus alleen bij het toetsenbord: `border/thick` in `interaction/focusRing`, `sp
 ## React
 
 ```tsx
-import { IconButton, Icon } from "@mcg/oneui-react";
+import { IconButton } from "@mcg/oneui-react";
 
 <IconButton aria-label="Zoeken" icon={<IcoonZoek />} />
 <IconButton aria-label="Nieuwe afspraak" variant="primary" size="lg" icon={<IcoonPlus />} />
@@ -53,7 +54,7 @@ import { IconButton, Icon } from "@mcg/oneui-react";
 | prop | waarden | standaard |
 |---|---|---|
 | `aria-label` | wat de knop doet (verplicht) | — |
-| `icon` | een icoon met `currentColor` | — |
+| `icon` | een SVG met `currentColor` | — |
 | `variant` | `primary` · `secondary` · `neutral` · `ghost` | `neutral` |
 | `size` | `xs` · `sm` · `md` · `lg` · `xl` | `md` |
 
