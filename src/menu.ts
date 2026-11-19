@@ -9,6 +9,8 @@ export interface Item {
   titel: string; pad: string; klaar?: boolean; kinderen?: Item[]; icoon?: ReactNode;
   /** een lange lijst klap je zelf open en dicht; de rest toont zijn delen op één pagina */
   chevron?: boolean;
+  /** ruimte erboven: hier begint wat nog niet af is (bij Componenten: nog niet in Rond) */
+  ruimte?: boolean;
 }
 export interface Groep { titel: string; icoon: ReactNode; items: Item[] }
 
@@ -63,7 +65,8 @@ export const GROEPEN: Groep[] = [
     { titel: "Opdrachten", pad: "/opdrachten", icoon: ic(I.IcoonOpdracht) },
   ] },
   { titel: "Componenten", icoon: ic(I.IcoonComponent),
-    items: componenten().map((c) => ({ titel: c.naam, pad: `/componenten/${c.slug}`, klaar: true })) },
+    items: componenten().map((c, i, alle) => ({ titel: c.naam, pad: `/componenten/${c.slug}`, klaar: true,
+      ruimte: !c.rond && (i === 0 || alle[i - 1].rond) })) },
   { titel: "Assets", icoon: ic(I.IcoonAssets), items: [
     { titel: "Logo", pad: "/assets/logo" },
   ] },

@@ -53,6 +53,8 @@ b { font-weight: 600; }
 .nav-item[aria-expanded="true"] .nav-chevron { transform: rotate(90deg); }
 .nav-item.sub { min-height: var(--oneui-size-xl); padding-left: calc(var(--oneui-spacing-lg) + var(--oneui-size-xs) + var(--oneui-spacing-lg)); }
 .nav-item.leeg { color: var(--oneui-text-low); }
+/* hier begint wat nog niet af is: een witregel erboven */
+.nav-item.ruimte { margin-top: var(--oneui-spacing-3xl); }
 .studio.smal .zijbalk { width: 72px; }
 .studio.smal .nav-item { justify-content: center; padding: 0; }
 .studio.smal .nav-item[data-actief] { background: var(--oneui-surface-sky-subtle); color: var(--oneui-text-on-subtle-sky); }

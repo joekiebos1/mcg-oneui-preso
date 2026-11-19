@@ -66,7 +66,7 @@ function Paneel({ groep }: { groep: Groep }) {
     <div className="paneel-lijst">
       {groep.items.map((h) => {
         if (!h.chevron) return (
-          <NavLink key={h.pad} to={h.pad} className={"nav-item" + (h.klaar ? "" : " leeg")}>
+          <NavLink key={h.pad} to={h.pad} className={"nav-item" + (h.klaar ? "" : " leeg") + (h.ruimte ? " ruimte" : "")}>
             {h.icoon}<span className="nav-label">{h.titel}</span>
           </NavLink>
         );

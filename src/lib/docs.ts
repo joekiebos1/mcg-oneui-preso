@@ -5,10 +5,13 @@ const docs: Record<string, string> = Object.fromEntries(Object.entries(ruw).map(
 /** Een document op zijn pad in mcg-oneui, bijv. "rules/content/illustraties.md"; foundations staan plat in docs/. */
 export const doc = (pad: string): string | undefined => docs[pad];
 
-/** De componenten: slug en naam, in de volgorde van docs/components/README.md. */
-export function componenten(): { slug: string; naam: string }[] {
+/** De componenten: slug en naam, in de volgorde van docs/components/README.md. `rond` is false voor wat onder
+ *  "Nog niet in Rond" staat. */
+export function componenten(): { slug: string; naam: string; rond: boolean }[] {
   const index = docs["docs/components/README.md"] ?? "";
-  return [...index.matchAll(/\[([^\]]+)\]\(([\w-]+)\.md\)/g)].map((m) => ({ naam: m[1], slug: m[2] }))
+  const grens = index.indexOf("## Nog niet in Rond");
+  return [...index.matchAll(/\[([^\]]+)\]\(([\w-]+)\.md\)/g)]
+    .map((m) => ({ naam: m[1], slug: m[2], rond: grens < 0 || (m.index ?? 0) < grens }))
     .filter((c) => docs[`docs/components/${c.slug}.md`]);
 }
 
