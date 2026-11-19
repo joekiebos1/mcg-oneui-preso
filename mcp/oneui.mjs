@@ -31,7 +31,9 @@ const semantic = Object.entries(S).filter(([n]) => !n.startsWith("_")).map(([n, 
 const FONTS = [data.typography._family]; // Google Sans Flex Rond
 
 const text = (s) => ({ content: [{ type: "text", text: s }] });
-const words = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").split(/[^a-z0-9]+/).filter((w) => w.length > 2);
+// lidwoorden en andere woorden die in elke tekst staan, tellen niet mee bij het zoeken
+const STOP = new Set("van een het met die dat voor als bij wat wil moet zijn wordt worden kan naar door ook nog niet maar dan deze dit".split(" "));
+const words = (s) => s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "").split(/[^a-z0-9]+/).filter((w) => w.length > 2 && !STOP.has(w));
 
 // Synoniemen in gewone taal, zodat "keuze uit opties" ook Select vindt.
 const SYN = { select: "keuze kiezen opties dropdown lijst menu", radio: "keuze een optie uitsluitend", checkbox: "aanvinken meerdere akkoord vinkje", toggle: "schakelaar aan uit instelling", input: "invoer tekstveld veld formulier typen zoeken", chip: "filter tag label selectie", badge: "status label teller aantal markering", avatar: "persoon foto initialen profiel gebruiker", button: "knop actie opslaan versturen", "icon-button": "knop icoon actie", tabs: "tabbladen secties wisselen", "nav-item": "navigatie menu-item zijbalk", "page-heading": "paginatitel kop pagina", "section-heading": "sectiekop kop groep", editor: "rich text opmaak notitie verslag", "event-indicator": "afspraak agenda kalender type", "icon-tabs": "tabbladen iconen", icon: "pictogram symbool" };
@@ -48,7 +50,9 @@ server.registerTool("zoek_component", {
   const q = words(vraag);
   const scored = comps.map((c) => {
     const hay = words([c.name, Object.keys(c.props).join(" "), Object.values(c.props).flat().join(" "), SYN[slug(c.name)] || "", doc(c)].join(" "));
-    const score = q.reduce((s, w) => s + (hay.includes(w) ? 2 : hay.some((h) => h.startsWith(w.slice(0, 5))) ? 1 : 0), 0) + (q.includes(c.name.toLowerCase()) ? 5 : 0);
+    // de synoniemen zijn met de hand gekozen: die wegen zwaarder dan een woord dat toevallig in de docs staat
+    const syn = words(SYN[slug(c.name)] || "");
+    const score = q.reduce((s, w) => s + (syn.includes(w) ? 3 : hay.includes(w) ? 2 : hay.some((h) => h.startsWith(w.slice(0, 5))) ? 1 : 0), 0) + (q.includes(c.name.toLowerCase()) ? 5 : 0);
     return { c, score };
   }).filter((x) => x.score > 0).sort((a, b) => b.score - a.score).slice(0, 3);
   if (!scored.length) return text(`Geen passende component gevonden. Beschikbaar: ${comps.map((c) => c.name).join(", ")}.`);
