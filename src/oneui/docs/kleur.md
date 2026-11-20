@@ -41,10 +41,10 @@ De semantiek heeft twee soorten namen:
 ## Ondergrond: op subtle
 
 Subtle is stap 100, net als de pagina (slate/100). Een element op zo'n vlak dat zelf ook maar één stap verschilt, valt
-weg: de secundaire knop (sky/200), een veld (slate/200), een actief menu-item. Daarom heeft de semantiek vier modes:
+weg: de secundaire knop (sky/200), een actief menu-item. Daarom heeft de semantiek vier modes:
 licht, donker, **licht op subtle** en **donker op subtle** ([besluit 009](../besluiten/009-ondergrond-subtle.md)).
 
-Op subtle schuift alles één stap op: `action/secondary` wordt sky/300, `surface/sunken` slate/300, de subtle vlakken 200,
+Op subtle schuift alles één stap op: `action/secondary` wordt sky/300, `surface/sunken` slate/200 (op wit 100, [besluit 014](../besluiten/014-sunken-lichter.md)), de subtle vlakken 200,
 `text/low` slate/800, `action/neutral` slate/300. Wat al genoeg verschilt (de primaire knop, tekst) blijft gelijk.
 
 - **De pagina staat standaard op subtle** ([besluit 012](../besluiten/012-pagina-op-subtle.md)): alles in `body` schuift

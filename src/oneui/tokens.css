@@ -140,7 +140,7 @@
   --oneui-surface-page: var(--oneui-slate-100);
   --oneui-surface-default: var(--oneui-base-white);
   --oneui-surface-raised: var(--oneui-base-white);
-  --oneui-surface-sunken: var(--oneui-slate-200);
+  --oneui-surface-sunken: var(--oneui-slate-100);
   --oneui-surface-inverse: var(--oneui-slate-950);
   --oneui-surface-magenta-subtle: var(--oneui-magenta-100);
   --oneui-surface-magenta-bold: var(--oneui-magenta-600);
@@ -443,7 +443,7 @@
 
 :where(body) > *,
 [data-ondergrond="subtle"] > * {
-  --oneui-surface-sunken: var(--oneui-slate-300);
+  --oneui-surface-sunken: var(--oneui-slate-200);
   --oneui-surface-magenta-subtle: var(--oneui-magenta-200);
   --oneui-surface-sky-subtle: var(--oneui-sky-200);
   --oneui-surface-amber-subtle: var(--oneui-amber-200);
@@ -468,7 +468,7 @@
   --oneui-surface-action-neutral-hover: var(--oneui-slate-400);
 }
 [data-ondergrond="default"] > * {
-  --oneui-surface-sunken: var(--oneui-slate-200);
+  --oneui-surface-sunken: var(--oneui-slate-100);
   --oneui-surface-magenta-subtle: var(--oneui-magenta-100);
   --oneui-surface-sky-subtle: var(--oneui-sky-100);
   --oneui-surface-amber-subtle: var(--oneui-amber-100);

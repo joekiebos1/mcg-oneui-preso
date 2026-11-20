@@ -26,7 +26,7 @@ op subtle één stap lichter.
 | `surface/page` | slate/100 | slate/950 |
 | `surface/default` | wit | slate/900 |
 | `surface/raised` | wit | slate/800 |
-| `surface/sunken` | slate/200 | slate/950 |
+| `surface/sunken` | slate/100 ([014](014-sunken-lichter.md)) | slate/950 |
 | `surface/action/neutral` (hover, ingedrukt) | slate/200 (300, 400) | slate/800 (700, 700) |
 
 ## Werkwijze
