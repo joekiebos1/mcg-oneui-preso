@@ -91,7 +91,8 @@ illustratie naadloos aansluit op een slide met `surface/<kleur>/deep`.
 ## Knoppen (action)
 
 Knoppen hebben hun eigen rol: `surface/action/primary` is sky/700 met wit (hover 800, ingedrukt 900),
-`surface/action/secondary` is sky/200 met sky/950 (hover 300, ingedrukt 400), en `surface/action/neutral` is slate/200
+`surface/action/secondary` is sky/200 met sky/950 (hover 300, ingedrukt 400; in donker sky/900 met sky/100, hover 800,
+ingedrukt 700, zodat hij niet feller oplicht dan primary), en `surface/action/neutral` is slate/200
 met `text/high` (hover 300, ingedrukt 400): de neutrale knop, en een Checkbox, Radio of Toggle die uit staat. Een
 knop zonder vlak (ghost, Nav item) krijgt bij hover `surface/action/neutral` en ingedrukt `surface/action/neutral-hover`.
 Dat staat los van subtle, bold en deep:
