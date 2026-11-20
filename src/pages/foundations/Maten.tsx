@@ -2,6 +2,7 @@ import type { CSSProperties } from "react";
 import { Text } from "../../oneui/react/Text";
 import { maten } from "../../lib/tokens";
 import { Pagina, Regels, Sectie } from "../Pagina";
+import { Bij, Vak } from "../verhaal";
 
 type Groep = "spacing" | "radius" | "border" | "size";
 
@@ -51,15 +52,11 @@ export function Maten({ groep }: { groep: Groep }) {
   return (
     <Pagina intro={TEKST[groep].intro}>
       <Sectie titel="Schaal">
-        <div className="maten">
+        <div className="raster r4">
           {lijst.map(m => (
-            <div key={m.naam} className="maat">
-              <div className="maatnaam">
-                <code>{m.naam}</code>
-                <Text as="span" variant="body-m" color="low">{m.px >= 9999 ? "rond" : m.waarde}</Text>
-              </div>
-              <div className="maatbeeld"><Voorbeeld groep={groep} css={m.css} px={m.px} /></div>
-              <code className="maatcode">{groep}/{m.naam}</code>
+            <div key={m.naam}>
+              <Vak><Voorbeeld groep={groep} css={m.css} px={m.px} /></Vak>
+              <Bij titel={<code>{groep}/{m.naam}</code>}>{m.px >= 9999 ? "rond" : m.waarde}</Bij>
             </div>
           ))}
         </div>

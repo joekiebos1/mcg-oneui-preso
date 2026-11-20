@@ -1,5 +1,6 @@
 import { Text } from "../../oneui/react/Text";
 import { Pagina, Regels, Sectie } from "../Pagina";
+import { Bij, Vak } from "../verhaal";
 
 // Uit DS Foundations in Figma (effect styles elevation/1–4), 2026-11-18. Nog niet in tokens.json: de kleuren wel
 // (effect/shadow-key en effect/shadow-ambient), de vormen niet.
@@ -16,13 +17,11 @@ export function Elevation() {
   return (
     <Pagina intro="Schaduw laat zien dat een vlak boven de pagina ligt. Elk niveau bestaat uit twee schaduwen: een zachte, brede (ambient) en een kortere, donkerdere (key).">
       <Sectie titel="Niveaus" uitleg="Deze vier staan in Figma. In de code staan alleen de twee schaduwkleuren; de niveaus zelf moeten er nog in.">
-        <div className="niveaus">
+        <div className="raster r4">
           {NIVEAUS.map(x => (
-            <div key={x.n} className="niveau">
-              <div className="niveauvlak" style={{ boxShadow: schaduw(x.ambient, x.key) }}>
-                <code>elevation/{x.n}</code>
-              </div>
-              <Text variant="body-m" color="low">ambient y{x.ambient[1]} blur {x.ambient[2]} · key y{x.key[1]} blur {x.key[2]}</Text>
+            <div key={x.n}>
+              <Vak><div className="niveaukaart" data-ondergrond="default" style={{ boxShadow: schaduw(x.ambient, x.key) }} /></Vak>
+              <Bij titel={<code>elevation/{x.n}</code>}>ambient y{x.ambient[1]} blur {x.ambient[2]} · key y{x.key[1]} blur {x.key[2]}</Bij>
             </div>
           ))}
         </div>

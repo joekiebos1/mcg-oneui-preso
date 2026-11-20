@@ -3,7 +3,8 @@
 import { useState } from "react";
 import { Button, type ButtonSize, type ButtonType } from "../../oneui/react/Button";
 import { Text } from "../../oneui/react/Text";
-import { los } from "../../lib/tokens";
+import { los, token } from "../../lib/tokens";
+import { useOmgeving } from "../../lib/omgeving";
 import { linkVoor } from "../../lib/docs";
 import { Blokken, inline } from "../../lib/markdown";
 import { Sectie } from "../Pagina";
@@ -94,12 +95,14 @@ function kleurtabel(): [string, (string | null)[]][] {
   return rijen;
 }
 function Tok({ n }: { n: string | null }) {
+  const { thema } = useOmgeving();
   if (!n) return <Text as="span" variant="body-m" color="low">—</Text>;
-  const { waarde, keten } = los(`{${n}}`);
-  // kort: het staaltje en de stap op de ladder; de tokennaam staat in de specificatie (Voor developers)
+  // het staaltje volgt het thema; de stap erbij ook
+  const t = token(n);
+  const { keten } = los(thema === "dark" ? (t?.donker ?? t?.waarde) : t?.waarde);
   return (
     <span className="regelstaal" title={n}>
-      <i style={{ background: waarde }} />
+      <i style={{ background: `var(--oneui-${n.replace(/\//g, "-")})` }} />
       <code>{keten[keten.length - 1]}</code>
     </span>
   );
@@ -134,7 +137,7 @@ export function ButtonPagina() {
 
       <Sectie titel="Kleuren">
         <div className="tabel-scroll">
-          <table className="tabel vlak">
+          <table className="tabel vlak smal">
             <thead><tr><th>Type</th><th>Vlak</th><th>Hover</th><th>Ingedrukt</th><th>Label en icoon</th></tr></thead>
             <tbody>
               {kleuren.map(([t, k]) => (

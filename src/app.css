@@ -400,3 +400,16 @@ b, strong { font-weight: inherit; }
 .stapel.midden { align-items: center; }
 .kaartvak.staand { aspect-ratio: 4 / 5; }
 .staat .staatvak { flex: 1; }
+.iconenrij.groot { gap: var(--oneui-spacing-4xl); }
+.iconmaat { display: flex; flex-direction: column; align-items: center; gap: var(--oneui-spacing-md); }
+.niveaukaart { width: 56%; aspect-ratio: 1; border-radius: var(--oneui-radius-3xl); background: var(--oneui-surface-default); }
+.typeheld { display: flex; flex-direction: column; gap: var(--oneui-spacing-xl); justify-content: center; align-items: center; }
+.typeheld-aa { font-size: 160px; line-height: 1; }
+.kaartvak.breedvak { aspect-ratio: auto; min-height: 160px; place-items: center start; padding: var(--oneui-spacing-3xl) var(--oneui-spacing-4xl); box-sizing: border-box; }
+.vlakgrijs { padding: var(--oneui-spacing-3xl); border-radius: var(--oneui-radius-3xl); background: var(--oneui-surface-page); }
+.kaartvak .maatvoorbeeld.border { width: 64%; }
+.inhoud i, .inhoud em { font-style: inherit; }
+.iconenrij.krap { gap: var(--oneui-spacing-sm); }
+@media (max-width: 520px) { .iconenrij.groot { gap: var(--oneui-spacing-lg); } .iconenrij.groot .oneui-icon { --_maat: var(--oneui-size-lg); } }
+.tabel.vlak.smal th, .tabel.vlak.smal td { padding-left: var(--oneui-spacing-lg); padding-right: var(--oneui-spacing-lg); }
+.tabel.vlak.smal th:first-child, .tabel.vlak.smal td:first-child { padding-left: var(--oneui-spacing-2xl); }

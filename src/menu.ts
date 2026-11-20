@@ -20,15 +20,8 @@ export const GROEPEN: Groep[] = [
   { titel: "Fundament", icoon: ic(I.IcoonFundament), items: [
     // één verhalende pagina; alle tokens en de regels staan op /kleuren/tokens (eigenaar 2026-11-20)
     { titel: "Kleuren", pad: "/kleuren", icoon: ic(I.IcoonKleur), klaar: true },
-    { titel: "Iconen", pad: "/iconen", icoon: ic(I.IcoonIcoon), klaar: true, kinderen: [
-      { titel: "Iconen", pad: "/iconen/iconen", klaar: true },
-      { titel: "Hoe te gebruiken", pad: "/iconen/gebruik", klaar: true },
-      { titel: "Nieuwe maken", pad: "/iconen/nieuw" },
-    ] },
-    { titel: "Typografie", pad: "/typografie", icoon: ic(I.IcoonType), klaar: true, kinderen: [
-      { titel: "Lettertype", pad: "/typografie/lettertype", klaar: true },
-      { titel: "Hoe te gebruiken", pad: "/typografie/gebruik", klaar: true },
-    ] },
+    { titel: "Iconen", pad: "/iconen", icoon: ic(I.IcoonIcoon), klaar: true },
+    { titel: "Typografie", pad: "/typografie", icoon: ic(I.IcoonType), klaar: true },
     { titel: "Vormen", pad: "/vormen", icoon: ic(I.IcoonVorm), klaar: true, kinderen: [
       { titel: "Hoeken", pad: "/vormen/hoeken", klaar: true },
       { titel: "Randen", pad: "/vormen/randen", klaar: true },

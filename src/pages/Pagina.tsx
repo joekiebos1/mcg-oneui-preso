@@ -26,7 +26,8 @@ export function Pagina({ titel, intro, boven, klasse, children }: { titel?: stri
     </section>
   );
   return (
-    <article className={["pagina", boven && "boven", klasse].filter(Boolean).join(" ")}>
+    // elke pagina is een verhaal (eigenaar 2026-11-20): één kolom van 720 met ruim wit; de naslag kiest "naslag"
+    <article className={["pagina", boven && "boven", klasse ?? "verhaal"].filter(Boolean).join(" ")}>
       <header className="paginakop">
         {plek && plek.ouders.length > 0 && (
           <nav className="kruimel" aria-label="Kruimelpad">

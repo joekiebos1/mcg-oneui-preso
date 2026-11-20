@@ -4,7 +4,8 @@ import { GROEPEN, MENU, anker, groepVan, type Groep, type Item } from "./menu";
 import { Deel } from "./pages/Pagina";
 import { Pagina, Sectie } from "./pages/Pagina";
 import { Text } from "./oneui/react/Text";
-import type { ReactElement } from "react";
+import type { ReactElement, ReactNode } from "react";
+import illustratieHeld from "./assets/kleuren-held.webp";
 import { IcoonChevron, IcoonMenu, IcoonSluit, IcoonZijbalk } from "./components/Iconen";
 import { IconButton } from "./oneui/react/IconButton";
 import { Icon } from "./oneui/react/Icon";
@@ -15,7 +16,8 @@ import { Placeholder } from "./pages/Placeholder";
 import { Colours } from "./pages/foundations/Colours";
 import { Kleuren } from "./pages/foundations/Kleuren";
 import { Ondergrond } from "./pages/foundations/Ondergrond";
-import { Type } from "./pages/foundations/Type";
+import { Typografie } from "./pages/foundations/Typografie";
+import { Iconen } from "./pages/foundations/Iconen";
 import { Maten } from "./pages/foundations/Maten";
 import { Elevation } from "./pages/foundations/Elevation";
 import { Doc } from "./pages/Doc";
@@ -190,7 +192,7 @@ function KleurTokens() {
     return () => cancelAnimationFrame(t);
   }, [hash]);
   return (
-    <Pagina titel="Alle kleurtokens">
+    <Pagina titel="Alle kleurtokens" klasse="naslag">
       <Deel.Provider value={{ titel: "", id: "tokens" }}><Colours /></Deel.Provider>
       <Deel.Provider value={{ titel: "Hoe te gebruiken", id: "gebruik" }}><DocOp pad="docs/kleur.md" bron="docs/foundations/kleur.md" /></Deel.Provider>
     </Pagina>
@@ -198,19 +200,17 @@ function KleurTokens() {
 }
 
 /** Een document uit mcg-oneui; bestaat het (nog) niet, dan de gewone lege pagina. */
-function DocOp({ pad, titel, map = "", bron }: { pad: string; titel?: string; map?: string; bron?: string }) {
+function DocOp({ pad, titel, map = "", bron, boven }: { pad: string; titel?: string; map?: string; bron?: string; boven?: ReactNode }) {
   const md = doc(pad);
-  return md ? <Doc md={md} titel={titel} link={linkVoor(map)} bron={bron} /> : <Placeholder />;
+  return md ? <Doc md={md} titel={titel} link={linkVoor(map)} bron={bron} boven={boven} /> : <Placeholder />;
 }
 
 // Wat er op elke pagina staat, op het pad uit het menu. Binnen een hoofdstuk wordt het een deel van de pagina.
 const INHOUD: Record<string, ReactElement> = {
   "/kleuren": <Kleuren />,
   "/kleuren/tokens": <KleurTokens />,
-  "/iconen/iconen": <DocOp pad="docs/components/icon.md" map="components" bron="docs/components/icon.md" />,
-  "/iconen/gebruik": <DocOp pad="docs/besluiten/003-icoon-een-laag.md" map="besluiten" bron="docs/besluiten/003-icoon-een-laag.md" />,
-  "/typografie/lettertype": <Type />,
-  "/typografie/gebruik": <DocOp pad="docs/typografie.md" bron="docs/foundations/typografie.md" />,
+  "/iconen": <Iconen />,
+  "/typografie": <Typografie />,
   "/vormen/hoeken": <Maten groep="radius" />,
   "/vormen/randen": <Maten groep="border" />,
   "/vormen/maten": <Maten groep="size" />,
@@ -219,7 +219,8 @@ const INHOUD: Record<string, ReactElement> = {
   "/surfaces/ondergrond": <Ondergrond />,
   "/motion": <DocOp pad="docs/motion.md" bron="docs/foundations/motion.md" />,
   "/taal/schrijfstijl": <DocOp pad="rules/content/schrijfstijl.md" bron="rules/content/schrijfstijl.md" />,
-  "/illustraties/over": <DocOp pad="rules/content/illustraties.md" bron="rules/content/illustraties.md" />,
+  "/illustraties/over": <DocOp pad="rules/content/illustraties.md" bron="rules/content/illustraties.md"
+    boven={<div className="held"><img src={illustratieHeld} alt="" /></div>} />,
   "/illustraties/gebruik": <DocOp pad="rules/content/beeldtaal.md" bron="rules/content/beeldtaal.md" />,
 };
 
@@ -247,9 +248,9 @@ function Hoofdstuk({ h }: { h: Item }) {
 }
 
 const OUD: Record<string, string> = {
-  "/foundations": "/kleuren", "/foundations/colours": "/kleuren", "/kleuren/kleuren": "/kleuren/tokens", "/kleuren/gebruik": "/kleuren/tokens#gebruik", "/foundations/type": "/typografie/lettertype",
+  "/foundations": "/kleuren", "/foundations/colours": "/kleuren", "/kleuren/kleuren": "/kleuren/tokens", "/kleuren/gebruik": "/kleuren/tokens#gebruik", "/foundations/type": "/typografie", "/typografie/lettertype": "/typografie", "/typografie/gebruik": "/typografie", "/iconen/iconen": "/iconen", "/iconen/gebruik": "/iconen", "/iconen/nieuw": "/iconen",
   "/foundations/spacing": "/layout/space", "/foundations/radius": "/vormen/hoeken", "/foundations/border": "/vormen/randen",
-  "/foundations/iconography": "/iconen/iconen", "/components": "/componenten/button", "/componenten": "/componenten/button", "/assets": "/assets/logo", "/rules/content/illustraties": "/illustraties/over",
+  "/foundations/iconography": "/iconen", "/components": "/componenten/button", "/componenten": "/componenten/button", "/assets": "/assets/logo", "/rules/content/illustraties": "/illustraties/over",
   "/rules/content/beeldtaal": "/illustraties/gebruik", "/foundations/elevation": "/surfaces/elevation", "/foundations/size": "/vormen/maten", "/logo": "/assets/logo", "/patronen": "/opdrachten", "/patronen/opdrachten": "/opdrachten", "/logo/logo": "/assets/logo", "/logo/gebruik": "/assets/logo",
   "/foundations/motion": "/motion", "/rules/content/copy": "/taal/schrijfstijl",
 };

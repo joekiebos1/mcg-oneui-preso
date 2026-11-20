@@ -20,6 +20,12 @@ export function blokken(pad: string, kop: string): Blok[] {
   return [];
 }
 
+/** Wat er in een document voor de eerste ##-kop staat: de inleiding. */
+export function begin(pad: string): Blok[] {
+  const d = delen(doc(pad) ?? "")[0];
+  return d && !d.kop ? d.blokken : [];
+}
+
 /** Een sectie zonder de ###-delen die al ergens anders op de pagina staan. */
 export function zonder(b: Blok[], koppen: string[]): Blok[] {
   const uit: Blok[] = [];

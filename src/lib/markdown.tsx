@@ -49,10 +49,11 @@ export function delen(md: string): Deel[] {
 /** Een link naar een ander document wordt een link in de presentatielaag, als die er is. */
 export type Linker = (href: string) => string | null;
 
-/** Vet (**…**), cursief (_…_), code (`…`) en links ([…](…)) binnen een regel. */
+/** Vet (**…**), cursief (_…_ of *…*), code (`…`) en links ([…](…)) binnen een regel. */
 export function inline(t: string, link?: Linker): ReactNode[] {
-  return t.split(/(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\)|(?<![\w])_[^_]+_(?![\w]))/g).filter(Boolean).map((s, i) => {
+  return t.split(/(\*\*[^*]+\*\*|`[^`]+`|\[[^\]]+\]\([^)]+\)|(?<![\w])_[^_]+_(?![\w])|(?<![\w*])\*[^*\s][^*]*\*(?![\w*]))/g).filter(Boolean).map((s, i) => {
     if (s.startsWith("**")) return <b key={i}>{inline(s.slice(2, -2), link)}</b>;
+    if (s.startsWith("*") && s.endsWith("*") && s.length > 2) return <i key={i}>{s.slice(1, -1)}</i>;
     if (s.startsWith("`")) return <code key={i}>{s.slice(1, -1)}</code>;
     if (s.startsWith("_") && s.endsWith("_") && s.length > 2) return <i key={i}>{s.slice(1, -1)}</i>;
     const m = s.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
