@@ -124,7 +124,7 @@ export function App() {
       <div className={"werk" + (paneelOpen ? " paneel-open" : "")}>
       {groep && (
         <button type="button" className="paneel-knop" aria-expanded={paneelOpen} aria-controls="paneel" onClick={() => setPaneelOpen((o) => !o)}>
-          <Text as="span" variant="label-l">{groep.titel}</Text><IcoonChevron />
+          <Text as="span" variant="label-m">{groep.titel}</Text><IcoonChevron />
         </button>
       )}
       {groep && (
