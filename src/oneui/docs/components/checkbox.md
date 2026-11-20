@@ -23,7 +23,10 @@ Een Checkbox zet één optie aan of uit. Gebruik indeterminate als een groep maa
 
 ## Do's en don'ts
 
-_Nog in te vullen._
+- **Doen:** het label zegt wat er gebeurt als het vakje aan staat ("Stuur me een herinnering").
+- **Niet doen:** een ontkenning als label ("Geen herinneringen sturen"): aan betekent dan uit, en dat leest dubbel.
+- **Doen:** één keuze uit een groep is een Radio.
+- **Niet doen:** checkboxen voor iets waarvan er maar één mag; dan lijkt het of beide mogen.
 
 ## Specificatie
 
