@@ -305,6 +305,9 @@ b, strong { font-weight: inherit; }
 .raster.r4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--oneui-spacing-3xl) var(--oneui-spacing-xl); }
 .tegel { aspect-ratio: 1; border-radius: var(--oneui-radius-3xl); background: var(--oneui-surface-page); display: grid; place-items: center; overflow: hidden; }
 .tegel.donker { background: var(--oneui-surface-page); }
+.tegel.merktegel { position: relative; }
+.merkstip { width: 40%; margin-bottom: var(--oneui-spacing-2xl); aspect-ratio: 1; border-radius: var(--oneui-radius-full); }
+.merknaam { position: absolute; left: var(--oneui-spacing-xl); bottom: var(--oneui-spacing-lg); margin: 0; }
 .bij { display: flex; flex-direction: column; margin-top: var(--oneui-spacing-xl); }
 .bolvlak { width: 40%; aspect-ratio: 1; border-radius: var(--oneui-radius-full); }
 .rolvlak { width: 64%; height: var(--oneui-size-5xl); border-radius: var(--oneui-radius-2xl); }
@@ -336,3 +339,33 @@ b, strong { font-weight: inherit; }
 @media (max-width: 520px) {
   .raster.r2 { grid-template-columns: minmax(0, 1fr); }
 }
+
+/* Checkbox als verhaal */
+.kaartje { width: min(340px, 80%); display: flex; flex-direction: column; gap: var(--oneui-spacing-xl); padding: var(--oneui-spacing-2xl);
+  border-radius: var(--oneui-radius-3xl); background: var(--oneui-surface-default);
+  box-shadow: 0 1px 2px var(--oneui-effect-shadow-key), 0 8px 24px var(--oneui-effect-shadow-ambient); }
+.raster.dicht { gap: var(--oneui-spacing-xl) var(--oneui-spacing-3xl); }
+.raster.dicht .bij { margin-top: 0; }
+.stapel { display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); }
+.focusproef .oneui-keuze__vak { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs); }
+.anatomie { position: relative; display: flex; align-items: center; gap: var(--oneui-spacing-3xl); padding: var(--oneui-spacing-5xl); }
+.groot-vak { display: grid; place-items: center; width: 96px; height: 96px; border-radius: var(--oneui-radius-4xl);
+  background: var(--oneui-surface-action-primary); color: var(--oneui-text-on-action-primary); }
+.groot-label { font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight); font-size: 56px; line-height: 1; color: var(--oneui-text-high); }
+.klikvlak { position: absolute; inset: var(--oneui-spacing-3xl); border-radius: var(--oneui-radius-4xl); outline: var(--oneui-border-thick) dashed var(--oneui-surface-magenta-bold); }
+.nummer { position: absolute; display: grid; place-items: center; width: var(--oneui-size-md); height: var(--oneui-size-md); border-radius: var(--oneui-radius-full);
+  background: var(--oneui-surface-magenta-bold); color: var(--oneui-text-on-bold-magenta); font-family: var(--oneui-type-body-m-family); font-size: var(--oneui-type-body-m-size); }
+.nummer.n1 { left: calc(var(--oneui-spacing-3xl) - var(--oneui-spacing-md)); top: calc(var(--oneui-spacing-3xl) - var(--oneui-spacing-md)); }
+.nummer.n2 { left: calc(var(--oneui-spacing-5xl) + 80px); top: calc(var(--oneui-spacing-5xl) + 80px); }
+.nummer.n3 { left: calc(var(--oneui-spacing-5xl) + 96px + var(--oneui-spacing-3xl) + 120px); top: calc(var(--oneui-spacing-3xl) - var(--oneui-spacing-md)); }
+.nummer.n4 { right: calc(var(--oneui-spacing-3xl) - var(--oneui-spacing-md)); bottom: calc(var(--oneui-spacing-3xl) - var(--oneui-spacing-md)); }
+.uitklap { border-radius: var(--oneui-radius-3xl); background: var(--oneui-surface-page); }
+.uitklap summary { cursor: pointer; list-style: none; padding: var(--oneui-spacing-2xl); display: flex; justify-content: space-between; }
+.uitklap summary::-webkit-details-marker { display: none; }
+.uitklap summary::after { content: "⌄"; color: var(--oneui-icon-medium); }
+.uitklap[open] summary::after { content: "⌃"; }
+.uitklap-inhoud { padding: 0 var(--oneui-spacing-2xl) var(--oneui-spacing-2xl); display: flex; flex-direction: column; gap: var(--oneui-spacing-xl); }
+@media (max-width: 520px) {
+  .anatomie { transform: scale(0.6); }
+}
+.bij code { overflow-wrap: anywhere; }

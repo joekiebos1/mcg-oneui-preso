@@ -22,6 +22,7 @@ import { Doc } from "./pages/Doc";
 import { doc, linkVoor } from "./lib/docs";
 import { useParams } from "react-router-dom";
 import { ButtonPagina } from "./pages/components/ButtonPagina";
+import { CheckboxPagina } from "./pages/components/CheckboxPagina";
 
 type Thema = "light" | "dark";
 
@@ -164,6 +165,7 @@ export function App() {
           {Object.entries(INHOUD).filter(([pad]) => !MENU.some((h) => h.kinderen && !h.chevron && h.kinderen.some((k) => k.pad === pad)))
             .map(([pad, el]) => <Route key={pad} path={pad} element={el} />)}
           <Route path="/componenten/button" element={<ButtonPagina />} />
+          <Route path="/componenten/checkbox" element={<CheckboxPagina />} />
           <Route path="/componenten/:slug" element={<Component />} />
           {/* niet in het menu, wel te bereiken: tot de eigenaar ze een plek geeft */}
           <Route path="/decisions/:slug" element={<Besluit />} />

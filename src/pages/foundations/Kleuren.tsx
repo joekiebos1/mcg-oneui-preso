@@ -10,12 +10,12 @@ import { ladders, los, token } from "../../lib/tokens";
 import { Pagina, Sectie } from "../Pagina";
 import held from "../../assets/kleuren-held.webp";
 
-// De vier merkkleuren, met de stap die het merk draagt; de uitleg komt uit de kleurregels van mcg-oneui.
-const MERK: { naam: string; stap: string; uitleg: string }[] = [
-  { naam: "Magenta", stap: "magenta/600", uitleg: "Merkmomenten." },
-  { naam: "Sky", stap: "sky/700", uitleg: "De interface: knoppen, focus en wat actief is." },
-  { naam: "Amber", stap: "amber/400", uitleg: "Warmte, uitlichten." },
-  { naam: "Violet", stap: "violet/600", uitleg: "Tweede accent: dromen, verdieping." },
+// De vier merkkleuren als deep, bold en een lichte stap; de uitleg komt uit de kleurregels van mcg-oneui.
+const MERK: { naam: string; familie: string; uitleg: string }[] = [
+  { naam: "Magenta", familie: "magenta", uitleg: "Merkmomenten." },
+  { naam: "Sky", familie: "sky", uitleg: "De interface: knoppen, focus en wat actief is." },
+  { naam: "Amber", familie: "amber", uitleg: "Warmte, uitlichten." },
+  { naam: "Violet", familie: "violet", uitleg: "Tweede accent: dromen, verdieping." },
 ];
 
 // Welke kleur pak ik: een keuze uit de rollen; de waarden komen uit tokens.json.
@@ -77,7 +77,14 @@ export function Kleuren() {
       <Sectie titel="Merkkleuren">
         <div className="raster r4">
           {MERK.map((m) => (
-            <div key={m.naam}><div className="tegel" style={{ background: hex(m.stap) }} /><Bij titel={m.naam}>{m.uitleg}</Bij></div>
+            <div key={m.naam}>
+              {/* deep als grond, bold als stip, de naam in een lichte stap: vaste kleuren, in licht en donker gelijk */}
+              <div className="tegel merktegel" style={{ background: hex(`${m.familie}/950`) }}>
+                <span className="merkstip" style={{ background: css(`surface/${m.familie}/bold`) }} />
+                <Text as="span" variant="heading-m" className="merknaam" style={{ color: hex(`${m.familie}/200`) }}>{m.naam}</Text>
+              </div>
+              <div className="bij"><Text variant="body-m" color="medium">{m.uitleg}</Text></div>
+            </div>
           ))}
         </div>
       </Sectie>
