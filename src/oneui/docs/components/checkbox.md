@@ -62,7 +62,7 @@ import { Checkbox } from "@mcg/oneui-react";
 | prop | waarden | standaard |
 |---|---|---|
 | `label` | tekst | — |
-| `size` | `md` (20) · `sm` (16) | `md` |
+| `size` | `md` (24) · `sm` (20) | `md` |
 | `indeterminate` | half aangevinkt | `false` |
 | `onChange` | `(checked) => void` | — |
 

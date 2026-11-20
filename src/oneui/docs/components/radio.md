@@ -67,7 +67,7 @@ import { Radio } from "@mcg/oneui-react";
 | `name` | verplicht; radio's met dezelfde naam horen bij elkaar | — |
 | `value` | verplicht | — |
 | `label` | tekst | — |
-| `size` | `md` (20) · `sm` (16) | `md` |
+| `size` | `md` (24) · `sm` (20) | `md` |
 | `onChange` | `(value) => void` | — |
 
 ## Toegankelijkheid
