@@ -154,7 +154,7 @@ export function ButtonPagina() {
         </div>
         <Regels items={[
           <><b>Ingedrukt:</b> de knop veert in tot 96 %.</>,
-          <><b>Uitgeschakeld:</b> vlak surface/disabled, label text/disabled. Ghost zonder vlak. Geen doorschijnendheid.</>,
+          <><b>Uitgeschakeld:</b> de knop zoals hij is, op 40 %, zonder hover of indrukken (besluit 013).</>,
           <><b>Focus:</b> een ring buiten de knop, border/thick breed en spacing/2xs los van de knop, alleen bij toetsenbordfocus. In interaction/focusRing (sky), voor elk type. De knop verschuift niet.</>,
           <><b>Laden:</b> het label blijft onzichtbaar staan, zodat de knop zijn breedte houdt, met een spinner in het midden. De knop is dan niet klikbaar en meldt aan schermlezers dat hij bezig is.</>,
         ]} />
