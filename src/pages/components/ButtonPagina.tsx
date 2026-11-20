@@ -110,11 +110,13 @@ function Tok({ n }: { n: string | null }) {
 
 // Het beeld bij elke regel van doen en niet doen, in de volgorde van de docs.
 const BEELDEN = [
-  <Kaartje rij><Button size="md">Opslaan</Button><Button size="md" variant="secondary">Verder</Button></Kaartje>,
+  <Kaartje rij><Button size="md">Opslaan</Button></Kaartje>,
   <Kaartje rij><Button size="md" variant="ghost">Annuleren</Button><Button size="md">Opslaan</Button></Kaartje>,
+  <Kaartje rij><Button size="md" variant="secondary">Terug</Button><Button size="md">Verder</Button></Kaartje>,
   <Kaartje rij><Button size="md">Annuleren</Button><Button size="md">Opslaan</Button></Kaartje>,
   <Kaartje rij><span className="randknop"><Text as="span" variant="label-m">Opslaan</Text></span></Kaartje>,
   <Kaartje rij><Button size="md" className="eigenknop">Opslaan</Button></Kaartje>,
+  <Kaartje rij><Button size="md">Verder</Button><Button size="md" variant="secondary">Terug</Button></Kaartje>,
 ];
 
 export function ButtonPagina() {

@@ -63,7 +63,7 @@ export const HELDEN: Record<string, ReactNode> = {
   button: (
     <Kaartje>
       <Text variant="body-m">Je slaapdagboek voor vandaag staat klaar.</Text>
-      <div className="proefrij links"><Button size="md">Invullen</Button><Button size="md" variant="ghost">Later</Button></div>
+      <div className="proefrij rechts"><Button size="md" variant="ghost">Later</Button><Button size="md">Invullen</Button></div>
     </Kaartje>
   ),
   "icon-button": (

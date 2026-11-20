@@ -41,7 +41,7 @@ const css = (naam: string) => `var(--oneui-${naam.replace(/\//g, "-").toLowerCas
 function Proef() {
   return (
     <div className="proef">
-      <div className="proefrij"><Button variant="primary" size="sm">Opslaan</Button><Button variant="secondary" size="sm">Later</Button></div>
+      <div className="proefrij"><Button variant="secondary" size="sm">Later</Button><Button variant="primary" size="sm">Opslaan</Button></div>
       <div className="proefrij"><Checkbox label="Aan" defaultChecked /><Toggle label="Aan" defaultChecked /></div>
     </div>
   );
