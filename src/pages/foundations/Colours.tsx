@@ -40,8 +40,8 @@ function Ladder({ naam, rol }: { naam: string; rol?: string }) {
   return (
     <div className="ladder">
       <div className="laddernaam">
-        <Text as="span" variant="title-s">{naam}</Text>
-        {rol && <Text as="span" variant="body-s" color="low">{rol}</Text>}
+        <Text as="span" variant="heading-m">{naam}</Text>
+        {rol && <Text as="span" variant="body-m" color="low">{rol}</Text>}
       </div>
       <div className="stalen">{l.map(s => <Staal key={s.stap} {...s} />)}</div>
     </div>
@@ -54,9 +54,9 @@ export function Swatch({ waarde }: { waarde: unknown }) {
     <span className="regelstaal">
       <i style={{ background: hex }} />
       <span>
-        <Text as="span" variant="body-s">{keten[0] ?? hex}</Text>
-        {keten.length > 1 && <Text as="span" variant="body-xs" color="low"> → {keten.slice(1).join(" → ")}</Text>}
-        {keten.length > 0 && <Text as="span" variant="body-xs" color="low"> · {hex.toUpperCase()}</Text>}
+        <code>{keten[0] ?? hex}</code>
+        {keten.length > 1 && <code className="laag"> → {keten.slice(1).join(" → ")}</code>}
+        {keten.length > 0 && <code className="laag"> · {hex.toUpperCase()}</code>}
       </span>
     </span>
   );
@@ -97,7 +97,7 @@ function Semantisch() {
                 <td><code>{t.naam}</code></td>
                 <td><Swatch waarde={t.waarde} /></td>
                 <td><Swatch waarde={t.donker ?? t.waarde} /></td>
-                <td>{t.opSubtle ? <><Swatch waarde={t.opSubtle.light} /><br /><Swatch waarde={t.opSubtle.dark} /></> : <Text as="span" variant="body-s" color="low">gelijk</Text>}</td>
+                <td>{t.opSubtle ? <><Swatch waarde={t.opSubtle.light} /><br /><Swatch waarde={t.opSubtle.dark} /></> : <Text as="span" variant="body-m" color="low">gelijk</Text>}</td>
               </tr>
             ))}
           </tbody>
@@ -117,15 +117,15 @@ function Drie() {
         const opSubtle = hex(`text/on-subtle/${rol}`), opBold = hex(`text/on-bold/${rol}`) ?? hex("text/on-bold"), opDeep = hex("text/on-deep");
         const vlak = (naam: string, bg: string, fg: string) => (
           <div className="drievlak" style={{ background: bg, color: fg }}>
-            <Text as="span" variant="label-m" style={{ color: fg }}>{naam}</Text>
-            <Text as="span" variant="body-xs" style={{ color: fg }}>{bg.toUpperCase()}</Text>
+            <Text as="span" variant="body-m" style={{ color: fg }}>{naam}</Text>
+            <code style={{ color: fg }}>{bg.toUpperCase()}</code>
           </div>
         );
         return (
           <div key={rol} className="drierol">
-            <Text as="span" variant="title-s">{rol}</Text>
+            <Text as="span" variant="heading-m">{rol}</Text>
             <div className="drierij">{vlak("Subtle", subtle, opSubtle)}{vlak("Bold", bold, opBold)}{vlak("Deep", deep, opDeep)}</div>
-            <Text variant="body-xs" color="medium">Bold op subtle {fmt(contrast(bold, subtle))}:1 · bold op deep {fmt(contrast(bold, deep))}:1 · tekst op deep {fmt(contrast(opDeep, deep))}:1</Text>
+            <Text variant="body-m" color="medium">Bold op subtle {fmt(contrast(bold, subtle))}:1 · bold op deep {fmt(contrast(bold, deep))}:1 · tekst op deep {fmt(contrast(opDeep, deep))}:1</Text>
           </div>
         );
       })}
@@ -139,12 +139,12 @@ export function Colours() {
     <Pagina intro="Vier merkkleuren, elk een ladder van 50 tot 950, plus slate als neutraal en drie signaalkleuren. Elke stap heeft in elke ladder dezelfde lichtheid: sky/600 gedraagt zich qua contrast hetzelfde als magenta/600.">
       <Sectie titel="Twee lagen" uitleg="Een component kiest nooit zelf een kleur uit een ladder. Het gebruikt een semantisch token, dat naar een ladder wijst. Zo kan een kleur op één plek veranderen.">
         <div className="lagen">
-          <div className="vak"><Text variant="label-m" color="low">1 · Primitives</Text><Text variant="title-s">De ladders</Text><Text variant="body-s" color="medium">Ruwe kleuren: <code>magenta/600</code>. Alleen voor illustraties, slides en het maken van tokens.</Text></div>
-          <div className="vak"><Text variant="label-m" color="low">2 · Semantic</Text><Text variant="title-s">Wat het doet, of welke kleur</Text><Text variant="body-s" color="medium">Een functie (<code>surface/action/primary</code>, <code>text/high</code>, <code>surface/negative/subtle</code>) of een kleur (<code>surface/sky/bold</code>), in licht en donker. Dit gebruiken componenten.</Text></div>
+          <div className="vak"><Text variant="body-m" color="low">1 · Primitives</Text><Text variant="heading-m">De ladders</Text><Text variant="body-m" color="medium">Ruwe kleuren: <code>magenta/600</code>. Alleen voor illustraties, slides en het maken van tokens.</Text></div>
+          <div className="vak"><Text variant="body-m" color="low">2 · Semantic</Text><Text variant="heading-m">Wat het doet, of welke kleur</Text><Text variant="body-m" color="medium">Een functie (<code>surface/action/primary</code>, <code>text/high</code>, <code>surface/negative/subtle</code>) of een kleur (<code>surface/sky/bold</code>), in licht en donker. Dit gebruiken componenten.</Text></div>
         </div>
         {voorbeeld && (
           <div className="keten">
-            <Text variant="body-s" color="medium">Voorbeeld: de primaire knop</Text>
+            <Text variant="body-m" color="medium">Voorbeeld: de primaire knop</Text>
             <Swatch waarde={`{surface/action/primary}`} />
           </div>
         )}
@@ -158,8 +158,8 @@ export function Colours() {
               <div key={r.rol} className="rol">
                 <div className="rolstrook">{l.map(s => <i key={s.stap} style={{ background: s.hex }} />)}</div>
                 <div>
-                  <Text as="span" variant="title-s">{r.rol}</Text>{r.ladder !== r.rol && <> <Text as="span" variant="body-s" color="low">{r.ladder}</Text></>}
-                  <Text variant="body-s" color="medium">{r.gebruik}</Text>
+                  <Text as="span" variant="heading-m">{r.rol}</Text>{r.ladder !== r.rol && <> <Text as="span" variant="body-m" color="low">{r.ladder}</Text></>}
+                  <Text variant="body-m" color="medium">{r.gebruik}</Text>
                 </div>
               </div>
             );
@@ -170,8 +170,8 @@ export function Colours() {
       <Sectie titel="Ladders" uitleg={<>Per stap het contrast met wit en met inkt (<code>slate/950</code>). Tekst heeft minstens 4,5 nodig, iconen en randen 3. Stap 600 is de eerste waarop witte tekst kan.</>}>
         {GROEPEN.map(([titel, ls, uitleg]) => (
           <div key={titel} className="laddergroep">
-            <Text as="h3" variant="title-m">{titel}</Text>
-            <Text variant="body-s" color="medium">{uitleg}</Text>
+            <Text as="h3" variant="heading-m">{titel}</Text>
+            <Text variant="body-m" color="medium">{uitleg}</Text>
             {ls.map(l => <Ladder key={l} naam={l} rol={ROLLEN.filter(r => r.ladder === l && r.rol !== l).map(r => r.rol).join(", ") || undefined} />)}
           </div>
         ))}

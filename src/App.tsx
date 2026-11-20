@@ -109,11 +109,11 @@ export function App() {
         {/* thema: een Toggle met de zon links en de maan rechts; de iconen zijn ook aan te klikken */}
         <div className="instellingen thema">
           <span className={"thema-icoon" + (thema === "light" ? " aan" : "")} onClick={() => setThema("light")} aria-hidden="true">
-            <Icon name="sun" fill={thema === "light"} />
+            <Icon name="sun" size="xs" fill={thema === "light"} />
           </span>
           <Toggle aria-label="Donker thema" checked={thema === "dark"} onChange={(aan) => setThema(aan ? "dark" : "light")} />
           <span className={"thema-icoon" + (thema === "dark" ? " aan" : "")} onClick={() => setThema("dark")} aria-hidden="true">
-            <Icon name="moon" fill={thema === "dark"} />
+            <Icon name="moon" size="xs" fill={thema === "dark"} />
           </span>
         </div>
       </header>
@@ -191,7 +191,7 @@ function Hoofdstuk({ h }: { h: Item }) {
     return () => cancelAnimationFrame(t);
   }, [hash]);
   return (
-    <Pagina titel={h.titel}>
+    <Pagina titel={h.titel} boven={h.kinderen![0].titel !== h.titel}>
       {h.kinderen!.map((k) => (
         <Deel.Provider key={k.pad} value={{ titel: k.titel === h.titel ? "" : k.titel, id: anker(k) }}>
           {INHOUD[k.pad] ?? (

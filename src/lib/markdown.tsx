@@ -73,14 +73,14 @@ export function Blokken({ blokken, link }: { blokken: Blok[]; link?: Linker }) {
       {blokken.map((b, i) => {
         if (b.soort === "alinea") return <Text key={i} variant="body-m" className="leestekst">{inline(b.regels.join(" "), link)}</Text>;
         if (b.soort === "code") return <pre key={i} className="codeblok"><code>{b.regels.join("\n")}</code></pre>;
-        if (b.soort === "kop3") return <Text key={i} as="h3" variant="title-m">{inline(b.regels[0], link)}</Text>;
+        if (b.soort === "kop3") return <Text key={i} as="h3" variant="heading-m">{inline(b.regels[0], link)}</Text>;
         if (b.soort === "tabel") {
           const [kop, , ...rijen] = b.regels;
           return (
             <div key={i} className="tabel-scroll">
               <table className="tabel doc">
-                <thead><tr>{cellen(kop).map((c, j) => <th key={j}><Text as="span" variant="label-m">{inline(c, link)}</Text></th>)}</tr></thead>
-                <tbody>{rijen.map((r, j) => <tr key={j}>{cellen(r).map((c, k) => <td key={k}><Text as="span" variant="body-s">{inline(c, link)}</Text></td>)}</tr>)}</tbody>
+                <thead><tr>{cellen(kop).map((c, j) => <th key={j}><Text as="span" variant="body-m">{inline(c, link)}</Text></th>)}</tr></thead>
+                <tbody>{rijen.map((r, j) => <tr key={j}>{cellen(r).map((c, k) => <td key={k}><Text as="span" variant="body-m">{inline(c, link)}</Text></td>)}</tr>)}</tbody>
               </table>
             </div>
           );

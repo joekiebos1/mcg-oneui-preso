@@ -22,8 +22,8 @@ export function FoundationsIndex() {
       <div className="tegels">
         {f.map(k => (
           <Link key={k.pad} to={k.pad} className={"tegel" + (k.klaar ? "" : " niet-klaar")}>
-            <Text as="span" variant="title-m">{k.titel}</Text>
-            <Text as="span" variant="body-s" color="medium">{OVER[k.titel]}</Text>
+            <Text as="span" variant="heading-m">{k.titel}</Text>
+            <Text as="span" variant="body-m" color="medium">{OVER[k.titel]}</Text>
           </Link>
         ))}
       </div>

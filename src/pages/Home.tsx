@@ -12,11 +12,11 @@ export function Home() {
             const klaar = g.items.some((h) => h.klaar);
             return (
               <Link key={g.titel} to={g.items[0].pad} className={"tegel" + (klaar ? "" : " niet-klaar")}>
-                <Text as="span" variant="title-m">{g.titel}</Text>
-                <Text as="span" variant="body-s" color="medium">
+                <Text as="span" variant="heading-m">{g.titel}</Text>
+                <Text as="span" variant="body-m" color="medium">
                   {g.items.slice(0, 4).map((h) => h.titel).join(" · ") + (g.items.length > 4 ? " …" : "")}
                 </Text>
-                {!klaar && <Text as="span" variant="label-s" color="low">Volgt</Text>}
+                {!klaar && <Text as="span" variant="body-m" color="low">Volgt</Text>}
               </Link>
             );
           })}
@@ -24,8 +24,8 @@ export function Home() {
       </Sectie>
       <Sectie titel="Eén stijl, twee thema's" uitleg="Rechtsboven kies je licht of donker. Alles op deze site past zich aan, net als in de producten.">
         <div className="vak">
-          <Text variant="title-s">Google Sans Flex Rond</Text>
-          <Text variant="body-s" color="medium">Eén lettertype voor alles, met ronde uiteinden.</Text>
+          <Text variant="heading-m">Google Sans Flex Rond</Text>
+          <Text variant="body-m" color="medium">Eén lettertype voor alles, met ronde uiteinden.</Text>
         </div>
       </Sectie>
     </Pagina>

@@ -30,7 +30,7 @@ function Probeer() {
   const [uit, setUit] = useState(false);
   const Keus = <T extends string>({ label, waarde, opties, zet }: { label: string; waarde: T; opties: T[]; zet: (v: T) => void }) => (
     <div className="instelrij">
-      <Text as="span" variant="body-s" color="medium">{label}</Text>
+      <Text as="span" variant="body-m" color="medium">{label}</Text>
       <div className="keuze">{opties.map(o => <button key={o} type="button" className={waarde === o ? "aan" : ""} onClick={() => zet(o)}>{o}</button>)}</div>
     </div>
   );
@@ -62,12 +62,12 @@ function Staten() {
     <div className="tabel-scroll">
       <table className="statenmatrix">
         <thead>
-          <tr><th />{STATES.map(s => <th key={s}><Text as="span" variant="label-s" color="low">{STATE_NL[s]}</Text></th>)}</tr>
+          <tr><th />{STATES.map(s => <th key={s}><Text as="span" variant="body-m" color="low">{STATE_NL[s]}</Text></th>)}</tr>
         </thead>
         <tbody>
           {TYPES.map(t => (
             <tr key={t}>
-              <th scope="row"><Text as="span" variant="label-m">{t}</Text></th>
+              <th scope="row"><Text as="span" variant="body-m">{t}</Text></th>
               {STATES.map(s => (
                 <td key={s} className={"staat-" + s}>
                   <Button variant={t} size="md" disabled={s === "disabled"} loading={s === "loading"} tabIndex={-1}>Opslaan</Button>
@@ -96,14 +96,14 @@ function kleurtabel(): [string, (string | null)[]][] {
 }
 const KLEUREN = kleurtabel();
 function Tok({ n }: { n: string | null }) {
-  if (!n) return <Text as="span" variant="body-s" color="low">—</Text>;
+  if (!n) return <Text as="span" variant="body-m" color="low">—</Text>;
   const { waarde, keten } = los(`{${n}}`);
   return (
     <span className="regelstaal">
       <i style={{ background: waarde }} />
       <span className="tokkort">
-        <Text as="span" variant="body-s">{n}</Text>
-        <Text as="span" variant="body-xs" color="low">{keten[keten.length - 1]} · {waarde.toUpperCase()}</Text>
+        <code>{n}</code>
+        <code className="laag">{keten[keten.length - 1]} · {waarde.toUpperCase()}</code>
       </span>
     </span>
   );
@@ -125,7 +125,7 @@ export function ButtonPagina() {
           {MATEN.map(m => (
             <div key={m} className="maatknop">
               <Button size={m} iconLeft={<Plus />}>Toevoegen</Button>
-              <Text as="span" variant="label-m">{m}{m === "md" ? " · standaard" : ""}</Text>
+              <Text as="span" variant="body-m">{m}{m === "md" ? " · standaard" : ""}</Text>
             </div>
           ))}
         </div>
@@ -174,12 +174,12 @@ export function ButtonPagina() {
       <Sectie titel="Doen en niet doen">
         <div className="naast">
           <div className="vak">
-            <Text variant="title-s">Doen</Text>
+            <Text variant="heading-m">Doen</Text>
             <Regels items={["Een werkwoord als label: “Opslaan”, “Verder”.", "Eén primary per scherm."]} />
             <div className="maatrij"><Button variant="ghost">Annuleren</Button><Button>Opslaan</Button></div>
           </div>
           <div className="vak">
-            <Text variant="title-s">Niet doen</Text>
+            <Text variant="heading-m">Niet doen</Text>
             <Regels items={["Twee primaries naast elkaar, of een primary voor annuleren.", "Een rand om een knop; kies neutral.", "Kleuren of maten aanpassen per knop; vraag een nieuwe variant aan."]} />
             <div className="maatrij"><Button>Annuleren</Button><Button>Opslaan</Button></div>
           </div>

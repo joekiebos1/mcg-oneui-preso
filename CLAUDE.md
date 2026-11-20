@@ -7,6 +7,9 @@ De presentatielaag van het OneUI design system: alle vastgelegde keuzes, leesbaa
   Tekst die uitlegt, komt uit de docs van mcg-oneui (`src/oneui/docs/`) of de regels van Myndlet; verzin geen regels.
   Staat iets alleen in Figma (zoals elevation), zeg dat op de pagina.
 - **Opgebouwd met OneUI zelf**: de Text-component en alleen `--oneui-*`-tokens in `src/app.css`. Geen losse kleuren of maten.
+- **Drie tekststijlen in de inhoud** (eigenaar 2026-11-20): display-s voor de titel, heading-m voor koppen, body-m voor de
+  rest, ook tabellen en bijschriften. Geen vet. Code en tokennamen in mono; voorbeelden van componenten, bedieningen en
+  de proeven op Typografie tellen niet mee. Ruim wit: de afstanden staan in `src/app.css` (`--tussen`).
 - **Menu** in `src/menu.ts`, zoals de Myndlet-app: links de hoofdgroepen (L1) Fundament, Product, Content, Patronen,
   Componenten, Assets; daarnaast een paneel met de hoofdstukken van die groep (eigenaar 2026-11-18). Een hoofdstuk is één pagina
   met zijn delen onder elkaar; Componenten en Assets zijn eigen groepen. Onderaan elke

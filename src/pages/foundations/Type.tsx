@@ -31,8 +31,8 @@ function Specimen({ rol, maat }: { rol: string; maat: string }) {
   return (
     <div className="specimen">
       <div className="specmeta">
-        <Text as="span" variant="label-m">{rol}/{maat}</Text>
-        <Text as="span" variant="body-xs" color="low">{m}</Text>
+        <code>{rol}/{maat}</code>
+        <Text as="span" variant="body-m" color="low">{m}</Text>
       </div>
       <Text ref={ref} as="p" variant={variant} className="spectekst">{ROLLEN[rol].zin}</Text>
     </div>
@@ -45,7 +45,7 @@ export function Type() {
       <Sectie titel="Familie" uitleg="SIL Open Font License, zelf gehost.">
         <div className="vak familie">
           <Text variant="display-s">Google Sans Flex Rond</Text>
-          <Text variant="body-s" color="medium">Google Sans Flex met rondheid 25 en breedte 90 vast in het lettertype. Display, heading en title 600, label 500, body 350: iets lichter dan normaal.</Text>
+          <Text variant="body-m" color="medium">Google Sans Flex met rondheid 25 en breedte 90 vast in het lettertype. Display, heading en title 600, label 500, body 350: iets lichter dan normaal.</Text>
         </div>
       </Sectie>
 

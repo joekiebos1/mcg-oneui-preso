@@ -12,8 +12,8 @@ export function Placeholder() {
         <div className="tegels">
           {plek.item.kinderen.map(k => (
             <Link key={k.pad} to={k.pad} className="tegel">
-              <Text as="span" variant="title-m">{k.titel}</Text>
-              <Text as="span" variant="body-s" color="low">{k.klaar ? "Bekijken" : "Nog niet vastgelegd"}</Text>
+              <Text as="span" variant="heading-m">{k.titel}</Text>
+              <Text as="span" variant="body-m" color="low">{k.klaar ? "Bekijken" : "Nog niet vastgelegd"}</Text>
             </Link>
           ))}
         </div>

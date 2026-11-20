@@ -20,9 +20,9 @@ export function Elevation() {
           {NIVEAUS.map(x => (
             <div key={x.n} className="niveau">
               <div className="niveauvlak" style={{ boxShadow: schaduw(x.ambient, x.key) }}>
-                <Text as="span" variant="title-m">elevation/{x.n}</Text>
+                <code>elevation/{x.n}</code>
               </div>
-              <Text variant="body-xs" color="low">ambient y{x.ambient[1]} blur {x.ambient[2]} · key y{x.key[1]} blur {x.key[2]}</Text>
+              <Text variant="body-m" color="low">ambient y{x.ambient[1]} blur {x.ambient[2]} · key y{x.key[1]} blur {x.key[2]}</Text>
             </div>
           ))}
         </div>

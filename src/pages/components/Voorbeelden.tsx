@@ -21,7 +21,7 @@ import { ICOONNAMEN } from "../../oneui/react/icondata";
 import { IcoonComponent, IcoonKleur, IcoonIcoon } from "../../components/Iconen";
 
 const Staat = ({ naam, children }: { naam: string; children: ReactNode }) => (
-  <div className="staat"><Text as="span" variant="label-s" color="low">{naam}</Text><div className="staat__inhoud">{children}</div></div>
+  <div className="staat"><Text as="span" variant="body-m" color="low">{naam}</Text><div className="staat__inhoud">{children}</div></div>
 );
 
 // Voorbeeldiconen in de stijl van DS Icons: 24 px, lijn 1,75, rond, currentColor.
@@ -281,7 +281,7 @@ function IconVoorbeelden() {
         <Toggle label="Vol" checked={vol} onChange={setVol} />
         <div className="iconenraster">
           {ICOONNAMEN.map(n => (
-            <span key={n} className="iconencel" title={n}><Icon name={n} fill={vol} /><Text as="span" variant="body-xs" color="low">{n}</Text></span>
+            <span key={n} className="iconencel" title={n}><Icon name={n} fill={vol} /><code>{n}</code></span>
           ))}
         </div>
       </Staat>

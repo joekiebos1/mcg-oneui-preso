@@ -55,8 +55,8 @@ export function Maten({ groep }: { groep: Groep }) {
           {lijst.map(m => (
             <div key={m.naam} className="maat">
               <div className="maatnaam">
-                <Text as="span" variant="label-m">{m.naam}</Text>
-                <Text as="span" variant="body-s" color="low">{m.px >= 9999 ? "rond" : m.waarde}</Text>
+                <code>{m.naam}</code>
+                <Text as="span" variant="body-m" color="low">{m.px >= 9999 ? "rond" : m.waarde}</Text>
               </div>
               <div className="maatbeeld"><Voorbeeld groep={groep} css={m.css} px={m.px} /></div>
               <code className="maatcode">{groep}/{m.naam}</code>

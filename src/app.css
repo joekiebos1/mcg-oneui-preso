@@ -1,12 +1,16 @@
 /* De presentatielaag zelf, alleen met OneUI-tokens: geen losse kleuren, maten of afrondingen. */
 
-:root { --leesbreedte: 68ch; --balk: var(--oneui-size-3xl); }
+:root { --leesbreedte: 64ch; --balk: var(--oneui-size-4xl); --mono: ui-monospace, SFMono-Regular, Menlo, monospace; }
+/* In de inhoud drie tekststijlen: display-s (titel), heading-m (kop) en body-m (tekst). Code en tokennamen in mono, de
+   enige uitzondering; voorbeelden van componenten en de proeven van Typografie tellen niet mee. */
 html, body, #root { height: 100%; }
 a { color: inherit; text-decoration: none; }
-code { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 0.85em; color: var(--oneui-text-medium); }
+code { font-family: var(--mono); font-size: 0.85em; color: var(--oneui-text-medium); }
+code.laag { color: var(--oneui-text-low); }
 .codeblok { margin: 0; padding: var(--oneui-spacing-xl); overflow-x: auto; border-radius: var(--oneui-radius-xl); background: var(--oneui-surface-sunken); max-width: 100%; }
 .codeblok code { color: var(--oneui-text-high); line-height: 1.6; white-space: pre; }
-b { font-weight: 600; }
+/* nadruk zonder een vierde stijl: vet telt als eigen stijl, dus de tekst houdt zijn gewicht */
+b, strong { font-weight: inherit; }
 :focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs); }
 
 /* ---------- studio, zoals de Myndlet-app: het menu op de grijze pagina, de inhoud een wit vlak met afronding 2xl ---------- */
@@ -14,12 +18,14 @@ b { font-weight: 600; }
   height: 100%; display: grid; grid-template-columns: auto minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr);
   background: var(--oneui-surface-page);
 }
-.balk { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--oneui-spacing-md); min-height: var(--oneui-size-4xl);
-  padding: var(--oneui-spacing-md) var(--oneui-spacing-xl) var(--oneui-spacing-md) var(--oneui-spacing-lg); }
+.balk { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--oneui-spacing-lg); min-height: var(--oneui-size-5xl);
+  padding: var(--oneui-spacing-md) var(--oneui-spacing-3xl) var(--oneui-spacing-md) var(--oneui-spacing-2xl); }
 .logo { display: flex; align-items: center; }
 .balk .menuknop { display: none; }
 .instellingen { margin-left: auto; display: flex; gap: var(--oneui-spacing-xs); }
-.thema { align-items: center; gap: var(--oneui-spacing-md); padding-right: var(--oneui-spacing-sm); }
+.thema { align-items: center; gap: var(--oneui-spacing-md); }
+/* de Toggle een maat kleiner dan standaard: 48 × 28 met een knop van 20 */
+.thema .oneui-toggle { --_breed: var(--oneui-size-3xl); --_hoog: var(--oneui-size-md); --_knop: var(--oneui-size-xs); }
 .thema-icoon { display: inline-grid; place-items: center; color: var(--oneui-icon-low); cursor: pointer; transition: color 160ms ease; }
 .thema-icoon.aan { color: var(--oneui-icon-high); }
 .icoonknop { display: inline-grid; place-items: center; flex: none; width: var(--oneui-size-lg); height: var(--oneui-size-lg); padding: 0;
@@ -37,18 +43,22 @@ b { font-weight: 600; }
 .keuze button.aan { background: var(--oneui-surface-default); color: var(--oneui-text-high); box-shadow: 0 1px 2px var(--oneui-effect-shadow-key); }
 
 /* links het menu: de Nav item van oneui, verticaal; ingeklapt alleen de iconen */
-.zijbalk { width: 248px; overflow-y: auto; padding: var(--oneui-spacing-xs) var(--oneui-spacing-lg) var(--oneui-spacing-xl);
+.zijbalk { width: 240px; overflow-y: auto; padding: var(--oneui-spacing-lg) var(--oneui-spacing-xl) var(--oneui-spacing-2xl);
   display: flex; flex-direction: column; justify-content: space-between; gap: var(--oneui-spacing-3xl); }
-.nav, .nav-groep, .nav-sub { display: flex; flex-direction: column; gap: var(--oneui-spacing-2xs); }
+.nav, .nav-groep, .nav-sub { display: flex; flex-direction: column; gap: var(--oneui-spacing-xs); }
 .nav-item { appearance: none; border: 0; background: transparent; cursor: pointer; width: 100%; text-align: left;
   display: flex; align-items: center; gap: var(--oneui-spacing-lg); min-height: var(--oneui-size-2xl); padding: 0 var(--oneui-spacing-lg);
   border-radius: var(--oneui-radius-full); white-space: nowrap;
   font-family: var(--oneui-type-label-m-family); font-size: var(--oneui-type-label-m-size); font-weight: var(--oneui-type-label-m-weight);
   line-height: var(--oneui-type-label-m-line-height); color: var(--oneui-text-medium); }
-.nav-item svg { flex: none; color: var(--oneui-icon-medium); }
+.nav-item svg { flex: none; color: var(--oneui-icon-medium); transition: color 160ms ease; }
+.nav-item { transition: background-color 160ms ease, color 160ms ease; }
 .nav-item:hover { background: var(--oneui-surface-action-neutral); color: var(--oneui-text-high); }
-.nav-item.active { background: var(--oneui-surface-sky-subtle); color: var(--oneui-text-on-subtle-sky); }
-.nav-item.active svg { color: currentColor; }
+.nav-item:hover svg { color: var(--oneui-icon-high); }
+/* waar je bent: een rustig vlak, wit op de grijze pagina en grijs op een wit vlak */
+.nav-item.active { background: var(--oneui-surface-default); color: var(--oneui-text-high); }
+.nav-item.active svg { color: var(--oneui-icon-high); }
+.paneel .nav-item.active, .zijbalk.open .nav-item.active { background: var(--oneui-surface-page); }
 .nav-item[data-actief] { color: var(--oneui-text-high); }
 .studio.smal .nav-item[data-actief] svg { color: var(--oneui-icon-high); }
 .nav-label { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
@@ -60,54 +70,57 @@ b { font-weight: 600; }
 .nav-item.ruimte { margin-top: var(--oneui-spacing-3xl); }
 .studio.smal .zijbalk { width: 72px; }
 .studio.smal .nav-item { justify-content: center; padding: 0; }
-.studio.smal .nav-item[data-actief] { background: var(--oneui-surface-sky-subtle); color: var(--oneui-text-on-subtle-sky); }
+.studio.smal .nav-item[data-actief] { background: var(--oneui-surface-default); color: var(--oneui-text-high); }
 .studio.smal .nav-label, .studio.smal .nav-chevron, .studio.smal .versie { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 @media (prefers-reduced-motion: reduce) { .nav-chevron { transition: none; } }
 
 /* onderaan elke pagina */
-.bladeren { display: flex; justify-content: space-between; gap: var(--oneui-spacing-lg); flex-wrap: wrap;
-  padding-top: var(--oneui-spacing-3xl); box-shadow: inset 0 var(--oneui-border-thin) 0 var(--oneui-stroke-neutral-low); }
+.bladeren { display: flex; justify-content: space-between; gap: var(--oneui-spacing-lg); flex-wrap: wrap; padding-top: var(--oneui-spacing-2xl); }
 .versie { padding: 0 var(--oneui-spacing-md); }
 
 /* rechts het werk: het paneel met de hoofdstukken van de groep en de inhoud, als witte vlakken (zoals de Myndlet-app) */
-.werk { min-width: 0; min-height: 0; display: flex; gap: var(--oneui-spacing-md); padding: 0 var(--oneui-spacing-md) var(--oneui-spacing-md) 0; }
-.paneel { flex: none; width: 264px; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
-  padding: var(--oneui-spacing-2xl) var(--oneui-spacing-md); border-radius: var(--oneui-radius-2xl); background: var(--oneui-surface-default); }
-.paneel-lijst { display: flex; flex-direction: column; gap: var(--oneui-spacing-2xs); }
+.werk { min-width: 0; min-height: 0; display: flex; gap: var(--oneui-spacing-lg); padding: 0 var(--oneui-spacing-lg) var(--oneui-spacing-lg) 0; }
+.paneel { flex: none; width: 248px; min-height: 0; overflow-y: auto; overscroll-behavior: contain;
+  padding: var(--oneui-spacing-3xl) var(--oneui-spacing-lg); border-radius: var(--oneui-radius-2xl); background: var(--oneui-surface-default); }
+.paneel-lijst { display: flex; flex-direction: column; gap: var(--oneui-spacing-xs); }
 .paneel .nav-item { min-height: var(--oneui-size-xl); }
 .paneel-knop { display: none; }
+.inhoud { font-family: var(--oneui-type-body-m-family); font-size: var(--oneui-type-body-m-size); line-height: var(--oneui-type-body-m-line-height);
+  font-weight: var(--oneui-type-body-m-weight); color: var(--oneui-text-high); }
 .inhoud { flex: 1; min-width: 0; overflow-y: auto; overscroll-behavior: contain; border-radius: var(--oneui-radius-2xl); background: var(--oneui-surface-default); }
 
 /* ---------- pagina ---------- */
-.pagina { padding: var(--oneui-spacing-6xl) var(--oneui-spacing-6xl) var(--oneui-spacing-8xl); max-width: 1280px; display: flex; flex-direction: column; gap: var(--oneui-spacing-7xl); }
+.pagina { padding: var(--oneui-spacing-7xl) var(--oneui-spacing-7xl) var(--oneui-spacing-8xl); max-width: 1120px; display: flex; flex-direction: column;
+  --tussen: var(--oneui-spacing-7xl); gap: var(--tussen); }
 .paginakop { display: flex; flex-direction: column; gap: var(--oneui-spacing-xl); }
 .paginakop h1 { margin: 0; text-box: trim-both cap alphabetic; }
+.pagina.boven .paginakop h1 { text-box: normal; }
 .intro { max-width: var(--leesbreedte); margin: 0; }
 .kruimel { display: flex; gap: var(--oneui-spacing-md); }
 .kruimel a + a::before { content: "/"; margin-right: var(--oneui-spacing-md); color: var(--oneui-text-low); }
 .kruimel a:hover span { color: var(--oneui-text-high); }
 
-.sectie { display: flex; flex-direction: column; gap: var(--oneui-spacing-3xl); }
-.sectiekop { display: flex; flex-direction: column; gap: var(--oneui-spacing-md); max-width: var(--leesbreedte); }
+.sectie { display: flex; flex-direction: column; gap: var(--oneui-spacing-4xl); }
+.sectiekop { display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); max-width: var(--leesbreedte); }
 .sectiekop h2 { margin: 0; text-box: trim-both cap alphabetic; }
 .uitleg { margin: 0; }
 .sectie p { margin: 0; }
 
-.regels { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); max-width: var(--leesbreedte); }
+.regels { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--oneui-spacing-xl); max-width: var(--leesbreedte); }
 .regels li { display: grid; grid-template-columns: var(--oneui-spacing-xl) 1fr; }
 .regels li::before { content: ""; width: var(--oneui-spacing-sm); height: var(--oneui-spacing-sm); border-radius: var(--oneui-radius-full); background: var(--oneui-surface-magenta-bold); margin-top: 0.6em; }
 
-.tegels { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: var(--oneui-spacing-lg); }
+.tegels { display: grid; grid-template-columns: repeat(auto-fill, minmax(232px, 1fr)); gap: var(--oneui-spacing-xl); }
 .tegel {
-  display: flex; flex-direction: column; gap: var(--oneui-spacing-sm); padding: var(--oneui-spacing-2xl); min-height: 132px;
+  display: flex; flex-direction: column; gap: var(--oneui-spacing-md); padding: var(--oneui-spacing-3xl); min-height: 148px;
   border-radius: var(--oneui-radius-xl); background: var(--oneui-surface-page); transition: background .15s;
 }
 .tegel:hover { background: var(--oneui-surface-action-neutral); }
-.tegel.niet-klaar { background: transparent; box-shadow: inset 0 0 0 var(--oneui-border-thin) var(--oneui-stroke-neutral-low); }
+.tegel.niet-klaar { color: var(--oneui-text-low); }
 .leeg-vak { padding: var(--oneui-spacing-4xl); border-radius: var(--oneui-radius-xl); background: var(--oneui-surface-page); max-width: var(--leesbreedte); }
 
-.naast, .lagen { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--oneui-spacing-lg); }
-.vak { display: flex; flex-direction: column; gap: var(--oneui-spacing-sm); padding: var(--oneui-spacing-2xl); border-radius: var(--oneui-radius-xl); background: var(--oneui-surface-page); min-width: 0; }
+.naast, .lagen { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: var(--oneui-spacing-xl); }
+.vak { display: flex; flex-direction: column; gap: var(--oneui-spacing-md); padding: var(--oneui-spacing-3xl); border-radius: var(--oneui-radius-xl); background: var(--oneui-surface-page); min-width: 0; }
 .familie { gap: var(--oneui-spacing-lg); }
 
 /* ---------- kleur ---------- */
@@ -127,9 +140,10 @@ b { font-weight: 600; }
 .stalen { display: grid; grid-template-columns: repeat(11, minmax(0, 1fr)); gap: var(--oneui-spacing-2xs); }
 .staal {
   aspect-ratio: 3 / 4; padding: var(--oneui-spacing-md); border-radius: var(--oneui-radius-md); display: flex; flex-direction: column; justify-content: space-between;
-  font-family: var(--oneui-type-body-2xs-family); font-size: var(--oneui-type-body-2xs-size); line-height: var(--oneui-type-body-2xs-line-height); min-width: 0;
+  font-family: var(--mono); font-size: var(--oneui-type-body-xs-size); line-height: var(--oneui-type-body-xs-line-height); min-width: 0;
 }
-.staal .stap { font-family: var(--oneui-type-label-m-family); font-size: var(--oneui-type-label-m-size); font-weight: var(--oneui-type-label-m-weight); }
+.staal .stap { font-family: var(--oneui-type-body-m-family); font-size: var(--oneui-type-body-m-size); font-weight: var(--oneui-type-body-m-weight);
+  line-height: var(--oneui-type-body-m-line-height); }
 .staal .hex { opacity: .85; }
 .staal .ratio { opacity: .85; font-variant-numeric: tabular-nums; }
 
@@ -145,9 +159,10 @@ b { font-weight: 600; }
 .tabuitleg { margin: 0; max-width: var(--leesbreedte); }
 .tabel-scroll { overflow-x: auto; }
 .tabel { width: 100%; border-collapse: collapse; }
-.tabel th { text-align: left; padding: var(--oneui-spacing-md) var(--oneui-spacing-lg); color: var(--oneui-text-low);
-  font-family: var(--oneui-type-label-s-family); font-size: var(--oneui-type-label-s-size); font-weight: var(--oneui-type-label-s-weight); }
-.tabel td { padding: var(--oneui-spacing-md) var(--oneui-spacing-lg); vertical-align: middle; box-shadow: inset 0 var(--oneui-border-thin) 0 var(--oneui-stroke-neutral-low); }
+.tabel th { text-align: left; padding: var(--oneui-spacing-lg) var(--oneui-spacing-lg); color: var(--oneui-text-low);
+  font-family: var(--oneui-type-body-m-family); font-size: var(--oneui-type-body-m-size); font-weight: var(--oneui-type-body-m-weight);
+  line-height: var(--oneui-type-body-m-line-height); }
+.tabel td { padding: var(--oneui-spacing-lg) var(--oneui-spacing-lg); vertical-align: middle; box-shadow: inset 0 var(--oneui-border-thin) 0 var(--oneui-stroke-neutral-low); }
 .tabel td:first-child { white-space: nowrap; }
 
 /* ---------- type ---------- */
@@ -196,13 +211,16 @@ b { font-weight: 600; }
   .zijbalk.open { display: flex; position: fixed; inset: calc(var(--balk) + var(--oneui-spacing-md)) var(--oneui-spacing-xs) var(--oneui-spacing-xs); z-index: 10;
     background: var(--oneui-surface-default); border-radius: var(--oneui-radius-2xl);
     box-shadow: 0 8px 16px var(--oneui-effect-shadow-ambient), 0 4px 8px var(--oneui-effect-shadow-key); }
-  .pagina { padding: var(--oneui-spacing-3xl) var(--oneui-spacing-xl) var(--oneui-spacing-6xl); gap: var(--oneui-spacing-5xl); }
+  .pagina { padding: var(--oneui-spacing-4xl) var(--oneui-spacing-2xl) var(--oneui-spacing-6xl); --tussen: var(--oneui-spacing-6xl); }
+  .deel { gap: var(--oneui-spacing-6xl); }
+  .tegel { padding: var(--oneui-spacing-2xl); min-height: 0; }
   .stalen { grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .specimen { grid-template-columns: minmax(0, 1fr); gap: var(--oneui-spacing-sm); }
   .maat { grid-template-columns: 100px minmax(0, 1fr); }
   .maatcode { display: none; }
   /* één regel: links het menu en het logo, rechts het thema; de knoppen lijnen uit met de rand van de inhoud */
-  .balk { min-height: 0; padding: var(--oneui-spacing-sm) var(--oneui-spacing-xs); gap: var(--oneui-spacing-xs); }
+  .balk { min-height: 0; padding: var(--oneui-spacing-md) var(--oneui-spacing-lg) var(--oneui-spacing-md) var(--oneui-spacing-xs); gap: var(--oneui-spacing-xs); }
+  .zijbalk.open { padding: var(--oneui-spacing-xl); }
 }
 
 /* ---------- components ---------- */
@@ -236,15 +254,20 @@ b { font-weight: 600; }
 .regels.genummerd { counter-reset: stap; }
 .regels.genummerd li { counter-increment: stap; }
 .regels.genummerd li::before { content: counter(stap); width: auto; height: auto; border-radius: 0; background: none; margin-top: 0;
-  color: var(--oneui-surface-magenta-bold); font-weight: 600; }
+  color: var(--oneui-surface-magenta-bold); }
 .tabel.doc td:first-child { white-space: normal; }
 .tabel.doc td, .tabel.doc th { vertical-align: top; }
 .bron { margin: 0; color: var(--oneui-text-low); }
 
 /* een deel van een hoofdstuk: de vroegere pagina's onder elkaar */
-.deel { display: flex; flex-direction: column; gap: var(--oneui-spacing-5xl); scroll-margin-top: var(--oneui-spacing-3xl); }
-.deel + .deel { padding-top: var(--oneui-spacing-6xl); box-shadow: inset 0 var(--oneui-border-thin) 0 var(--oneui-stroke-neutral-low); }
+.deel { display: flex; flex-direction: column; gap: var(--oneui-spacing-6xl); scroll-margin-top: var(--oneui-spacing-3xl); }
+.deel + .deel { padding-top: var(--oneui-spacing-6xl); }
+/* een eerste deel zonder eigen kop: zijn intro hoort bij de titel van de pagina */
+.paginakop + .deel > .deelkop:not(:has(h2)) { margin-top: calc(var(--oneui-spacing-xl) - var(--tussen)); }
+/* de titel klein erboven: het eerste deel volgt er dicht onder */
+.pagina.boven > .paginakop + .deel { margin-top: calc(var(--oneui-spacing-xl) - var(--tussen)); }
 .deelkop { display: flex; flex-direction: column; gap: var(--oneui-spacing-xl); }
+.deelkop .intro { max-width: var(--leesbreedte); margin: 0; }
 .deelkop h2 { margin: 0; text-box: trim-both cap alphabetic; }
 
 /* ---------- voorbeelden van componenten ---------- */

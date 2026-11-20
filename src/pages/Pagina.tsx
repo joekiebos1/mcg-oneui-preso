@@ -9,7 +9,9 @@ import { Text } from "../oneui/react/Text";
  *  Vorige en Volgende. De pagina's van een hoofdstuk staan zo onder elkaar op één pagina. */
 export const Deel = createContext<{ titel: string; id: string } | null>(null);
 
-export function Pagina({ titel, intro, children }: { titel?: string; intro?: ReactNode; children?: ReactNode }) {
+/** `boven`: de titel staat klein boven de pagina, omdat het eerste deel zijn eigen titel heeft (anders twee titels
+ *  onder elkaar). Het blijft de h1. */
+export function Pagina({ titel, intro, boven, children }: { titel?: string; intro?: ReactNode; boven?: boolean; children?: ReactNode }) {
   const { pathname } = useLocation();
   const plek = vind(pathname);
   const deel = useContext(Deel);
@@ -17,23 +19,25 @@ export function Pagina({ titel, intro, children }: { titel?: string; intro?: Rea
     <section className="deel" id={deel.id}>
       <header className="deelkop">
         {deel.titel && <Text as="h2" variant="display-s">{deel.titel}</Text>}
-        {intro && <Text variant="body-l" color="medium" className="intro">{intro}</Text>}
+        {intro && <Text variant="body-m" color="medium" className="intro">{intro}</Text>}
       </header>
       {children}
     </section>
   );
   return (
-    <article className="pagina">
+    <article className={"pagina" + (boven ? " boven" : "")}>
       <header className="paginakop">
         {plek && plek.ouders.length > 0 && (
           <nav className="kruimel" aria-label="Kruimelpad">
             {plek.ouders.map(o => (
-              <Link key={o.pad} to={o.pad}><Text as="span" variant="label-m" color="medium">{o.titel}</Text></Link>
+              <Link key={o.pad} to={o.pad}><Text as="span" variant="body-m" color="medium">{o.titel}</Text></Link>
             ))}
           </nav>
         )}
-        <Text as="h1" variant="display-m">{titel ?? plek?.item.titel}</Text>
-        {intro && <Text variant="body-l" color="medium" className="intro">{intro}</Text>}
+        {boven
+          ? <Text as="h1" variant="body-m" color="low">{titel ?? plek?.item.titel}</Text>
+          : <Text as="h1" variant="display-s">{titel ?? plek?.item.titel}</Text>}
+        {intro && <Text variant="body-m" color="medium" className="intro">{intro}</Text>}
       </header>
       {children}
       <VorigeVolgende />
@@ -63,7 +67,7 @@ export function Sectie({ titel, uitleg, children }: { titel: string; uitleg?: Re
   return (
     <section className="sectie">
       <div className="sectiekop">
-        <Text as={deel ? "h3" : "h2"} variant={deel ? "heading-m" : "heading-l"}>{titel}</Text>
+        <Text as={deel ? "h3" : "h2"} variant="heading-m">{titel}</Text>
         {uitleg && <Text variant="body-m" color="medium" className="uitleg">{uitleg}</Text>}
       </div>
       {children}
