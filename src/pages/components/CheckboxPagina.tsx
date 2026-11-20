@@ -6,7 +6,7 @@ import { Checkbox } from "../../oneui/react/Checkbox";
 import { Radio } from "../../oneui/react/Radio";
 import { Toggle } from "../../oneui/react/Toggle";
 import { doc, linkVoor } from "../../lib/docs";
-import { Blokken, delen } from "../../lib/markdown";
+import { Blokken, delen, inline } from "../../lib/markdown";
 import { Pagina, Sectie } from "../Pagina";
 
 /** een sectie uit een doc, zonder de verwijzing naar Figma */
@@ -33,7 +33,38 @@ const Vink = () => (
   </svg>
 );
 
+/** Doen en niet doen uit de docs: "**Doen:** …" en "**Niet doen:** …", in paren. */
+function doenEnNiet(slug: string) {
+  return sectie(slug, "Do's en don'ts").filter((b) => b.soort === "lijst").flatMap((b) => b.regels)
+    .map((r) => {
+      const m = r.match(/^\*\*(Doen|Niet doen):\*\*\s*(.*)$/i);
+      // de zin na "Doen:" begint klein; als onderschrift met een hoofdletter
+      return m ? { goed: m[1].toLowerCase() === "doen", tekst: m[2].charAt(0).toUpperCase() + m[2].slice(1) } : null;
+    }).filter((x): x is { goed: boolean; tekst: string } => !!x);
+}
+
+function Oordeel({ goed }: { goed: boolean }) {
+  return (
+    <div className="oordeel" aria-label={goed ? "Doen" : "Niet doen"}>
+      <span className={goed ? "ja" : "nee"}>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          {goed ? <path d="m5 12 5 5 9-10" /> : <path d="m6 6 12 12M18 6 6 18" />}
+        </svg>
+      </span>
+    </div>
+  );
+}
+
+// Het beeld bij elke regel, in de volgorde van de docs.
+const BEELD = [
+  <div className="kaartje"><Checkbox label="Stuur me een herinnering" defaultChecked /></div>,
+  <div className="kaartje"><Checkbox label="Geen herinneringen sturen" /></div>,
+  <div className="kaartje rij"><Radio name="doen" value="ochtend" label="Ochtend" defaultChecked /><Radio name="doen" value="avond" label="Avond" /></div>,
+  <div className="kaartje rij"><Checkbox label="Ochtend" defaultChecked /><Checkbox label="Avond" /></div>,
+];
+
 export function CheckboxPagina() {
+  const regels = doenEnNiet("checkbox");
   const link = linkVoor("components");
   const nog = sectie("checkbox", "Do's en don'ts").some((b) => /nog in te vullen/i.test(b.regels.join(" ")));
   return (
@@ -87,9 +118,17 @@ export function CheckboxPagina() {
       </Sectie>
 
       <Sectie titel="Doen en niet doen">
-        {nog
+        {nog || regels.length === 0
           ? <div className="leeg-vak"><Text variant="body-m" color="medium">Nog niet vastgelegd.</Text></div>
-          : <Blokken blokken={sectie("checkbox", "Do's en don'ts")} link={link} />}
+          : <div className="raster r2">
+              {regels.map((r, i) => (
+                <div key={i}>
+                  <div className="kaartvak">{BEELD[i] ?? null}</div>
+                  <Oordeel goed={r.goed} />
+                  <div className="bij"><Text variant="body-m">{inline(r.tekst, link)}</Text></div>
+                </div>
+              ))}
+            </div>}
       </Sectie>
 
       <Sectie titel="Toegankelijkheid">

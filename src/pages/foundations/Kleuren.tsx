@@ -126,6 +126,10 @@ export function Kleuren() {
         </div>
       </Sectie>
 
+      <Sectie titel="Op een andere ondergrond" uitleg="Staat een component direct op de grijze pagina, dan schuift het één stap op, zodat het blijft opvallen. Op een witte kaart springt het terug.">
+        <Link to="/surfaces#ondergrond" className="verder"><Text as="span" variant="body-m">Zo werkt de ondergrond, op Surfaces →</Text></Link>
+      </Sectie>
+
       <Sectie titel="Doen en niet doen">
         <div className="raster r2">
           <div><div className="kaartvak"><div className="proef"><Button variant="primary" size="md">Opslaan</Button><code>surface/action/primary</code></div></div><Oordeel goed /><Bij titel="Een rol in een component">Dan klopt hij in licht, donker en op subtle.</Bij></div>

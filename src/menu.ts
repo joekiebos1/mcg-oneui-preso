@@ -47,6 +47,7 @@ export const GROEPEN: Groep[] = [
     ] },
     { titel: "Surfaces", pad: "/surfaces", icoon: ic(I.IcoonSurface), klaar: true, kinderen: [
       { titel: "Elevation", pad: "/surfaces/elevation", klaar: true },
+      { titel: "Ondergrond", pad: "/surfaces/ondergrond", klaar: true },
     ] },
   ] },
   { titel: "Content", icoon: ic(I.IcoonContent), items: [

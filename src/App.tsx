@@ -15,6 +15,7 @@ import { Home } from "./pages/Home";
 import { Placeholder } from "./pages/Placeholder";
 import { Colours } from "./pages/foundations/Colours";
 import { Kleuren } from "./pages/foundations/Kleuren";
+import { Ondergrond } from "./pages/foundations/Ondergrond";
 import { Type } from "./pages/foundations/Type";
 import { Maten } from "./pages/foundations/Maten";
 import { Elevation } from "./pages/foundations/Elevation";
@@ -215,6 +216,7 @@ const INHOUD: Record<string, ReactElement> = {
   "/vormen/maten": <Maten groep="size" />,
   "/layout/space": <Maten groep="spacing" />,
   "/surfaces/elevation": <Elevation />,
+  "/surfaces/ondergrond": <Ondergrond />,
   "/motion": <DocOp pad="docs/motion.md" bron="docs/foundations/motion.md" />,
   "/taal/schrijfstijl": <DocOp pad="rules/content/schrijfstijl.md" bron="rules/content/schrijfstijl.md" />,
   "/illustraties/over": <DocOp pad="rules/content/illustraties.md" bron="rules/content/illustraties.md" />,
