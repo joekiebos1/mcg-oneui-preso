@@ -1,6 +1,6 @@
 import { createContext, useContext, type ReactNode } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
-import { VOLGORDE, vind } from "../menu";
+import { VOLGORDE, groepVan, vind } from "../menu";
 import { Button } from "../oneui/react/Button";
 import { IcoonLinks, IcoonRechts } from "../components/Iconen";
 import { Text } from "../oneui/react/Text";
@@ -15,6 +15,7 @@ export function Pagina({ titel, intro, boven, children }: { titel?: string; intr
   const { pathname } = useLocation();
   const plek = vind(pathname);
   const deel = useContext(Deel);
+  const groep = groepVan(pathname);
   if (deel) return (
     <section className="deel" id={deel.id}>
       <header className="deelkop">
@@ -34,9 +35,16 @@ export function Pagina({ titel, intro, boven, children }: { titel?: string; intr
             ))}
           </nav>
         )}
-        {boven
-          ? <Text as="h1" variant="body-m" color="low">{titel ?? plek?.item.titel}</Text>
-          : <Text as="h1" variant="display-s">{titel ?? plek?.item.titel}</Text>}
+        {/* op mobiel staat de groep klein boven de titel: daar is geen paneel dat zegt waar je bent */}
+        {boven ? (
+          <div className="oog">
+            {groep && <Text as="span" variant="body-m" color="low" className="groepnaam">{groep.titel} ·</Text>}
+            <Text as="h1" variant="body-m" color="low">{titel ?? plek?.item.titel}</Text>
+          </div>
+        ) : (<>
+          {groep && <Text as="span" variant="body-m" color="low" className="groepnaam los">{groep.titel}</Text>}
+          <Text as="h1" variant="display-s">{titel ?? plek?.item.titel}</Text>
+        </>)}
         {intro && <Text variant="body-m" color="medium" className="intro">{intro}</Text>}
       </header>
       {children}

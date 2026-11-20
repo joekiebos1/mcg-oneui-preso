@@ -46,6 +46,31 @@ function Hoofdmenu({ smal }: { smal: boolean }) {
   );
 }
 
+/** Op mobiel één menu: de groepen, en onder de groep die open staat zijn hoofdstukken (eigenaar 2026-11-20). De groep
+ *  waar je bent staat open. */
+function MobielMenu() {
+  const { pathname } = useLocation();
+  const hier = groepVan(pathname);
+  const [open, setOpen] = useState<string | undefined>(hier?.titel);
+  useEffect(() => setOpen(hier?.titel), [hier]);
+  return (
+    <div className="nav mobielmenu">
+      {GROEPEN.map((g) => {
+        const isOpen = open === g.titel;
+        return (
+          <div key={g.titel} className="nav-groep">
+            <button type="button" className={"nav-item" + (g === hier ? " hier" : "")} aria-expanded={isOpen}
+              onClick={() => setOpen(isOpen ? undefined : g.titel)}>
+              {g.icoon}<span className="nav-label">{g.titel}</span><span className="nav-chevron"><IcoonChevron /></span>
+            </button>
+            {isOpen && <div className="mobielmenu-sub"><Paneel groep={g} /></div>}
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 /** Het paneel naast het menu: de hoofdstukken van de groep, zoals het submenu van Regels in de Myndlet-app. Een item
  *  met `chevron` is een kop met zijn pagina's eronder. */
 function Paneel({ groep }: { groep: Groep }) {
@@ -89,12 +114,11 @@ export function App() {
   const [smal, setSmal] = useState(() => bewaard<string>("oneui-smal", "0") === "1");
   const loc = useLocation();
   const groep = groepVan(loc.pathname);
-  const [paneelOpen, setPaneelOpen] = useState(false);
   useEffect(() => {
     document.documentElement.dataset.theme = thema;
     try { localStorage.setItem("oneui-thema", thema); localStorage.setItem("oneui-smal", smal ? "1" : "0"); } catch {}
   }, [thema, smal]);
-  useEffect(() => { setOpen(false); setPaneelOpen(false); if (!loc.hash) document.querySelector(".inhoud")?.scrollTo(0, 0); }, [loc.pathname, loc.hash]);
+  useEffect(() => { setOpen(false); if (!loc.hash) document.querySelector(".inhoud")?.scrollTo(0, 0); }, [loc.pathname, loc.hash]);
 
   return (
     <div className={"studio" + (smal ? " smal" : "")}>
@@ -118,15 +142,11 @@ export function App() {
         </div>
       </header>
       <nav id="zijbalk" className={"zijbalk" + (open ? " open" : "")} aria-label="Hoofdmenu">
-        <Hoofdmenu smal={smal} />
+        <div className="alleen-desktop"><Hoofdmenu smal={smal} /></div>
+        <div className="alleen-mobiel"><MobielMenu /></div>
         <Text variant="body-xs" color="low" className="versie">mcg-oneui {ONEUI_VERSIE}</Text>
       </nav>
-      <div className={"werk" + (paneelOpen ? " paneel-open" : "")}>
-      {groep && (
-        <button type="button" className="paneel-knop" aria-expanded={paneelOpen} aria-controls="paneel" onClick={() => setPaneelOpen((o) => !o)}>
-          <Text as="span" variant="label-m">{groep.titel}</Text><IcoonChevron />
-        </button>
-      )}
+      <div className="werk">
       {groep && (
         <aside id="paneel" className="paneel" data-ondergrond="default" aria-label={groep.titel}>
           <Paneel key={groep.titel} groep={groep} />

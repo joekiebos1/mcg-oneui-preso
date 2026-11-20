@@ -30,7 +30,7 @@ b, strong { font-weight: inherit; }
 .thema-icoon.aan { color: var(--oneui-icon-high); }
 .icoonknop { display: inline-grid; place-items: center; flex: none; width: var(--oneui-size-lg); height: var(--oneui-size-lg); padding: 0;
   border: 0; border-radius: var(--oneui-radius-full); background: transparent; color: var(--oneui-icon-medium); cursor: pointer; }
-.icoonknop:hover { background: var(--oneui-surface-action-neutral); color: var(--oneui-icon-high); }
+@media (hover: hover) { .icoonknop:hover { background: var(--oneui-surface-action-neutral); color: var(--oneui-icon-high); } }
 
 .keuze { display: inline-flex; padding: var(--oneui-spacing-2xs); gap: var(--oneui-spacing-2xs); border-radius: var(--oneui-radius-full); background: var(--oneui-surface-page); }
 .keuze button, .tabs button {
@@ -53,8 +53,8 @@ b, strong { font-weight: inherit; }
   line-height: var(--oneui-type-label-m-line-height); color: var(--oneui-text-medium); }
 .nav-item svg { flex: none; color: var(--oneui-icon-medium); transition: color 160ms ease; }
 .nav-item { transition: background-color 160ms ease, color 160ms ease; }
-.nav-item:hover { background: var(--oneui-surface-action-neutral); color: var(--oneui-text-high); }
-.nav-item:hover svg { color: var(--oneui-icon-high); }
+@media (hover: hover) { .nav-item:hover { background: var(--oneui-surface-action-neutral); color: var(--oneui-text-high); } }
+@media (hover: hover) { .nav-item:hover svg { color: var(--oneui-icon-high); } }
 /* waar je bent: een rustig vlak, wit op de grijze pagina en grijs op een wit vlak */
 .nav-item.active { background: var(--oneui-surface-default); color: var(--oneui-text-high); }
 .nav-item.active svg { color: var(--oneui-icon-high); }
@@ -84,7 +84,8 @@ b, strong { font-weight: inherit; }
   padding: var(--oneui-spacing-3xl) var(--oneui-spacing-lg); border-radius: var(--oneui-radius-2xl); background: var(--oneui-surface-default); }
 .paneel-lijst { display: flex; flex-direction: column; gap: var(--oneui-spacing-xs); }
 .paneel .nav-item { min-height: var(--oneui-size-xl); }
-.paneel-knop { display: none; }
+.alleen-mobiel, .groepnaam { display: none; }
+.oog { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0 var(--oneui-spacing-xs); }
 .inhoud { font-family: var(--oneui-type-body-m-family); font-size: var(--oneui-type-body-m-size); line-height: var(--oneui-type-body-m-line-height);
   font-weight: var(--oneui-type-body-m-weight); color: var(--oneui-text-high); }
 .inhoud { flex: 1; min-width: 0; overflow-y: auto; overscroll-behavior: contain; border-radius: var(--oneui-radius-2xl); background: var(--oneui-surface-default); }
@@ -98,7 +99,7 @@ b, strong { font-weight: inherit; }
 .intro { max-width: var(--leesbreedte); margin: 0; }
 .kruimel { display: flex; gap: var(--oneui-spacing-md); }
 .kruimel a + a::before { content: "/"; margin-right: var(--oneui-spacing-md); color: var(--oneui-text-low); }
-.kruimel a:hover span { color: var(--oneui-text-high); }
+@media (hover: hover) { .kruimel a:hover span { color: var(--oneui-text-high); } }
 
 .sectie { display: flex; flex-direction: column; gap: var(--oneui-spacing-4xl); }
 .sectiekop { display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); max-width: var(--leesbreedte); }
@@ -115,7 +116,7 @@ b, strong { font-weight: inherit; }
   display: flex; flex-direction: column; gap: var(--oneui-spacing-md); padding: var(--oneui-spacing-3xl); min-height: 148px;
   border-radius: var(--oneui-radius-xl); background: var(--oneui-surface-page); transition: background .15s;
 }
-.tegel:hover { background: var(--oneui-surface-action-neutral); }
+@media (hover: hover) { .tegel:hover { background: var(--oneui-surface-action-neutral); } }
 .tegel.niet-klaar { color: var(--oneui-text-low); }
 .leeg-vak { padding: var(--oneui-spacing-4xl); border-radius: var(--oneui-radius-xl); background: var(--oneui-surface-page); max-width: var(--leesbreedte); }
 
@@ -154,7 +155,7 @@ b, strong { font-weight: inherit; }
 
 .tabs { display: flex; flex-wrap: wrap; gap: var(--oneui-spacing-xs); }
 .tabs button.aan { background: var(--oneui-surface-neutral-bold); color: var(--oneui-text-on-inverse); }
-.tabs button:not(.aan):hover { background: var(--oneui-surface-page); }
+@media (hover: hover) { .tabs button:not(.aan):hover { background: var(--oneui-surface-page); } }
 .tabs .aantal { opacity: .6; margin-left: var(--oneui-spacing-xs); }
 .tabuitleg { margin: 0; max-width: var(--leesbreedte); }
 .tabel-scroll { overflow-x: auto; }
@@ -201,16 +202,13 @@ b, strong { font-weight: inherit; }
   .balk .menuknop { display: inline-grid; }
   .zijbalk, .studio.smal .zijbalk { display: none; width: auto; }
   .werk { flex-direction: column; padding: 0 var(--oneui-spacing-xs) var(--oneui-spacing-xs); gap: var(--oneui-spacing-xs); }
-  .werk:not(.paneel-open) .paneel { display: none; }
-  .paneel { width: auto; max-height: 50dvh; }
-  /* op mobiel het submenu met meer gewicht: meer ruimte, tekst en iconen in high; de letter blijft Label M */
-  .paneel .nav-item { min-height: var(--oneui-size-3xl); padding: 0 var(--oneui-spacing-xl); color: var(--oneui-text-high); }
-  .paneel .nav-item svg { color: var(--oneui-icon-high); }
-  .paneel-knop { display: flex; align-items: center; justify-content: flex-start; gap: var(--oneui-spacing-sm); flex: none;
-    min-height: var(--oneui-size-3xl); padding: 0 var(--oneui-spacing-2xl); border: 0; border-radius: var(--oneui-radius-full);
-    background: var(--oneui-surface-default); color: var(--oneui-text-high); cursor: pointer; }
-  .paneel-knop svg { width: var(--oneui-size-2xs); height: var(--oneui-size-2xs); transform: rotate(90deg); transition: transform 160ms ease; }
-  .paneel-knop[aria-expanded="true"] svg { transform: rotate(-90deg); }
+  /* op mobiel één menu (de hamburger): geen paneel, de groep staat klein boven de titel */
+  .paneel, .alleen-desktop { display: none; }
+  .alleen-mobiel { display: block; }
+  .mobielmenu-sub { padding: var(--oneui-spacing-xs) 0 var(--oneui-spacing-md) var(--oneui-spacing-xl); }
+  .mobielmenu .nav-item.hier { color: var(--oneui-text-high); }
+  .groepnaam { display: inline; }
+  .groepnaam.los { display: block; margin-bottom: calc(var(--oneui-spacing-sm) - var(--oneui-spacing-xl)); }
   .zijbalk.open { display: flex; position: fixed; inset: calc(var(--balk) + var(--oneui-spacing-md)) var(--oneui-spacing-xs) var(--oneui-spacing-xs); z-index: 10;
     background: var(--oneui-surface-default); border-radius: var(--oneui-radius-2xl);
     box-shadow: 0 8px 16px var(--oneui-effect-shadow-ambient), 0 4px 8px var(--oneui-effect-shadow-key); }
