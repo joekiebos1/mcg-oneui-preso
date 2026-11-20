@@ -52,9 +52,9 @@ export function CheckboxPagina() {
 
       <Sectie titel="Welke keuze past?" uitleg="Drie componenten die op elkaar lijken. Kies op wat de keuze doet.">
         <div className="raster r3">
-          <div><div className="tegel"><Checkbox label="Afspraken" defaultChecked /></div><Bij titel="Checkbox">{zin("checkbox").split(". ")[0]}.</Bij></div>
-          <div><div className="tegel"><div className="stapel"><Radio name="keuze" value="ochtend" label="Ochtend" defaultChecked /><Radio name="keuze" value="avond" label="Avond" /></div></div><Bij titel="Radio">{zin("radio")}</Bij></div>
-          <div><div className="tegel"><Toggle label="Meldingen" defaultChecked /></div><Bij titel="Toggle">{zin("toggle")}</Bij></div>
+          <div><div className="kaartvak"><Checkbox label="Afspraken" defaultChecked /></div><Bij titel="Checkbox">{zin("checkbox").split(". ")[0]}.</Bij></div>
+          <div><div className="kaartvak"><div className="stapel"><Radio name="keuze" value="ochtend" label="Ochtend" defaultChecked /><Radio name="keuze" value="avond" label="Avond" /></div></div><Bij titel="Radio">{zin("radio")}</Bij></div>
+          <div><div className="kaartvak"><Toggle label="Meldingen" defaultChecked /></div><Bij titel="Toggle">{zin("toggle")}</Bij></div>
         </div>
       </Sectie>
 
@@ -77,12 +77,12 @@ export function CheckboxPagina() {
 
       <Sectie titel="Toestanden">
         <div className="raster r3">
-          <div><div className="tegel"><Checkbox label="" aria-label="Uit" /></div><Bij titel="Uit"><code>surface/action/neutral</code></Bij></div>
-          <div><div className="tegel"><Checkbox label="" aria-label="Aan" defaultChecked /></div><Bij titel="Aan"><code>surface/action/primary</code></Bij></div>
-          <div><div className="tegel"><Checkbox label="" aria-label="Een deel" indeterminate /></div><Bij titel="Een deel">Een streep in plaats van een vink.</Bij></div>
-          <div><div className="tegel focusproef"><Checkbox label="" aria-label="Focus" defaultChecked /></div><Bij titel="Focus">Een ring, alleen met het toetsenbord.</Bij></div>
-          <div><div className="tegel"><Checkbox label="" aria-label="Uitgeschakeld" disabled /></div><Bij titel="Uitgeschakeld">Het component op 40 %.</Bij></div>
-          <div><div className="tegel"><Checkbox label="" aria-label="Uitgeschakeld, aan" defaultChecked disabled /></div><Bij titel="Uitgeschakeld, aan">Ook op 40 %.</Bij></div>
+          <div><div className="kaartvak"><Checkbox label="" aria-label="Uit" /></div><Bij titel="Uit"><code>surface/action/neutral</code></Bij></div>
+          <div><div className="kaartvak"><Checkbox label="" aria-label="Aan" defaultChecked /></div><Bij titel="Aan"><code>surface/action/primary</code></Bij></div>
+          <div><div className="kaartvak"><Checkbox label="" aria-label="Een deel" indeterminate /></div><Bij titel="Een deel">Een streep in plaats van een vink.</Bij></div>
+          <div><div className="kaartvak focusproef"><Checkbox label="" aria-label="Focus" defaultChecked /></div><Bij titel="Focus">Een ring, alleen met het toetsenbord.</Bij></div>
+          <div><div className="kaartvak"><Checkbox label="" aria-label="Uitgeschakeld" disabled /></div><Bij titel="Uitgeschakeld">Het component op 40 %.</Bij></div>
+          <div><div className="kaartvak"><Checkbox label="" aria-label="Uitgeschakeld, aan" defaultChecked disabled /></div><Bij titel="Uitgeschakeld, aan">Ook op 40 %.</Bij></div>
         </div>
       </Sectie>
 

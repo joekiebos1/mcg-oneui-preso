@@ -303,9 +303,9 @@ b, strong { font-weight: inherit; }
 .raster.r2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .raster.r3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 .raster.r4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--oneui-spacing-3xl) var(--oneui-spacing-xl); }
-.tegel { aspect-ratio: 1; border-radius: var(--oneui-radius-3xl); background: var(--oneui-surface-page); display: grid; place-items: center; overflow: hidden; }
-.tegel.donker { background: var(--oneui-surface-page); }
-.tegel.merktegel { position: relative; }
+.kaartvak { aspect-ratio: 1; border-radius: var(--oneui-radius-3xl); background: var(--oneui-surface-page); display: grid; place-items: center; overflow: hidden; }
+.kaartvak.donker { background: var(--oneui-surface-page); }
+.kaartvak.merktegel { position: relative; }
 .merkstip { width: 40%; margin-bottom: var(--oneui-spacing-2xl); aspect-ratio: 1; border-radius: var(--oneui-radius-full); }
 .merknaam { position: absolute; left: var(--oneui-spacing-xl); bottom: var(--oneui-spacing-lg); margin: 0; }
 .bij { display: flex; flex-direction: column; margin-top: var(--oneui-spacing-xl); }
@@ -317,8 +317,8 @@ b, strong { font-weight: inherit; }
 .oordeel span { display: grid; place-items: center; width: var(--oneui-size-md); height: var(--oneui-size-md); border-radius: var(--oneui-radius-full); color: var(--oneui-text-on-bold); }
 .oordeel .ja { background: var(--oneui-surface-positive-bold); }
 .oordeel .nee { background: var(--oneui-surface-negative-bold); }
-.tegel.merkmoment { background: var(--oneui-surface-magenta-deep); }
-.tegel.merkmoment .merkmoment-tekst { color: var(--oneui-text-on-deep); margin: 0; }
+.kaartvak.merkmoment { background: var(--oneui-surface-magenta-deep); }
+.kaartvak.merkmoment .merkmoment-tekst { color: var(--oneui-text-on-deep); margin: 0; }
 .nepknop { display: inline-flex; align-items: center; height: var(--oneui-size-xl); padding: 0 var(--oneui-spacing-xl); border-radius: var(--oneui-radius-full);
   background: var(--oneui-surface-magenta-bold); color: var(--oneui-text-on-bold-magenta); }
 .nepknop span { color: inherit; }
