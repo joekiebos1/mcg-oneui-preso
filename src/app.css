@@ -203,8 +203,13 @@ b, strong { font-weight: inherit; }
   .werk { flex-direction: column; padding: 0 var(--oneui-spacing-xs) var(--oneui-spacing-xs); gap: var(--oneui-spacing-xs); }
   .werk:not(.paneel-open) .paneel { display: none; }
   .paneel { width: auto; max-height: 50dvh; }
-  .paneel-knop { display: flex; align-items: center; justify-content: space-between; gap: var(--oneui-spacing-md); flex: none;
-    min-height: var(--oneui-size-xl); padding: 0 var(--oneui-spacing-lg); border: 0; border-radius: var(--oneui-radius-full);
+  /* op mobiel het submenu met meer gewicht: een maat groter, meer ruimte, tekst en iconen in high */
+  .paneel .nav-item { min-height: var(--oneui-size-3xl); padding: 0 var(--oneui-spacing-xl); color: var(--oneui-text-high);
+    font-family: var(--oneui-type-label-l-family); font-size: var(--oneui-type-label-l-size); font-weight: var(--oneui-type-label-l-weight);
+    line-height: var(--oneui-type-label-l-line-height); letter-spacing: var(--oneui-type-label-l-letter-spacing); }
+  .paneel .nav-item svg { color: var(--oneui-icon-high); }
+  .paneel-knop { display: flex; align-items: center; justify-content: flex-start; gap: var(--oneui-spacing-sm); flex: none;
+    min-height: var(--oneui-size-3xl); padding: 0 var(--oneui-spacing-2xl); border: 0; border-radius: var(--oneui-radius-full);
     background: var(--oneui-surface-default); color: var(--oneui-text-high); cursor: pointer; }
   .paneel-knop svg { width: var(--oneui-size-2xs); height: var(--oneui-size-2xs); transform: rotate(90deg); transition: transform 160ms ease; }
   .paneel-knop[aria-expanded="true"] svg { transform: rotate(-90deg); }
