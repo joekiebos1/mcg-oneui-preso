@@ -292,3 +292,47 @@ b, strong { font-weight: inherit; }
 .iconenraster { display: grid; grid-template-columns: repeat(auto-fill, minmax(96px, 1fr)); gap: var(--oneui-spacing-md); margin-top: var(--oneui-spacing-lg); color: var(--oneui-icon-high); }
 .iconencel { display: flex; flex-direction: column; align-items: center; gap: var(--oneui-spacing-sm); padding: var(--oneui-spacing-lg) var(--oneui-spacing-sm); border-radius: var(--oneui-radius-xl); background: var(--oneui-surface-sunken); text-align: center; overflow-wrap: anywhere; }
 .iconenmaten { display: flex; align-items: flex-end; gap: var(--oneui-spacing-lg); color: var(--oneui-icon-high); }
+
+/* ---------- verhaal: een pagina met beeld, kaarten en onderschriften (Kleuren; eigenaar 2026-11-20) ---------- */
+.pagina.verhaal { --tussen: var(--oneui-spacing-8xl); }
+.pagina.verhaal > * { max-width: 720px; }
+.held { aspect-ratio: 16 / 9; border-radius: var(--oneui-radius-4xl); overflow: hidden; background: var(--oneui-surface-page); display: grid; place-items: center; }
+.pagina.verhaal > .paginakop + .held { margin-top: calc(var(--oneui-spacing-3xl) - var(--tussen)); }
+.held img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.raster { display: grid; gap: var(--oneui-spacing-3xl) var(--oneui-spacing-3xl); }
+.raster.r2 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+.raster.r3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.raster.r4 { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--oneui-spacing-3xl) var(--oneui-spacing-xl); }
+.tegel { aspect-ratio: 1; border-radius: var(--oneui-radius-3xl); background: var(--oneui-surface-page); display: grid; place-items: center; overflow: hidden; }
+.tegel.donker { background: var(--oneui-surface-page); }
+.bij { display: flex; flex-direction: column; margin-top: var(--oneui-spacing-xl); }
+.bolvlak { width: 40%; aspect-ratio: 1; border-radius: var(--oneui-radius-full); }
+.rolvlak { width: 64%; height: var(--oneui-size-5xl); border-radius: var(--oneui-radius-2xl); }
+.proef { display: flex; flex-direction: column; align-items: center; gap: var(--oneui-spacing-xl); }
+.proefrij { display: flex; align-items: center; gap: var(--oneui-spacing-lg); flex-wrap: wrap; justify-content: center; }
+.oordeel { display: flex; justify-content: center; margin-top: var(--oneui-spacing-xl); }
+.oordeel span { display: grid; place-items: center; width: var(--oneui-size-md); height: var(--oneui-size-md); border-radius: var(--oneui-radius-full); color: var(--oneui-text-on-bold); }
+.oordeel .ja { background: var(--oneui-surface-positive-bold); }
+.oordeel .nee { background: var(--oneui-surface-negative-bold); }
+.tegel.merkmoment { background: var(--oneui-surface-magenta-deep); }
+.tegel.merkmoment .merkmoment-tekst { color: var(--oneui-text-on-deep); margin: 0; }
+.nepknop { display: inline-flex; align-items: center; height: var(--oneui-size-xl); padding: 0 var(--oneui-spacing-xl); border-radius: var(--oneui-radius-full);
+  background: var(--oneui-surface-magenta-bold); color: var(--oneui-text-on-bold-magenta); }
+.nepknop span { color: inherit; }
+.tabel.vlak { border-collapse: separate; border-spacing: 0; border-radius: var(--oneui-radius-3xl); overflow: hidden; background: var(--oneui-surface-page); }
+.tabel.vlak th { padding: var(--oneui-spacing-2xl) var(--oneui-spacing-2xl) var(--oneui-spacing-sm); }
+.tabel.vlak td { box-shadow: none; padding: var(--oneui-spacing-md) var(--oneui-spacing-2xl); }
+.tabel.vlak tr:last-child td { padding-bottom: var(--oneui-spacing-2xl); }
+.held.licht { background: var(--oneui-surface-page); }
+.ladderrij { display: flex; flex-direction: column; gap: var(--oneui-spacing-md); width: 80%; }
+.strook { display: flex; height: var(--oneui-size-xs); border-radius: var(--oneui-radius-sm); overflow: hidden; }
+.strook i { flex: 1; }
+.verder { align-self: flex-start; color: var(--oneui-text-link); }
+.verder span { color: inherit; }
+@media (max-width: 860px) {
+  .raster.r3, .raster.r4 { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .raster { gap: var(--oneui-spacing-2xl) var(--oneui-spacing-lg); }
+}
+@media (max-width: 520px) {
+  .raster.r2 { grid-template-columns: minmax(0, 1fr); }
+}

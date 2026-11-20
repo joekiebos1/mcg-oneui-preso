@@ -11,7 +11,7 @@ export const Deel = createContext<{ titel: string; id: string } | null>(null);
 
 /** `boven`: de titel staat klein boven de pagina, omdat het eerste deel zijn eigen titel heeft (anders twee titels
  *  onder elkaar). Het blijft de h1. */
-export function Pagina({ titel, intro, boven, children }: { titel?: string; intro?: ReactNode; boven?: boolean; children?: ReactNode }) {
+export function Pagina({ titel, intro, boven, klasse, children }: { titel?: string; intro?: ReactNode; boven?: boolean; klasse?: string; children?: ReactNode }) {
   const { pathname } = useLocation();
   const plek = vind(pathname);
   const deel = useContext(Deel);
@@ -26,7 +26,7 @@ export function Pagina({ titel, intro, boven, children }: { titel?: string; intr
     </section>
   );
   return (
-    <article className={"pagina" + (boven ? " boven" : "")}>
+    <article className={["pagina", boven && "boven", klasse].filter(Boolean).join(" ")}>
       <header className="paginakop">
         {plek && plek.ouders.length > 0 && (
           <nav className="kruimel" aria-label="Kruimelpad">

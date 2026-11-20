@@ -18,10 +18,8 @@ const ic = (c: () => ReactNode) => createElement(c);
 
 export const GROEPEN: Groep[] = [
   { titel: "Fundament", icoon: ic(I.IcoonFundament), items: [
-    { titel: "Kleuren", pad: "/kleuren", icoon: ic(I.IcoonKleur), klaar: true, kinderen: [
-      { titel: "Kleuren", pad: "/kleuren/kleuren", klaar: true },
-      { titel: "Hoe te gebruiken", pad: "/kleuren/gebruik", klaar: true },
-    ] },
+    // één verhalende pagina; alle tokens en de regels staan op /kleuren/tokens (eigenaar 2026-11-20)
+    { titel: "Kleuren", pad: "/kleuren", icoon: ic(I.IcoonKleur), klaar: true },
     { titel: "Iconen", pad: "/iconen", icoon: ic(I.IcoonIcoon), klaar: true, kinderen: [
       { titel: "Iconen", pad: "/iconen/iconen", klaar: true },
       { titel: "Hoe te gebruiken", pad: "/iconen/gebruik", klaar: true },

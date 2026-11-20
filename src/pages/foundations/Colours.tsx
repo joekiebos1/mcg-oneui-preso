@@ -136,37 +136,7 @@ function Drie() {
 export function Colours() {
   const voorbeeld = token("surface/action/primary");
   return (
-    <Pagina intro="Vier merkkleuren, elk een ladder van 50 tot 950, plus slate als neutraal en drie signaalkleuren. Elke stap heeft in elke ladder dezelfde lichtheid: sky/600 gedraagt zich qua contrast hetzelfde als magenta/600.">
-      <Sectie titel="Twee lagen" uitleg="Een component kiest nooit zelf een kleur uit een ladder. Het gebruikt een semantisch token, dat naar een ladder wijst. Zo kan een kleur op één plek veranderen.">
-        <div className="lagen">
-          <div className="vak"><Text variant="body-m" color="low">1 · Primitives</Text><Text variant="heading-m">De ladders</Text><Text variant="body-m" color="medium">Ruwe kleuren: <code>magenta/600</code>. Alleen voor illustraties, slides en het maken van tokens.</Text></div>
-          <div className="vak"><Text variant="body-m" color="low">2 · Semantic</Text><Text variant="heading-m">Wat het doet, of welke kleur</Text><Text variant="body-m" color="medium">Een functie (<code>surface/action/primary</code>, <code>text/high</code>, <code>surface/negative/subtle</code>) of een kleur (<code>surface/sky/bold</code>), in licht en donker. Dit gebruiken componenten.</Text></div>
-        </div>
-        {voorbeeld && (
-          <div className="keten">
-            <Text variant="body-m" color="medium">Voorbeeld: de primaire knop</Text>
-            <Swatch waarde={`{surface/action/primary}`} />
-          </div>
-        )}
-      </Sectie>
-
-      <Sectie titel="Kleuren" uitleg="Welke ladder waarvoor is.">
-        <div className="rollen">
-          {ROLLEN.map(r => {
-            const l = ladders()[r.ladder];
-            return (
-              <div key={r.rol} className="rol">
-                <div className="rolstrook">{l.map(s => <i key={s.stap} style={{ background: s.hex }} />)}</div>
-                <div>
-                  <Text as="span" variant="heading-m">{r.rol}</Text>{r.ladder !== r.rol && <> <Text as="span" variant="body-m" color="low">{r.ladder}</Text></>}
-                  <Text variant="body-m" color="medium">{r.gebruik}</Text>
-                </div>
-              </div>
-            );
-          })}
-        </div>
-      </Sectie>
-
+    <Pagina intro="Elke ladder met het contrast per stap, de vlakken per merkkleur en alle rollen in licht, donker en op subtle.">
       <Sectie titel="Ladders" uitleg={<>Per stap het contrast met wit en met inkt (<code>slate/950</code>). Tekst heeft minstens 4,5 nodig, iconen en randen 3. Stap 600 is de eerste waarop witte tekst kan.</>}>
         {GROEPEN.map(([titel, ls, uitleg]) => (
           <div key={titel} className="laddergroep">

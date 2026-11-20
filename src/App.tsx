@@ -14,6 +14,7 @@ import { ONEUI_VERSIE } from "./oneui/versie";
 import { Home } from "./pages/Home";
 import { Placeholder } from "./pages/Placeholder";
 import { Colours } from "./pages/foundations/Colours";
+import { Kleuren } from "./pages/foundations/Kleuren";
 import { Type } from "./pages/foundations/Type";
 import { Maten } from "./pages/foundations/Maten";
 import { Elevation } from "./pages/foundations/Elevation";
@@ -177,6 +178,22 @@ export function App() {
   );
 }
 
+/** Alle kleurtokens en de regels: de naslag achter de pagina Kleuren, niet in het menu. */
+function KleurTokens() {
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (!hash) return;
+    const t = requestAnimationFrame(() => document.getElementById(hash.slice(1))?.scrollIntoView({ block: "start" }));
+    return () => cancelAnimationFrame(t);
+  }, [hash]);
+  return (
+    <Pagina titel="Alle kleurtokens">
+      <Deel.Provider value={{ titel: "", id: "tokens" }}><Colours /></Deel.Provider>
+      <Deel.Provider value={{ titel: "Hoe te gebruiken", id: "gebruik" }}><DocOp pad="docs/kleur.md" bron="docs/foundations/kleur.md" /></Deel.Provider>
+    </Pagina>
+  );
+}
+
 /** Een document uit mcg-oneui; bestaat het (nog) niet, dan de gewone lege pagina. */
 function DocOp({ pad, titel, map = "", bron }: { pad: string; titel?: string; map?: string; bron?: string }) {
   const md = doc(pad);
@@ -185,8 +202,8 @@ function DocOp({ pad, titel, map = "", bron }: { pad: string; titel?: string; ma
 
 // Wat er op elke pagina staat, op het pad uit het menu. Binnen een hoofdstuk wordt het een deel van de pagina.
 const INHOUD: Record<string, ReactElement> = {
-  "/kleuren/kleuren": <Colours />,
-  "/kleuren/gebruik": <DocOp pad="docs/kleur.md" bron="docs/foundations/kleur.md" />,
+  "/kleuren": <Kleuren />,
+  "/kleuren/tokens": <KleurTokens />,
   "/iconen/iconen": <DocOp pad="docs/components/icon.md" map="components" bron="docs/components/icon.md" />,
   "/iconen/gebruik": <DocOp pad="docs/besluiten/003-icoon-een-laag.md" map="besluiten" bron="docs/besluiten/003-icoon-een-laag.md" />,
   "/typografie/lettertype": <Type />,
@@ -226,7 +243,7 @@ function Hoofdstuk({ h }: { h: Item }) {
 }
 
 const OUD: Record<string, string> = {
-  "/foundations": "/kleuren", "/foundations/colours": "/kleuren/kleuren", "/foundations/type": "/typografie/lettertype",
+  "/foundations": "/kleuren", "/foundations/colours": "/kleuren", "/kleuren/kleuren": "/kleuren/tokens", "/kleuren/gebruik": "/kleuren/tokens#gebruik", "/foundations/type": "/typografie/lettertype",
   "/foundations/spacing": "/layout/space", "/foundations/radius": "/vormen/hoeken", "/foundations/border": "/vormen/randen",
   "/foundations/iconography": "/iconen/iconen", "/components": "/componenten/button", "/componenten": "/componenten/button", "/assets": "/assets/logo", "/rules/content/illustraties": "/illustraties/over",
   "/rules/content/beeldtaal": "/illustraties/gebruik", "/foundations/elevation": "/surfaces/elevation", "/foundations/size": "/vormen/maten", "/logo": "/assets/logo", "/patronen": "/opdrachten", "/patronen/opdrachten": "/opdrachten", "/logo/logo": "/assets/logo", "/logo/gebruik": "/assets/logo",
