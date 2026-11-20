@@ -28,6 +28,8 @@ export const IcoonProduct = () => <Svg><rect x="3.5" y="4.5" width="17" height="
 export const IcoonContent = () => <Svg><circle cx="12" cy="12" r="8.5" /><path d="M10.5 9v6l5-3Z" /></Svg>;
 export const IcoonPatroon = () => <Svg><rect x="4" y="4" width="8" height="6" rx="1.5" /><rect x="12" y="14" width="8" height="6" rx="1.5" /><path d="M8 10v5a2 2 0 0 0 2 2h2" /></Svg>;
 export const IcoonChevron = () => <Svg><path d="m9 6 6 6-6 6" /></Svg>;
+export const IcoonMenu = () => <Svg><path d="M4.5 7h15M4.5 12h15M4.5 17h15" /></Svg>;
+export const IcoonSluit = () => <Svg><path d="m6.5 6.5 11 11m0-11-11 11" /></Svg>;
 export const IcoonZijbalk = () => <Svg><rect x="3.5" y="4.5" width="17" height="15" rx="2.5" /><path d="M9.5 4.5v15" /></Svg>;
 export const IcoonLinks = () => <Svg><path d="M15 6l-6 6 6 6" /></Svg>;
 export const IcoonRechts = () => <Svg><path d="m9 6 6 6-6 6" /></Svg>;

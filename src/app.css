@@ -17,14 +17,14 @@ b { font-weight: 600; }
 .balk { grid-column: 1 / -1; display: flex; align-items: center; gap: var(--oneui-spacing-md); min-height: var(--oneui-size-4xl);
   padding: var(--oneui-spacing-md) var(--oneui-spacing-xl) var(--oneui-spacing-md) var(--oneui-spacing-lg); }
 .logo { display: flex; align-items: center; }
-.menuknop { display: none; }
-.instellingen { margin-left: auto; display: flex; gap: var(--oneui-spacing-md); flex-wrap: wrap; }
+.balk .menuknop { display: none; }
+.instellingen { margin-left: auto; display: flex; gap: var(--oneui-spacing-xs); }
 .icoonknop { display: inline-grid; place-items: center; flex: none; width: var(--oneui-size-lg); height: var(--oneui-size-lg); padding: 0;
   border: 0; border-radius: var(--oneui-radius-full); background: transparent; color: var(--oneui-icon-medium); cursor: pointer; }
 .icoonknop:hover { background: var(--oneui-surface-action-neutral); color: var(--oneui-icon-high); }
 
 .keuze { display: inline-flex; padding: var(--oneui-spacing-2xs); gap: var(--oneui-spacing-2xs); border-radius: var(--oneui-radius-full); background: var(--oneui-surface-page); }
-.keuze button, .menuknop, .tabs button {
+.keuze button, .tabs button {
   appearance: none; border: 0; cursor: pointer; font: inherit;
   font-family: var(--oneui-type-label-m-family); font-size: var(--oneui-type-label-m-size); font-weight: var(--oneui-type-label-m-weight);
   line-height: var(--oneui-type-label-m-line-height); letter-spacing: var(--oneui-type-label-m-letter-spacing);
@@ -180,7 +180,7 @@ b { font-weight: 600; }
 @media (max-width: 860px) {
   .studio { grid-template-columns: minmax(0, 1fr); }
   .inklap { display: none; }
-  .menuknop { display: inline-flex; align-items: center; background: var(--oneui-surface-page); color: var(--oneui-text-high); }
+  .balk .menuknop { display: inline-grid; }
   .zijbalk, .studio.smal .zijbalk { display: none; width: auto; }
   .werk { flex-direction: column; padding: 0 var(--oneui-spacing-xs) var(--oneui-spacing-xs); gap: var(--oneui-spacing-xs); }
   .werk:not(.paneel-open) .paneel { display: none; }
@@ -198,8 +198,8 @@ b { font-weight: 600; }
   .specimen { grid-template-columns: minmax(0, 1fr); gap: var(--oneui-spacing-sm); }
   .maat { grid-template-columns: 100px minmax(0, 1fr); }
   .maatcode { display: none; }
-  .balk { flex-wrap: wrap; padding: var(--oneui-spacing-xs); }
-  .instellingen { margin-left: 0; width: 100%; }
+  /* één regel: links het menu en het logo, rechts het thema; de knoppen lijnen uit met de rand van de inhoud */
+  .balk { min-height: 0; padding: var(--oneui-spacing-sm) var(--oneui-spacing-xs); gap: var(--oneui-spacing-xs); }
 }
 
 /* ---------- components ---------- */

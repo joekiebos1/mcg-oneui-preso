@@ -6,7 +6,8 @@ import { Pagina, Sectie } from "./pages/Pagina";
 import { VOORBEELDEN } from "./pages/components/Voorbeelden";
 import { Text } from "./oneui/react/Text";
 import type { ReactElement } from "react";
-import { IcoonChevron, IcoonZijbalk } from "./components/Iconen";
+import { IcoonChevron, IcoonMenu, IcoonSluit, IcoonZijbalk } from "./components/Iconen";
+import { IconButton } from "./oneui/react/IconButton";
 import { ONEUI_VERSIE } from "./oneui/versie";
 import { Home } from "./pages/Home";
 import { Placeholder } from "./pages/Placeholder";
@@ -24,18 +25,6 @@ type Thema = "light" | "dark";
 const bewaard = <T extends string>(k: string, std: T): T => {
   try { return (localStorage.getItem(k) as T) || std; } catch { return std; }
 };
-
-function Keuze<T extends string>({ label, waarde, opties, zet }: { label: string; waarde: T; opties: [T, string][]; zet: (v: T) => void }) {
-  return (
-    <div className="keuze" role="radiogroup" aria-label={label}>
-      {opties.map(([v, t]) => (
-        <button key={v} type="button" role="radio" aria-checked={waarde === v} className={waarde === v ? "aan" : ""} onClick={() => zet(v)}>
-          {t}
-        </button>
-      ))}
-    </div>
-  );
-}
 
 /** Links de hoofdgroepen (L1), zoals het menu van de Myndlet-app. Een groep opent op zijn eerste hoofdstuk. */
 const eerste = (g: Groep) => g.items[0].pad;
@@ -112,12 +101,14 @@ export function App() {
           aria-label={smal ? "Menu uitklappen" : "Menu inklappen"} title={smal ? "Menu uitklappen" : "Menu inklappen"}>
           <IcoonZijbalk />
         </button>
-        <button type="button" className="menuknop" aria-expanded={open} aria-controls="zijbalk" onClick={() => setOpen(o => !o)}>
-          Menu
-        </button>
+        <IconButton className="menuknop" variant="ghost" size="md" icon={open ? <IcoonSluit /> : <IcoonMenu />}
+          aria-label={open ? "Menu sluiten" : "Menu openen"} aria-expanded={open} aria-controls="zijbalk" onClick={() => setOpen(o => !o)} />
         <NavLink to="/" className="logo"><Text as="span" variant="title-m">OneUI</Text></NavLink>
-        <div className="instellingen">
-          <Keuze label="Thema" waarde={thema} zet={setThema} opties={[["light", "Licht"], ["dark", "Donker"]]} />
+        <div className="instellingen" role="group" aria-label="Thema">
+          {([["light", "sun", "Licht"], ["dark", "moon", "Donker"]] as const).map(([t, icoon, naam]) => (
+            <IconButton key={t} variant={thema === t ? "neutral" : "ghost"} size="md" icon={icoon} iconFill={thema === t}
+              aria-label={naam} aria-pressed={thema === t} onClick={() => setThema(t)} />
+          ))}
         </div>
       </header>
       <nav id="zijbalk" className={"zijbalk" + (open ? " open" : "")} aria-label="Hoofdmenu">
