@@ -1,11 +1,16 @@
+// Button als verhaal, op het sjabloon van alle componenten (ComponentVerhaal), met wat Button meer heeft: probeer het,
+// de maten, de kleuren per type en de iconen. Tekst en tabellen komen uit docs/components/button.md van mcg-oneui.
 import { useState } from "react";
 import { Button, type ButtonSize, type ButtonType } from "../../oneui/react/Button";
 import { Text } from "../../oneui/react/Text";
 import { los } from "../../lib/tokens";
-import { Pagina, Regels, Sectie } from "../Pagina";
-import buttonMd from "../../oneui/docs/components/button.md?raw";
+import { linkVoor } from "../../lib/docs";
+import { Blokken, inline } from "../../lib/markdown";
+import { Sectie } from "../Pagina";
+import { Bij, Kaartje, Vak, blokken, tekst } from "../verhaal";
+import { ComponentVerhaal } from "./ComponentVerhaal";
 
-// Bron: mcg-oneui docs/components/button.md en react/src/Button.tsx (src/oneui/).
+const PAD = "docs/components/button.md";
 const TYPES: ButtonType[] = ["primary", "secondary", "neutral", "ghost"];
 const MATEN: ButtonSize[] = ["sm", "md", "lg"];
 const STATES = ["default", "hover", "pressed", "focus", "disabled", "loading"] as const;
@@ -39,7 +44,7 @@ function Probeer() {
   );
   return (
     <div className="probeer">
-      <div className="podium">
+      <div className="podium" data-ondergrond="subtle">
         <Button variant={type} size={maat} loading={laden} disabled={uit}
           iconLeft={links ? <Plus /> : undefined} iconRight={rechts ? <Chevron /> : undefined}>
           Afspraak maken
@@ -57,35 +62,29 @@ function Probeer() {
   );
 }
 
+/** Elke toestand een vak met de vier types erin; hover, ingedrukt en focus vastgezet. */
 function Staten() {
   return (
-    <div className="tabel-scroll">
-      <table className="statenmatrix">
-        <thead>
-          <tr><th />{STATES.map(s => <th key={s}><Text as="span" variant="body-m" color="low">{STATE_NL[s]}</Text></th>)}</tr>
-        </thead>
-        <tbody>
-          {TYPES.map(t => (
-            <tr key={t}>
-              <th scope="row"><Text as="span" variant="body-m">{t}</Text></th>
-              {STATES.map(s => (
-                <td key={s} className={"staat-" + s}>
-                  <Button variant={t} size="md" disabled={s === "disabled"} loading={s === "loading"} tabIndex={-1}>Opslaan</Button>
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
+    <div className="raster r3">
+      {STATES.map((st) => (
+        <div key={st}>
+          <Vak className={"staand staat-" + st}>
+            <div className="stapel midden">
+              {TYPES.map((t) => <Button key={t} variant={t} size="md" disabled={st === "disabled"} loading={st === "loading"} tabIndex={-1}>{t}</Button>)}
+            </div>
+          </Vak>
+          <Bij titel={STATE_NL[st]} />
+        </div>
+      ))}
     </div>
   );
 }
 
 // De kleurentabel uit button.md ("Kleuren per type en state"), zodat een wijziging in mcg-oneui hier vanzelf meekomt.
 function kleurtabel(): [string, (string | null)[]][] {
-  const blok = buttonMd.split("### Kleuren per type en state")[1] ?? "";
   const rijen: [string, (string | null)[]][] = [];
-  for (const r of blok.split("\n")) {
+  const tabel = blokken(PAD, "Kleuren per type en state").find((b) => b.soort === "tabel");
+  for (const r of tabel?.regels ?? []) {
     if (!/^\|\s*(primary|secondary|neutral|ghost)\s*\|/.test(r)) continue;
     const c = r.split("|").slice(1, -1).map(x => x.trim().replace(/`/g, ""));
     const vlak = c[1] === "—" ? null : c[1];
@@ -94,111 +93,65 @@ function kleurtabel(): [string, (string | null)[]][] {
   }
   return rijen;
 }
-const KLEUREN = kleurtabel();
 function Tok({ n }: { n: string | null }) {
   if (!n) return <Text as="span" variant="body-m" color="low">—</Text>;
   const { waarde, keten } = los(`{${n}}`);
+  // kort: het staaltje en de stap op de ladder; de tokennaam staat in de specificatie (Voor developers)
   return (
-    <span className="regelstaal">
+    <span className="regelstaal" title={n}>
       <i style={{ background: waarde }} />
-      <span className="tokkort">
-        <code>{n}</code>
-        <code className="laag">{keten[keten.length - 1]} · {waarde.toUpperCase()}</code>
-      </span>
+      <code>{keten[keten.length - 1]}</code>
     </span>
   );
 }
 
+// Het beeld bij elke regel van doen en niet doen, in de volgorde van de docs.
+const BEELDEN = [
+  <Kaartje rij><Button size="md">Opslaan</Button><Button size="md" variant="secondary">Verder</Button></Kaartje>,
+  <Kaartje rij><Button size="md" variant="ghost">Annuleren</Button><Button size="md">Opslaan</Button></Kaartje>,
+  <Kaartje rij><Button size="md">Annuleren</Button><Button size="md">Opslaan</Button></Kaartje>,
+  <Kaartje rij><span className="randknop"><Text as="span" variant="label-m">Opslaan</Text></span></Kaartje>,
+  <Kaartje rij><Button size="md" className="eigenknop">Opslaan</Button></Kaartje>,
+];
+
 export function ButtonPagina() {
+  const link = linkVoor("components");
+  const kleuren = kleurtabel();
+  const kleurregels = blokken(PAD, "Kleuren per type en state").filter((b) => b.soort !== "tabel");
   return (
-    <Pagina intro="Een knop start een actie. Eén primary per scherm: de actie die er het meest toe doet. Alle andere acties stappen af: secondary, dan neutral, dan ghost. Altijd een vlak of kaal, nooit een rand. Naar een andere pagina gaan is een link, geen knop.">
-      <Sectie titel="Probeer">
+    <ComponentVerhaal slug="button" beelden={BEELDEN} toestanden={<Staten />} extra={<>
+      <Sectie titel="Probeer het">
         <Probeer />
       </Sectie>
 
-      <Sectie titel="Types en toestanden" uitleg="Elk type in elke toestand. Hover, ingedrukt en focus zijn hier vastgezet; in het voorbeeld hierboven zie je ze echt.">
-        <Staten />
-      </Sectie>
-
-      <Sectie titel="Maten" uitleg="Hoekafronding radius/full. Ruimte tussen icoon en label spacing/md (8). Geen rand.">
-        <div className="maatrij">
-          {MATEN.map(m => (
-            <div key={m} className="maatknop">
-              <Button size={m} iconLeft={<Plus />}>Toevoegen</Button>
-              <Text as="span" variant="body-m">{m}{m === "md" ? " · standaard" : ""}</Text>
-            </div>
+      <Sectie titel="Maten" uitleg={inline(tekst(blokken(PAD, "Maten")), link)}>
+        <div className="raster r3">
+          {MATEN.map((m) => (
+            <div key={m}><Vak><Button size={m} iconLeft={<Plus />}>Toevoegen</Button></Vak><Bij titel={m === "md" ? "md · standaard" : m} /></div>
           ))}
         </div>
-        <div className="tabel-scroll">
-          <table className="tabel">
-            <thead><tr><th>Maat</th><th>Hoogte</th><th>Padding links/rechts</th><th>Tekststijl</th><th>Icoon</th></tr></thead>
-            <tbody>
-              <tr><td>sm</td><td><code>size/xl</code> 36</td><td><code>spacing/xl</code> 16</td><td>label/M</td><td><code>size/2xs</code> 16</td></tr>
-              <tr><td>md</td><td><code>size/2xl</code> 40</td><td><code>spacing/2xl</code> 20</td><td>label/M</td><td><code>size/xs</code> 20</td></tr>
-              <tr><td>lg</td><td><code>size/3xl</code> 48</td><td><code>spacing/3xl</code> 24</td><td>label/L</td><td><code>size/sm</code> 24</td></tr>
-            </tbody>
-          </table>
-        </div>
       </Sectie>
 
-      <Sectie titel="Kleuren" uitleg={<>Per type en toestand het token, met waar het naartoe wijst in het huidige thema. {(buttonMd.match(/In MCG is [^\n]*/) ?? [""])[0]}</>}>
+      <Sectie titel="Kleuren">
         <div className="tabel-scroll">
-          <table className="tabel">
+          <table className="tabel vlak">
             <thead><tr><th>Type</th><th>Vlak</th><th>Hover</th><th>Ingedrukt</th><th>Label en icoon</th></tr></thead>
             <tbody>
-              {KLEUREN.map(([t, k]) => (
-                <tr key={t}><td><b>{t}</b></td>{k.map((n, i) => <td key={i}><Tok n={n} /></td>)}</tr>
+              {kleuren.map(([t, k]) => (
+                <tr key={t}><td>{t}</td>{k.map((n, i) => <td key={i}><Tok n={n} /></td>)}</tr>
               ))}
             </tbody>
           </table>
         </div>
-        <Regels items={[
-          <><b>Ingedrukt:</b> de knop veert in tot 96 %.</>,
-          <><b>Uitgeschakeld:</b> de knop zoals hij is, op 40 %, zonder hover of indrukken (besluit 013).</>,
-          <><b>Focus:</b> een ring buiten de knop, border/thick breed en spacing/2xs los van de knop, alleen bij toetsenbordfocus. In interaction/focusRing (sky), voor elk type. De knop verschuift niet.</>,
-          <><b>Laden:</b> het label blijft onzichtbaar staan, zodat de knop zijn breedte houdt, met een spinner in het midden. De knop is dan niet klikbaar en meldt aan schermlezers dat hij bezig is.</>,
-        ]} />
+        <Blokken blokken={kleurregels} link={link} />
       </Sectie>
 
-      <Sectie titel="Iconen" uitleg="Optioneel vóór en/of na het label. Het icoon heeft de kleur van het label en groeit mee met de maat.">
-        <div className="maatrij">
-          <Button variant="secondary" iconLeft={<Plus />}>Toevoegen</Button>
-          <Button variant="neutral" iconRight={<Chevron />}>Bekijk alles</Button>
-        </div>
-        <Regels items={[
-          "Een icoon na het label (chevron) suggereert navigatie.",
-          "Een knop met alleen een icoon is een Icon Button, met een toegankelijk label.",
-        ]} />
-      </Sectie>
-
-      <Sectie titel="Doen en niet doen">
-        <div className="naast">
-          <div className="vak">
-            <Text variant="heading-m">Doen</Text>
-            <Regels items={["Een werkwoord als label: “Opslaan”, “Verder”.", "Eén primary per scherm."]} />
-            <div className="maatrij"><Button variant="ghost">Annuleren</Button><Button>Opslaan</Button></div>
-          </div>
-          <div className="vak">
-            <Text variant="heading-m">Niet doen</Text>
-            <Regels items={["Twee primaries naast elkaar, of een primary voor annuleren.", "Een rand om een knop; kies neutral.", "Kleuren of maten aanpassen per knop; vraag een nieuwe variant aan."]} />
-            <div className="maatrij"><Button>Annuleren</Button><Button>Opslaan</Button></div>
-          </div>
+      <Sectie titel="Iconen" uitleg={inline(tekst(blokken(PAD, "Iconen")), link)}>
+        <div className="raster r2">
+          <div><Vak><Button variant="secondary" iconLeft={<Plus />}>Toevoegen</Button></Vak><Bij titel="Icoon vóór het label" /></div>
+          <div><Vak><Button variant="neutral" iconRight={<Chevron />}>Bekijk alles</Button></Vak><Bij titel="Icoon na het label" /></div>
         </div>
       </Sectie>
-
-      <Sectie titel="Toegankelijkheid">
-        <Regels items={[
-          "Een echte <button>, standaard type “button”: hij verstuurt geen formulier.",
-          "Contrast tussen label en vlak minstens 4,5:1 in elke toestand, licht en donker. Dat wordt automatisch gecontroleerd.",
-        ]} />
-      </Sectie>
-
-      <Sectie titel="In code">
-        <Regels items={[
-          <><b>React:</b> <code>{"<Button variant=\"primary\" size=\"md\">Opslaan</Button>"}</code> uit de OneUI-library.</>,
-          <><b>Figma:</b> DS Components › Button.</>,
-        ]} />
-      </Sectie>
-    </Pagina>
+    </>} />
   );
 }

@@ -3,7 +3,6 @@ import { Link, Navigate, NavLink, Route, Routes, useLocation } from "react-route
 import { GROEPEN, MENU, anker, groepVan, type Groep, type Item } from "./menu";
 import { Deel } from "./pages/Pagina";
 import { Pagina, Sectie } from "./pages/Pagina";
-import { VOORBEELDEN } from "./pages/components/Voorbeelden";
 import { Text } from "./oneui/react/Text";
 import type { ReactElement } from "react";
 import { IcoonChevron, IcoonMenu, IcoonSluit, IcoonZijbalk } from "./components/Iconen";
@@ -24,6 +23,7 @@ import { doc, linkVoor } from "./lib/docs";
 import { useParams } from "react-router-dom";
 import { ButtonPagina } from "./pages/components/ButtonPagina";
 import { CheckboxPagina } from "./pages/components/CheckboxPagina";
+import { ComponentVerhaal } from "./pages/components/ComponentVerhaal";
 
 type Thema = "light" | "dark";
 
@@ -261,11 +261,8 @@ function NaarComponent() {
 
 function Component() {
   const { slug = "" } = useParams();
-  const md = doc(`docs/components/${slug}.md`);
-  const Voorbeeld = VOORBEELDEN[slug];
-  if (!md) return <Placeholder />;
-  return <Doc md={md} link={linkVoor("components")} bron={`docs/components/${slug}.md`}
-    boven={Voorbeeld && <Sectie titel="Voorbeelden" uitleg="Werkende componenten uit mcg-oneui: probeer ze uit."><Voorbeeld /></Sectie>} />;
+  if (!doc(`docs/components/${slug}.md`)) return <Placeholder />;
+  return <ComponentVerhaal key={slug} slug={slug} />;
 }
 
 function Besluit() {

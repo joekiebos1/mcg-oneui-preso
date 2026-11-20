@@ -1,5 +1,5 @@
 // Werkende voorbeelden van de componenten uit mcg-oneui (src/oneui/react): alle toestanden naast elkaar, en ze doen
-// echt wat ze doen. Bovenaan de pagina van elk component; de documentatie eronder komt uit docs/components/.
+// echt wat ze doen. Op de pagina van elk component onder Varianten en toestanden (ComponentVerhaal.tsx).
 import { useState, type ReactNode } from "react";
 import { Text } from "../../oneui/react/Text";
 import { Input } from "../../oneui/react/Input";
@@ -20,8 +20,9 @@ import { Icon } from "../../oneui/react/Icon";
 import { ICOONNAMEN } from "../../oneui/react/icondata";
 import { IcoonComponent, IcoonKleur, IcoonIcoon } from "../../components/Iconen";
 
+// Elke toestand een vak op de grijze pagina met de naam eronder, zoals de vakken op Kleuren (eigenaar 2026-11-20).
 const Staat = ({ naam, children }: { naam: string; children: ReactNode }) => (
-  <div className="staat"><Text as="span" variant="body-m" color="low">{naam}</Text><div className="staat__inhoud">{children}</div></div>
+  <div className="staat"><div className="staatvak" data-ondergrond="subtle">{children}</div><Text as="span" variant="body-m">{naam}</Text></div>
 );
 
 // Voorbeeldiconen in de stijl van DS Icons: 24 px, lijn 1,75, rond, currentColor.
@@ -176,22 +177,22 @@ function ListVoorbeelden() {
   return (
     <div className="staten">
       <Staat naam="op de pagina">
-        <div className="paginavlak">
-          <List>
-            <ListItem title="Wat is slaapdruk?" description="Video · 3 min" icon="video" tone="magenta" done
-              trailing={<span className="vinkbol"><Vink /></span>} />
-            <ListItem title="Ademhaling 4-7-8" description="Oefening · 5 min" icon="sparkle" tone="sky" onClick={() => {}} />
-            <ListItem title="Slaapdagboek" description="Opdracht · elke ochtend" icon="pen-writing" tone="amber" onClick={() => {}} />
-            <ListItem title="Een vast ritme" description="Les 4 · nog niet open" icon="moon" tone="violet" trailing="ma" />
-          </List>
-        </div>
+        <List>
+          <ListItem title="Wat is slaapdruk?" description="Video · 3 min" icon="video" tone="magenta" done
+            trailing={<span className="vinkbol"><Vink /></span>} />
+          <ListItem title="Ademhaling 4-7-8" description="Oefening · 5 min" icon="sparkle" tone="sky" onClick={() => {}} />
+          <ListItem title="Slaapdagboek" description="Opdracht · elke ochtend" icon="pen-writing" tone="amber" onClick={() => {}} />
+          <ListItem title="Een vast ritme" description="Les 4 · nog niet open" icon="moon" tone="violet" trailing="ma" />
+        </List>
       </Staat>
       <Staat naam="surface sunken, in een wit vlak">
-        <List surface="sunken">
-          <ListItem title="Sanne de Vries" description="Laatste sessie gisteren" icon="user" onClick={() => {}} />
-          <ListItem title="Ahmed Benali" description="Nieuw bericht" icon="message-smile" onClick={() => {}} />
-          <ListItem title="Archief" description="Niet beschikbaar" icon="calendar" onClick={() => {}} disabled />
-        </List>
+        <div className="witvlak" data-ondergrond="default">
+          <List surface="sunken">
+            <ListItem title="Sanne de Vries" description="Laatste sessie gisteren" icon="user" onClick={() => {}} />
+            <ListItem title="Ahmed Benali" description="Nieuw bericht" icon="message-smile" onClick={() => {}} />
+            <ListItem title="Archief" description="Niet beschikbaar" icon="calendar" onClick={() => {}} disabled />
+          </List>
+        </div>
       </Staat>
     </div>
   );

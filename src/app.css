@@ -272,19 +272,23 @@ b, strong { font-weight: inherit; }
 .deelkop h2 { margin: 0; text-box: trim-both cap alphabetic; }
 
 /* ---------- voorbeelden van componenten ---------- */
-.staten { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: var(--oneui-spacing-3xl) var(--oneui-spacing-2xl);
-  padding: var(--oneui-spacing-3xl); border-radius: var(--oneui-radius-xl); background: var(--oneui-surface-default);
-  box-shadow: inset 0 0 0 var(--oneui-border-thin) var(--oneui-stroke-neutral-low); }
-.staten + .staten { margin-top: var(--oneui-spacing-lg); }
+/* toestanden als vakken op de grijze pagina, de naam eronder (zoals de vakken op Kleuren) */
+.staten { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--oneui-spacing-3xl); }
+.staten + .staten { margin-top: var(--oneui-spacing-3xl); }
 .staten.breed { grid-template-columns: minmax(0, 1fr); }
+.staatvak { display: grid; place-items: center; min-height: 200px; padding: var(--oneui-spacing-3xl); border-radius: var(--oneui-radius-3xl);
+  background: var(--oneui-surface-page); box-sizing: border-box; min-width: 0; }
+.staatvak > .oneui-veld, .staatvak > .oneui-select, .staten.breed .staatvak > * { width: 100%; }
+.staat > .oneui-text { margin-top: var(--oneui-spacing-lg); }
+.witvlak { width: 100%; padding: var(--oneui-spacing-xl); border-radius: var(--oneui-radius-3xl); background: var(--oneui-surface-default); box-sizing: border-box; }
+@media (max-width: 520px) { .staten { grid-template-columns: minmax(0, 1fr); } }
 .staat .rij { display: flex; flex-wrap: wrap; align-items: center; gap: var(--oneui-spacing-lg); }
 .paginavlak { padding: var(--oneui-spacing-xl); border-radius: var(--oneui-radius-3xl); background: var(--oneui-surface-page); }
 .zijmenu { max-width: 280px; }
 .vinkbol { display: grid; place-items: center; width: var(--oneui-size-sm); height: var(--oneui-size-sm); border-radius: var(--oneui-radius-full);
   background: var(--oneui-surface-positive-bold); color: var(--oneui-icon-on-bold); }
 .vinkbol svg { width: var(--oneui-size-2xs); height: var(--oneui-size-2xs); stroke-width: 2.5; }
-.staat { display: flex; flex-direction: column; gap: var(--oneui-spacing-md); min-width: 0; }
-.staat__inhoud { min-width: 0; }
+.staat { display: flex; flex-direction: column; min-width: 0; }
 .stapel { display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); }
 .inspring { display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); padding-left: var(--oneui-spacing-3xl); }
 .groep { border: 0; margin: 0; padding: 0; display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); }
@@ -322,9 +326,9 @@ b, strong { font-weight: inherit; }
 .nepknop { display: inline-flex; align-items: center; height: var(--oneui-size-xl); padding: 0 var(--oneui-spacing-xl); border-radius: var(--oneui-radius-full);
   background: var(--oneui-surface-magenta-bold); color: var(--oneui-text-on-bold-magenta); }
 .nepknop span { color: inherit; }
-.tabel.vlak { border-collapse: separate; border-spacing: 0; border-radius: var(--oneui-radius-3xl); overflow: hidden; background: var(--oneui-surface-page); }
-.tabel.vlak th { padding: var(--oneui-spacing-2xl) var(--oneui-spacing-2xl) var(--oneui-spacing-sm); }
-.tabel.vlak td { box-shadow: none; padding: var(--oneui-spacing-md) var(--oneui-spacing-2xl); }
+.tabel.vlak, .verhaal .tabel.doc { border-collapse: separate; border-spacing: 0; border-radius: var(--oneui-radius-3xl); overflow: hidden; background: var(--oneui-surface-page); }
+.tabel.vlak th, .verhaal .tabel.doc th { padding: var(--oneui-spacing-2xl) var(--oneui-spacing-2xl) var(--oneui-spacing-sm); }
+.tabel.vlak td, .verhaal .tabel.doc td { box-shadow: none; padding: var(--oneui-spacing-md) var(--oneui-spacing-2xl); }
 .tabel.vlak tr:last-child td { padding-bottom: var(--oneui-spacing-2xl); }
 .held.licht { background: var(--oneui-surface-page); }
 .ladderrij { display: flex; flex-direction: column; gap: var(--oneui-spacing-md); width: 80%; }
@@ -370,3 +374,29 @@ b, strong { font-weight: inherit; }
   .anatomie { transform: scale(0.6); }
 }
 .bij code { overflow-wrap: anywhere; }
+
+/* componenten als verhaal */
+.regelkaart { display: flex; align-items: flex-start; gap: var(--oneui-spacing-xl); padding: var(--oneui-spacing-2xl);
+  border-radius: var(--oneui-radius-3xl); background: var(--oneui-surface-page); }
+.regelkaart .oordeel { margin-top: 0; }
+.regelkaart.leeg { background: none; }
+.proefrij.links { justify-content: flex-start; }
+.stapel.krap { gap: var(--oneui-spacing-xs); }
+.breedkaart { width: min(480px, 84%); }
+.breedkaart .kaartje { width: 100%; box-sizing: border-box; }
+.dialoogbeeld { width: min(360px, 80%); box-sizing: border-box; }
+.dialoogbeeld .stapel .oneui-button { width: 100%; }
+.iconenrij { display: flex; gap: var(--oneui-spacing-3xl); color: var(--oneui-icon-high); }
+.uitklap-deel { display: flex; flex-direction: column; gap: var(--oneui-spacing-lg); }
+.uitklap-deel + .uitklap-deel { margin-top: var(--oneui-spacing-2xl); }
+@media (max-width: 520px) { .regelkaart.leeg { display: none; } .iconenrij { gap: var(--oneui-spacing-xl); } }
+.matrixvak { padding: var(--oneui-spacing-xl) var(--oneui-spacing-2xl); border-radius: var(--oneui-radius-3xl); background: var(--oneui-surface-page); }
+.matrixvak .statenmatrix { margin: 0; }
+/* niet doen: een rand om een knop, en een knop met eigen kleur en hoeken */
+.randknop { display: inline-flex; align-items: center; height: var(--oneui-size-2xl); padding: 0 var(--oneui-spacing-2xl); border-radius: var(--oneui-radius-full);
+  box-shadow: inset 0 0 0 var(--oneui-border-thick) var(--oneui-surface-action-primary); color: var(--oneui-surface-action-primary); }
+.randknop span { color: inherit; }
+.eigenknop.oneui-button { background: var(--oneui-surface-violet-bold); color: var(--oneui-text-on-bold-violet); border-radius: var(--oneui-radius-xs); }
+.stapel.midden { align-items: center; }
+.kaartvak.staand { aspect-ratio: 4 / 5; }
+.staat .staatvak { flex: 1; }

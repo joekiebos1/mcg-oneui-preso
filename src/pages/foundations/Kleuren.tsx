@@ -1,6 +1,5 @@
 // De pagina Kleuren als verhaal (eigenaar 2026-11-20): een beeld, de vier merkkleuren, hoe het werkt, welke kleur je pakt,
 // licht en donker, doen en niet doen, en de ladders. Alle tokens en de regels staan op /kleuren/tokens.
-import type { ReactNode } from "react";
 import { Link } from "react-router-dom";
 import { Text } from "../../oneui/react/Text";
 import { Button } from "../../oneui/react/Button";
@@ -8,6 +7,7 @@ import { Checkbox } from "../../oneui/react/Checkbox";
 import { Toggle } from "../../oneui/react/Toggle";
 import { ladders, los, token } from "../../lib/tokens";
 import { Pagina, Sectie } from "../Pagina";
+import { Bij, Oordeel, Vak } from "../verhaal";
 import held from "../../assets/kleuren-held.webp";
 
 // De vier merkkleuren als deep, bold en een lichte stap; de uitleg komt uit de kleurregels van mcg-oneui.
@@ -38,27 +38,6 @@ const hex = (naam: string) => los(`{${naam}}`).waarde;
 const stap = (w: unknown) => { const k = los(w).keten; return k[k.length - 1] ?? String(w); };
 const css = (naam: string) => `var(--oneui-${naam.replace(/\//g, "-").toLowerCase()})`;
 
-function Bij({ titel, children }: { titel: string; children?: ReactNode }) {
-  return (
-    <div className="bij">
-      <Text variant="body-m">{titel}</Text>
-      {children && <Text variant="body-m" color="medium">{children}</Text>}
-    </div>
-  );
-}
-
-function Oordeel({ goed }: { goed: boolean }) {
-  return (
-    <div className="oordeel" aria-label={goed ? "Doen" : "Niet doen"}>
-      <span className={goed ? "ja" : "nee"}>
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          {goed ? <path d="m5 12 5 5 9-10" /> : <path d="m6 6 12 12M18 6 6 18" />}
-        </svg>
-      </span>
-    </div>
-  );
-}
-
 function Proef() {
   return (
     <div className="proef">
@@ -79,10 +58,10 @@ export function Kleuren() {
           {MERK.map((m) => (
             <div key={m.naam}>
               {/* deep als grond, bold als stip, de naam in een lichte stap: vaste kleuren, in licht en donker gelijk */}
-              <div className="kaartvak merktegel" style={{ background: hex(`${m.familie}/950`) }}>
+              <Vak className="merktegel" style={{ background: hex(`${m.familie}/950`) }}>
                 <span className="merkstip" style={{ background: css(`surface/${m.familie}/bold`) }} />
                 <Text as="span" variant="heading-m" className="merknaam" style={{ color: hex(`${m.familie}/200`) }}>{m.naam}</Text>
-              </div>
+              </Vak>
               <div className="bij"><Text variant="body-m" color="medium">{m.uitleg}</Text></div>
             </div>
           ))}
@@ -91,9 +70,9 @@ export function Kleuren() {
 
       <Sectie titel="Hoe het werkt" uitleg="Een component kiest nooit zelf een kleur uit een ladder. Het vraagt om een rol, en de rol wijst naar de ladder. Zo verandert een kleur op één plek.">
         <div className="raster r3">
-          <div><div className="kaartvak"><span className="bolvlak" style={{ background: hex("sky/700") }} /></div><Bij titel="1 · Ladder"><code>sky/700</code></Bij></div>
-          <div><div className="kaartvak"><span className="rolvlak" style={{ background: css("surface/action/primary") }} /></div><Bij titel="2 · Rol"><code>surface/action/primary</code></Bij></div>
-          <div><div className="kaartvak"><Button variant="primary" size="md">Afspraak maken</Button></div><Bij titel="3 · Component">Button</Bij></div>
+          <div><Vak><span className="bolvlak" style={{ background: hex("sky/700") }} /></Vak><Bij titel="1 · Ladder"><code>sky/700</code></Bij></div>
+          <div><Vak><span className="rolvlak" style={{ background: css("surface/action/primary") }} /></Vak><Bij titel="2 · Rol"><code>surface/action/primary</code></Bij></div>
+          <div><Vak><Button variant="primary" size="md">Afspraak maken</Button></Vak><Bij titel="3 · Component">Button</Bij></div>
         </div>
       </Sectie>
 
@@ -121,8 +100,8 @@ export function Kleuren() {
 
       <Sectie titel="Licht en donker" uitleg="Dezelfde rollen, gespiegeld: wat in licht donker is, is in donker licht.">
         <div className="raster r2">
-          <div><div className="kaartvak" data-theme="light"><Proef /></div><Bij titel="Licht">Primary donker sky, secondary licht sky.</Bij></div>
-          <div><div className="kaartvak donker" data-theme="dark"><Proef /></div><Bij titel="Donker">Andersom: primary licht, secondary donker.</Bij></div>
+          <div><Vak data-theme="light"><Proef /></Vak><Bij titel="Licht">Primary donker sky, secondary licht sky.</Bij></div>
+          <div><Vak className="donker" data-theme="dark"><Proef /></Vak><Bij titel="Donker">Andersom: primary licht, secondary donker.</Bij></div>
         </div>
       </Sectie>
 
@@ -132,10 +111,10 @@ export function Kleuren() {
 
       <Sectie titel="Doen en niet doen">
         <div className="raster r2">
-          <div><div className="kaartvak"><div className="proef"><Button variant="primary" size="md">Opslaan</Button><code>surface/action/primary</code></div></div><Oordeel goed /><Bij titel="Een rol in een component">Dan klopt hij in licht, donker en op subtle.</Bij></div>
-          <div><div className="kaartvak"><div className="proef"><Button variant="primary" size="md">Opslaan</Button><code>sky/700</code></div></div><Oordeel goed={false} /><Bij titel="Geen ladder in een component">Ladders zijn voor illustraties en slides.</Bij></div>
-          <div><div className="kaartvak merkmoment"><Text variant="heading-m" className="merkmoment-tekst">Rust in je hoofd</Text></div><Oordeel goed /><Bij titel="Magenta voor een merkmoment">Een cover, een kop, een illustratie.</Bij></div>
-          <div><div className="kaartvak"><span className="nepknop"><Text as="span" variant="body-m">Opslaan</Text></span></div><Oordeel goed={false} /><Bij titel="Geen magenta op een knop">Knoppen zijn sky.</Bij></div>
+          <div><Vak><div className="proef"><Button variant="primary" size="md">Opslaan</Button><code>surface/action/primary</code></div></Vak><Oordeel goed /><Bij titel="Een rol in een component">Dan klopt hij in licht, donker en op subtle.</Bij></div>
+          <div><Vak><div className="proef"><Button variant="primary" size="md">Opslaan</Button><code>sky/700</code></div></Vak><Oordeel goed={false} /><Bij titel="Geen ladder in een component">Ladders zijn voor illustraties en slides.</Bij></div>
+          <div><Vak className="merkmoment"><Text variant="heading-m" className="merkmoment-tekst">Rust in je hoofd</Text></Vak><Oordeel goed /><Bij titel="Magenta voor een merkmoment">Een cover, een kop, een illustratie.</Bij></div>
+          <div><Vak><span className="nepknop"><Text as="span" variant="body-m">Opslaan</Text></span></Vak><Oordeel goed={false} /><Bij titel="Geen magenta op een knop">Knoppen zijn sky.</Bij></div>
         </div>
       </Sectie>
 
