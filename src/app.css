@@ -19,6 +19,9 @@ b { font-weight: 600; }
 .logo { display: flex; align-items: center; }
 .balk .menuknop { display: none; }
 .instellingen { margin-left: auto; display: flex; gap: var(--oneui-spacing-xs); }
+.thema { align-items: center; gap: var(--oneui-spacing-md); padding-right: var(--oneui-spacing-sm); }
+.thema-icoon { display: inline-grid; place-items: center; color: var(--oneui-icon-low); cursor: pointer; transition: color 160ms ease; }
+.thema-icoon.aan { color: var(--oneui-icon-high); }
 .icoonknop { display: inline-grid; place-items: center; flex: none; width: var(--oneui-size-lg); height: var(--oneui-size-lg); padding: 0;
   border: 0; border-radius: var(--oneui-radius-full); background: transparent; color: var(--oneui-icon-medium); cursor: pointer; }
 .icoonknop:hover { background: var(--oneui-surface-action-neutral); color: var(--oneui-icon-high); }

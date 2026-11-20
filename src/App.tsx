@@ -8,6 +8,8 @@ import { Text } from "./oneui/react/Text";
 import type { ReactElement } from "react";
 import { IcoonChevron, IcoonMenu, IcoonSluit, IcoonZijbalk } from "./components/Iconen";
 import { IconButton } from "./oneui/react/IconButton";
+import { Icon } from "./oneui/react/Icon";
+import { Toggle } from "./oneui/react/Toggle";
 import { ONEUI_VERSIE } from "./oneui/versie";
 import { Home } from "./pages/Home";
 import { Placeholder } from "./pages/Placeholder";
@@ -104,11 +106,15 @@ export function App() {
         <IconButton className="menuknop" variant="ghost" size="md" icon={open ? <IcoonSluit /> : <IcoonMenu />}
           aria-label={open ? "Menu sluiten" : "Menu openen"} aria-expanded={open} aria-controls="zijbalk" onClick={() => setOpen(o => !o)} />
         <NavLink to="/" className="logo"><Text as="span" variant="title-m">OneUI</Text></NavLink>
-        <div className="instellingen" role="group" aria-label="Thema">
-          {([["light", "sun", "Licht"], ["dark", "moon", "Donker"]] as const).map(([t, icoon, naam]) => (
-            <IconButton key={t} variant={thema === t ? "neutral" : "ghost"} size="md" icon={icoon} iconFill={thema === t}
-              aria-label={naam} aria-pressed={thema === t} onClick={() => setThema(t)} />
-          ))}
+        {/* thema: een Toggle met de zon links en de maan rechts; de iconen zijn ook aan te klikken */}
+        <div className="instellingen thema">
+          <span className={"thema-icoon" + (thema === "light" ? " aan" : "")} onClick={() => setThema("light")} aria-hidden="true">
+            <Icon name="sun" fill={thema === "light"} />
+          </span>
+          <Toggle aria-label="Donker thema" checked={thema === "dark"} onChange={(aan) => setThema(aan ? "dark" : "light")} />
+          <span className={"thema-icoon" + (thema === "dark" ? " aan" : "")} onClick={() => setThema("dark")} aria-hidden="true">
+            <Icon name="moon" fill={thema === "dark"} />
+          </span>
         </div>
       </header>
       <nav id="zijbalk" className={"zijbalk" + (open ? " open" : "")} aria-label="Hoofdmenu">
