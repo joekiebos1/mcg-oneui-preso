@@ -38,10 +38,6 @@
 .oneui-toggle__veld:focus-visible + .oneui-toggle__baan {
   outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs);
 }
-/* uitgeschakeld: uit is een lichte baan, aan is de aan-kleur op 35 % */
-.oneui-toggle.is-disabled { cursor: not-allowed; color: var(--oneui-text-disabled); }
-.oneui-toggle.is-disabled .oneui-toggle__baan { background: var(--oneui-surface-disabled); }
-.oneui-toggle.is-disabled .oneui-toggle__knop { box-shadow: none; }
-.oneui-toggle.is-disabled .oneui-toggle__veld:not(:checked) + .oneui-toggle__baan .oneui-toggle__knop { background: var(--oneui-surface-default); }
-.oneui-toggle.is-disabled .oneui-toggle__veld:checked + .oneui-toggle__baan { background: var(--oneui-surface-action-primary); opacity: 0.35; }
+/* uitgeschakeld: het component zoals het is, op 40 %, zonder hover of indrukken (besluit 013) */
+.oneui-toggle.is-disabled { opacity: 0.4; cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) { .oneui-toggle__baan, .oneui-toggle__knop { transition: none; } }

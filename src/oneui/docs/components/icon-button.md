@@ -39,7 +39,7 @@ toegankelijk label.
 | neutral (standaard) | `surface/action/neutral` | `surface/action/neutral-hover` | `surface/action/neutral-pressed` | `icon/high` |
 | ghost | — | `surface/action/neutral` | `surface/action/neutral-hover` | `icon/high` |
 
-Uitgeschakeld: `surface/disabled` met `icon/disabled`, ghost zonder vlak. Ingedrukt veert de cirkel in tot 92 %.
+Uitgeschakeld: de knop zoals hij is, op 40 % ([besluit 013](../besluiten/013-uitgeschakeld-gedimd.md)). Ingedrukt veert de cirkel in tot 92 %.
 Focus alleen bij het toetsenbord: `border/thick` in `interaction/focusRing`, `spacing/2xs` los.
 
 ## React

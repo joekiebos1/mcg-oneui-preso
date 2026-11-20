@@ -83,12 +83,8 @@
   outline-offset: var(--oneui-spacing-2xs);
 }
 
-.oneui-button:disabled {
-  --_bg: var(--oneui-surface-disabled);
-  --_fg: var(--oneui-text-disabled);
-  cursor: not-allowed;
-}
-.oneui-button--ghost:disabled { --_bg: transparent; }
+/* uitgeschakeld: het component zoals het is, op 40 %, zonder hover of indrukken (besluit 013) */
+.oneui-button:disabled { opacity: 0.4; cursor: not-allowed; }
 
 /* Laden: label onzichtbaar maar ruimte behouden, spinner in het midden. */
 .oneui-button.is-loading { cursor: progress; }

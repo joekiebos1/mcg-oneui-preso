@@ -142,7 +142,6 @@
   --oneui-surface-raised: var(--oneui-base-white);
   --oneui-surface-sunken: var(--oneui-slate-200);
   --oneui-surface-inverse: var(--oneui-slate-950);
-  --oneui-surface-disabled: var(--oneui-slate-200);
   --oneui-surface-magenta-subtle: var(--oneui-magenta-100);
   --oneui-surface-magenta-bold: var(--oneui-magenta-600);
   --oneui-surface-sky-subtle: var(--oneui-sky-100);
@@ -160,14 +159,12 @@
   --oneui-text-high: var(--oneui-slate-900);
   --oneui-text-medium: var(--oneui-slate-800);
   --oneui-text-low: var(--oneui-slate-700);
-  --oneui-text-disabled: var(--oneui-slate-400);
   --oneui-text-on-inverse: var(--oneui-slate-50);
   --oneui-text-on-bold: var(--oneui-base-white);
   --oneui-text-on-deep: var(--oneui-base-white);
   --oneui-text-link: var(--oneui-sky-800);
   --oneui-icon-high: var(--oneui-slate-950);
   --oneui-icon-medium: var(--oneui-slate-700);
-  --oneui-icon-disabled: var(--oneui-slate-400);
   --oneui-icon-on-bold: var(--oneui-base-white);
   --oneui-icon-on-deep: var(--oneui-base-white);
   --oneui-icon-magenta: var(--oneui-magenta-600);
@@ -246,7 +243,6 @@
   --oneui-surface-raised: var(--oneui-slate-800);
   --oneui-surface-sunken: var(--oneui-slate-950);
   --oneui-surface-inverse: var(--oneui-slate-50);
-  --oneui-surface-disabled: var(--oneui-slate-800);
   --oneui-surface-magenta-subtle: var(--oneui-magenta-950);
   --oneui-surface-magenta-bold: var(--oneui-magenta-600);
   --oneui-surface-sky-subtle: var(--oneui-sky-950);
@@ -264,14 +260,12 @@
   --oneui-text-high: var(--oneui-slate-50);
   --oneui-text-medium: var(--oneui-slate-200);
   --oneui-text-low: var(--oneui-slate-300);
-  --oneui-text-disabled: var(--oneui-slate-600);
   --oneui-text-on-inverse: var(--oneui-slate-950);
   --oneui-text-on-bold: var(--oneui-base-white);
   --oneui-text-on-deep: var(--oneui-base-white);
   --oneui-text-link: var(--oneui-sky-200);
   --oneui-icon-high: var(--oneui-slate-50);
   --oneui-icon-medium: var(--oneui-slate-300);
-  --oneui-icon-disabled: var(--oneui-slate-600);
   --oneui-icon-on-bold: var(--oneui-base-white);
   --oneui-icon-on-deep: var(--oneui-base-white);
   --oneui-icon-magenta: var(--oneui-magenta-300);
@@ -351,7 +345,6 @@
     --oneui-surface-raised: var(--oneui-slate-800);
     --oneui-surface-sunken: var(--oneui-slate-950);
     --oneui-surface-inverse: var(--oneui-slate-50);
-    --oneui-surface-disabled: var(--oneui-slate-800);
     --oneui-surface-magenta-subtle: var(--oneui-magenta-950);
     --oneui-surface-magenta-bold: var(--oneui-magenta-600);
     --oneui-surface-sky-subtle: var(--oneui-sky-950);
@@ -369,14 +362,12 @@
     --oneui-text-high: var(--oneui-slate-50);
     --oneui-text-medium: var(--oneui-slate-200);
     --oneui-text-low: var(--oneui-slate-300);
-    --oneui-text-disabled: var(--oneui-slate-600);
     --oneui-text-on-inverse: var(--oneui-slate-950);
     --oneui-text-on-bold: var(--oneui-base-white);
     --oneui-text-on-deep: var(--oneui-base-white);
     --oneui-text-link: var(--oneui-sky-200);
     --oneui-icon-high: var(--oneui-slate-50);
     --oneui-icon-medium: var(--oneui-slate-300);
-    --oneui-icon-disabled: var(--oneui-slate-600);
     --oneui-icon-on-bold: var(--oneui-base-white);
     --oneui-icon-on-deep: var(--oneui-base-white);
     --oneui-icon-magenta: var(--oneui-magenta-300);
@@ -453,7 +444,6 @@
 :where(body) > *,
 [data-ondergrond="subtle"] > * {
   --oneui-surface-sunken: var(--oneui-slate-300);
-  --oneui-surface-disabled: var(--oneui-slate-300);
   --oneui-surface-magenta-subtle: var(--oneui-magenta-200);
   --oneui-surface-sky-subtle: var(--oneui-sky-200);
   --oneui-surface-amber-subtle: var(--oneui-amber-200);
@@ -479,7 +469,6 @@
 }
 [data-ondergrond="default"] > * {
   --oneui-surface-sunken: var(--oneui-slate-200);
-  --oneui-surface-disabled: var(--oneui-slate-200);
   --oneui-surface-magenta-subtle: var(--oneui-magenta-100);
   --oneui-surface-sky-subtle: var(--oneui-sky-100);
   --oneui-surface-amber-subtle: var(--oneui-amber-100);
@@ -506,7 +495,6 @@
 :where([data-theme="dark"] body, body[data-theme="dark"]) > *,
 [data-theme="dark"] [data-ondergrond="subtle"] > *, [data-theme="dark"][data-ondergrond="subtle"] > * {
   --oneui-surface-sunken: var(--oneui-slate-800);
-  --oneui-surface-disabled: var(--oneui-slate-700);
   --oneui-surface-magenta-subtle: var(--oneui-magenta-900);
   --oneui-surface-sky-subtle: var(--oneui-sky-900);
   --oneui-surface-amber-subtle: var(--oneui-amber-900);
@@ -532,7 +520,6 @@
 }
 [data-theme="dark"] [data-ondergrond="default"] > *, [data-theme="dark"][data-ondergrond="default"] > * {
   --oneui-surface-sunken: var(--oneui-slate-950);
-  --oneui-surface-disabled: var(--oneui-slate-800);
   --oneui-surface-magenta-subtle: var(--oneui-magenta-950);
   --oneui-surface-sky-subtle: var(--oneui-sky-950);
   --oneui-surface-amber-subtle: var(--oneui-amber-950);
@@ -560,7 +547,6 @@
   :where(:root:not([data-theme="light"]) body) > *,
   :root:not([data-theme="light"]) [data-ondergrond="subtle"] > * {
     --oneui-surface-sunken: var(--oneui-slate-800);
-    --oneui-surface-disabled: var(--oneui-slate-700);
     --oneui-surface-magenta-subtle: var(--oneui-magenta-900);
     --oneui-surface-sky-subtle: var(--oneui-sky-900);
     --oneui-surface-amber-subtle: var(--oneui-amber-900);
@@ -586,7 +572,6 @@
   }
   :root:not([data-theme="light"]) [data-ondergrond="default"] > * {
     --oneui-surface-sunken: var(--oneui-slate-950);
-    --oneui-surface-disabled: var(--oneui-slate-800);
     --oneui-surface-magenta-subtle: var(--oneui-magenta-950);
     --oneui-surface-sky-subtle: var(--oneui-sky-950);
     --oneui-surface-amber-subtle: var(--oneui-amber-950);

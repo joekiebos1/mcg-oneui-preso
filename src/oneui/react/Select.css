@@ -6,6 +6,6 @@
   border-radius: var(--_radius);
 }
 .oneui-select__veld.is-leeg { color: var(--oneui-text-low); }
-.oneui-veld.is-disabled .oneui-select__veld { color: var(--oneui-text-disabled); cursor: not-allowed; }
+.oneui-veld.is-disabled .oneui-select__veld { cursor: not-allowed; }
 .oneui-select__veld option { color: var(--oneui-text-high); }
 .oneui-select__chevron { position: absolute; right: var(--_pad-x); pointer-events: none; }

@@ -54,6 +54,7 @@
 .oneui-listitem__chevron { display: inline-flex; width: var(--oneui-size-xs); height: var(--oneui-size-xs); color: var(--oneui-icon-low); }
 .oneui-listitem__chevron > svg { width: 100%; height: 100%; }
 .oneui-listitem.is-done .oneui-listitem__titel { color: var(--oneui-text-medium); }
-.oneui-listitem.is-disabled .oneui-listitem__vlak { cursor: not-allowed; color: var(--oneui-text-disabled); }
-.oneui-listitem.is-disabled .oneui-listitem__beschrijving, .oneui-listitem.is-disabled .oneui-listitem__rechts { color: var(--oneui-text-disabled); }
+/* uitgeschakeld: het component zoals het is, op 40 %, zonder hover of indrukken (besluit 013) */
+.oneui-listitem.is-disabled { opacity: 0.4; }
+.oneui-listitem.is-disabled .oneui-listitem__vlak { cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) { .oneui-listitem__vlak { transition: none; } }

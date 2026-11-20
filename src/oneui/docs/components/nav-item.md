@@ -44,7 +44,7 @@ Hoeken `radius/full`.
 | default | — | `text/medium` | `icon/medium` (of een merkkleur) |
 | hover | `surface/action/neutral` | `text/high` | — |
 | active | `surface/sky/subtle` | `text/on-subtle/sky` | `icon/sky` |
-| disabled | — | `text/disabled` | `icon/disabled` |
+| disabled | — | het component op 40 % ([besluit 013](../besluiten/013-uitgeschakeld-gedimd.md)) | |
 
 De teller is een pil van `size/sm` hoog in `surface/action/primary` met `text/on-action/primary`, label/S; boven 99
 staat er 99+.

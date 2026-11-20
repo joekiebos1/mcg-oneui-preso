@@ -20,8 +20,8 @@
 .oneui-tab.is-actief .oneui-tab__lijn, .oneui-tab.is-actief:hover .oneui-tab__lijn {
   height: calc(var(--oneui-border-thick) + var(--oneui-border-thin)); margin-top: 0; background: var(--oneui-surface-magenta-bold);
 }
-.oneui-tab:disabled { cursor: not-allowed; color: var(--oneui-text-disabled); }
-.oneui-tab:disabled .oneui-tab__icoon { color: var(--oneui-icon-disabled); }
+/* uitgeschakeld: het component zoals het is, op 40 %, zonder hover of indrukken (besluit 013) */
+.oneui-tab:disabled { opacity: 0.4; cursor: not-allowed; }
 .oneui-tab:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: var(--oneui-spacing-2xs); border-radius: var(--oneui-radius-xs); }
 /* de teller: Badge counter, neutral bold, size s (20 hoog) */
 .oneui-tab__teller {

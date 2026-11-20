@@ -28,7 +28,7 @@ _Nog in te vullen._
 |---|---|---|
 | actief | `surface/action/neutral` (slate/200; haalt nu geen 3:1, uitzondering in [besluit 008](../besluiten/008-wcag-2-2-aa.md)) | `surface/action/primary` (sky 700) |
 | hover | een stap dieper | `surface/action/primary-hover` |
-| uitgeschakeld | `surface/disabled` | `surface/action/primary` op 35 % |
+| uitgeschakeld | het component op 40 % ([besluit 013](../besluiten/013-uitgeschakeld-gedimd.md)) | idem |
 | focus (toetsenbord) | ring `border/thick` in `interaction/focusRing`, `spacing/2xs` los | zelfde |
 
 De knop schuift in 240 ms met een kleine veer; zonder beweging als de gebruiker dat vraagt (`prefers-reduced-motion`).

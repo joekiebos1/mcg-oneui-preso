@@ -6,22 +6,22 @@
   display: flex; flex-direction: column; min-width: 0; border-radius: var(--oneui-radius-2xl);
   background: var(--_vlak); transition: background-color 160ms ease, box-shadow 160ms ease;
 }
-.oneui-editor:hover { --_vlak: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-action-neutral-hover)); }
+.oneui-editor:not(.is-disabled):hover { --_vlak: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-action-neutral-hover)); }
 .oneui-editor:focus-within {
   --_vlak: var(--oneui-surface-default);
   box-shadow: 0 var(--oneui-border-thin) var(--oneui-border-thick) var(--oneui-effect-shadow-key),
     0 var(--oneui-spacing-sm) var(--oneui-spacing-2xl) var(--oneui-effect-shadow-key);
 }
-.oneui-editor.is-disabled { --_vlak: var(--oneui-surface-disabled); box-shadow: none; }
+/* uitgeschakeld: het component zoals het is, op 40 %, zonder hover of indrukken (besluit 013) */
+.oneui-editor.is-disabled { opacity: 0.4; }
 .oneui-editor__tekst {
   min-height: calc(var(--oneui-size-5xl) * 3); padding: var(--oneui-spacing-xl); outline: 0; overflow-wrap: anywhere;
   color: var(--oneui-text-high);
   font-family: var(--oneui-type-label-m-family); font-weight: var(--oneui-type-label-m-weight);
   font-size: var(--oneui-type-label-m-size); line-height: var(--oneui-type-label-m-line-height);
 }
-.oneui-editor.is-disabled .oneui-editor__tekst { color: var(--oneui-text-disabled); cursor: not-allowed; }
+.oneui-editor.is-disabled .oneui-editor__tekst { cursor: not-allowed; }
 .oneui-editor__tekst.is-leeg::before { content: attr(data-placeholder); color: var(--oneui-text-low); pointer-events: none; }
-.oneui-editor.is-disabled .oneui-editor__tekst.is-leeg::before { color: var(--oneui-text-disabled); }
 .oneui-editor__tekst > :first-child { margin-top: 0; }
 .oneui-editor__tekst > :last-child { margin-bottom: 0; }
 .oneui-editor__tekst p, .oneui-editor__tekst ul, .oneui-editor__tekst ol { margin: 0 0 var(--oneui-spacing-md); }
@@ -45,5 +45,5 @@
 .oneui-editor__knop:active:not(:disabled) { transform: scale(0.92); }
 .oneui-editor__knop[aria-pressed="true"] { background: var(--oneui-surface-sky-subtle); color: var(--oneui-icon-high); }
 .oneui-editor__knop:focus-visible { outline: var(--oneui-border-thick) solid var(--oneui-interaction-focusring); outline-offset: 0; }
-.oneui-editor__knop:disabled { cursor: not-allowed; color: var(--oneui-icon-disabled); }
+.oneui-editor__knop:disabled { opacity: 0.4; cursor: not-allowed; }
 @media (prefers-reduced-motion: reduce) { .oneui-editor, .oneui-editor__knop { transition: none; } }

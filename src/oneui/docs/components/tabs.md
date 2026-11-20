@@ -36,7 +36,7 @@ _Nog in te vullen._
 | default | `text/medium` | 2, `stroke/neutral/low` |
 | hover | `text/high` | 2, `stroke/neutral/medium` |
 | actief | `text/high` (icoon `icon/magenta`) | 3, `surface/magenta/bold` |
-| uitgeschakeld | `text/disabled` | 2, `stroke/neutral/low` |
+| uitgeschakeld | het component op 40 % ([besluit 013](../besluiten/013-uitgeschakeld-gedimd.md)) | 2, `stroke/neutral/low` |
 
 Focus (toetsenbord): `border/thick` in `interaction/focusRing`. Past de rij niet, dan scrolt hij horizontaal.
 

@@ -17,7 +17,6 @@
 }
 .oneui-veld__rechts { margin-left: auto; font-variant-numeric: tabular-nums; }
 .oneui-veld.is-error .oneui-veld__melding { color: var(--oneui-icon-negative); }
-.oneui-veld.is-disabled .oneui-veld__label, .oneui-veld.is-disabled .oneui-veld__hint { color: var(--oneui-text-disabled); }
 
 /* Het vak zelf (Figma: Body), in de stijl Rond: een gevuld vlak zonder rand. md 48 hoog, sm 40.
    Hover kleurt het vlak een stap dieper; bij focus wordt het wit en komt het los van de pagina; een fout kleurt het vlak. */
@@ -30,14 +29,15 @@
   transition: background-color 160ms ease, box-shadow 160ms ease;
 }
 .oneui-vak--sm { --_pad-y: var(--oneui-spacing-md); --_pad-x: var(--oneui-spacing-lg); --_radius: var(--oneui-radius-xl); }
-.oneui-vak:hover { --_vlak: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-action-neutral-hover)); }
+.oneui-veld:not(.is-disabled) .oneui-vak:hover { --_vlak: color-mix(in srgb, var(--oneui-surface-sunken), var(--oneui-surface-action-neutral-hover)); }
 .oneui-vak:focus-within {
   --_vlak: var(--oneui-surface-default);
   box-shadow: 0 var(--oneui-border-thin) var(--oneui-border-thick) var(--oneui-effect-shadow-key),
     0 var(--oneui-spacing-sm) var(--oneui-spacing-2xl) var(--oneui-effect-shadow-key);
 }
 .oneui-veld.is-error .oneui-vak { --_vlak: var(--oneui-surface-negative-subtle); }
-.oneui-veld.is-disabled .oneui-vak { --_vlak: var(--oneui-surface-disabled); box-shadow: none; color: var(--oneui-text-disabled); }
+/* uitgeschakeld: het component zoals het is, op 40 %, zonder hover of indrukken (besluit 013) */
+.oneui-veld.is-disabled { opacity: 0.4; }
 
 /* De tekst in het vak: label/M */
 .oneui-vak__tekst {
@@ -48,7 +48,5 @@
 }
 .oneui-vak__tekst::placeholder { color: var(--oneui-text-low); opacity: 1; }
 .oneui-vak__tekst:disabled { cursor: not-allowed; }
-.oneui-veld.is-disabled .oneui-vak__tekst::placeholder { color: var(--oneui-text-disabled); }
 .oneui-vak__icoon { display: inline-flex; flex: none; width: var(--oneui-size-xs); height: var(--oneui-size-xs); color: var(--oneui-icon-medium); }
 .oneui-vak__icoon > svg { width: 100%; height: 100%; }
-.oneui-veld.is-disabled .oneui-vak__icoon { color: var(--oneui-icon-disabled); }

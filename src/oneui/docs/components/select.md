@@ -55,7 +55,7 @@ De state **open** in Figma is in React de lijst van de browser zelf (een native 
 | hulptekst | body/XS, `text/medium` |
 | ruimte tussen label, vak en hulptekst | `spacing/xs` |
 | fout | vak `surface/negative/subtle`, zonder rand; de melding in `icon/negative` vervangt de hulptekst |
-| uitgeschakeld | vak `surface/disabled`, tekst `text/disabled` |
+| uitgeschakeld | het component op 40 % ([besluit 013](../besluiten/013-uitgeschakeld-gedimd.md)) |
 
 ## React
 

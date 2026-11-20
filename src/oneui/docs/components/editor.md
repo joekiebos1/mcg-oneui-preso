@@ -37,7 +37,7 @@ In de stijl Rond: een gevuld vlak zonder rand, zoals Input. Geen lijnen in de we
 | knoppen | rond, `size/md` (28), icoon `size/2xs` in `icon/medium`; hover `surface/action/neutral`, aan `surface/sky/subtle`; ingedrukt schaal 0,92 |
 | groepen | `spacing/lg` ertussen, geen scheidingslijn |
 | focus op een knop | een ring van `border/thick` in `interaction/focusRing` |
-| uitgeschakeld | vlak `surface/disabled`, tekst `text/disabled` |
+| uitgeschakeld | het component op 40 % ([besluit 013](../besluiten/013-uitgeschakeld-gedimd.md)) |
 
 Werkbalk: vet, cursief, onderstreept · kop 1, kop 2 · genummerd, opsomming · lijn, link. Kop 1 is title/L, kop 2
 title/M.

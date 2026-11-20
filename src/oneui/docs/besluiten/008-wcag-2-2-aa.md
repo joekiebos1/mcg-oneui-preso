@@ -16,7 +16,7 @@ OneUI haalt **WCAG 2.2 niveau AA**. Dat is wat de zorg aanhoudt en waar de Europ
 | 2.4.7 en 2.4.11 Focus zichtbaar | focus altijd te zien, niet verstopt | `interaction/focusRing`, `border/thick`, alleen bij het toetsenbord |
 | 2.5.8 Doelgrootte (minimum) | 24 × 24 | Checkbox en Radio md zijn 24; het label hoort bij het klikvlak |
 
-Uitgeschakeld valt buiten 1.4.11.
+Uitgeschakeld valt buiten 1.4.11; het is het component op 40 % ([013](013-uitgeschakeld-gedimd.md)).
 
 ## Gevolg
 

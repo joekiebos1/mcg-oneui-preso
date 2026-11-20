@@ -43,7 +43,7 @@ Label label/M in `text/high`, `spacing/lg` naast het rondje; de eerste regel sta
 | aan | `surface/action/primary`, hover `surface/action/primary-hover` |
 | ingedrukt | schaal 0,9 |
 | focus (toetsenbord) | een ring van `border/thick` in `interaction/focusRing`, `spacing/2xs` los van het rondje |
-| uitgeschakeld | `surface/disabled`, aan op 35 %; label `text/disabled` |
+| uitgeschakeld | het component op 40 % ([besluit 013](../besluiten/013-uitgeschakeld-gedimd.md)), met label |
 
 De stip in `text/on-action/primary`.
 
