@@ -22,10 +22,13 @@
 }
 .oneui-toggle__knop {
   display: block; width: var(--_knop); height: var(--_knop);
-  border-radius: var(--oneui-radius-full); background: var(--oneui-text-on-action-primary);
+  /* uit: wit op de grijze baan (text/on-bold, wit in licht en donker); aan: de tekstkleur van primary op de sky-baan
+     (eigenaar 2026-11-20) */
+  border-radius: var(--oneui-radius-full); background: var(--oneui-text-on-bold);
   box-shadow: 0 var(--oneui-border-thin) var(--oneui-border-thick) var(--oneui-effect-shadow-key);
-  transition: transform 240ms cubic-bezier(0.3, 1.4, 0.5, 1); will-change: transform;
+  transition: transform 240ms cubic-bezier(0.3, 1.4, 0.5, 1), background-color 200ms ease; will-change: transform;
 }
+.oneui-toggle__veld:checked + .oneui-toggle__baan .oneui-toggle__knop { background: var(--oneui-text-on-action-primary); }
 .oneui-toggle__veld:checked + .oneui-toggle__baan { background: var(--oneui-surface-action-primary); }
 .oneui-toggle:hover .oneui-toggle__veld:checked:not(:disabled) + .oneui-toggle__baan { background: var(--oneui-surface-action-primary-hover); }
 .oneui-toggle__veld:checked + .oneui-toggle__baan .oneui-toggle__knop {
