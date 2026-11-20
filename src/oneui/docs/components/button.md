@@ -23,6 +23,11 @@ Een knop start een actie. Eén **primary** per scherm: de actie die er het meest
 stappen af: **secondary**, dan **neutral**, dan **ghost**. Een knop is altijd een vlak of kaal, nooit een rand
 ([besluit 004](../besluiten/004-rond-vlakken-geen-randen.md)). Naar een andere pagina gaan is een link, geen knop.
 
+## Volgorde
+
+Naast elkaar staat **primary rechts**, de andere knoppen links ervan: secondary, dan neutral of ghost (eigenaar
+2026-11-20). Onder elkaar, over de hele breedte, staat primary bovenaan.
+
 ## Specificatie
 
 Alle waarden zijn tokens (`dist/tokens.css`); gebruik geen losse kleuren of maten.
@@ -72,9 +77,11 @@ label (chevron) suggereert navigatie.
 
 - Doe: een werkwoord als label ("Opslaan", "Verder").
 - Doe: één primary per scherm.
+- Doe: naast elkaar primary rechts, secondary links ervan.
 - Niet: twee primaries naast elkaar, of een primary voor annuleren.
 - Niet: een rand om een knop; kies neutral.
 - Niet: kleuren of maten aanpassen per knop; vraag een nieuwe variant aan.
+- Niet: primary links van een andere knop.
 
 ## Referentie
 

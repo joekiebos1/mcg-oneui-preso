@@ -9,7 +9,7 @@ zachte schaduw op een scrim ([besluit 004](../besluiten/004-rond-vlakken-geen-ra
 ## Do's en don'ts
 
 - Doe: een titel als vraag ("Even pauzeren?") en een zin uitleg.
-- Doe: de belangrijkste knop eerst, als primary; de andere ghost of neutral.
+- Doe: de belangrijkste knop als primary; de andere ghost of neutral. In `stack` staat primary bovenaan, in `row` rechts ([Button](button.md)).
 - Niet: een dialoog voor informatie die kan wachten; gebruik dan een melding op de pagina.
 - Niet: een formulier van meer dan een paar velden; dat is een eigen pagina.
 
