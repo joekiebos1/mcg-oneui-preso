@@ -48,7 +48,7 @@ Hoeken `radius/full`. Ruimte tussen icoon en label `spacing/md` (8). Geen rand.
 
 `outline` (Figma) toont in code als neutral; de prop werkt nog, maar is verouderd.
 
-In MCG is primary sky/700 met wit en secondary sky/200 met sky/950; hover en ingedrukt gaan telkens één stap dieper. In donker is secondary donker: sky/900 met sky/100 (hover 800, ingedrukt 700), zodat hij niet feller oplicht dan primary.
+In MCG is primary sky/700 met sky/50 (wit met een vleug sky) en secondary sky/200 met sky/950; hover en ingedrukt gaan telkens één stap dieper. In donker is secondary donker: sky/900 met sky/100 (hover 800, ingedrukt 700), zodat hij niet feller oplicht dan primary.
 
 - **Ingedrukt:** de knop veert in tot 96 % (zonder beweging als de gebruiker dat vraagt).
 - **Uitgeschakeld:** vlak `surface/disabled`, label `text/disabled`; ghost zonder vlak. Geen doorschijnendheid.

@@ -220,7 +220,7 @@
   --oneui-surface-action-primary: var(--oneui-sky-700);
   --oneui-surface-action-primary-hover: var(--oneui-sky-800);
   --oneui-surface-action-primary-pressed: var(--oneui-sky-900);
-  --oneui-text-on-action-primary: var(--oneui-base-white);
+  --oneui-text-on-action-primary: var(--oneui-sky-50);
   --oneui-surface-action-secondary: var(--oneui-sky-200);
   --oneui-surface-action-secondary-hover: var(--oneui-sky-300);
   --oneui-surface-action-secondary-pressed: var(--oneui-sky-400);
