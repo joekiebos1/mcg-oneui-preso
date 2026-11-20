@@ -69,9 +69,9 @@ gelijk (eigenaar, 2026-11-13).
 
 ## Kleur
 
-Per scène één familie, met vaste rollen (eigenaar, 2026-11-13): de **grond** stap 100, het **vlak** stap 300 (de
+Per scène één familie, met vaste rollen (eigenaar, 2026-11-13): de **grond** stap 50, het **vlak** stap 300 (de
 basis: zo is het voorwerp ingekleurd), de **diepte** stap 500 (wat erachter ligt of dieper is, zoals het haar achter een
-gezicht) en de **lijn** stap 950. Op donker is de ladder omgekeerd: grond 950 (Deep), vlak 700, diepte 500, lijn 100
+gezicht) en de **lijn** stap 950. Op donker is de ladder omgekeerd: grond 950 (Deep), vlak 700, diepte 500, lijn 50
 (Licht en donker). Diepte komt uit die tonen, niet uit schaduw of verloop. Geen andere stappen. Welke familie, staat als `kleur:` op
 het shot in het draaiboek (draaiboek.md); zonder kleur de eerste. De beschrijving noemt geen kleur.
 
@@ -99,7 +99,7 @@ Regeltabel: lijnfamilie licht
 | blauw | `#EDFBFB` | `#B6E3E2` | `#022D38` | `#39999E` |
 | paars | `#F8F7FE` | `#DAD3F9` | `#311955` | `#927ADA` |
 
-- **De stijl van elke illustratie** (eigenaar, 2026-11-13): grond stap 100, vlak stap 300, diepte stap 500, lijn stap
+- **De stijl van elke illustratie** (eigenaar, 2026-11-13): grond stap 50, vlak stap 300, diepte stap 500, lijn stap
   950 van de ladder in OneUI. De lijn heeft dezelfde kleur als de grond van de tabel `lijnfamilie`.
 - De tabel `lijnfamilie` hierboven is voor de kaarten en de infographics op donker; een illustratie op
   donker volgt de tabel `lijnfamilie donker`.
@@ -111,9 +111,9 @@ Regeltabel: lijnfamilie licht
 families zijn de vier merkkleuren van OneUI: roze is Magenta, geel is Amber, paars is Violet, blauw is Sky. `modus:` in
 het draaiboek (draaiboek.md) kiest voor de hele video: de illustraties en de tekst op een illustratie.
 
-- **Licht**: de tabel `lijnfamilie licht`, grond 100, vlak 300, diepte 500, lijn 950.
+- **Licht**: de tabel `lijnfamilie licht`, grond 50, vlak 300, diepte 500, lijn 950.
 - **Donker**: dezelfde ladder omgekeerd, de tabel `lijnfamilie donker`: grond 950 (Deep), vlak 700, diepte 500,
-  lijn 100. De afstand tussen de rollen blijft gelijk, dus een tekening leest op donker hetzelfde; de diepte (500, het
+  lijn 50. De afstand tussen de rollen blijft gelijk, dus een tekening leest op donker hetzelfde; de diepte (500, het
   midden van de ladder) houdt zijn kleur (eigenaar, 2026-11-15: "gewoon een simpele reverse op de ramp").
 - Elke illustratie bestaat in sleutelkleuren en krijgt pas bij de montage de modus en de familie van het shot
   (techniek/illustraties.md). Een andere modus of familie kost niets.

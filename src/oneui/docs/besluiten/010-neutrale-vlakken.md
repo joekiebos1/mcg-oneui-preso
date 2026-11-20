@@ -23,10 +23,10 @@ op subtle één stap lichter.
 
 | rol | licht | donker |
 |---|---|---|
-| `surface/page` | slate/100 | slate/950 |
+| `surface/page` | slate/50 ([015](015-ladder-50-100.md)) | slate/950 |
 | `surface/default` | wit | slate/900 |
 | `surface/raised` | wit | slate/800 |
-| `surface/sunken` | slate/100 ([014](014-sunken-lichter.md)) | slate/950 |
+| `surface/sunken` | slate/100 ([015](015-ladder-50-100.md)) | slate/950 |
 | `surface/action/neutral` (hover, ingedrukt) | slate/200 (300, 400) | slate/800 (700, 700) |
 
 ## Werkwijze

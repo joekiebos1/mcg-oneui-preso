@@ -4,7 +4,7 @@ Datum: 2026-11-19 · Status: besloten (eigenaar)
 
 ## Besluit
 
-`surface/page` is slate/100: een subtle ondergrond. Alles wat direct op de pagina staat, krijgt daarom vanzelf de waarden
+`surface/page` is slate/100 (sinds [015](015-ladder-50-100.md) slate/50, even licht): een subtle ondergrond. Alles wat direct op de pagina staat, krijgt daarom vanzelf de waarden
 van "op subtle" ([besluit 009](009-ondergrond-subtle.md)). Een wit vlak op de pagina (een kaart, een paneel) zet het
 terug met `data-ondergrond="default"`.
 

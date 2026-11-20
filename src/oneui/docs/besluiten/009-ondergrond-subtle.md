@@ -18,9 +18,9 @@ schuift alles erin één stap op, zodat het weer twee stappen van zijn ondergron
 |---|---|---|---|---|
 | `surface/action/secondary` (hover, ingedrukt) | sky/200 (300, 400) | sky/300 (400, 400) | sky/800 (700, 700) | gelijk |
 | `surface/action/neutral` (hover, ingedrukt) | slate/200 (300, 400) | slate/300 (400, 400) | slate/800 (700, 700) | gelijk |
-| `surface/sunken` | slate/100 | slate/200 | slate/950, 800 | slate/800, 700 |
-| `surface/<kleur>/subtle` (hover, ingedrukt) | 100 (200, 300) | 200 (300, 400) | 950 (900, 800) | 900 (800, 700) |
-| `surface/<signaal>/subtle` | 100 | 200 | 950 | 900 |
+| `surface/sunken` | slate/100 ([015](015-ladder-50-100.md)) | slate/200 | slate/950, 800 | slate/800, 700 |
+| `surface/<kleur>/subtle` (hover, ingedrukt) | 50 (200, 300; [015](015-ladder-50-100.md)) | 200 (300, 400) | 950 (900, 800) | 900 (800, 700) |
+| `surface/<signaal>/subtle` | 50 | 200 | 950 | 900 |
 | `text/low` | slate/700 | slate/800 | slate/300 | gelijk |
 | `icon/sky` | sky/600 | sky/700 | sky/300 | gelijk |
 

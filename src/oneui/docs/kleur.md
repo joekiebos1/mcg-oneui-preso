@@ -3,7 +3,7 @@
 Vier merkkleuren, elk een ladder van 50 tot 950, plus slate als neutraal en drie signaalkleuren.
 Elke stap heeft in elke ladder dezelfde lichtheid. Daardoor gedraagt bijvoorbeeld `sky/600` zich qua contrast
 hetzelfde als `magenta/600`. De stappen zijn klein aan de lichte kant en worden geleidelijk groter; vanaf 500 zijn ze
-gelijk ([besluit 011](../besluiten/011-ladder-200-300.md)).
+gelijk ([besluit 011](../besluiten/011-ladder-200-300.md), [015](../besluiten/015-ladder-50-100.md)).
 
 | Ladder | Gebruik |
 |---|---|
@@ -40,17 +40,17 @@ De semantiek heeft twee soorten namen:
 
 ## Ondergrond: op subtle
 
-Subtle is stap 100, net als de pagina (slate/100). Een element op zo'n vlak dat zelf ook maar één stap verschilt, valt
+Subtle is stap 50, net als de pagina (slate/50). Een element op zo'n vlak dat zelf ook maar één stap verschilt, valt
 weg: de secundaire knop (sky/200), een actief menu-item. Daarom heeft de semantiek vier modes:
 licht, donker, **licht op subtle** en **donker op subtle** ([besluit 009](../besluiten/009-ondergrond-subtle.md)).
 
-Op subtle schuift alles één stap op: `action/secondary` wordt sky/300, `surface/sunken` slate/200 (op wit 100, [besluit 014](../besluiten/014-sunken-lichter.md)), de subtle vlakken 200,
+Op subtle schuift alles één stap op: `action/secondary` wordt sky/300, `surface/sunken` slate/200 (op wit 100, [besluit 015](../besluiten/015-ladder-50-100.md)), de subtle vlakken 200,
 `text/low` slate/800, `action/neutral` slate/300. Wat al genoeg verschilt (de primaire knop, tekst) blijft gelijk.
 
 - **De pagina staat standaard op subtle** ([besluit 012](../besluiten/012-pagina-op-subtle.md)): alles in `body` schuift
   vanzelf op. Een witte kaart of een wit paneel op de pagina krijgt `data-ondergrond="default"`; Dialog en een witte
   List doen dat zelf.
-- **Code:** zet `data-ondergrond="subtle"` op een ander vlak van stap 100 (een subtle paneel in een witte kaart). Het
+- **Code:** zet `data-ondergrond="subtle"` op een ander vlak van stap 50 (een subtle paneel in een witte kaart). Het
   vlak zelf houdt zijn kleur; alles erin schuift op.
 - **Figma:** zet op het frame de mode van de verzameling semantic op *Light on subtle* (of *Dark on subtle*): op elk
   frame met `surface/page`, en op een subtle vlak. Een witte kaart erin zet je terug op *Light*.
@@ -91,8 +91,8 @@ illustratie naadloos aansluit op een slide met `surface/<kleur>/deep`.
 ## Knoppen (action)
 
 Knoppen hebben hun eigen rol: `surface/action/primary` is sky/700 met sky/50, wit met een vleug sky (hover 800, ingedrukt 900); in donker gespiegeld
-sky/300 met sky/950 (hover 200, ingedrukt 100),
-`surface/action/secondary` is sky/200 met sky/950 (hover 300, ingedrukt 400; in donker gespiegeld sky/800 met sky/100, hover en
+sky/300 met sky/950 (hover 200, ingedrukt 50),
+`surface/action/secondary` is sky/200 met sky/950 (hover 300, ingedrukt 400; in donker gespiegeld sky/800 met sky/50, hover en
 ingedrukt 700), en `surface/action/neutral` is slate/200
 met `text/high` (hover 300, ingedrukt 400): de neutrale knop, en een Checkbox, Radio of Toggle die uit staat. Een
 knop zonder vlak (ghost, Nav item) krijgt bij hover `surface/action/neutral` en ingedrukt `surface/action/neutral-hover`.

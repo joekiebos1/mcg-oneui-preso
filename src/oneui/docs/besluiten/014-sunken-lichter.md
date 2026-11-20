@@ -1,6 +1,6 @@
 # 014 — Sunken een stap lichter
 
-Datum: 2026-11-20 · Status: besloten (eigenaar)
+Datum: 2026-11-20 · Status: vervangen door [015](015-ladder-50-100.md) (op wit was te licht)
 
 ## Besluit
 
